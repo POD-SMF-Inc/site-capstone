@@ -10,7 +10,7 @@ When a student enters college there are several financial responsibilities that 
 
 What is the main purpose of your project? What are the key features your site has to offer its users? How will your targeted audience use your website?
 
-The main purpose of our website is to introduce healthy and affordable meal options/recipes to college students. The key features that our site has to offer to its users are a platform that allows college students to search for recipes based on their budget. With our implementation of the search bar, college students will be able to look up recipes based on the ingredients they have in their refrigerator. The application will also make it accessible for college students to search recipes within their diet restrictions. The user will receive a full recipe with ingredients, nutrient information, and price. Once the user creates an account they will be able to create their own meal plan
+The main purpose of our website is to introduce healthy and affordable meal options/recipes to college students. The key features that our site has to offer to its users are a platform that allows college students to search for recipes based on their budget. With our implementation of the search bar, college students will be able to look up recipes based on the ingredients they have in their refrigerator. The application will also make it accessible for college students to search recipes within their diet restrictions. The user will receive a full recipe with ingredients, nutrient information, and price. Once the user creates an account they will be able to create their own meal plan.
 
 
 ## Expected Features List
@@ -34,4 +34,5 @@ What questions do you still have? What topics do you need to research more for y
 
 - How could our website be more unique?
 - How can we implement more accessibility features in regards to our recipe display?
+- How can we implement a map api to show the user stores to buy the ingredients?
 
