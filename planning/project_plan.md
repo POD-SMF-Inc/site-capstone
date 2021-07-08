@@ -41,6 +41,7 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 ## Data Model
 
+User ->
  | Attribute      | Type     | Description |
    | ------------- | -------- | ------------|
    | id    | integer   | Primary user key |
@@ -52,12 +53,35 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
    | created_at    | timestamp   | time the user was created at |
    | favorites     | text[] | user’s favorite recipes |
 
+Profile ->
+|Attribute | Type | Description |
+|------------|---------|----------------|
+| user_id | integer |  Foreign Key to users(id) |
+| diet | text[] | Type of diet for user |
+| intolerances | text[] | Intolerances user has |
+| cuisines | text[] | Favorite foods |
+| description | text | About me |
+| location | text | User’s location |
+| profile_img | text | Picture of user |
+| school | text | User’s college |
+
 
 
 ## Endpoints
 
 List the API endpoints you will need to implement.
 
-
+|  CRUD  | HTTP VERB |             Description            | User Stories |
+|:------:|:---------:|:----------------------------------:|:------------:|
+| Create | POST      | Add a recipe to favorites          | 6, 5         |
+| Read   | GET       | Fetch the list of recipes          | 1, 3 , 8 ,9  |
+| Update | PUT       | Update user’s profile data         | 5            |
+| Create | POST      | Create a new user account          | 5            |
+| Read   | POST      | Login                              | 5            |
+| Read   | GET       | Fetch details of single recipe     | 2            |
+| Read   | GET       | Fetch recipes by price             | 4            |
+| Read   | GET       | Fetch recipes by ingredients       | 8            |
+| Read   | GET       | Fetch recipes by search            | 3            |
+| Read   | GET       | Fetch recipes by diet restrictions | 9            |
 
 
