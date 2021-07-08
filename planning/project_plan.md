@@ -22,17 +22,27 @@ Personas:
 ## User Stories
 
 User Stories (In Order) :
-As a college student, I want to be able to see recipes on the homepage, so I can explore new recipe ideas. (ID: 1)
-As a user, I want to be able to create an account, because I want to save my favorite recipes and my preferences for meals. (ID: 5)
-As a user, I want to be able to use a search bar to look up recipes so that I don’t have to scroll through endless pages to find my desired meal choice. (ID: 3)
-As a user, I want to be able to click on one of the recipes displayed in the homepage/search page and be taken to a new page that gives me the recipe information so that I can view a detailed description of the meal along with additional information I may want. (ID: 2)
-As a user, I want to be able to save my favorite recipes to a database because I want to access and cook from them whenever I want without having to search for the recipe. (ID: 6)
-As a user, I want to be able to see meals categorized by dietary restrictions ( vegan, vegetarian, keto, pescetarian, etc.), so that I can comfortably scroll through the recipes without worrying about whether they fit into my dietary restrictions and needing to replace ingredients. (ID: 9)
-As a user, I want to be able to filter the meals by price because I want to cook a meal that I can afford and that is in my budget. (ID: 4)
-As a user, I want to be able to filter the meals by ingredients, so that I can make a healthy meal with the items I have readily available to me at home. (ID: 8)
-As a user, I want to be able to have a function where I can plan my meals for the day and week, so I can save myself time and have an organized meal plan. (ID: 7)
-As a user, I want to be able to navigate through the site smoothly and be able to understand the functionality of it, so I can have a good user experience and be compelled to keep returning to the application for recipes. (ID: 10)
-As a user, I want to be able to view the website on my phone, so I can use the application in any scenario and environment I find myself in. (ID: 11)
+- As a college student, I want to be able to see recipes on the homepage, so I can explore new recipe ideas. (ID: 1)
+
+- As a user, I want to be able to create an account, because I want to save my favorite recipes and my preferences for meals. (ID: 5)
+
+- As a user, I want to be able to use a search bar to look up recipes so that I don’t have to scroll through endless pages to find my desired meal choice. (ID: 3)
+
+- As a user, I want to be able to click on one of the recipes displayed in the homepage/search page and be taken to a new page that gives me the recipe information so that I can view a detailed description of the meal along with additional information I may want. (ID: 2)
+
+- As a user, I want to be able to save my favorite recipes to a database because I want to access and cook from them whenever I want without having to search for the recipe. (ID: 6)
+
+- As a user, I want to be able to see meals categorized by dietary restrictions ( vegan, vegetarian, keto, pescetarian, etc.), so that I can comfortably scroll through the recipes without worrying about whether they fit into my dietary restrictions and needing to replace ingredients. (ID: 9)
+
+- As a user, I want to be able to filter the meals by price because I want to cook a meal that I can afford and that is in my budget. (ID: 4)
+
+- As a user, I want to be able to filter the meals by ingredients, so that I can make a healthy meal with the items I have readily available to me at home. (ID: 8)
+
+- As a user, I want to be able to have a function where I can plan my meals for the day and week, so I can save myself time and have an organized meal plan. (ID: 7)
+
+- As a user, I want to be able to navigate through the site smoothly and be able to understand the functionality of it, so I can have a good user experience and be compelled to keep returning to the application for recipes. (ID: 10)
+
+- As a user, I want to be able to view the website on my phone, so I can use the application in any scenario and environment I find myself in. (ID: 11)
 
 
 ## Pages/Screens
