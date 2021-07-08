@@ -46,10 +46,10 @@ User Stories (In Order) :
 
 
 ## Pages/Screens
-Unaunthenticated View
+
 <img src="https://user-images.githubusercontent.com/31220374/124968337-506b3580-dfda-11eb-828d-7e61bb9183b6.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968346-53febc80-dfda-11eb-9f4e-dd623238f8d2.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968363-57924380-dfda-11eb-8d51-eb959b7e0009.PNG" width="30%"></img> 
 
-Authenticated View 
+
 <img src="https://user-images.githubusercontent.com/31220374/124968912-eef79680-dfda-11eb-99bc-8c91c7df6a63.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968918-f159f080-dfda-11eb-8811-2bc0582d43de.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968926-f323b400-dfda-11eb-8393-38b0751d7789.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968933-f61ea480-dfda-11eb-8be3-8b3b4416af55.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968937-f7e86800-dfda-11eb-9efb-6a515c03eb69.PNG" width="30%"></img> 
 
 ## Data Model
