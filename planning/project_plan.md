@@ -47,10 +47,7 @@ User Stories (In Order) :
 
 ## Pages/Screens
 
-<img src="https://user-images.githubusercontent.com/31220374/124968337-506b3580-dfda-11eb-828d-7e61bb9183b6.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968346-53febc80-dfda-11eb-9f4e-dd623238f8d2.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968363-57924380-dfda-11eb-8d51-eb959b7e0009.PNG" width="30%"></img> 
-
-
-<img src="https://user-images.githubusercontent.com/31220374/124968912-eef79680-dfda-11eb-99bc-8c91c7df6a63.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968918-f159f080-dfda-11eb-8811-2bc0582d43de.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968926-f323b400-dfda-11eb-8393-38b0751d7789.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968933-f61ea480-dfda-11eb-8be3-8b3b4416af55.PNG" width="30%"></img> <img src="https://user-images.githubusercontent.com/31220374/124968937-f7e86800-dfda-11eb-9efb-6a515c03eb69.PNG" width="30%"></img> 
+<img src="https://user-images.githubusercontent.com/31220374/125117729-7dcfe600-e0a3-11eb-9992-d8b028691e6d.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117743-845e5d80-e0a3-11eb-9dcf-c76a4308f44e.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117751-87f1e480-e0a3-11eb-8814-80a5e6e92662.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117782-90e2b600-e0a3-11eb-9e07-8c4e80dc35cc.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117788-93451000-e0a3-11eb-8ee6-4bb540335ff8.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117800-95a76a00-e0a3-11eb-9c6b-f4cd75007052.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117806-9809c400-e0a3-11eb-8008-d67550e2eade.PNG" width="23%"></img> <img src="https://user-images.githubusercontent.com/31220374/125117813-9a6c1e00-e0a3-11eb-861b-a4e12a3ebe6f.PNG" width="23%"></img> 
 
 ## Data Model
 
