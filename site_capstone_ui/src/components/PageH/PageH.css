@@ -1,0 +1,13 @@
+.PageH {
+    
+    color:black;
+    text-transform: uppercase;
+    height: 80px;
+    font-style:italic;
+    font-size: 45px;
+    font:'Open Sans';
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
