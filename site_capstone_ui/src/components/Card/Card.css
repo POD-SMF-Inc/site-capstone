@@ -1,0 +1,8 @@
+.Card {
+    background: white;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    filter: drop-shadow(4px 8px 8px rgba(0, 0, 0, 0.75));
+  }
