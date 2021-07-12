@@ -73,8 +73,8 @@ export default function Register({ setAppState }) {
       email: form.email,
       password: form.password,
       username: form.username,
-      first_Name: form.first_name,
-      last_Name: form.last_name
+      first_name: form.first_name,
+      last_name: form.last_name
     })
     if (data) {
       API.setToken(data.token)
