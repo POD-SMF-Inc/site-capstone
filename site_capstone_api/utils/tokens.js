@@ -6,7 +6,7 @@ const generateToken = (data) => jwt.sign(data, SECRET_KEY, { expiresIn: "24h" })
 const createUserJwt = (user) => {
     //Customize Payload
     const payload = {
-        email: user.email,
+        username: user.username,
         isAdmin: user.isAdmin || false
     }
 

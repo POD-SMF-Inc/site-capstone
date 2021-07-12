@@ -20,7 +20,7 @@ function getDatabaseUri() {
 // Speed up bcrypt for tests when security isn't important
 const BCRYPT_WORK_FACTOR = IS_TESTING ? 4 : 13
 
-console.log("Auth Starter Config:".red)
+console.log("Recipe Book Config:".red)
 console.log("PORT:".blue, PORT)
 console.log("SECRET_KEY:".blue, SECRET_KEY)
 console.log("IS_TESTING:".blue, IS_TESTING)
