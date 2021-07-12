@@ -14,4 +14,4 @@ DROP DATABASE recipe_book_test;
 CREATE DATABASE recipe_book_test;
 \connect recipe_book_test
 
-\i recipe_book-schema.sql
+\i recipe-book-schema.sql
