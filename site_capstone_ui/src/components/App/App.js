@@ -1,8 +1,10 @@
 import './App.css';
 import { useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "../Home/Home"
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Navbar from '../Navbar/Navbar';
 import API from '../../services/apiClient'
 
 export default function App() {
@@ -45,9 +47,9 @@ export default function App() {
       <BrowserRouter>
         {!isLoading ? 
         <>
-        
+        <Navbar user={appState?.user} handleLogout={handleLogout} isLoading={isLoading}/>
         <Routes>
-          
+          <Route path='/' element={ <Home/> }/>
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
 

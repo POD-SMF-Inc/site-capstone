@@ -1,0 +1,42 @@
+.Home {
+   
+    height: 100vh;
+    overflow: hidden;
+    background-color: #F0F8FF;
+    opacity: .9;
+  }
+  .home-intro {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-intro div {
+    margin: 15px;
+  }
+  .intro-blurb {
+    width: 50%;
+  }
+  .intro-blurb span {
+    display: block;
+    
+  }
+  .intro-blurb span:first-of-type {
+    font-size: 50px;
+    
+  }
+  .intro-blurb span:nth-child(2) {
+    font-size: 20px;
+  }
+  .intro-img {
+    width: 60%;
+    display: flex;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+    overflow: hidden;
+  }
+  .intro-img img {
+    width: 100%;
+  }
+  
