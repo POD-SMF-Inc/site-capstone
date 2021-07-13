@@ -7,17 +7,17 @@ export default function Navbar( { user, handleLogout }) {
   return (
     <div className="Navbar">
       <div>
-         <Link to='/' className='home-link'>Home</Link>
-        <Link to='/profile'>Profile</Link>
+        <button className="home-link"><Link to='/'>Home</Link></button>
+        <Link  to='/profile' >Profile</Link>
         <Link to='/favorites'>Favorites</Link>
-        <Link to='/planner'>Planner</Link>
+        <Link to='/planner' >Planner</Link>
         {isAuthenticated ? 
         <button className="logout-link" onClick={handleLogout}>Logout</button> : 
-        <>
-          <Link to='/login' className='login-link'>Login</Link>
-          <Link to='/register' className='register-link'>Register</Link>
-        </> 
+        <></> 
         }
+        <button className="login-link">< Link to="/login">Login</Link></button>
+        <button className="register-btn">< Link to="/register">Register</Link>
+        </button>
       </div>
     </div>
   )
