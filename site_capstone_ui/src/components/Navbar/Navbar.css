@@ -1,0 +1,39 @@
+.Navbar {
+    background-color: #55565A;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 5px;
+    height: 45px;
+    align-items: center;
+    
+  }
+  .Navbar a, .logout-link {
+    font-family: "Open Sans", Hebrew;
+    text-decoration: none;
+    color: #000;
+    margin: 5px 10px;
+    font-size: 20px;
+    padding: 0 5px;
+  }
+  
+  .home-link  {
+    width: 25px;
+    position: left;
+  }
+  
+  .login-link, .logout-link {
+    background-color: #87CEFA;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    box-shadow: 3px 3px 6px 1px #000000;
+    width: 120px;
+  
+  }
+  .register-link {
+    background-color: #87CEFA;
+    border-radius: 6px; 
+    border: 1px solid #000000;
+    box-shadow: 3px 3px 6px 1px #000000;
+    
+    
+  }
