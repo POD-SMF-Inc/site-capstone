@@ -26,7 +26,7 @@ export default function Login({handleLogIn, setAppState }) {
       setIsLoading(true)
       setErrors((e) => ({ ...e, form: null }))
   
-      const { data, error } = await API.loginUser({ email: form.username, password: form.password })
+      const { data, error } = await API.loginUser({ username: form.username, password: form.password })
       if (data) {
         API.setToken(data.token)
         setAppState((a) => ({...a, user: data.user}))
@@ -38,7 +38,7 @@ export default function Login({handleLogIn, setAppState }) {
         return
       }
       setIsLoading(false)
-      //navigate("/activity")
+      navigate("/")
     }
 
     return (
@@ -49,12 +49,12 @@ export default function Login({handleLogIn, setAppState }) {
         <div className='form'>
           <div className='form-fields'>
             <div className='form-input'>
-              <label align='left' htmlFor='email'>Username</label>
+              <label align='left' htmlFor='username'>Username</label>
               <input 
               type='username' 
               name='username' 
               placeholder='user123' 
-              value={form.email} 
+              value={form.username} 
               onChange={handleOnInputChange}/>
               {errors.username && <span className="error">{errors.username}</span>}
             </div>
