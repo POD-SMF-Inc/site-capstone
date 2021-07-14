@@ -38,7 +38,7 @@ export default function Login({handleLogIn, setAppState }) {
         return
       }
       setIsLoading(false)
-      navigate("/home")
+      navigate("/")
     }
 
     return (
