@@ -10,12 +10,15 @@ import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
 
 
+import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
+import Practice from '../Practice/Practice';
+import RecipeCalls from '../RecipeCalls/RecipeCalls';
 export default function App() {
+
   const [appState, setAppState] = useState({})
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   
-
   const handleLogout = async () => {
     await API.logoutUser()
     setAppState({})
@@ -40,8 +43,10 @@ export default function App() {
     if (token) {
       API.setToken(token)
       fetchUser()
-    }
+    }    
   }, [])
+
+
 
   return (
     <div className="App">
@@ -55,6 +60,9 @@ export default function App() {
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
         
+          <Route path='/prac' element={<Practice />} />
+          <Route path='/sep' element={<SeperateRecipe />} />
+          <Route path='/reci' element={<RecipeCalls />} />
         </Routes>
         </> : null }
       </BrowserRouter>
