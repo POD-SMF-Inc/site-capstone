@@ -1,7 +1,6 @@
 {
   "name": "site_capstone_api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -19,5 +18,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
     "pg": "^8.6.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

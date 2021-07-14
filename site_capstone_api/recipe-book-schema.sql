@@ -19,5 +19,5 @@ CREATE TABLE profile (
     location TEXT,
     image TEXT,
     schoolName TEXT,
-    user_id INTEGER REFERENCES users(id) on DELETE CASCADE
+    user_id INTEGER NOT NULL
 );
