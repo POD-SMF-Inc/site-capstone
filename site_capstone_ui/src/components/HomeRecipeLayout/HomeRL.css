@@ -1,0 +1,26 @@
+.SeperateRecipe .Picture img {
+    width: 300px;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 #2c4147;
+}
+
+.SeperateRecipe .Picture img:hover {
+    box-shadow: 0 8px 16px 0 #af9231;
+    width: 310px;
+}
+
+
+.SeperateRecipe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #8DC1D7;
+}
+
+.SeperateRecipe .RecipeTitle h1 {
+    font-family: Rufina;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+}
