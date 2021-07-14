@@ -1,18 +1,21 @@
 import './App.css';
 import { useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "../Home/Home"
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
+import Planner from '../Planner/Planner';
+
 
 export default function App() {
   const [appState, setAppState] = useState({})
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   
-  
 
-  
   const handleLogout = async () => {
     await API.logoutUser()
     setAppState({})
@@ -45,16 +48,17 @@ export default function App() {
       <BrowserRouter>
         {!isLoading ? 
         <>
-        
+        <Navbar user={appState?.user} handleLogout={handleLogout} isLoading={isLoading}/>
         <Routes>
-          
+          <Route path='/' element={ <Home/> }/>
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
-
+          <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
         
         </Routes>
         </> : null }
       </BrowserRouter>
+      <Footer/>
     </div>
   )
 }

@@ -12,8 +12,8 @@ export default function Register({ setAppState }) {
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     username: "",
     email: "",
     password: "",
@@ -73,8 +73,8 @@ export default function Register({ setAppState }) {
       email: form.email,
       password: form.password,
       username: form.username,
-      firstName: form.firstName,
-      lastName: form.lastName
+      first_name: form.first_name,
+      last_name: form.last_name
     })
     if (data) {
       API.setToken(data.token)
@@ -103,18 +103,18 @@ export default function Register({ setAppState }) {
               <label align='left' htmlFor='name'>First Name</label>
               <input 
               type='text' 
-              name='firstName' 
+              name='first_name' 
               placeholder='John' 
-              value={form.firstName} 
+              value={form.first_name} 
               onChange={handleOnInputChange} />
             </div>
             <div align='left' className='form-input'>
               <label htmlFor='name'>Last Name</label>
               <input 
               type='text' 
-              name='lastName' 
+              name='last_name' 
               placeholder='Doe' 
-              value={form.lastName} 
+              value={form.last_name} 
               onChange={handleOnInputChange} />
             </div>
           </div>

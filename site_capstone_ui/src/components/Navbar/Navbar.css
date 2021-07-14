@@ -1,0 +1,96 @@
+.Navbar {
+    background-color: #55565A;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 5px;
+    height: 45px;
+    align-items: center;
+    
+  }
+  /*justify-content:space-evenly;*/
+ 
+.Navbar a, .logout-link {
+    font-family: "Open Sans", Hebrew;
+    text-decoration: none;
+    color: #000;
+    margin: 5px 10px;
+    font-size: 20px;
+    padding: 0 5px;
+  }
+  
+.home-link  {
+    
+  background-color: #00CED1;
+  border: 1px solid #000000;
+  padding: 3px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 150px;
+  font-weight:bold;
+  font-family: "Open Sans", Hebrew;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  }
+  
+.login-link, .logout-link {
+    background-color: #00CED1;
+    border: 1px solid #000000;
+    padding: 3px 10px;
+    margin: 10px;
+    margin-bottom: 30px;
+    position: right;
+    font-size: 18px;
+    margin-top: 20px;
+    width: 150px;
+    font-weight:bold;
+    font-family: "Open Sans", Hebrew;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+  
+  }
+.register-link {
+  background-color: #00CED1;
+  border: 1px solid #000000;
+  padding: 3px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 190px;
+  font-weight:bold;
+  font-family: "Open Sans", Hebrew;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  }
+
+  .register-btn {
+  background-color: #00CED1;
+  border: 1px solid #000000;
+  padding: 3px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 10px;
+  margin-top: 20px;
+  width: 150px;
+  font-weight:bold;
+  font-family: "Open Sans", Hebrew;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  
+  }
+  /* background-color: #87CEFA;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    
+    width: 120px;*/
+    a:hover {
+      color:white;
+    }
+
+    a:active {
+      color:white;
+    }
+
+    
