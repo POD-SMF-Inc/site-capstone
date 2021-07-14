@@ -13,11 +13,13 @@ export default function Navbar( { user, handleLogout }) {
         <Link to='/planner' >Planner</Link>
         {isAuthenticated ? 
         <button className="logout-link" onClick={handleLogout}>Logout</button> : 
-        <></> 
-        }
+        <>
         <button className="login-link">< Link to="/login">Login</Link></button>
-        <button className="register-btn">< Link to="/register">Register</Link>
-        </button>
+        <button className="register-btn">< Link to="/register">Register</Link></button>
+        </> 
+        }
+        
+        
       </div>
     </div>
   )
