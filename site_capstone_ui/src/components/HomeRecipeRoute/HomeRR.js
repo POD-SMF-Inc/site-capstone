@@ -4,13 +4,11 @@ import HomeRL from "../HomeRecipeLayout/HomeRL"
 export default function HomeRR({ homeRecipe }) {
     return (
         <div className="HomeRecipe">
-            <h1>HomeRecipe</h1>
+            <h1>Recipes</h1>
             {
                 homeRecipe.map(element => (
                     <>
-                        <div className="Sep">
                             <HomeRL element={element} />
-                        </div>
                     </>
                 ))
             }
@@ -18,3 +16,7 @@ export default function HomeRR({ homeRecipe }) {
         </div>
     )
 }
+
+/*<div className="Sep">
+                            <HomeRL element={element} />
+                        </div>*/
