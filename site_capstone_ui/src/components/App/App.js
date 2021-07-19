@@ -8,6 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
+import Profile from '../Profile/Profile';
 
 
 import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
@@ -59,6 +60,9 @@ export default function App() {
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
+          <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
+          
+        
         
           <Route path='/prac' element={<Practice />} />
           <Route path='/sep' element={<SeperateRecipe />} />

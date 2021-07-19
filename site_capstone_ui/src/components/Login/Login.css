@@ -26,20 +26,20 @@
     
   }
   
-  .form, .form-fields {
+  .formL, .formL-fields {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     
   }
-  .form-fields {
+  .formL-fields {
     width: 400px;
 
   }
-  .form-input {
+  .formL-input {
     max-width: 100%;
-    margin: 10px;
+    margin: 5px;
     width: 100%;
     
   }
