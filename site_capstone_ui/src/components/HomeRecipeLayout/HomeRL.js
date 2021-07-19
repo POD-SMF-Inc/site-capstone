@@ -3,7 +3,7 @@ export default function HomeRL({ element })
 {
     console.log("Element Home: ", element)
     return (
-        <div className="SeperateRecipe">
+        <div className="HomeRecipe">
             <div className="RecipeTitle">
                 <h1>{element.title}</h1>
             </div>

@@ -8,11 +8,11 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
-
-
 import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
-import Practice from '../Practice/Practice';
-import RecipeCalls from '../RecipeCalls/RecipeCalls';
+import Filter from '../Filter/Filter';
+import Search from "../Search/Search"
+import Ingredients from "../Ingredients/Ingredients"
+
 export default function App() {
 
   const [appState, setAppState] = useState({})
@@ -59,10 +59,10 @@ export default function App() {
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
-        
-          <Route path='/prac' element={<Practice />} />
           <Route path='/sep' element={<SeperateRecipe />} />
-          <Route path='/reci' element={<RecipeCalls />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/explore' element={<Filter />} />
+          <Route path='/ingredients' element={<Ingredients />} />
         </Routes>
         </> : null }
       </BrowserRouter>
