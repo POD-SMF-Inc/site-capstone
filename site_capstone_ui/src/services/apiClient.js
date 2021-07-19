@@ -50,8 +50,12 @@ class ApiClient {
   }
 
 
-async fetchUserSurvey(survey) {
-  return await this.request({ endpoint: `survey/insertInfo`, method: `POST`, data: survey })
+async fetchUserSurvey() {
+  return await this.request({ endpoint: `survey/`, method: `GET`})
+}
+
+async surveyInfo(survey) {
+  return await this.request({ endpoint: `survey/survey`, method: `POST`, data: survey })
 }
 
 }

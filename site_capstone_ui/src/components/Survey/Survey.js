@@ -1,57 +1,21 @@
-import { useState } from "react"
-import { Link, useNavigate} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { useSurveyForm } from "../../hooks/useSurveyForm"
 
 //skip button 
 
 import "./Survey.css"
-import API from '../../services/apiClient'
 import Card from '../Card/Card';
-import Register from '../Register/Register'
 import PageH from '../PageH/PageH'
 
 
 
-export default function Survey({ user, setAppState}) {
-    const navigate = useNavigate()
-    const [isLoading, setIsLoading] = useState(false)
-    const [errors, setErrors] = useState({})
-    const [form, setForm] = useState({
-      diet: '',
-      intolerances: '',
-      cuisines: '',
-      description: '',
-      location: '',
-      image: '',
-      schoolName: '',
-    })
-  
-    const handleOnInputChange = (event) => {
-      setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
-    }
-  
-    const handleOnSubmit = async (event) => {
-      event.preventDefault()
-      setIsLoading(true)
-      setErrors((e) => ({ ...e, form: null }))
-  
-      const { data, error } = await API.fetchUserSurvey({ form })
-      if (data) {
-          navigate("/survey")
-          setAppState((a) => ({...a, user: data.user}))
-       
-      }
+export default function Survey () {
 
-      if (error) {
-        console.log(errors)
-        setErrors((e) => ({ ...e, form: error }))
-        setIsLoading(false)
-        return
-      }
-      setIsLoading(false)
-    }
+  const { form, errors, isLoading, handleOnSubmit, handleOnInputChange } = useSurveyForm()
 
     return (
       <div className="Survey">
+        <h2> Fill Out Information </h2>
         <Card className ="login-card">
         <PageH sectionName='Login'/>
         <div className='form'>
@@ -109,19 +73,10 @@ export default function Survey({ user, setAppState}) {
               value={form.schoolName} 
               onChange={handleOnInputChange}/>
             </div>
-            <div className='form-input'>
-              <label align='left' htmlFor='image'>Upload a profile image</label>
-              <input 
-              type='profileImage' 
-              name='profileImage' 
-              placeholder='You can skip this and upload an image later' 
-              value={form.profileImage} 
-              onChange={handleOnInputChange}/>
-            </div>
             {errors.form && <span className="error">{errors.form}</span>}
-            <button className='login-btn' onClick={handleOnSubmit}>
-              {isLoading ? <>Loading</> : <>Survey</>}
-            </button>
+            <button className='save-btn' onClick={handleOnSubmit}>
+            {isLoading ? <>Loading</> : <>Save</>}
+          </button>
           </div>
         </div>
         </Card>

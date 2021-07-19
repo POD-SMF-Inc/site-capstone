@@ -19,7 +19,7 @@ class Survey {
 }
 
 static async fetchSurvey () {
-    //returns all exercises that user has created
+    //returns survey form
     const results = await db.query (
         `
         SELECT profile.id,

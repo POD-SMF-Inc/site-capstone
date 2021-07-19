@@ -1,6 +1,6 @@
 import './Home.css'
 import book from '../../assets/recipebook.jpg'
-
+import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 export default function Home() {
     return (
         <div className="Home"> 
@@ -16,7 +16,9 @@ export default function Home() {
             </div>
           </div>
           <div className='home-layout'>
-         
+            <div className="HomeRecipes">
+              <HomeRecipeCalls />
+            </div>
           </div>
           </div>
         
