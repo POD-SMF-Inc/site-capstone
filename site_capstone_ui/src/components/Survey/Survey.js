@@ -17,7 +17,7 @@ export default function Survey () {
       <div className="Survey">
         <h2> Fill Out Information </h2>
         <Card className ="login-card">
-        <PageH sectionName='Login'/>
+        <PageH sectionName='More About You'/>
         <div className='form'>
           <div className='form-fields'>
             <div className='form-input'>

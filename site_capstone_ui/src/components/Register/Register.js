@@ -87,7 +87,7 @@ export default function Register({ setAppState }) {
     }
 
     setIsLoading(false)
-    navigate("/activity")
+    navigate("/survey")
   }
 
   return (

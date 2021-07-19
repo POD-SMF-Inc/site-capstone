@@ -9,7 +9,7 @@ export const SurveyContextProvider = ({ children }) => {
   const [survey, setSurvey] = useState([])
 
   useEffect(() => {
-    const fetchUserSurvey= async () => {
+    const fetchUserSurvey = async () => {
       const { data } = await apiClient.fetchUserSurvey()
       if (data?.survey) 
       setSurvey(data.survey)

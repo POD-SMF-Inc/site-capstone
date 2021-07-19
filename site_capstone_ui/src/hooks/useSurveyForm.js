@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom"
 import apiClient from "../services/apiClient"
 import { useSurveyContext } from "../contexts/survey"
 
-export const useSurveyForm= () => {
-  const { setSurvey } = useSurveyContext()
+export const useSurveyForm = () => {
+  const [survey, setSurvey] = useState([])
   const navigate = useNavigate()
 
 
@@ -44,6 +44,7 @@ export const useSurveyForm= () => {
   return {
     form,
     errors,
+    survey,
     isLoading,
     handleOnSubmit,
     handleOnInputChange,
