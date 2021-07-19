@@ -15,6 +15,7 @@ export default function Home() {
             </div>
           </div>
           <div className='home-layout'>
+            <h1>Recipes</h1>
              <div className="HomeRecipes">
                 <HomeRecipeCalls />
               </div>

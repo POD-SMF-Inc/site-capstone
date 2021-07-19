@@ -46,9 +46,9 @@ export default function Login({handleLogIn, setAppState }) {
         <div className="splash-image" style={{ backgroundImage: `url(https://images.pexels.com/photos/6061396/pexels-photo-6061396.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)` }}>
         <Card className ="login-card">
         <PageH sectionName='Login'/>
-        <div className='form'>
-          <div className='form-fields'>
-            <div className='form-input'>
+        <div className='formL'>
+          <div className='formL-fields'>
+            <div className='formL-input'>
               <label align='left' htmlFor='username'>Username</label>
               <input 
               type='username' 
@@ -58,7 +58,7 @@ export default function Login({handleLogIn, setAppState }) {
               onChange={handleOnInputChange}/>
               {errors.username && <span className="error">{errors.username}</span>}
             </div>
-            <div className='form-input'>
+            <div className='formL-input'>
               <label align='left' htmlFor='password'>Password</label>
               <input 
               type='password' 
@@ -67,15 +67,16 @@ export default function Login({handleLogIn, setAppState }) {
               value={form.password} 
               onChange={handleOnInputChange}/>
             </div>
+            <div className='login-footer'>
+                <p>Don't have an account? Sign up <Link to="/register">here</Link></p>
+            </div>
             {errors.form && <span className="error">{errors.form}</span>}
             <button className='login-btn' onClick={handleOnSubmit}>
               {isLoading ? <>Loading</> : <>Login</>}
             </button>
           </div>
         </div>
-        <div className='login-footer'>
-          <p>Don't have an account? Sign up <Link to="/register">here</Link></p>
-        </div>
+   
         </Card>
         </div>
       </div>
