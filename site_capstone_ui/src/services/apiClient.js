@@ -48,6 +48,16 @@ class ApiClient {
     this.setToken(null)
     localStorage.setItem(this.tokenName, "")
   }
+
+
+async fetchUserSurvey() {
+  return await this.request({ endpoint: `survey/`, method: `GET`})
+}
+
+async surveyInfo(survey) {
+  return await this.request({ endpoint: `survey/survey`, method: `POST`, data: survey })
+}
+
 }
 
 const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")

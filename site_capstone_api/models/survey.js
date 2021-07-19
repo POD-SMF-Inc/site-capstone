@@ -16,15 +16,35 @@ class Survey {
             profileImage: profile.image,
             schoolName: profile.schoolName
     }
-} 
-    static async insertInfo() {
+}
+
+static async fetchSurvey () {
+    //returns survey form
+    const results = await db.query (
+        `
+        SELECT profile.id,
+        profile.diet,
+        profile.intolerances,
+        profile.cuisines,
+        profile.description,
+        profile.location,
+        profile.image,
+        profile.schoolName,
+        FROM profile 
+        JOIN users ON profile.user_id = users.id
+        `
+    ) 
+    return results
+}
+
+    static async insertInfo({ profile, user }) {
          // takes user's answers and puts it in profile
 
  
              const surveyResult = await db.query (
      `
      INSERT INTO profile (diet, intolerances, cuisines, description, location, image, schoolName, user_id)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,(SELECT id FROM users WHERE username = $8))
      RETURNING id, 
      diet, 
      intolerances, 
@@ -41,6 +61,8 @@ class Survey {
      return Survey.surveyForm(result)
 
     }
+
+    //updateInfo
 
 
 
