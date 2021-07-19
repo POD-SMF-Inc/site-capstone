@@ -40,13 +40,46 @@ export const useSurveyForm = () => {
   }
 
 
+  const handleOnSubmitSave = async () => {
+    setIsLoading(true)
+
+    const { data, error } = await apiClient.surveyInfo(form)
+    if (error) setErrors((e) => ({ ...e, form: error }))
+
+    if (data?.survey) {
+      setSurvey((e) => [data.survey, ...e])
+      setIsLoading(false)
+      navigate("/profile")
+    
+  }
+
+}
+
+
+const handleOnSubmitSkip = async () => {
+  setIsLoading(true)
+
+  const { data, error } = await apiClient.surveyInfo(form)
+  if (error) setErrors((e) => ({ ...e, form: error }))
+
+  if (data?.survey) {
+    setSurvey((e) => [data.survey, ...e])
+    setIsLoading(false)
+    navigate("/profile")
   
+}
+
+}
+
+
   return {
     form,
     errors,
     survey,
     isLoading,
     handleOnSubmit,
+    handleOnSubmitSave,
+    handleOnSubmitSkip,
     handleOnInputChange,
   }
 }

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
 
 //skip button 
@@ -11,13 +11,15 @@ import PageH from '../PageH/PageH'
 
 export default function Survey () {
 
-  const { form, errors, isLoading, handleOnSubmit, handleOnInputChange } = useSurveyForm()
+  const { form, errors, isLoading, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
 
     return (
       <div className="Survey">
-        <h2> Fill Out Information </h2>
         <Card className ="login-card">
         <PageH sectionName='More About You'/>
+        <button className='skip-btn' onClick={handleOnSubmitSkip}> 
+            {<>Skip</>}
+          </button>
         <div className='form'>
           <div className='form-fields'>
             <div className='form-input'>
@@ -49,7 +51,7 @@ export default function Survey () {
               onChange={handleOnInputChange}/>
             </div>
             <div className='form-input'>
-              <label align='left' htmlFor='description'>Tell us about yourself</label>
+              <label align='left' htmlFor='description'> Fun Facts </label>
               <input 
               type='description' 
               name='description' 
@@ -74,7 +76,7 @@ export default function Survey () {
               onChange={handleOnInputChange}/>
             </div>
             {errors.form && <span className="error">{errors.form}</span>}
-            <button className='save-btn' onClick={handleOnSubmit}>
+            <button className='save-btn' onClick={handleOnSubmitSave}> 
             {isLoading ? <>Loading</> : <>Save</>}
           </button>
           </div>

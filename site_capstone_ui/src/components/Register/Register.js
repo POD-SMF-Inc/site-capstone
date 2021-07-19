@@ -87,11 +87,7 @@ export default function Register({ setAppState }) {
     }
 
     setIsLoading(false)
-<<<<<<< HEAD
     navigate("/survey")
-=======
-    navigate("/")
->>>>>>> 0f037f0c703f20dbba5904ab63b49a3faf73e069
   }
 
   return (

@@ -12,9 +12,9 @@ CREATE TABLE users (
 
 CREATE TABLE profile (
     id SERIAL PRIMARY KEY,
-    diet TEXT[],
-    intolerances TEXT[],
-    cuisines TEXT[],
+    diet TEXT,
+    intolerances TEXT,
+    cuisines TEXT,
     description TEXT,
     location TEXT,
     image TEXT,
