@@ -3,6 +3,7 @@ export default function HomeRL({ element })
 {
     console.log("Element Home: ", element)
     return (
+
        /* <articleH>
             <h1>{element.title}</h1>
             <img src={element.image} alt="Smoothie"></img>
