@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import apiClient from "services/apiClient"
-import { useSurveyContext } from "contexts/survey"
+import apiClient from "../services/apiClient"
+import { useSurveyContext } from "../contexts/survey"
 
 export const useSurveyForm= () => {
   const { setSurvey } = useSurveyContext()

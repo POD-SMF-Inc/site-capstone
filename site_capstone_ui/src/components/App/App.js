@@ -8,8 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
-
-
+import Survey from "../Survey/Survey"
 import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Practice from '../Practice/Practice';
 import RecipeCalls from '../RecipeCalls/RecipeCalls';
