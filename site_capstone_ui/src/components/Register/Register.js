@@ -87,7 +87,7 @@ export default function Register({ setAppState }) {
     }
 
     setIsLoading(false)
-    navigate("/activity")
+    navigate("/survey")
   }
 
   return (
@@ -96,10 +96,10 @@ export default function Register({ setAppState }) {
     
       <Card className ="register-card">
       <PageH sectionName='Create an Account'/>
-      <div className='form'>
-        <div className='form-fields'>
-          <div className='form-input-name'>
-            <div className='form-input'>
+      <div className='formR'>
+        <div className='formR-fields'>
+          <div className='formR-input-name'>
+            <div className='formR-input'>
               <label align='left' htmlFor='name'>First Name</label>
               <input 
               type='text' 
@@ -108,7 +108,7 @@ export default function Register({ setAppState }) {
               value={form.first_name} 
               onChange={handleOnInputChange} />
             </div>
-            <div align='left' className='form-input'>
+            <div align='left' className='formR-input'>
               <label htmlFor='name'>Last Name</label>
               <input 
               type='text' 
@@ -119,7 +119,7 @@ export default function Register({ setAppState }) {
             </div>
           </div>
 
-          <div className='form-input'>
+          <div className='formR-input'>
               <label align='left' htmlFor='name'>Username</label>
               <input 
               type='text' 
@@ -129,7 +129,7 @@ export default function Register({ setAppState }) {
               onChange={handleOnInputChange} />
             </div>
         
-          <div className="form-input">
+          <div className="formR-input">
             <label align='left' htmlFor="email">Email</label>
             <input 
             type="email" 
@@ -140,7 +140,7 @@ export default function Register({ setAppState }) {
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
 
-          <div className="form-input">
+          <div className="formR-input">
             <label align='left' htmlFor="password">Password</label>
             <input 
             type="password" 
@@ -150,7 +150,7 @@ export default function Register({ setAppState }) {
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
 
-          <div className="form-input">
+          <div className="formR-input">
             <label align='left' htmlFor="passwordConfirm">Confirm Password</label>
             <input 
             type="password" 

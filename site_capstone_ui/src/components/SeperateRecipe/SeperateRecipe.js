@@ -15,3 +15,8 @@ export default function SeperateRecipe({ element })
         </div>
     )
 }
+
+/*<div className="SepReci">
+            <p>{element.title}</p>
+            <img src={element.image} alt="Smoothie"></img>
+        </div> */

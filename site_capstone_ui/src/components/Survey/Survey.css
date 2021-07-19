@@ -26,20 +26,20 @@
     
   }
   
-  .formL, .formL-fields {
+  .form, .form-fields {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     
   }
-  .formL-fields {
+  .form-fields {
     width: 400px;
 
   }
-  .formL-input {
+  .form-input {
     max-width: 100%;
-    margin: 5px;
+    margin: 10px;
     width: 100%;
     
   }
@@ -59,7 +59,7 @@
     background: transparent;
     cursor: pointer;
   }
-  .login-btn {
+  .save-btn, .skip-btn {
     padding: 5px 10px;
     margin: 10px;
     margin-bottom: 30px;
@@ -73,8 +73,13 @@
     opacity: 3;
     
   }
-  .login-btn:hover {
+  .save-btn:hover, .skip-btn:hover {
     background-color: #20a8ca;
+  }
+
+  .skip-btn {
+    margin-left: 630px;
+
   }
   .error {
     font-family: 'Crimson Text', serif;

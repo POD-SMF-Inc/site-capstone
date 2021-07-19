@@ -1,0 +1,11 @@
+#colorlib-page {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-wrap {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+

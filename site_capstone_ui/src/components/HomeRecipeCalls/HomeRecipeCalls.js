@@ -1,9 +1,11 @@
 import { useEffect, useState} from "react"
 import APIR from '../../services/apiCalls'
 import HomeRR from "../HomeRecipeRoute/HomeRR"
-
+//import HomeRL from "../HomeRecipeLayout/HomeRL"
+//import "./HomeRecipeCalls.css"
 export default function HomeRecipeCalls(){
     const [homeRecipe, setHomeRecipe] = useState([])
+    //const [element, setElement] = useState([]);
 
     useEffect(() => {
         const fetchHomeRecipe = async () => {
@@ -25,8 +27,8 @@ export default function HomeRecipeCalls(){
 
     return (
         <div className="RecipeCalls">
-            <h1>Recipes</h1>
             <HomeRR homeRecipe={homeRecipe} />
         </div>
     )
 }
+//{element && <HomeRL element={element} />}

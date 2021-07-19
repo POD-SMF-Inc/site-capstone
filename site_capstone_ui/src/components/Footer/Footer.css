@@ -2,8 +2,8 @@
 .footer{
     margin-top: 1rem;
     padding: 1rem;
-    height: 40px;
-    background-color: #d82e2e;
+    height: 35px;
+    background-color: #333;
     position:fixed;
     bottom: 0;
     left: 0;
@@ -12,3 +12,5 @@
     font-family: "Open Sans", Hebrew;
     color:white;
   }
+
+  
