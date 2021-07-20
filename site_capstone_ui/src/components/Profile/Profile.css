@@ -1,11 +1,125 @@
-#colorlib-page {
-  width: 100%;
+.Profile {
+  background-color: #F0F8FF;
+}
+
+.sidebar {
+  background-color: #00CED1; 
+  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  min-width: 180px;
+  margin: 0 10px;
+  border-radius: 6px;
+}
+h5 {
+  color: #000;
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 5px 0;
+}
+
+.email {
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+.fauxNavElement {
+  height: 10px;
+  background-color: #eee;
+}
+
+.fauxNav {
+  margin: 20px 0;
+}
+
+.fauxNavElement:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+
+.container-banner{
+  background-color: #fff;
+  
+}
+.banner-intro {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.banner-intro div {
+  margin: 15px;
+}
+.banner-blurb {
+  width: 50%;
+}
+.banner-blurb span {
+  display: block; 
+}
+.banner-blurb span:first-of-type {
+  font-size: 50px;
+  
+}
+.banner-blurb span:nth-child(2) {
+  font-size: 20px;
+}
+.profile-img {
+  width: 40%;
+  display: flex;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.50);
   overflow: hidden;
-  position: relative;
+  
+  
+}
+.profile-img img {
+  width: 100%;
+  margin-bottom:  0px;
 }
 
-.container-wrap {
-  max-width: 1170px;
-  margin: 0 auto;
+.profilepic {
+  border-radius: 50%;
+  border: .2px solid #00000042;
 }
 
+.fauxNav {
+  text-align: center;
+}
+
+.side-btn {
+  background-color: #E0FFFF;
+  border: .2px solid #00000042;
+  padding: 5px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 40px;
+  width: 90px;
+  font-family: "Open Sans", Hebrew;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+a.social {
+  margin: 0 1rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+
+a.social:hover {
+  transform: translateY(-6px);
+}
+
+a.github {
+  color: #fff;;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a.linkin {
+  color: #4968ad;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
