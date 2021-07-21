@@ -5,6 +5,7 @@ import IntroductionP from '../IntroductionP/IntroductionP'
 import About from './About'
 
 function Profile() {
+
     return (
         <div id="colorlib-page">
         <div id="container-wrap">
@@ -12,7 +13,6 @@ function Profile() {
             <SidebarP></SidebarP>
 				<div id="colorlib-main">
                 <IntroductionP></IntroductionP>
-					
           	</div>
               <About />
                 <br />

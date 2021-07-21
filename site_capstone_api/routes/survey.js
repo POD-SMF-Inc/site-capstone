@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.post("/", security.requireAuthenticatedUser, async(req,res,next) => {
     try {
-        // creates survey log
+        //  survey log
       const { user } = res.locals
       const survey = await Survey.fetchSurvey({ user })
       return res.status(201).json(survey)

@@ -1,0 +1,97 @@
+
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    transition: all .2s ease;
+    border: 1px solid transparent;
+    white-space: nowrap
+}
+
+.Button.small {
+    padding: 10px 20px;
+    max-height: 40px
+}
+
+.Button.danger {
+    background: var(--bright-red);
+    color: var(--pure-white)
+}
+
+.Button.primary {
+    color: black;
+    background: var(--color-primary)
+}
+
+.Button.primary.gold {
+    color: black;
+    background: var(--accent-gold)
+}
+
+.Button.primary.aqua {
+    color: var(--pure-white);
+    background: var(--accent-aqua)
+}
+
+.Button.primary.blue {
+    color: var(--pure-white);
+    background: var(--accent-blue)
+}
+
+.Button.secondary {
+    color: var(--pure-white);
+    background: var(--color-secondary)
+}
+
+.Button.outline {
+    background: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary)
+}
+
+.Button.outline.gold {
+    background: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold)
+}
+
+.Button.outline.blue {
+    background: transparent;
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue)
+}
+
+.Button.outline.teal {
+    background: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary)
+}
+
+.Button.outline.aqua {
+    background: transparent;
+    color: var(--accent-aqua);
+    border: 1px solid var(--accent-aqua)
+}
+
+.Button.ghost {
+    font-weight: 400;
+    background: transparent;
+    color: var(--font-dark);
+    border: none
+}
+
+.Button:active {
+    transform: translateY(1px)
+}
+
+.Button:disabled {
+    background: var(--muted) !important;
+    cursor: not-allowed
+}
