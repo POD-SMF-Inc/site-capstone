@@ -2,25 +2,30 @@ import "./HomeRL.css"
 export default function HomeRL({ element })
 {
     console.log("Element Home: ", element)
+    const FavouriteComponent = element.favouriteComponent;
     return (
-
-       /* <articleH>
+      /* <articleH>
             <h1>{element.title}</h1>
             <img src={element.image} alt="Smoothie"></img>
             <a href={element.sourceUrl}>Go to Recipe</a>
         </articleH>
         */
-        <div className="SeperateRecipe">
-            <h2>{element.title}</h2>
-            <img src={element.image} alt="Smoothie"></img>
-            <ul className="instructions">
-                <li>Preparation time: {element.readyInMinutes} minutes</li>
-                <li>Number of servings: {element.servings}</li>
-            </ul>
-            <a href={element.sourceUrl}>Go to Recipe</a>
+      <div className="SeperateRecipe">
+        <h2>{element.title}</h2>
+        <img src={element.image} alt="food_img"></img>
+        <ul className="instructions">
+          <li>Preparation time: {element.readyInMinutes} minutes</li>
+          <li>Number of servings: {element.servings}</li>
+        </ul>
+        <a href={element.sourceUrl}>Go to Recipe</a>
+        <div
+          onClick={() => element.handleFavouritesClick(element)}
+          className="overlay d-flex align-items-center justify-content-center"
+        >
+          <FavouriteComponent />
         </div>
-
-    )
+      </div>
+    );
 }
 
 /*

@@ -5,6 +5,7 @@ import HomeRR from "../HomeRecipeRoute/HomeRR"
 //import "./HomeRecipeCalls.css"
 export default function HomeRecipeCalls(){
     const [homeRecipe, setHomeRecipe] = useState([])
+    
     //const [element, setElement] = useState([]);
 
     useEffect(() => {
@@ -25,6 +26,7 @@ export default function HomeRecipeCalls(){
         fetchHomeRecipe()
     }, [])
 
+    
     return (
         <div className="RecipeCalls">
             <HomeRR homeRecipe={homeRecipe} />
