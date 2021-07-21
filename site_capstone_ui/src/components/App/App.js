@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState} from "react"
+import { useEffect, useState, createContext} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "../Home/Home"
 import Login from '../Login/Login';
@@ -15,9 +15,14 @@ import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
+import { AuthContextProvider } from "../../contexts/auth"
+import AuthorizedUser from "../NotAuthorized/NotAuthorized"
+import NotFound from "../NotFound/NotFound"
+
 
 export default function App() {
 
+  const [user, setUser] = useState({})
   const [appState, setAppState] = useState({})
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +30,7 @@ export default function App() {
   const handleLogout = async () => {
     await API.logoutUser()
     setAppState({})
-    console.log("app", appState)
+    setUser({})
     setErrors(null)
   }
 
@@ -37,6 +42,7 @@ export default function App() {
       const { data } = await API.fetchUserFromToken()
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
+        setUser(data.user)
       }
       setIsLoading(false)
     }
@@ -49,8 +55,6 @@ export default function App() {
     }    
   }, [])
 
-
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -61,15 +65,14 @@ export default function App() {
           <Route path='/' element={ <Home/> }/>
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
-          <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
-          <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
-          <Route path= '/survey' element={ <Survey /> } />
-
-          <Route path='/sep' element={<SeperateRecipe />} />
-          <Route path='/search' element={<Search />} />
-          <Route path='/explore' element={<Filter />} />
-          <Route path='/ingredients' element={<Ingredients />} />
-          <Route path='/details/:idNum' element={<Details />} />
+          <Route path='/planner' element= { <Planner  user={user} setUser={setUser} setAppState={setAppState}/>} />
+          <Route path='/profile' element= { <Profile  user={user} setUser={setUser} setAppState={setAppState}/>} />
+          <Route path= '/survey' element= { <Survey  user={user} setUser={setUser} /> } /> 
+          <Route path='/sep/' element = {<SeperateRecipe  user={user} setUser={setUser} />} /> 
+          <Route path='/search/' element= {<Search   user={user} setUser={setUser}/>} /> 
+          <Route path='/explore/' element= {<Filter  user={user} setUser={setUser} />} /> 
+          <Route path='/ingredients/' element={<Ingredients />} />
+          <Route path= "*" element= {<NotFound />} />
         </Routes>
         </> : null }
       </BrowserRouter>

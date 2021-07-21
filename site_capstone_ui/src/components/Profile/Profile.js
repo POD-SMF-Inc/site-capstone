@@ -6,8 +6,14 @@ import Sidebar from './Sidebar'
 import About from './About'
 //import Header from './Header'
 import Banner from './Banner'
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
-function Profile() {
+
+function Profile( {user, setUser} ) {
+
+    if (!user?.email) {
+        return <NotAuthorized user={user} setUser={setUser}/>
+    }
 
     return (
       <div className="Profile">
