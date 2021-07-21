@@ -8,6 +8,7 @@ import About from './About'
 import Banner from './Banner'
 
 function Profile() {
+
     return (
       <div className="Profile">
         <div style={{height: 900, overflow: "auto"}}>

@@ -16,6 +16,8 @@ export const SurveyContextProvider = ({ children }) => {
       setInitialized(true)
     }
 
+    fetchUserSurvey()
+
     // add authentication 
   }, [])
 
