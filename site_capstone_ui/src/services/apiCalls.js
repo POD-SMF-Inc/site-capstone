@@ -28,6 +28,26 @@ class ApiCalls {
 
     }
 
+    async requestInfo({ endpoint, method = `GET`, data })
+    {
+        const url = `${this.apiUrl}/${data}/${endpoint}?apiKey=${this.apiKey}`
+        const headers = {
+            "Content-Type": "application/json"
+        }
+        console.log("info url: ", url)
+        try {
+            const res = await axios({ url, method, data, headers })
+            return { data: res.data, error: null }
+        }
+        catch (error)
+        {
+            console.error("APIclient.makeRequest.error:")
+            console.error({ errorResponse: error.response })
+            const message = error?.response?.data?.error?.message
+            return { data: null, error: message || String(error) }
+        }
+    }
+
     async requestIngredients({ endpoint, method = `GET`, data, number })
     {
         const headers = {
@@ -180,7 +200,7 @@ class ApiCalls {
             {
                 //User only chooses query and diet
                 const url = `${this.apiUrl}/${endpoint}?apiKey=${this.apiKey}&number=${number}${dietSec}${querySec}`
-                //console.log("CraftedUrl: ", url)
+                console.log("CraftedUrl: ", url)
                 try {
                     const res = await axios({ url, method, data, headers })
                     return { data: res.data, error: null }
@@ -344,7 +364,7 @@ class ApiCalls {
             //If they choose a meal type, query, cusine, and diet
             //console.log("no")
             const url = `${this.apiUrl}/${endpoint}?apiKey=${this.apiKey}&number=${number}${querySec}${cuisineSec}${dietSec}${typeSec}`
-            //console.log("new: ", url)
+            console.log("new: ", url)
             try {
                 const res = await axios({ url, method, data, headers })
                 return { data: res.data, error: null }
@@ -358,7 +378,7 @@ class ApiCalls {
             }
         }
 
-
+        /*
         if (meal_type === "Select")
         {
             console.log("yep")
@@ -368,7 +388,7 @@ class ApiCalls {
         console.log("diet: ", diet)
         console.log("meal_type: ", meal_type)
         console.log("query: ", query)
-
+        */
         //
 
         /*
@@ -424,9 +444,14 @@ class ApiCalls {
     async getHomeRandomRecipe(){
         return await this.request({endpoint: `random`, method: `GET`, number: 6})
     }
+
+    async getRecipeInfo(id)
+    {
+        return await this.requestInfo({endpoint: `information`, method: `GET`, data: id})
+    }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `7abfa1a217ad4d16b972b6c7428d92b6`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, ``)
 
 
 export default APIR

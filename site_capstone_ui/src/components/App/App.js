@@ -8,6 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
+import Details from '../Details/Details';
 import Profile from '../Profile/Profile';
 import Survey from "../Survey/Survey"
 import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
@@ -63,12 +64,12 @@ export default function App() {
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
           <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
           <Route path= '/survey' element={ <Survey /> } />
-          
 
           <Route path='/sep' element={<SeperateRecipe />} />
           <Route path='/search' element={<Search />} />
           <Route path='/explore' element={<Filter />} />
           <Route path='/ingredients' element={<Ingredients />} />
+          <Route path='/details/:idNum' element={<Details />} />
         </Routes>
         </> : null }
       </BrowserRouter>

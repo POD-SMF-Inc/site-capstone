@@ -39,8 +39,6 @@ export default function Search({ query, cuisine, dietS, typeS}){
                 setRandomRecipe(recipesList)
             }
         }
-        
-
     }
     
     //getIngredientRecipe
@@ -66,10 +64,11 @@ export default function Search({ query, cuisine, dietS, typeS}){
     }, [])
     */
     return (
-        <div className="Search">
-            <h1>Search Page</h1>
-            <button type="submit" onClick={handleOnSubmit}>Search</button>
-            <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
+        <div className="SearchPage">
+            <div className="buttonS">
+                <button type="submit" onClick={handleOnSubmit}>Search</button>
+                <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
+            </div>
             <SearchRecipeRoute randomRecipe={randomRecipe}/>
         </div>
     )
