@@ -11,6 +11,7 @@ export default function Navbar( { user, handleLogout }) {
         <Link  to='/profile' >Profile</Link>
         <Link to='/favorites'>Favorites</Link>
         <Link to='/planner' >Planner</Link>
+        <Link to='/explore'>Explore</Link>
         {isAuthenticated ? 
         <button className="logout-link" onClick={handleLogout}>Logout</button> : 
         <>

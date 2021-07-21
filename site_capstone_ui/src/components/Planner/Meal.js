@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Meal({ meal }) {
   const [imageUrl, setImageUrl] = useState("");
-
+  const FavouriteComponent = meal.favouriteComponent;
   useEffect(() => {
     fetch(
       `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=7abfa1a217ad4d16b972b6c7428d92b6&includeNutrition=false`
@@ -26,6 +26,12 @@ export default function Meal({ meal }) {
       </ul>
 
       <a href={meal.sourceUrl}>Go to Recipe</a>
+      <div
+          onClick={() => meal.handleFavouritesClick(meal)}
+          className="overlay d-flex align-items-center justify-content-center"
+        >
+          <FavouriteComponent />
+        </div>
     </article>
   );
 }

@@ -1,12 +1,11 @@
 import React from "react"
 import SeperateRecipe from "../SeperateRecipe/SeperateRecipe"
 
-export default function Practice({ randomRecipe }) {
-    console.log("rand: ", randomRecipe)
-    console.log("type: ", typeof(randomRecipe))
+export default function SearchRecipeRoute({ randomRecipe }) {
+    //console.log("rand: ", randomRecipe)
+    //console.log("type: ", typeof(randomRecipe))
     return (
-        <div className="Practice">
-            <h1>Practice</h1>
+        <div className="SearchRR">
             {
                 randomRecipe.map(element => (
                     <>
