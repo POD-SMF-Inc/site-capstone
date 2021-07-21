@@ -1,8 +1,10 @@
 import "./HomeRL.css"
+import React from 'react';
+
 export default function HomeRL({ element })
 {
     console.log("Element Home: ", element)
-    const FavouriteComponent = element.favouriteComponent;
+    //const FavouriteComponent = element.favouriteComponent;
     return (
       /* <articleH>
             <h1>{element.title}</h1>
@@ -18,12 +20,7 @@ export default function HomeRL({ element })
           <li>Number of servings: {element.servings}</li>
         </ul>
         <a href={element.sourceUrl}>Go to Recipe</a>
-        <div
-          onClick={() => element.handleFavouritesClick(element)}
-          className="overlay d-flex align-items-center justify-content-center"
-        >
-          <FavouriteComponent />
-        </div>
+        
       </div>
     );
 }
