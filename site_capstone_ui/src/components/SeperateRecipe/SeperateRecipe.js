@@ -1,16 +1,26 @@
 import "./SeperateRecipe.css"
+import { Link, useNavigate } from "react-router-dom"
 export default function SeperateRecipe({ element })
 {
+
     console.log("Element: ", element)
+
+    
+
     return (
         <div className="SepReci">
             <div className="content">
+                <div className="detailPage">
+                    <Link to={`/details/${element.id}`}><button>Go to Details</button></Link>
+                </div>
+                <h2>{element.id}</h2>
                 <div className="recipeTitle">
                     <h1>{element.title}</h1>
                 </div>
                 <div className="Picture">
-                    <img src={element.image} alt="MEal"></img>
+                    <img src={element.image} alt="Meal"></img>
                 </div>
+                
             </div> 
         </div>
     )
