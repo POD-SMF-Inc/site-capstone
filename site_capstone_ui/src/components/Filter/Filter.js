@@ -1,7 +1,9 @@
 import "./Filter.css"
 import { useState } from "react"
 import Search from "../Search/Search"
-export default function Filter() {
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
+
+export default function Filter( {user, setUser} ) {
     const [query, setQuery] = useState("")
     let cuisine = []
     //const [cuisine, setCuisine] = useState([])
@@ -20,6 +22,10 @@ export default function Filter() {
         console.log("query: ", query)
     }
     */
+
+    if (!user?.email) {
+        return <NotAuthorized user={user} setUser={setUser}/>
+    }
 
     const handleCheck = (event) => {
         setCheck((f) => ({ ...f, [event.target.name]: event.target.checked }))

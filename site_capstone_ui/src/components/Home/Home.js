@@ -19,6 +19,7 @@ export default function Home() {
              <div className="HomeRecipes">
                 <HomeRecipeCalls />
               </div>
+              <h1> Create an account to view more recipes! </h1>
           </div>
           
         </div>
