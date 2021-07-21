@@ -3,7 +3,6 @@ import Meal from "./Meal";
 
 export default function MealList({ mealData }) {
   const nutrients = mealData.nutrients;
-
   return (
     <main>
       <section className="nutrients">
@@ -20,7 +19,9 @@ export default function MealList({ mealData }) {
         {mealData.meals.map((meal) => {
           return <Meal key={meal.id} meal={meal} />;
         })}
+      
       </section>
     </main>
   );
 }
+

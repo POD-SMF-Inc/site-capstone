@@ -8,6 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
+import Favorites from '../Favorites/Favorites';
 
 
 import Profile from '../Profile/Profile';
@@ -66,6 +67,7 @@ export default function App() {
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
           <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
+          <Route path='/favorites' element={ <Favorites  setAppState={setAppState}/>} />
 
           
           
