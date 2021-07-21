@@ -3,6 +3,15 @@ import React from 'react';
 
 export default function HomeRL({ element })
 {
+    const formatter = new Intl.NumberFormat("en-US", {
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+      
+    const priceFormat = (amount) => {
+        return `$${formatter.format(amount)}`
+      }
     console.log("Element Home: ", element)
     //const FavouriteComponent = element.favouriteComponent;
     return (
@@ -18,6 +27,7 @@ export default function HomeRL({ element })
         <ul className="instructions">
           <li>Preparation time: {element.readyInMinutes} minutes</li>
           <li>Number of servings: {element.servings}</li>
+          <li>Price per serving: {priceFormat(element.pricePerServing/100)}</li>
         </ul>
         <a href={element.sourceUrl}>Go to Recipe</a>
         
