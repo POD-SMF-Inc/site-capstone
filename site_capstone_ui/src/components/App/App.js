@@ -8,6 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
+import Details from '../Details/Details';
 
 
 import Profile from '../Profile/Profile';
@@ -70,12 +71,12 @@ export default function App() {
           
 
           <Route path= '/survey' element={ <Survey /> } />
-          <Route path='/prac' element={<Practice />} />
 
           <Route path='/sep' element={<SeperateRecipe />} />
           <Route path='/search' element={<Search />} />
           <Route path='/explore' element={<Filter />} />
           <Route path='/ingredients' element={<Ingredients />} />
+          <Route path='/details/:idNum' element={<Details />} />
         </Routes>
         </> : null }
       </BrowserRouter>

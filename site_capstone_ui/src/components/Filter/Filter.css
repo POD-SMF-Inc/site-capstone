@@ -1,8 +1,113 @@
-.Filter {
-    background-color: crimson;
-    width: 100%;
-    max-width: 100vw;
+.searchSec {
+    display: flex;
+    flex-direction: row;
+    background-color: #F0F8FF;
+}
+
+.searchSec .filter {
+    background-color: #00CED1;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    padding: 0 40px;
+    padding-left: 10px;
+    border-right: solid 1px #000000;
+    border-radius: 10px;
+}
+
+.searchSec .filter .title h1 {
+    float: left;
+    font-size: 25px;
+    border-bottom: solid 1px #000000;
+}
+
+
+.searchSec .filter .dropDown .dietAll {
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchSec .filter .dropDown .dietAll .dietDrop {
+    margin-top: -20px;
+}
+
+.searchSec .filter .dropDown .mealAll .mealDrop {
+    margin-top: -20px;
+}
+
+.searchSec .filter .dropDown .dietAll .dietDrop select {
+    width: 120px;
+    height: 25px;
+}
+
+.searchSec .filter .dropDown .mealAll .mealDrop select {
+    width: 120px;
+    height: 25px;
+}
+
+
+.searchSec .filter .dropDown .dietAll .dietTitle h1{
+    float: left;
+    font-size: 20px;
+}
+
+.searchSec .filter .dropDown .mealAll .mealTitle h1{
+    float: left;
+    font-size: 20px;
+}
+
+.searchSec .filter .dropDown .mealAll {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchSec .filter .dropDown{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.searchSec .Search {
+    background-color: cadetblue;
+    width: 100%;
+}
+
+.searchSec .Search .query {
+    background-color: chartreuse;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+}
+
+.searchSec .Search .query label {
+    background-color: rgb(149, 134, 214);
+    font-size: 20px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.searchSec .Search .query input {
+    width: 100px;
+}
+
+.searchSec .filter .check {
+    display: flex;
+    flex-direction: column;
+    background-color: crimson;
+}
+
+.searchSec .filter .check .checkTitle h3{
+    float: left;
+    background-color: chocolate;
+}
+
+.searchSec .filter .check .checkChoices input {
+    width: 10px;
+}
+
+.searchSec .filter .check .checkChoices span {
+    background-color: darkmagenta;
+    font-size: 15px;
 }
