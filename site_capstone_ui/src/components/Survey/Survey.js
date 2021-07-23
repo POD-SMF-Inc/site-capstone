@@ -1,17 +1,18 @@
-import { useNavigate } from "react-router-dom"
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
-
-//skip button 
-
 import "./Survey.css"
 import Card from '../Card/Card';
 import PageH from '../PageH/PageH'
 
 
 
-export default function Survey () {
+export default function Survey ({user, setUser}) {
 
   const { form, errors, isLoading, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
+
+  if (!user?.email) {
+    return <NotAuthorized user={user} setUser={setUser}/>
+}
 
     return (
       <div className="Survey">
@@ -46,7 +47,7 @@ export default function Survey () {
               <input 
               type='cuisines' 
               name='cuisines' 
-              placeholder='for example: chicken alfredo pasta' 
+              placeholder='for example: Italian food' 
               value={form.cuisines} 
               onChange={handleOnInputChange}/>
             </div>

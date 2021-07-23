@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import MealList from "./MealList";
 import './Planner.css';
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
+
 
 
 function Planner() {
     const [mealData, setMealData] = useState(null);
     const [calories, setCalories] = useState(2000);
-    
+
+function Planner( {user, setUser} ) {
+    const [mealData, setMealData] = useState(null);
+    const [calories, setCalories] = useState(2000);
+
+    if (!user?.email) {
+      return <NotAuthorized user={user} setUser={setUser}/>
+  }
+
   
     function getMealData() {
       fetch(
