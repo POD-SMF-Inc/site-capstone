@@ -18,9 +18,9 @@ class Survey {
     }
 }
 
-static async fetchSurvey () {
+static async fetchSurvey ({ user }) {
     //returns survey form
-    const results = await db.query (
+    const query =
         `
         SELECT profile.id,
         profile.diet,
@@ -29,12 +29,14 @@ static async fetchSurvey () {
         profile.description,
         profile.location,
         profile.image,
-        profile.schoolName,
-        FROM profile 
+        profile.schoolName
+        FROM profile
         JOIN users ON profile.user_id = users.id
+        WHERE users.username = $1
         `
-    ) 
-    return results
+    const result = await db.query(query, [user.username]) 
+    const profileInfo = result.rows
+    return profileInfo
 }
 
     static async insertInfo({ profile, user }) {
@@ -62,8 +64,36 @@ static async fetchSurvey () {
 
     }
 
-    //updateInfo
+    static async updateInfo ({ infoUpdate, infoId }) {
 
+        let temporaryTable = {} ;
+        for (const element in infoUpdate) {
+            console.log(element,infoUpdate[element])
+        const results = await db.query (
+                `
+                UPDATE profile
+                SET ${element} = $1
+                WHERE id = $2
+
+            RETURNING id, 
+            diet, 
+            intolerances, 
+            cuisines, 
+            description, 
+            location, 
+            image, 
+            schoolName, 
+            user_id
+            `, [infoUpdate[element],infoId]
+            )
+
+            temporaryTable = results.rows[0]
+           
+        }
+
+        return temporaryTable
+  
+    }
 
 
 }

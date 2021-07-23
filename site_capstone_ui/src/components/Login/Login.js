@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./Login.css"
 import Card from '../Card/Card';
-import API from '../../services/apiClient';
 import PageH from '../PageH/PageH'
+import apiClient from "../../services/apiClient"
 
 
 
-export default function Login({handleLogIn, setAppState }) {
+export default function Login({handleLogIn, setAppState, user, setUser }) {
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})
@@ -16,6 +15,12 @@ export default function Login({handleLogIn, setAppState }) {
       username: '',
       password: ''
     })
+
+    useEffect(() => {
+      if (user?.username) {
+        navigate("/")
+      }
+    }, [user,navigate])
   
     const handleOnInputChange = (event) => {
       setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
@@ -26,17 +31,17 @@ export default function Login({handleLogIn, setAppState }) {
       setIsLoading(true)
       setErrors((e) => ({ ...e, form: null }))
   
-      const { data, error } = await API.loginUser({ username: form.username, password: form.password })
-      if (data) {
-        API.setToken(data.token)
-        setAppState((a) => ({...a, user: data.user}))
-      }
+      const { data, error } = await apiClient.loginUser({ username: form.username, password: form.password })
+
       if (error) {
-        console.log(errors)
         setErrors((e) => ({ ...e, form: error }))
-        setIsLoading(false)
-        return
       }
+
+      if (data) {
+        setAppState((a) => ({...a, user: data.user}))
+        apiClient.setToken(data.token)
+      }
+
       setIsLoading(false)
       navigate("/")
     }

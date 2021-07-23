@@ -26,13 +26,14 @@ export const useSurveyForm = () => {
     const { data, error } = await apiClient.surveyInfo(form)
     if (error) setErrors((e) => ({ ...e, form: error }))
 
-    if (data?.survey) {
+    if (data) {
       setSurvey((e) => [data.survey, ...e])
-      setIsLoading(false)
+     // setIsLoading(false)
       navigate("/survey")
-    } else {
-      setIsLoading(false)
-    }
+    } 
+    
+    setIsLoading(false)
+    
   }
 
   const handleOnInputChange = (e) => {
@@ -46,12 +47,14 @@ export const useSurveyForm = () => {
     const { data, error } = await apiClient.surveyInfo(form)
     if (error) setErrors((e) => ({ ...e, form: error }))
 
-    if (data?.survey) {
+    if (data) {
       setSurvey((e) => [data.survey, ...e])
-      setIsLoading(false)
+      //setIsLoading(false)
       navigate("/profile")
     
   }
+
+  setIsLoading(false)
 
 }
 
@@ -62,12 +65,14 @@ const handleOnSubmitSkip = async () => {
   const { data, error } = await apiClient.surveyInfo(form)
   if (error) setErrors((e) => ({ ...e, form: error }))
 
-  if (data?.survey) {
+  if (data) {
     setSurvey((e) => [data.survey, ...e])
-    setIsLoading(false)
+    //setIsLoading(false)
     navigate("/profile")
   
 }
+
+setIsLoading(false)
 
 }
 

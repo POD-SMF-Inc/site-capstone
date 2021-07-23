@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import "./Search.css"
 
-export default function Search( {user, setUser}, { query, cuisine, dietS, typeS}){
+export default function Search( { query, cuisine, dietS, typeS }){
 
-    
+
     /*
     console.log("diet2: ", dietS)
     console.log("meal type2: ", typeS)
@@ -66,9 +66,10 @@ export default function Search( {user, setUser}, { query, cuisine, dietS, typeS}
     }, [])
     */
 
-    if (!user?.email) {
-        return <NotAuthorized user={user} setUser={setUser}/>
-    }
+  //  if (!user?.username) {
+  //      return <NotAuthorized user={user} setUser={setUser}/>
+  //  }
+    
     
     return (
         <div className="SearchPage">

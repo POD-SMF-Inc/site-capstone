@@ -6,13 +6,10 @@ import PageH from '../PageH/PageH'
 
 
 
-export default function Survey ({user, setUser}) {
+export default function Survey () {
 
   const { form, errors, isLoading, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
 
-  if (!user?.email) {
-    return <NotAuthorized user={user} setUser={setUser}/>
-}
 
     return (
       <div className="Survey">
@@ -78,7 +75,7 @@ export default function Survey ({user, setUser}) {
             </div>
             {errors.form && <span className="error">{errors.form}</span>}
             <button className='save-btn' onClick={handleOnSubmitSave}> 
-            {isLoading ? <>Loading</> : <>Save</>}
+            {<>Save</>}
           </button>
           </div>
         </div>

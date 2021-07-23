@@ -9,30 +9,32 @@ import Banner from './Banner'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 
-function Profile( {user, setUser} ) {
+function Profile( { user, setUser } ) {
 
-    if (!user?.email) {
-        return <NotAuthorized user={user} setUser={setUser}/>
-    }
+        if (!user?.username) {
+            return <NotAuthorized user={user} setUser={setUser}/>
+        }
+        
 
-    return (
-      <div className="Profile">
-        <div style={{height: 900, overflow: "auto"}}>
-            <div style={{display: "flex", alignItems: "flex-start"}}>
-                <StickyBox offsetTop={20} offsetBottom={20}>
-                    <Sidebar />
-                </StickyBox>
-                <div >
-                    <Banner /> 
-                    <br />
-                    <About />
-                    <br />
-                </div>
-            </div>
-        </div>
-       </div>
-    );
-  }
-  
+        return (
+            <div className="Profile">
+              <div style={{height: 900, overflow: "auto"}}>
+                  <div style={{display: "flex", alignItems: "flex-start"}}>
+                      <StickyBox offsetTop={20} offsetBottom={20}>
+                          <Sidebar />
+                      </StickyBox>
+                      <div >
+                          <Banner /> 
+                          <br />
+                          <About />
+                          <br />
+                      </div>
+                  </div>
+              </div>
+             </div>
+          );
+        }
+
+
   export default Profile;
   
