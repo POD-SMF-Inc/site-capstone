@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import Favorites from '../FavoriteComponent/FavoriteComponent';
-
+//import FavHeart from '../FavHeart/FavHeart';
 
 export default function Meal ({ meal }) {
 
@@ -21,6 +21,16 @@ export default function Meal ({ meal }) {
       });
   }, [meal.id]);
 
+  /*const formatter = new Intl.NumberFormat("en-US", {
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
+  const priceFormat = (amount) => {
+    return `$${formatter.format(amount)}`;
+  };*/
+
   return (
     <article>
       <h1>{meal.title}</h1>
@@ -28,6 +38,7 @@ export default function Meal ({ meal }) {
       <ul className="instructions">
         <li>Preparation time: {meal.readyInMinutes} minutes</li>
         <li>Number of servings: {meal.servings}</li>
+      
       </ul>
 
       <a href={meal.sourceUrl}>Go to Recipe</a>
@@ -36,6 +47,7 @@ export default function Meal ({ meal }) {
     </article>
   );
 }
+//<FavHeart className='fave-heart' meal={meal} />
 //7abfa1a217ad4d16b972b6c7428d92b6
 /**<div
           onClick={() => meal.handleFavouritesClick(meal)}

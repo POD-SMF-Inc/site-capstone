@@ -3,27 +3,103 @@
 }
 
 .sidebar {
-  background-color: #00CED1; 
+  background-color: #fff; 
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.4);
   padding: 10px;
   min-width: 180px;
   margin: 0 10px;
   border-radius: 6px;
+  margin-top:12px;   
 }
-h5 {
+.sidebar .user-heading.round   {
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.sidebar .user-heading img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  
+}
+.sidebar .user-heading {
+  
+  color: black;
+  border-radius: 6px;
+  -webkit-border-radius: 4px 4px 0 0;
+  padding: 30px;
+  text-align: center;
+}
+.sidebar .user-heading h5 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  margin-top: 0px;;
+}
+
+.sidebar .user-heading p {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.sidebar ul {
+  margin-top: 0px;
+}
+
+.sidebar ul > li {
+  border-bottom: 1px solid #ebeae6;
+  margin-top: 0;
+  line-height: 50px;
+  font-size: 18px;
+  
+}
+
+.sidebar ul > li:last-child {
+  border-bottom: none;
+  
+}
+
+.sidebar ul > li > a {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  color: #89817f;
+  border-left: 5px solid #fff;
+  text-decoration: none;
+}
+
+.sidebar ul > li > a:hover, .sidebar ul > li > a:focus, .sidebar ul li.active  a {
+  background: #f8f7f5 !important;
+  border-left: 5px solid #00ced1;
+  color: #89817f !important;
+}
+
+.sidebar ul > li:last-child > a:last-child {
+  border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+}
+
+.sidebar ul > li > a > i{
+  font-size: 16px;
+  padding-right: 10px;
+  color: #bcb3aa;
+}
+
+
+/*h5 {
   color: #000;
   font-size: 25px;
   font-weight: 400;
   margin: 0 0 5px 0;
-}
+}*/
 
-.email {
+/*.email {
   color: #000;
   font-size: 20px;
   font-weight: 400;
   margin: 0 0 20px 0;
-}
-.fauxNavElement {
+}*/
+/*.fauxNavElement {
   height: 10px;
   background-color: #eee;
 }
@@ -35,10 +111,78 @@ h5 {
 .fauxNavElement:not(:last-child) {
   margin-bottom: 10px;
 }
+*/
+.profile-info{
+  margin-top:30px;   
+}
+
+
+.profile-info .panel-footer {
+  background-color:#f8f7f5 ;
+  border-top: 1px solid #e7ebee;
+}
+.btn  {
+  background-color: red;
+  
+} 
+
+.profile-info .panel-footer ul li a {
+  color: #7a7a7a;
+}
+
+.panel-body .bio-graph-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+/*.bio-graph-heading {
+  background: #00ced1;
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+  padding: 40px 110px;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 6px;
+  margin-right: 2px;
+}
+*/
+
+.bio-graph-info {
+  color: #89817e;
+}
+
+.bio-graph-info h1 {
+  font-size: 22px;
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+.bio-row {
+  width: 50%;
+  float: left;
+  margin-bottom: 10px;
+  padding:0 15px;
+}
+
+.bio-row p span {
+  width: 100px;
+  display: inline-block;
+}
 
 
 .container-banner{
   background-color: #fff;
+  margin-right: 10px;
   
 }
 .banner-intro {
@@ -80,12 +224,13 @@ h5 {
 
 .profilepic {
   border-radius: 50%;
-  border: .2px solid #00000042;
+  border: 10px solid #00ced1;
+  
 }
 
-.fauxNav {
+/*.fauxNav {
   text-align: center;
-}
+}*/
 
 .side-btn {
   background-color: #E0FFFF;
@@ -95,14 +240,21 @@ h5 {
   margin-bottom: 30px;
   font-size: 15px;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 50px;
   width: 90px;
   font-family: "Open Sans", Hebrew;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
 }
 
-a.social {
+h6 {
+  margin-top: 5px;
+  font-size: 30px;
+  margin-bottom:15px;
+  text-align: center;
+}
+
+/*a.social {
   margin: 0 1rem;
   transition: transform 250ms;
   display: inline-block;
@@ -122,4 +274,5 @@ a.linkin {
   color: #4968ad;
   margin-top: 10px;
   margin-bottom: 10px;
-}
+}*/
+

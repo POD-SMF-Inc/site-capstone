@@ -1,0 +1,23 @@
+.favorites-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.empty-fav-list {
+  margin-top: 5%;
+  text-align: center;
+}
+.heart-logo {
+  width: 30%;
+  height: 30%;
+}
+.empty-message {
+  margin-bottom: 3%;
+}
+span {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 3%;
+  display: block;
+}
