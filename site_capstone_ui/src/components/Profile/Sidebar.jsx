@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import profilepic from '../../assets/rsz_profilep.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  
     faGithub,
     faLinkedin,
+    
   } from "@fortawesome/free-brands-svg-icons";
+import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default class Sidebar extends React.Component {
     state = {
@@ -13,14 +16,18 @@ export default class Sidebar extends React.Component {
     
     render() {
         const {isExpanded} = this.state;
-        const {elements = 10} = this.props;
+        //const {elements = 10} = this.props;
         return (
-          <div className="sidebar">
+         /* <div className="sidebar">
             <img
               className="profilepic"
               src={profilepic}
               alt="profile_picture"
             ></img>
+            <h5 id="colorlib-logo">John Doe</h5>
+            <span className="email">
+                  <i className="icon-mail"></i> johndoe@gmail.com
+            </span>
             {isExpanded && (
               <div className="fauxNav">
                 <h5 id="colorlib-logo">John Doe</h5>
@@ -49,7 +56,47 @@ export default class Sidebar extends React.Component {
             >
               {isExpanded ? "Collapse" : "Expand"}
             </button>
+          </div>*/
+          <div className="sidebar">
+          <div class="panel">
+          <div class="user-heading round">
+            
+              <img
+              className="profilepic"
+              src={profilepic}
+              alt="profile_picture"
+            ></img>
+              
+              <h5>John Doe</h5>
+              <p>johndoe@theEmail.com</p>
           </div>
+          {isExpanded && (
+          <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a  href="/profile" 
+                  
+                >
+                  <FontAwesomeIcon icon={faUser} size="1.5x" /> <i class="fa fa-user"></i> Profile</a></li>
+              <li><a  href="https://github.com/POD-SMF-Inc/site-capstone"
+                  className="github social"
+                >
+                  <FontAwesomeIcon icon={faGithub} size="1.5x" /> <i class="fa fa-calendar"></i> Github </a></li>
+              <li><a href="https://www.linkedin.com/school/codepath/"
+                  className="linkin social"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} size="1.5x" /> <i class="fa fa-edit"></i> Linkedin</a></li>
+              <li><a href="#" >
+                  <FontAwesomeIcon icon={faEdit} size="1.5x" /> <i class="fa fa-edit"></i> Edit profile</a></li>
+          </ul>
+      
+      )}
+      <button
+              className="side-btn"
+              onClick={() => this.setState({ isExpanded: !isExpanded })}
+            >
+              {isExpanded ? "Collapse" : "Expand"}
+            </button>
+            </div>
+            </div>
         );
     }
 }

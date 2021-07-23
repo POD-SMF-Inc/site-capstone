@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import LocalDataState from '../../contexts/LocalDataState';
 import Home from "../Home/Home"
 import Login from '../Login/Login';
 import Register from '../Register/Register';
@@ -8,7 +9,7 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
-
+import Weekly from '../Weekly/Weekly';
 import Favorites from '../Favorites/Favorites';
 
 
@@ -21,6 +22,7 @@ import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
+//import { GlobalProvider } from '../../contexts/GlobalState';
 
 export default function App() {
 
@@ -58,6 +60,7 @@ export default function App() {
 
 
   return (
+    <LocalDataState>
     <div className="App">
       <BrowserRouter>
         {!isLoading ? 
@@ -69,9 +72,8 @@ export default function App() {
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
           <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
-
-          <Route path='/favorites' element={ <Favorites  setAppState={setAppState}/>} />
-
+          <Route path='/favorites' element={ <Favorites  />} />
+          <Route path='/weeklyp' element={ <Weekly  />} />
           
           
 
@@ -88,9 +90,10 @@ export default function App() {
       </BrowserRouter>
       <Footer/>
     </div>
+    </LocalDataState>
   )
 }
-
+//<Footer/>
 //<Route path='/prac' element={<Practice />} />
 //<Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
 

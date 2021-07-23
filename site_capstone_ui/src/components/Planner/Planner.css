@@ -3,6 +3,7 @@
     align-items: center;
     flex-direction: column;
     font-family: "Open Sans", Hebrew;
+    
   }
   
   section {
@@ -34,7 +35,7 @@
     border: 1px solid #000000;
     padding: 3px 10px;
     margin: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 18px;
     margin-top: 20px;
     width: 190px;
@@ -82,6 +83,7 @@
     box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
     background-color: #a9dfc6;
     border-radius: 6px;
+    margin-bottom: 20px;
   }
   
   ul {

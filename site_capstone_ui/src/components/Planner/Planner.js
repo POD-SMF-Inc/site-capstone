@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import MealList from "./MealList";
 import './Planner.css';
 
+
 function Planner() {
     const [mealData, setMealData] = useState(null);
     const [calories, setCalories] = useState(2000);
+    
   
     function getMealData() {
       fetch(
