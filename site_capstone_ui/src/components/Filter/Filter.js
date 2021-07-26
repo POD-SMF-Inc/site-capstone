@@ -4,6 +4,7 @@ import Search from "../Search/Search"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 export default function Filter( { user, setUser } ) {
+    console.log("userfromFilter:", user)
     const [query, setQuery] = useState("")
     let cuisine = []
     //const [cuisine, setCuisine] = useState([])

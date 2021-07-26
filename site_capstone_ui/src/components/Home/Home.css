@@ -39,6 +39,10 @@
     margin-bottom:  0px;
   }
 
+  #footer {
+    margin-bottom: 80px;
+  }
+
   /*
   article {
     display: flex;

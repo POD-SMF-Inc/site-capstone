@@ -2,9 +2,9 @@ import axios from "axios"
 
 class ApiClient {
   constructor(remoteHostUrl) {
-    this.remoteHostUrl = remoteHostUrl
-    this.token = null
-    this.tokenName = "tracker_token"
+    this.remoteHostUrl = remoteHostUrl;
+		this.tokenName = "tracker_token";
+		this.token = localStorage.getItem(this.tokenName);
   }
 
   setToken(token) {

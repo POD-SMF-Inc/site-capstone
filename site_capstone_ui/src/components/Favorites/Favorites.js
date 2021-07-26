@@ -2,14 +2,20 @@ import React, { useContext } from 'react';
 import LocalDataContext from '../../contexts/LocalDataContext';
 import  HeartLogo  from '../../assets/heart.png';
 import MealList from "../Planner/MealList";
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 
 import './Favorites.css';
 
 
-function Favorites ()  {
+function Favorites ( { user, setUser })  {
+
     
   const  {favs}  = useContext(LocalDataContext);
+
+  if (!user?.username) {
+    return <NotAuthorized user={user} setUser={setUser}/>
+} 
 
   return (
     <div className="favorites-page">

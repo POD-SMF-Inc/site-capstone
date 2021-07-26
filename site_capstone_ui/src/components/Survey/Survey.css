@@ -78,8 +78,12 @@
   }
 
   .skip-btn {
-    margin-left: 630px;
+    margin-left: 1000px;
 
+  }
+
+  .save-btn {
+    margin-bottom: 80px;
   }
   .error {
     font-family: 'Crimson Text', serif;
@@ -96,3 +100,4 @@
       gap: 5px;
       color: var(--muted);
   }
+

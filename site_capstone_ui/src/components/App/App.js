@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState, createContext} from "react"
+import { useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import LocalDataState from '../../contexts/LocalDataState';
 import Home from "../Home/Home"
@@ -19,32 +19,32 @@ import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
 
+
 //import { GlobalProvider } from '../../contexts/GlobalState';
 
-import { AuthContextProvider } from "../../contexts/auth"
-import AuthorizedUser from "../NotAuthorized/NotAuthorized"
 import NotFound from "../NotFound/NotFound"
 
 
 
 export default function App() {
-
   const [user, setUser] = useState({})
   const [appState, setAppState] = useState({})
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+ 
   
   const handleLogout = async () => {
     await apiClient.logoutUser()
     setAppState({})
     setUser({})
     setErrors(null)
+    // navigate to home screen 
   }
 
     /** Fetch user by token generated */
   useEffect(() => {
     const fetchUser = async () => {
-      //setIsLoading(true)
+      setIsLoading(true)
       const { data, errors } = await apiClient.fetchUserFromToken()
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
@@ -52,7 +52,7 @@ export default function App() {
       }
       if (errors) setErrors (errors)
 
-      //setIsLoading(false)
+      setIsLoading(false)
     }
 
     // only set token if it exists
@@ -62,6 +62,8 @@ export default function App() {
       fetchUser()
     }    
   }, [])
+
+  console.log("userapp:", user)
 
 
   return (
@@ -74,16 +76,16 @@ export default function App() {
         <Routes>
           <Route path='/' element={ <Home/> }/>
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
-          <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
-          <Route path='/favorites' element={ <Favorites  />} />
-          <Route path='/weeklyp' element={ <Weekly  />} />
+          <Route path='/login' element={ <Login  setAppState={setAppState} /> } />
+          <Route path='/favorites' element={ <Favorites appState={appState} user={appState?.user}  />} />
+          <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user}  />} />
           <Route path='/details/:idNum' element={<Details />} />
-          <Route path='/planner' element= { <Planner  user={user} setUser={setUser} setAppState={setAppState}/>} />
-          <Route path='/profile' element= { <Profile  user={user} setUser={setUser} setAppState={setAppState}/>} />
-          <Route path= '/survey' element= { <Survey  user={user} setUser={setUser} /> } /> 
-          <Route path='/sep/' element = {<SeperateRecipe  user={user} setUser={setUser} />} /> 
-          <Route path='/search/' element= {<Search   user={user} setUser={setUser}/>} /> 
-          <Route path='/explore/' element= {<Filter  user={user} setUser={setUser} />} /> 
+          <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
+          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} /> } />
+          <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
+          <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
+          <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
+          <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
           <Route path='/ingredients/' element={<Ingredients />} />
           <Route path= "*" element= {<NotFound />} />
 

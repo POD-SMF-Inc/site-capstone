@@ -7,7 +7,7 @@ import apiClient from "../../services/apiClient"
 
 
 
-export default function Login({handleLogIn, setAppState, user, setUser }) {
+export default function Login({ handleLogIn, setAppState, user, setUser }) {
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})

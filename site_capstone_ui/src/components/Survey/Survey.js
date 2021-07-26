@@ -53,6 +53,7 @@ export default function Survey () {
               <input 
               type='description' 
               name='description' 
+              placeholder= 'for example: I enjoy long walks on the beach'
               value={form.description} 
               onChange={handleOnInputChange}/>
             </div>
@@ -70,6 +71,7 @@ export default function Survey () {
               <input 
               type='schoolName' 
               name='schoolName' 
+              placeholder= 'for example: Columbia University'
               value={form.schoolName} 
               onChange={handleOnInputChange}/>
             </div>

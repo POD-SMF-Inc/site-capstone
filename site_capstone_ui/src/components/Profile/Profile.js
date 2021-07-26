@@ -6,21 +6,24 @@ import Sidebar from './Sidebar'
 //import About from './About'
 //import Header from './Header'
 import Banner from './Banner'
-
 //import Post from './Post'
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
-
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 
-function Profile( { user, setUser } ) {
+function Profile({ user, setUser }) {
 
-        if (!user?.username) {
-            return <NotAuthorized user={user} setUser={setUser}/>
-        }
-        
-    return (
-      <div className="Profile">
+  console.log("user:", user)
+
+  const showActivity = () => 
+  {
+    if (!user?.username) {
+      return <NotAuthorized user={user} setUser={setUser}/>
+
+  }
+
+  return (
+    <div className="Profile">
         <div style={{ height: 900, overflow: "auto" }}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <StickyBox offsetTop={20} offsetBottom={20}>
@@ -37,12 +40,20 @@ function Profile( { user, setUser } ) {
 
             </div>
             
-              
-            
           </div>
         </div>
       </div>
-    );
+  )
+
+       
+        }
+        
+    return (
+      <div className="ProfilePage">
+        {showActivity()}
+            </div>
+            
+    )
   }
   
   export default Profile;
