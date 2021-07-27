@@ -16,6 +16,7 @@ export default class Sidebar extends React.Component {
     
     render() {
         const {isExpanded} = this.state;
+        
         //const {elements = 10} = this.props;
         return (
          /* <div className="sidebar">
@@ -100,6 +101,38 @@ export default class Sidebar extends React.Component {
         );
     }
 }
+
+
+
+
+/*
+Initialize first...
+
+state = {
+        isExpanded: this.props.isExpandedInitially,
+        isExpanded2: this.props.isExpanded2Initially,
+      };
+      render() {
+        const {isExpanded} = this.state;
+        const {isExpanded2} = this.state;
+        return (
+
+Add Content .... 
+
+        {isExpanded2 && (
+          .......... your content goes here
+        <a href="....">Hello</a>
+        )}
+
+Add Button to open and close .....
+        <button
+            className="side-btn"
+            onClick={() => this.setState({ isExpanded2: !isExpanded2 })}
+        >
+           {isExpanded2 ? "Collapse" : "Expand"}
+        </button>
+  */
+
 
 /*<a href="#home"><i className="fa fa-fw fa-home"></i>Home</a>
 <br />
