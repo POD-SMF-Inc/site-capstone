@@ -1,4 +1,3 @@
-import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
 import "./Survey.css"
 import Card from '../Card/Card';
@@ -8,7 +7,7 @@ import PageH from '../PageH/PageH'
 
 export default function Survey () {
 
-  const { form, errors, isLoading, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
+  const { form, errors, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
 
 
     return (
