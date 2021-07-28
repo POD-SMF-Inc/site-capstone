@@ -91,3 +91,11 @@
       gap: 5px;
       color: var(--muted);
   }
+
+  i {
+    font-style: normal;
+  }
+  i:hover {
+    color: red;
+    cursor: pointer;
+  }

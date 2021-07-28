@@ -9,10 +9,12 @@ import Banner from './Banner'
 //import Post from './Post'
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
-
+//import { ThemeContext } from "../../contexts/ThemeContext";
 
 function Profile({ user, setUser }) {
-
+  
+  
+     
   console.log("user:", user)
 
   const showActivity = () => 
@@ -22,8 +24,11 @@ function Profile({ user, setUser }) {
 
   }
 
+
+
   return (
     <div className="Profile">
+      
         <div style={{ height: 900, overflow: "auto" }}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <StickyBox offsetTop={20} offsetBottom={20}>
@@ -37,7 +42,9 @@ function Profile({ user, setUser }) {
                 <div className="HomeRecipes">
                 <HomeRecipeCalls />
                 </div>
-
+                <span></span>
+                <span></span>
+                <div></div>
             </div>
             
           </div>

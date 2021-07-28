@@ -6,6 +6,8 @@ const { NotFoundError } = require("./utils/errors")
 const security = require("./middleware/security")
 const authRoutes = require("./routes/auth")
 const surveyRouter = require("./routes/survey")
+const chatbotRouter = require('./routes/chatbot');
+
 
 const app = express()
 
@@ -23,7 +25,7 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 app.use("/auth", authRoutes)
 app.use("/survey", surveyRouter)
-
+app.use('/chatbot', chatbotRouter);
 
 /** Handle 404 errors -- this matches everything */
 app.use((req, res, next) => {

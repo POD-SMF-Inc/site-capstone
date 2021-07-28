@@ -6,7 +6,44 @@ export default function Navbar( { user, handleLogout }) {
 
   return (
     <div className="Navbar">
-      <div>
+      <div class="navbar-start">
+      <a href="/" class="navbar-item">
+        Home
+      </a>
+      </div>
+      <div class="navbar-end">
+      <div class="navbar-item">
+      
+         <a href="/profile" class="navbar-item">
+            Profile
+          </a>
+          <a href=" /favorites" class="navbar-item">
+            Favorites
+          </a>
+          <a href="/planner" class="navbar-item">
+            Planner
+          </a>
+          <a href="/explore" class="navbar-item">
+            Explore
+          </a>
+        {isAuthenticated ? 
+        <button className="logout-link" onClick={handleLogout}>Logout</button> : 
+        <>
+          <a href="/login" class="button ">
+            Login
+          </a>
+          <a href="/register" class="button ">
+          <strong>Sign up</strong>
+          </a>
+        </> 
+        }
+      </div>
+    </div>
+    </div>
+  )
+}
+
+/*<div>
         <button className="home-link pull-left"><Link to='/'>Home</Link></button>
         <Link  to='/profile' >Profile</Link>
         <Link to='/favorites'>Favorites</Link>
@@ -21,7 +58,4 @@ export default function Navbar( { user, handleLogout }) {
         }
         
         
-      </div>
-    </div>
-  )
-}
+      </div>*/

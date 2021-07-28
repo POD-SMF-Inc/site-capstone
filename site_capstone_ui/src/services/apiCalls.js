@@ -451,7 +451,8 @@ class ApiCalls {
     }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `1a23b0a94a2a4db3ac2faaa6703f448e`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `7abfa1a217ad4d16b972b6c7428d92b6
+`)
 
 
 export default APIR

@@ -6,7 +6,7 @@ import Home from "../Home/Home"
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+//import Footer from '../Footer/Footer';
 import apiClient from '../../services/apiClient'
 import Planner from '../Planner/Planner';
 import Weekly from '../Weekly/Weekly';
@@ -18,8 +18,8 @@ import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
-
-
+import ThemeContextProvider from "../../contexts/ThemeContext";
+import Chatbot from "../Chatbot/Chatbot"
 //import { GlobalProvider } from '../../contexts/GlobalState';
 
 import NotFound from "../NotFound/NotFound"
@@ -67,6 +67,7 @@ export default function App() {
 
 
   return (
+    <ThemeContextProvider>
     <LocalDataState>
     <div className="App">
       <BrowserRouter>
@@ -87,16 +88,19 @@ export default function App() {
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
           <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
           <Route path='/ingredients/' element={<Ingredients />} />
+          <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
           <Route path= "*" element= {<NotFound />} />
 
         </Routes>
         </> : null }
       </BrowserRouter>
-      <Footer/>
+      
     </div>
     </LocalDataState>
+    </ThemeContextProvider>
   )
 }
+// </LocalDataState>
 //<Footer/>
 //<Route path='/prac' element={<Practice />} />
 //<Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
