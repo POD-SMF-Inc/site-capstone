@@ -13,7 +13,6 @@ import Weekly from '../Weekly/Weekly';
 import Favorites from '../Favorites/Favorites';
 import Details from '../Details/Details';
 import VideoPage from '../VideoPage/VideoPage';
-import Favorites from '../Favorites/Favorites';
 import Profile from '../Profile/Profile';
 import Survey from "../Survey/Survey"
 import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
@@ -50,13 +49,9 @@ export default function App() {
   useEffect(() => {
     const fetchUser = async () => {
       setIsLoading(true)
-<<<<<<< HEAD
       console.log("refresh")
       const { data } = await API.fetchUserFromToken()
       console.log("data: ", data)
-=======
-      const { data, errors } = await apiClient.fetchUserFromToken()
->>>>>>> a4e0e80e79c2aa25583d534e6e0b33d25f1f4f5b
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
         setUser(data.user)
@@ -105,24 +100,6 @@ export default function App() {
         <Routes>
           <Route path='/' element={ <Home /> } />
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
-<<<<<<< HEAD
-          <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
-          <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
-          <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
-          <Route path='/favorites' element={<Favorites />}/>
-          
-          
-
-          <Route path= '/survey' element={ <Survey /> } />
-
-          <Route path='/sep' element={<SeperateRecipe />} />
-          <Route path='/search' element={<Search />} />
-          <Route path='/explore' element={<Filter />} />
-          <Route path='/ingredients' element={<Ingredients />} />
-          <Route path='/details/:idNum' element={<Details />} />
-          <Route path='/sample' element={<ProfilePage />} />
-          <Route path='/tutorials' element={<VideoPage />} />
-=======
           <Route path='/login' element={ <Login  setAppState={setAppState} /> } />
           <Route path='/favorites' element={ <Favorites appState={appState} user={appState?.user}  />} />
           <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user}  />} />
@@ -136,7 +113,6 @@ export default function App() {
           <Route path='/ingredients/' element={<Ingredients />} />
           <Route path= "*" element= {<NotFound />} />
 
->>>>>>> a4e0e80e79c2aa25583d534e6e0b33d25f1f4f5b
         </Routes>
         </> : null }
       <Footer/>

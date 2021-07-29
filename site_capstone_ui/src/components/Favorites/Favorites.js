@@ -49,4 +49,4 @@ function Favorites ( { user, setUser })  {
   );
 }
 
-export default Favorites;
+export default Favorites;*/
