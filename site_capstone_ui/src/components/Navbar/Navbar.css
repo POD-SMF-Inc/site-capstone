@@ -3,7 +3,7 @@
     display: flex;
     justify-content:space-evenly;
     padding: 5px;
-    height: 45px;
+    height: 50px;
     align-items: center;
     
   }
@@ -42,7 +42,7 @@
     margin-bottom: 30px;
     position: right;
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 25px;
     width: 150px;
     font-weight:bold;
     font-family: "Open Sans", Hebrew;
@@ -90,7 +90,7 @@
     }
 
     a:active {
-      color:white;
+      color:#00CED1;
     }
 
     

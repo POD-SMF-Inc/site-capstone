@@ -5,12 +5,15 @@ import Card from '../Card/Card';
 import { useNavigate } from "react-router-dom"
 import apiClient from "../../services/apiClient"
 import PageH from '../PageH/PageH'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 export default function Register({ user, setUser, setAppState }) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
+  const [passwordShown, setPasswordShown] = useState(false);
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
@@ -19,6 +22,11 @@ export default function Register({ user, setUser, setAppState }) {
     password: "",
     passwordConfirm: ""
   })
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+
 
   useEffect(() => {
     if (user?.username) {
@@ -100,7 +108,7 @@ export default function Register({ user, setUser, setAppState }) {
     <div className="Register">
       <div className="splash-image" style={{ backgroundImage: `url(https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)` }}>
     
-      <Card className ="register-card">
+      <Card className ="registercard">
       <PageH sectionName='Create an Account'/>
       <div className='formR'>
         <div className='formR-fields'>
@@ -149,7 +157,7 @@ export default function Register({ user, setUser, setAppState }) {
           <div className="formR-input">
             <label align='left' htmlFor="password">Password</label>
             <input 
-            type="password" 
+            type={passwordShown ? "text" : "password"} 
             name="password" 
             placeholder="password" value={form.password} 
             onChange={handleOnInputChange}/>
@@ -159,13 +167,15 @@ export default function Register({ user, setUser, setAppState }) {
           <div className="formR-input">
             <label align='left' htmlFor="passwordConfirm">Confirm Password</label>
             <input 
-            type="password" 
+            type={passwordShown ? "text" : "password"} 
             name="passwordConfirm"
              placeholder="confirm password" 
              value={form.passwordConfirm} 
              onChange={handleOnInputChange}/>
             {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+            <i onClick={togglePasswordVisiblity}>Show password {eye} </i>
           </div>
+          
           <p className="to-login">
                          Already have an account? Login <Link to="/login">here.</Link>
           </p>

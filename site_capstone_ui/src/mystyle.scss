@@ -1,0 +1,11 @@
+// 1. Import the initial variables
+@import "../sass/utilities/initial-variables";
+@import "../sass/utilities/functions";
+
+// 2. Set your own initial variables
+// Update blue
+$blue: #72d0eb;
+$pink: #ffb3b3;
+$primary: $pink;
+// 6. Import the rest of Bulma
+@import "../bulma";

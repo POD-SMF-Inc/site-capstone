@@ -33,7 +33,7 @@ export default function Meal ({ meal }) {
 
   return (
     <article>
-      <h1>{meal.title}</h1>
+      <h2>{meal.title}</h2>
       <img src={imageUrl} alt="recipe" />
       <ul className="instructions">
         <li>Preparation time: {meal.readyInMinutes} minutes</li>

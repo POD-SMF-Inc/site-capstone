@@ -19,7 +19,14 @@ import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
-import ProfilePage from "../ProfilePage/ProfilePage"
+
+import ThemeContextProvider from "../../contexts/ThemeContext";
+import Chatbot from "../Chatbot/Chatbot"
+//import { GlobalProvider } from '../../contexts/GlobalState';
+
+
+//import ProfilePage from "../ProfilePage/ProfilePage"
+
 import NotFound from "../NotFound/NotFound"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
 import API from '../../services/apiClient';
@@ -92,6 +99,7 @@ export default function App() {
 
 
   return (
+    <ThemeContextProvider>
     <LocalDataState>
     <div className="App">
         {!isLoading ? 
@@ -112,15 +120,21 @@ export default function App() {
           <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
           <Route path='/ingredients/' element={<Ingredients />} />
           <Route path='/tutorials' element={<VideoPage />} />
+          <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
           <Route path= "*" element= {<NotFound />} />
 
         </Routes>
         </> : null }
+
+
       <Footer/>
+
     </div>
     </LocalDataState>
+    </ThemeContextProvider>
   )
 }
+// </LocalDataState>
 //<Footer/>
 //<Route path='/prac' element={<Practice />} />
 //<Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
