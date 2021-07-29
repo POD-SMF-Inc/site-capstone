@@ -2,15 +2,16 @@ import axios from "axios"
 
 class ApiClient {
   constructor(remoteHostUrl) {
-    this.remoteHostUrl = remoteHostUrl
-    this.token = null
-    this.tokenName = "recipe-book-token"
+    this.remoteHostUrl = remoteHostUrl;
+		this.tokenName = "tracker_token";
+		this.token = localStorage.getItem(this.tokenName);
   }
 
   setToken(token) {
     this.token = token
     localStorage.setItem(this.tokenName, token)
   }
+
 
   async request({ endpoint, method = `GET`, data = {} }) {
     const url = `${this.remoteHostUrl}/${endpoint}`
@@ -20,11 +21,14 @@ class ApiClient {
       Authorization: this.token ? `Bearer ${this.token}` : "",
     }
 
+    if (this.token) {
+      headers["Authorization"] = `Bearer ${this.token}`
+    }
+
     try {
       const res = await axios({ url, method, data, headers })
       return { data: res.data, error: null }
     } catch (error) {
-      console.error("APIclient.makeRequest.error:")
       console.error({ errorResponse: error.response })
       const message = error?.response?.data?.error?.message
       return { data: null, error: message || String(error) }
@@ -70,8 +74,8 @@ class ApiClient {
   }
 
 
-async fetchUserSurvey() {
-  return await this.request({ endpoint: `survey`, method: `GET`})
+async fetchUserSurvey(user) {
+  return await this.request({ endpoint: `survey`, method: `GET`, data: user })
 }
 
 async surveyInfo(survey) {

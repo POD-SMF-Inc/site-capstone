@@ -1,0 +1,10 @@
+.NotFound h1 {
+    text-align: center;
+}
+
+.NotFound img {
+    width: 60px;
+    display: flex;
+    margin-left: 50%;
+    margin-right: 50%;
+}

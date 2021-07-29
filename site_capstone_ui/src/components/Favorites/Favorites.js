@@ -10,36 +10,43 @@ export default function Favorites() {
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
-const Favorites = () => {
-    const [favourites, setFavourites] = useState([]);
+
+import './Favorites.css';
 
 
-    useEffect(() => {
-		const foodFavourites = JSON.parse(
-			localStorage.getItem('recipe-book-favourites')
-		);
+function Favorites ( { user, setUser })  {
 
-		if (foodFavourites) {
-			setFavourites(foodFavourites);
-		}
-	}, []);
     
-    const saveToLocalStorage = (items) => {
-		localStorage.setItem('recipe-book-favourites', JSON.stringify(items));
-	};
+  const  {favs}  = useContext(LocalDataContext);
 
-    const addFavourite = (element) => {
-		const newFavouriteList = [...favourites, element];
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
-	};
+  if (!user?.username) {
+    return <NotAuthorized user={user} setUser={setUser}/>
+} 
 
-	const removeFavourite = (element) => {
-		const newFavouriteList = favourites.filter(
-			(favourite) => favourite.element !== element.element
-		);
+  return (
+    <div className="favorites-page">
+      <h1>Your Favorites</h1>
+      {favs.length ? (
+        <div className="favorites-list">
+          {favs.map((fav) => (
+            <MealList key={fav.id} mealData={fav} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-fav-list">
+          <div className="empty-message">
+            <span>You don't have any favorite recipes yet!</span>
+          </div>
 
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
-	};
-}*/
+          <img
+            className="heart-logo"
+            src={HeartLogo}
+            alt="heart"
+          ></img>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Favorites;

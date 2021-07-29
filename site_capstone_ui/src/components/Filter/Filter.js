@@ -2,7 +2,9 @@ import "./Filter.css"
 import { useState } from "react"
 import Search from "../Search/Search"
 import Collapsible from "../Collapsible/Collapsible"
-export default function Filter() {
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
+
+export default function Filter( { user, setUser } ) {
     const [query, setQuery] = useState("")
     let cuisine = []
     let intolerances = []
@@ -23,6 +25,10 @@ export default function Filter() {
         console.log("query: ", query)
     }
     */
+
+     if (!user?.username) {
+        return <NotAuthorized user={user} setUser={setUser}/>
+    } 
 
     const handleCheck = (event) => {
         setCheck((f) => ({ ...f, [event.target.name]: event.target.checked }))

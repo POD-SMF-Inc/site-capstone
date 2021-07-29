@@ -27,6 +27,9 @@ class User {
         })
         
         const user = await User.fetchUserByUsername(credentials.username)
+        if (!user) {
+            throw new UnauthorizedError("Invalid username")
+        }
         if (user) {
             const isValid = await bcrypt.compare(credentials.password, user.password)
             if (isValid) {
@@ -34,7 +37,7 @@ class User {
             }
         }
 
-        throw new UnauthorizedError("Invalid username/password")
+        throw new UnauthorizedError("Invalid password")
     }
 
     static async register(credentials)

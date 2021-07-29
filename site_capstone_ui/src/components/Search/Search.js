@@ -2,6 +2,7 @@ import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
 import { useEffect, useState} from "react"
 import APIR from '../../services/apiCalls'
 import { Link, useNavigate } from "react-router-dom"
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import "./Search.css"
 
 export default function Search({ query, cuisine, dietS, typeS, intolerances }){
@@ -64,6 +65,12 @@ export default function Search({ query, cuisine, dietS, typeS, intolerances }){
         fetchRandom()   
     }, [])
     */
+
+  //  if (!user?.username) {
+  //      return <NotAuthorized user={user} setUser={setUser}/>
+  //  }
+    
+    
     return (
         <div className="SearchPage">
             <div className="buttonS">

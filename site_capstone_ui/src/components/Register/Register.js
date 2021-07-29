@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import Card from '../Card/Card';
 import { useNavigate } from "react-router-dom"
-import API from '../../services/apiClient'
+import apiClient from "../../services/apiClient"
 import PageH from '../PageH/PageH'
 
 
-export default function Register({ setAppState }) {
+export default function Register({ user, setUser, setAppState }) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -19,6 +19,12 @@ export default function Register({ setAppState }) {
     password: "",
     passwordConfirm: ""
   })
+
+  useEffect(() => {
+    if (user?.username) {
+      navigate("/")
+    }
+  }, [user, navigate])
 
   const handleOnInputChange = (event) => {
     setErrors((e) => ({ ...e, form: null }))
@@ -50,7 +56,7 @@ export default function Register({ setAppState }) {
     setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
   }
 
-  const handleOnSubmit = async (event) => {
+  const handleOnSubmit = async () => {
     setIsLoading(true)
     setErrors((e) => ({ ...e, form: null }))
 
@@ -69,21 +75,21 @@ export default function Register({ setAppState }) {
       setErrors((e) => ({ ...e, email: null }))
     }
 
-    const { data, error } = await API.signupUser({
+    const { data, error } = await apiClient.signupUser({
       email: form.email,
       password: form.password,
       username: form.username,
       first_name: form.first_name,
       last_name: form.last_name
     })
-    if (data) {
-      API.setToken(data.token)
-      setAppState((a) => ({...a, user: data.user}))
-    }
+
     if (error) {
       setErrors((e) => ({ ...e, form: error }))
-      setIsLoading(false)
-      return
+    }
+
+    if (data) {
+      setAppState((a) => ({...a, user: data.user}))
+      apiClient.setToken(data.token)
     }
 
     setIsLoading(false)

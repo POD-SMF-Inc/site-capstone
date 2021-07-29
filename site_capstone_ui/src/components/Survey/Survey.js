@@ -1,8 +1,4 @@
-import { useNavigate } from "react-router-dom"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
-
-//skip button 
-
 import "./Survey.css"
 import Card from '../Card/Card';
 import PageH from '../PageH/PageH'
@@ -11,7 +7,8 @@ import PageH from '../PageH/PageH'
 
 export default function Survey () {
 
-  const { form, errors, isLoading, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
+  const { form, errors, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
+
 
     return (
       <div className="Survey">
@@ -46,7 +43,7 @@ export default function Survey () {
               <input 
               type='cuisines' 
               name='cuisines' 
-              placeholder='for example: chicken alfredo pasta' 
+              placeholder='for example: Italian food' 
               value={form.cuisines} 
               onChange={handleOnInputChange}/>
             </div>
@@ -55,6 +52,7 @@ export default function Survey () {
               <input 
               type='description' 
               name='description' 
+              placeholder= 'for example: I enjoy long walks on the beach'
               value={form.description} 
               onChange={handleOnInputChange}/>
             </div>
@@ -72,12 +70,13 @@ export default function Survey () {
               <input 
               type='schoolName' 
               name='schoolName' 
+              placeholder= 'for example: Columbia University'
               value={form.schoolName} 
               onChange={handleOnInputChange}/>
             </div>
             {errors.form && <span className="error">{errors.form}</span>}
             <button className='save-btn' onClick={handleOnSubmitSave}> 
-            {isLoading ? <>Loading</> : <>Save</>}
+            {<>Save</>}
           </button>
           </div>
         </div>
