@@ -1,3 +1,11 @@
+import "./Favorite.css"
+export default function Favorites() {
+	return (
+		<div className="FavoritesPage">
+			<h1>In Favorites</h1>
+		</div>
+	)
+}
 /*import React, { useState, useEffect } from 'react';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';

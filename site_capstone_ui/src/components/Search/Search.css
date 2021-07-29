@@ -1,5 +1,5 @@
 .SearchPage {
-    background-color: deeppink;
+    /* background-color: deeppink; */
     display: flex;
     flex-direction: column;
 }
@@ -8,19 +8,18 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: dodgerblue;
+    /* background-color: dodgerblue; */
 }
 
 .SearchPage .buttonS button {
     padding: 5px;
     border-radius: 5px;
     margin-right: 10px;
-    background-color:hotpink;
+    background-color:rgb(189, 158, 118);
     border-color: black;
     font-size: 20px;
 }
 
 .SearchPage .buttonS button:hover {
     box-shadow: 0 8px 16px 0 #2c4147;
-    padding: 6px
 }

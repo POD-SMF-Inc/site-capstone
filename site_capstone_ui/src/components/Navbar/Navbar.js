@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
+
 export default function Navbar( { user, handleLogout }) {
   const isAuthenticated = Boolean(user?.email)
 
@@ -12,6 +13,7 @@ export default function Navbar( { user, handleLogout }) {
         <Link to='/favorites'>Favorites</Link>
         <Link to='/planner' >Planner</Link>
         <Link to='/explore'>Explore</Link>
+        <Link to='/tutorials'>Tutorials</Link>
         {isAuthenticated ? 
         <button className="logout-link" onClick={handleLogout}>Logout</button> : 
         <>

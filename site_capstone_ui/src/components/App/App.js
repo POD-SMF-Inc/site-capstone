@@ -9,8 +9,8 @@ import Footer from '../Footer/Footer';
 import API from '../../services/apiClient'
 import Planner from '../Planner/Planner';
 import Details from '../Details/Details';
-
-
+import VideoPage from '../VideoPage/VideoPage';
+import Favorites from '../Favorites/Favorites';
 import Profile from '../Profile/Profile';
 import Survey from "../Survey/Survey"
 
@@ -19,6 +19,7 @@ import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
+import ProfilePage from "../ProfilePage/ProfilePage"
 
 export default function App() {
 
@@ -33,12 +34,16 @@ export default function App() {
     setErrors(null)
   }
 
+
+
+
     /** Fetch user by token generated */
   useEffect(() => {
     const fetchUser = async () => {
       setIsLoading(true)
       console.log("refresh")
       const { data } = await API.fetchUserFromToken()
+      console.log("data: ", data)
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
       }
@@ -67,7 +72,7 @@ export default function App() {
           <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
           <Route path='/planner' element={ <Planner  setAppState={setAppState}/>} />
           <Route path='/profile' element={ <Profile  setAppState={setAppState}/>} />
-
+          <Route path='/favorites' element={<Favorites />}/>
           
           
 
@@ -78,6 +83,8 @@ export default function App() {
           <Route path='/explore' element={<Filter />} />
           <Route path='/ingredients' element={<Ingredients />} />
           <Route path='/details/:idNum' element={<Details />} />
+          <Route path='/sample' element={<ProfilePage />} />
+          <Route path='/tutorials' element={<VideoPage />} />
         </Routes>
         </> : null }
       </BrowserRouter>

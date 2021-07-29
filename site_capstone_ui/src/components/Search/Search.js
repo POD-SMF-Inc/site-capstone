@@ -4,7 +4,7 @@ import APIR from '../../services/apiCalls'
 import { Link, useNavigate } from "react-router-dom"
 import "./Search.css"
 
-export default function Search({ query, cuisine, dietS, typeS}){
+export default function Search({ query, cuisine, dietS, typeS, intolerances }){
     
     /*
     console.log("diet2: ", dietS)
@@ -16,10 +16,11 @@ export default function Search({ query, cuisine, dietS, typeS}){
         query: query,
         cuisine: cuisine,
         diet: dietS,
-        meal_type: typeS
+        meal_type: typeS,
+        intolerances: intolerances
     }
 
-    //console.log("choices: ", choices)
+    console.log("choices: ", choices)
     const [randomRecipe, setRandomRecipe] = useState([])
 
 
@@ -69,7 +70,7 @@ export default function Search({ query, cuisine, dietS, typeS}){
                 <button type="submit" onClick={handleOnSubmit}>Search</button>
                 <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
             </div>
-            <SearchRecipeRoute randomRecipe={randomRecipe}/>
+                <SearchRecipeRoute randomRecipe={randomRecipe}/>
         </div>
     )
 }
