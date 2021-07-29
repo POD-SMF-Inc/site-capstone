@@ -37,11 +37,13 @@ class ApiClient {
 
   async addToFav(info)
   {
+    console.log("info add: ", info)
     return await this.request({ endpoint: `favorites/add`, method: `POST`, data: info })
   }
 
   async removeFromFav(info)
   {
+    console.log("delete info func:", info)
     return await this.request({ endpoint: `favorites/remove`, method: `DELETE`, data: info })
   }
 
@@ -52,7 +54,8 @@ class ApiClient {
 
   async checkFav(info)
   {
-    return await this.request({ endpoint: `favorites/check`, method: `GET`, data: info })
+    console.log("info," , info)
+    return await this.request({ endpoint: `favorites/check/${info}`, method: `GET`})
   }
 
   

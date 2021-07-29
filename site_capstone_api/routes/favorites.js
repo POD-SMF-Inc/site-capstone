@@ -44,11 +44,11 @@ router.delete("/remove", security.requireAuthenticatedUser, async (req, res, nex
     }
 })
 
-router.get("/check", security.requireAuthenticatedUser, async (req, res, next) => {
+router.get("/check/:infoId", security.requireAuthenticatedUser, async (req, res, next) => {
     try {
         const { user } = res.locals
-        console.log("req body: ", req.body)
-        const favorites = await Favorites.checkInFavorites({ recipeInfo: req.body, user })
+        console.log("req body: ", req.params.infoId)
+        const favorites = await Favorites.checkInFavorites({ recipeInfo: req.params.infoId, user })
         return res.status(201).json({ favorites }) 
     }
     catch(err)

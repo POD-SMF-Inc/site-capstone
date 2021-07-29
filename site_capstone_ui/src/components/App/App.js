@@ -22,7 +22,7 @@ import Ingredients from "../Ingredients/Ingredients"
 import ProfilePage from "../ProfilePage/ProfilePage"
 import NotFound from "../NotFound/NotFound"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
-
+import API from '../../services/apiClient';
 
 
 export default function App() {
@@ -78,7 +78,7 @@ export default function App() {
   useEffect(() => {
     const fetchInfo = async () => {
       const { data, error } = await apiClient.fetchUserSurvey(user)
-      if (data[0]) {
+      if (data) {
         setSurvey(data[0])
       }
       if (error) {
@@ -111,6 +111,7 @@ export default function App() {
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
           <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
           <Route path='/ingredients/' element={<Ingredients />} />
+          <Route path='/tutorials' element={<VideoPage />} />
           <Route path= "*" element= {<NotFound />} />
 
         </Routes>

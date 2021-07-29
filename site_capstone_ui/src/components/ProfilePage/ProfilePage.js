@@ -1,4 +1,4 @@
-import "./ProfilePage.css"
+
 import { useEffect, useState } from "react"
 import apiClient from "../../services/apiClient"
 export default function ProfilePage()
