@@ -2,7 +2,8 @@
 .footer{
     margin-top: 1rem;
     padding: 1rem;
-    height: px;
+    height: 35px; 
+
     background-color: #333;
     position:fixed;
     bottom: 0;

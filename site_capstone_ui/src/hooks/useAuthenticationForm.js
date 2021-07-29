@@ -15,7 +15,7 @@ export const useAuthenticationForm = ({ user }) => {
 
   useEffect(() => {
     if (user?.username) {
-      navigate("/home")
+      navigate("/")
     }
   }, [user, navigate])
 

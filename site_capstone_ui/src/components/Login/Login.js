@@ -9,7 +9,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 
-export default function Login({ handleLogIn, setAppState, user, setUser }) {
+export default function Login({ setAppState, user }) {
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})
@@ -24,10 +24,12 @@ export default function Login({ handleLogIn, setAppState, user, setUser }) {
     };
 
     useEffect(() => {
+      // if user is already logged in, redirect them to the homepage
       if (user?.username) {
         navigate("/")
       }
     }, [user,navigate])
+
   
     const handleOnInputChange = (event) => {
       setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
@@ -40,14 +42,18 @@ export default function Login({ handleLogIn, setAppState, user, setUser }) {
   
       const { data, error } = await apiClient.loginUser({ username: form.username, password: form.password })
 
-      if (error) {
-        setErrors((e) => ({ ...e, form: error }))
-      }
-
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
         apiClient.setToken(data.token)
       }
+
+      if (error) {
+        setErrors((e) => ({ ...e, form: error }))
+        console.log(errors)
+        setIsLoading(false)
+        return
+      }
+
 
       setIsLoading(false)
       navigate("/")
@@ -80,13 +86,17 @@ export default function Login({ handleLogIn, setAppState, user, setUser }) {
               placeholder='password' 
               value={form.password} 
               onChange={handleOnInputChange}/>
+
               <i onClick={togglePasswordVisiblity}>Show password {eye} </i>
+
+              {errors.password && <span className="error">{errors.password}</span>}
+
             </div>
             <div className='login-footer'>
                 <p>Don't have an account? Sign up <Link to="/register">here</Link></p>
             </div>
             {errors.form && <span className="error">{errors.form}</span>}
-            <button className='login-btn' onClick={handleOnSubmit}>
+            <button className='login-btn' disabled= {isLoading} onClick={handleOnSubmit}>
               {isLoading ? <>Loading</> : <>Login</>}
             </button>
           </div>

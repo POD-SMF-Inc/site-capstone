@@ -3,12 +3,12 @@ const Survey = require("../models/survey")
 const security = require("../middleware/security")
 const router = express.Router()
 
-router.get("/", security.requireAuthenticatedUser, async (req,res,next) => {
+router.get("/", security.requireAuthenticatedUser, async(req,res,next) => {
     try {
         //  survey log
       const { user } = res.locals
       const survey = await Survey.fetchSurvey({ user })
-      return res.status(201).json(survey)
+      return res.status(200).json({ survey })
     } catch (err) {
       next (err)
     }
@@ -20,7 +20,7 @@ router.get("/", security.requireAuthenticatedUser, async (req,res,next) => {
     try {
       const { user } = res.locals
       const survey = await Survey.insertInfo({ profile: req.body, user })
-      return res.status(200).json({ survey })
+      return res.status(201).json({ survey })
     } catch (err) {
       next(err)
     }

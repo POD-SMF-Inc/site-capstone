@@ -1,5 +1,5 @@
 import './Profile.css'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
 //import IntroductionP from '../IntroductionP/IntroductionP'
@@ -11,31 +11,44 @@ import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 //import { ThemeContext } from "../../contexts/ThemeContext";
 
-function Profile({ user, setUser }) {
+
+
   
   
-     
-  console.log("user:", user)
+function Profile({ user, setUser, appState, survey }) {
 
-  const showActivity = () => 
-  {
-    if (!user?.username) {
-      return <NotAuthorized user={user} setUser={setUser}/>
 
-  }
+  if (!user?.username) {
+    return <NotAuthorized user={user} setUser={setUser}/>
+} 
+
 
 
 
   return (
+
     <div className="Profile">
       
+
+    <div className="Profile"> 
+
         <div style={{ height: 900, overflow: "auto" }}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <StickyBox offsetTop={20} offsetBottom={20}>
               <Sidebar />
             </StickyBox>
-            <div>
-        
+            <div className="surveyInfo"> 
+              <div className= "info">
+                <div> Diet: <span> {survey.diet} </span> </div>
+                  <div> Intolerances: <span>{survey.intolerances} </span> </div>
+                  <div> Cuisines: <span>{survey.cuisines} </span></div>
+                  <div> Description: <span> {survey.description} </span> </div>
+                  <div> Location: <span> {survey.location} </span> </div> 
+                  <div> School: <span> {survey.schoolName} </span> </div> 
+                  </div>
+                  </div>
+              
+      
                 <Banner />
                 <br />
                 <h6>Favorite Recipes</h6>
@@ -49,19 +62,9 @@ function Profile({ user, setUser }) {
             
           </div>
         </div>
-      </div>
-  )
+  );
+            }
 
-       
-        }
-        
-    return (
-      <div className="ProfilePage">
-        {showActivity()}
-            </div>
-            
-    )
-  }
   
   export default Profile;
   

@@ -76,6 +76,7 @@
   .login-btn:hover {
     background-color: #20a8ca;
   }
+  
   .error {
     font-family: 'Crimson Text', serif;
     color: red;

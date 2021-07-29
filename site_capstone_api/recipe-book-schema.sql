@@ -21,3 +21,10 @@ CREATE TABLE profile (
     schoolName TEXT,
     user_id INTEGER NOT NULL
 );
+
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    food_id INTEGER NOT NULL,
+    title TEXT,
+    user_id INTEGER NOT NULL
+);

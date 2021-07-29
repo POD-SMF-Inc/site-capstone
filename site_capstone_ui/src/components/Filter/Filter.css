@@ -11,7 +11,7 @@
     flex-direction: column;
     padding-left: 10px;
     border-right: solid 1px #000000;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .searchSec .filter .title h1 {
@@ -68,39 +68,40 @@
 
 
 .searchSec .Search {
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     width: 100%;
 }
 
 .searchSec .Search .query {
-    background-color: chartreuse;
+    /*background-color: chartreuse;*/
     display: flex;
     flex-direction: row;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     justify-content: center;
 }
 
 .searchSec .Search .query label {
-    background-color: rgb(149, 134, 214);
+    /*background-color: rgb(149, 134, 214);*/
     font-size: 20px;
     padding-right: 10px;
     padding-top: 5px;
 }
 
 .searchSec .Search .query input {
-    width: 100px;
+    width: 200px;
 }
 
 .searchSec .filter .check {
     display: flex;
     flex-direction: column;
-    background-color: crimson;
+    /*background-color: crimson;*/
 }
 
 .searchSec .filter .check .checkTitle h3{
     float: left;
-    background-color: chocolate;
+    /* background-color: chocolate; */
 }
 
 .searchSec .filter .check .checkChoices input {
@@ -108,6 +109,26 @@
 }
 
 .searchSec .filter .check .checkChoices span {
-    background-color: darkmagenta;
+    /* background-color: darkmagenta; */
+    font-size: 15px;
+}
+
+.searchSec .filter .checkInlo {
+    display: flex;
+    flex-direction: column;
+    /*background-color: crimson;*/
+}
+
+.searchSec .filter .checkInlo .checkInTitle h3{
+    float: left;
+    /* background-color: chocolate; */
+}
+
+.searchSec .filter .checkInlo .checkInChoices input {
+    width: 10px;
+}
+
+.searchSec .filter .checkInlo .checkInChoices span {
+    /* background-color: darkmagenta; */
     font-size: 15px;
 }

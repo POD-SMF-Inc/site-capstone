@@ -35,6 +35,26 @@ class ApiClient {
     }
   }
 
+  async addToFav(info)
+  {
+    return await this.request({ endpoint: `favorites/add`, method: `POST`, data: info })
+  }
+
+  async removeFromFav(info)
+  {
+    return await this.request({ endpoint: `favorites/remove`, method: `DELETE`, data: info })
+  }
+
+  async getFavs()
+  {
+    return await this.request({ endpoint: `favorites`, method: `GET` })
+  }
+
+  async checkFav(info)
+  {
+    return await this.request({ endpoint: `favorites/check`, method: `GET`, data: info })
+  }
+
   
   async fetchUserFromToken() {
     return await this.request({ endpoint: `auth/me`})
@@ -54,8 +74,8 @@ class ApiClient {
   }
 
 
-async fetchUserSurvey() {
-  return await this.request({ endpoint: `survey`, method: `GET`})
+async fetchUserSurvey(user) {
+  return await this.request({ endpoint: `survey`, method: `GET`, data: user })
 }
 
 async surveyInfo(survey) {

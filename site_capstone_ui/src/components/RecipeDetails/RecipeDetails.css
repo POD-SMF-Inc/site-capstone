@@ -1,0 +1,165 @@
+.RecipeDetail img {
+    width: 400px;
+    border-radius: 6px;
+    /* border: 2px solid black; */
+}
+
+/* .RecipeDetail .sideByA .nutritionInfo {
+    background-color: chocolate;
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid black;
+     padding: 20px; 
+    width: 200px;
+     height: 150px; 
+} */
+
+.RecipeDetail .sideByA .aboutRec {
+    display: flex;
+    flex-direction: column;
+    /* background-color: blueviolet; */
+}
+
+.RecipeDetail .sideByA {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* flex-basis: 100%; */
+    /* background-color: chartreuse; */
+}
+
+.RecipeDetail .infoMeal .sepIng img{
+    width: 50px;
+    height: 50px;
+}
+
+.RecipeDetail .infoMeal{
+    background-color: #FAEBD7;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    max-width: 500px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 6px;
+}
+
+.RecipeDetail .infoMeal .ingTitleN {
+    /* background-color: cyan; */
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: -20px;
+}
+
+.RecipeDetail .infoMeal .sepIng {
+    font-size: 20px;
+    /* background-color: crimson; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.RecipeDetail .infoMeal .sepIng input {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    margin-bottom: unset;
+}
+
+
+
+.RecipeDetail .steps .equipment img{
+    width: 50px;
+    height: 50px;
+}
+
+.RecipeDetail .steps .ingred img{
+    width: 50px;
+    height: 50px;
+}
+
+.RecipeDetail .sideByA .aboutRec .recipeDTitle h1 {
+    font-size: 30px;
+    background-color: #FFF0F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.RecipeDetail {
+    background-color: #F0F8FF;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+.RecipeDetail .priceInfo {
+    background-color: white;
+    /* display: flex;
+    flex-direction: column; */
+    max-width: 400px;
+    width: 320px;
+    height: 90px;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.RecipeDetail .priceInfo .pricePic img {
+    width: 50px;
+    height: 50px;
+    border: unset;
+    margin: unset;
+}
+
+.RecipeDetail .priceInfo .pricePic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.RecipeDetail .priceInfo .priceText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.RecipeDetail .priceInfo .priceText img {
+    width: 40px;
+    height: 40px;
+    border: unset;
+    margin: unset;
+}
+
+.RecipeDetail .summarydetails {
+    background-color: #FFF0F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo {
+    background-color: white;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .nutriTitle{
+    background-color: darkorchid;
+}
+
+

@@ -2,6 +2,14 @@
   background-color: #F0F8FF;
 }
 
+.surveyInfo {
+  background-color: red;
+}
+
+.info,.card,.null {
+  color: purple;
+}
+
 .sidebar {
   background-color: #fff; 
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.4);

@@ -1,17 +1,19 @@
 import "./Filter.css"
 import { useState } from "react"
 import Search from "../Search/Search"
+import Collapsible from "../Collapsible/Collapsible"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 export default function Filter( { user, setUser } ) {
-    console.log("userfromFilter:", user)
     const [query, setQuery] = useState("")
     let cuisine = []
+    let intolerances = []
     //const [cuisine, setCuisine] = useState([])
     
     const [dietS, setDietS] = useState("")
     const [typeS, setTypeS] = useState("")
     const [check, setCheck] = useState({})
+    const [intol, setIntol] = useState({})
 
     /*
     function handleData(event)
@@ -32,21 +34,28 @@ export default function Filter( { user, setUser } ) {
         setCheck((f) => ({ ...f, [event.target.name]: event.target.checked }))
     }
 
-    function objectArr(object)
+    const handleCheck2 = (event) => {
+        setIntol((f) => ({ ...f, [event.target.name]: event.target.checked }))
+    }
+
+    function objectArr(object, arrayL)
     {
         Object.entries(object).forEach(element => {
-            console.log("ele: ", element)
+            //console.log("ele: ", element)
             if (element[1] === true)
             {
-                cuisine.push(element[0])
+                arrayL.push(element[0])
             }
         })
         
     }
 
-    objectArr(check)
+    objectArr(check, cuisine)
+    objectArr(intol, intolerances)
     //setCuisine(cusArr)
     console.log(cuisine)
+    console.log("intol: ", intolerances)
+
     //create a function to check whether checkboxes were fixed yes
     // if they were then append them to the thing
 
@@ -67,6 +76,7 @@ export default function Filter( { user, setUser } ) {
                             <select onChange={(e) => setDietS(e.target.value)}>
                                 <option>Select</option>
                                 <option>Gluten Free</option>
+                                <option>Gluten</option>
                                 <option>Ketogenic</option>
                                 <option>Vegetarian</option>
                                 <option>Lacto-Vegetarian</option>
@@ -109,6 +119,7 @@ export default function Filter( { user, setUser } ) {
                         <div className="checkTitle">
                             <h3>Cuisine</h3>
                         </div>
+                        <Collapsible label="Select Cuisine">
                         <div className="checkChoices">
                             <input type="checkbox" name="african" onChange={handleCheck}/><span>African</span>
                             <input type="checkbox" name="american" onChange={handleCheck}/><span>American</span>
@@ -136,15 +147,38 @@ export default function Filter( { user, setUser } ) {
                             <input type="checkbox" name="thai" onChange={handleCheck}/><span>Thai</span>
                             <input type="checkbox" name="vietnamese" onChange={handleCheck}/><span>Vietnamese</span>
                         </div>
+                        </Collapsible>
                     </div>
+                    <div className="checkInlo">
+                        <div className="checkInTitle">
+                            <h3>Intolerances</h3>
+                            <Collapsible label="Select Intolerances">
+                                <div className="checkInChoices">
+                                    <input type="checkbox" name="dairy" onChange={handleCheck2}/><span>Dairy</span>
+                                    <input type="checkbox" name="egg" onChange={handleCheck2}/><span>Egg</span>
+                                    <input type="checkbox" name="gluten" onChange={handleCheck2}/><span>Gluten</span>
+                                    <input type="checkbox" name="grain" onChange={handleCheck2}/><span>Grain</span>
+                                    <input type="checkbox" name="peanut" onChange={handleCheck2}/><span>Peanut</span>
+                                    <input type="checkbox" name="seafood" onChange={handleCheck2}/><span>Seafood</span>
+                                    <input type="checkbox" name="sesame" onChange={handleCheck2}/><span>Sesame</span>
+                                    <input type="checkbox" name="shellfish" onChange={handleCheck2}/><span>Shellfish</span>
+                                    <input type="checkbox" name="soy" onChange={handleCheck2}/><span>Soy</span>
+                                    <input type="checkbox" name="sulfite" onChange={handleCheck2}/><span>Sulfite</span>
+                                    <input type="checkbox" name="tree nut" onChange={handleCheck2}/><span>Tree Nut</span>
+                                    <input type="checkbox" name="wheat" onChange={handleCheck2}/><span>Wheat</span>
+                                </div>
+                            </Collapsible>
+                        </div>
             </div>
+            </div>
+            
             <div className="Search">
                 <div className="query">
-                    <label htmlFor="search">Search</label>
+                    {/* <label htmlFor="search">Search</label> */}
                     <input type="text" name="query" placeholder="Search Dish" 
                     onChange={(e) => setQuery(e.target.value)} />
                 </div>
-                <Search query={query} cuisine={cuisine} dietS={dietS} typeS={typeS} />
+                <Search query={query} cuisine={cuisine} dietS={dietS} typeS={typeS} intolerances={intolerances}/>
             </div>
         </div>
     )
