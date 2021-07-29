@@ -42,21 +42,25 @@ class Favorites{
     //Create function to check if recipe is in favorites
     static async checkInFavorites({ recipeInfo, user })
     {
+        console.log("checkFavorites: ", recipeInfo)
         const query = `SELECT *
         FROM favorites
         WHERE food_id = $1 AND user_id = (SELECT id FROM users WHERE username = $2)`
 
-        const result = await db.query(query, [recipeInfo.food_id, user.username])
+        const result = await db.query(query, [recipeInfo, user.username])
 
         const infoResult = result.rows[0]
-        console.log("checkFav: ", infoResult)
+        
         console.log("userL : ", user)
         if (infoResult === undefined)
         {
-            console.log("yes ")
+            console.log("yes its undefined")
+            console.log("checkFav no: ", infoResult)
             return false
         }
-        return this.favoritesInfo(infoResult)
+
+        console.log("checkFav yes: ", infoResult)
+        return true
     }
     //Create function to get favorite recipes info or id
     static async getFavorites({ user })

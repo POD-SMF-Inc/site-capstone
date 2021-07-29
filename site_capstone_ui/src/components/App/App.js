@@ -119,6 +119,7 @@ export default function App() {
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
           <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
           <Route path='/ingredients/' element={<Ingredients />} />
+          <Route path='/tutorials' element={<VideoPage />} />
           <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
           <Route path= "*" element= {<NotFound />} />
 

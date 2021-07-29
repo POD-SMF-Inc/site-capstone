@@ -4,12 +4,18 @@ import React from 'react'
 import Collapsible from "../Collapsible/Collapsible";
 import apiClient from "../../services/apiClient"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import RemoveFav from "../RemoveFav/RemoveFav";
+import AddToFav from "../AddToFav/AddToFav";
 export default function RecipeDetails({ recipe }) 
 {
     const [visible, setVisible] = useState(false)
     const [showRemove, setShowRemove] = useState(false)
     const [serving, setServing ] = useState(1)
     const buttonSec = document.querySelector("#favButton")
+    // const recipeInfo = {
+    //     food_id: recipe.id,
+    //     title: recipe.title
+    // }
     const recipeInfo = {
         food_id: recipe.id,
         title: recipe.title
@@ -17,21 +23,33 @@ export default function RecipeDetails({ recipe })
     useEffect(() => {
         const fetchRecipeId = async () => {
             try {
-                const data = await apiClient.checkFav(recipe?.id)
+                const { data, error } = await apiClient.checkFav(recipe?.id)
+                //const { data, error } = await apiClient.getFavs()
+                console.log("recipeid: ", recipe?.id)
                 if (data)
                 {
                     //If false then its not in favorites
                     console.log("data: ", data)
-                    if (!data.data.favorites)
+                    if (data.favorites)
                     {
                         //Choosing to see Favorites Button
                         //setVisible(true)
-                        buttonSec.innerHTML = `<button onClick=${handleOnSubmit}>Add To Favorites</button>`
+                        
+                        //buttonSec.innerHTML = `<AddToFav recipeInfo={recipeInfo} />`
+                        console.log("it is in the fav, " , data.favorites)
+
                     }
                     else
                     {
-                        buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
+                        
+                        console.log("not in fav", data.favorites)
+                        //buttonSec.innerHTML = ``
+                        // return (
+                        //     <RemoveFav recipeInfo={recipeInfo} />
+                        // )
+                        //buttonSec.innerHTML = `<button>Remove From Favorites</button>`
                     }
+                    
                 }
             }
             catch(error)
@@ -41,7 +59,7 @@ export default function RecipeDetails({ recipe })
         }
         fetchRecipeId()
     }, [recipe?.id])
-
+/*
     const handleOnSubmit = async () => {
         const { data, error } = await apiClient.addToFav({ recipeInfo})
         if (data)
@@ -56,7 +74,7 @@ export default function RecipeDetails({ recipe })
         {
             buttonSec.innerHTML = `<button onClick=${handleOnSubmit}>Add To Favorites</button>`
         }
-    }
+    }*/
     // state = {
     //     isExpanded: this.props.isExpandedInitially,
     // };
@@ -87,7 +105,9 @@ export default function RecipeDetails({ recipe })
     // {
     //     console.log("nah")
     // }
+    //console.log("html: ", buttonSec)
     return (
+        
         <div className="RecipeDetail">
             <div className="sideByA">
                 <div className="aboutRec">
@@ -105,7 +125,9 @@ export default function RecipeDetails({ recipe })
                 <div className="nutritionInfo">
                     {/* {visible?<button onClick={handleOnSubmit}>Add To Favorites</button> : null}
                     {showRemove?<button>Remove From Favorites</button> : null} */}
-                    <div className="favButton"></div>
+                    <AddToFav recipeInfo={recipeInfo} />
+                <RemoveFav recipeInfo={recipeInfo} /> 
+                    <div id="favButton"></div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
                     </div>
@@ -160,9 +182,7 @@ export default function RecipeDetails({ recipe })
             </div>
             <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>
             <div className="infoMeal">
-                <div className="servingButton">
-                    
-                </div>
+                
                 <div className="ingTitleN">
                     <h1>Ingredients</h1>
                 </div>
