@@ -793,7 +793,7 @@ class ApiCalls {
 }
 
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `4f70ca8c817d4e38b606fe534e185095`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `7abfa1a217ad4d16b972b6c7428d92b6`)
 
 
 

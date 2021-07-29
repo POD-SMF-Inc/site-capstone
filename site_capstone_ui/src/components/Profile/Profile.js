@@ -27,8 +27,6 @@ function Profile({ user, setUser, appState, survey }) {
 
   return (
 
-    <div className="Profile">
-      
 
     <div className="Profile"> 
 
