@@ -4,17 +4,24 @@ import "./Login.css"
 import Card from '../Card/Card';
 import PageH from '../PageH/PageH'
 import apiClient from "../../services/apiClient"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 
 export default function Login({ setAppState, user }) {
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})
+    const [passwordShown, setPasswordShown] = useState(false);
     const [form, setForm] = useState({
       username: '',
       password: ''
     })
+
+    const togglePasswordVisiblity = () => {
+      setPasswordShown(passwordShown ? false : true);
+    };
 
     useEffect(() => {
       // if user is already logged in, redirect them to the homepage
@@ -52,6 +59,8 @@ export default function Login({ setAppState, user }) {
       navigate("/")
     }
 
+    
+
     return (
       <div className="Login">
         <div className="splash-image" style={{ backgroundImage: `url(https://images.pexels.com/photos/6061396/pexels-photo-6061396.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)` }}>
@@ -72,12 +81,16 @@ export default function Login({ setAppState, user }) {
             <div className='formL-input'>
               <label align='left' htmlFor='password'>Password</label>
               <input 
-              type='password' 
+              type={passwordShown ? "text" : "password"} 
               name='password' 
               placeholder='password' 
               value={form.password} 
               onChange={handleOnInputChange}/>
+
+              <i onClick={togglePasswordVisiblity}>Show password {eye} </i>
+
               {errors.password && <span className="error">{errors.password}</span>}
+
             </div>
             <div className='login-footer'>
                 <p>Don't have an account? Sign up <Link to="/register">here</Link></p>
