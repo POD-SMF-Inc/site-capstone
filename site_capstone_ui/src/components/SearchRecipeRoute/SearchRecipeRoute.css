@@ -1,0 +1,15 @@
+.SearchRR {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1300px;
+    margin-top: 10px;
+}
+
+.SearchRR button {
+    background-color: rgb(189, 158, 118);
+    border-color: black;
+    font-size: 20px;
+    border-radius: 5px;
+    height: 40px;
+}

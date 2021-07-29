@@ -18,8 +18,21 @@ class Survey {
     }
 }
 
-static async fetchSurvey () {
+static async fetchSurvey ({ user }) {
     //returns survey form
+    const query = `SELECT profile.id,
+    profile.diet,
+    profile.intolerances,
+    profile.cuisines,
+    profile.description,
+    profile.location,
+    profile.image,
+    profile.schoolName
+    FROM profile 
+    JOIN users ON profile.user_id = users.id
+    WHERE users.username = $1`
+    const result = await db.query(query, [user.username])
+    /*
     const results = await db.query (
         `
         SELECT profile.id,
@@ -34,7 +47,9 @@ static async fetchSurvey () {
         JOIN users ON profile.user_id = users.id
         `
     ) 
-    return results
+        */
+    const profileInfo = result.rows
+    return profileInfo
 }
 
     static async insertInfo({ profile, user }) {
