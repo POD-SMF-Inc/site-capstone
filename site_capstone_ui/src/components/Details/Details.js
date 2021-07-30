@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import APIR from '../../services/apiCalls'
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
+import EquipmentC from "../EquipmentCalls/EquipmentC";
 export default function Details()
 {
     const { idNum } = useParams()
@@ -42,7 +43,7 @@ export default function Details()
     console.log("recipe: ", recipe)
         return (
             <div className="detail">
-                <RecipeDetails recipe={recipe} />
+                <EquipmentC recipe={recipe} />
             </div>
         )
 

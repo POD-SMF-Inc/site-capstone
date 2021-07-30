@@ -1,10 +1,27 @@
+.collapse .toggle {
+    background-color: #D8BFD8;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 800px;
+}
+
 .collapse {
     /*background-color: chocolate;*/
     background-color: #7ed5d6c9;
     margin-left: px;
     border-radius: 6px;
-    
-  
+    max-width: 800px;
+}
+
+.collapse .collapseInfo {
+    border: 1px solid #000000;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
 }
 
  /*.collapse .toggle button {

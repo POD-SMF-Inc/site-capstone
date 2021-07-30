@@ -126,8 +126,10 @@ export default function App() {
         </Routes>
         </> : null }
 
+
       
       <Footer/>
+
 
     </div>
     </LocalDataState>

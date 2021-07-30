@@ -28,6 +28,9 @@ class Favorites{
     //Create function to remove from favories
     static async removeFromFavorites({ recipeInfo, user })
     {
+        console.log("here")
+        console.log("Reci rem: ", recipeInfo.recipeInfo.food_id)
+        console.log("user: ", user)
         const query = `DELETE FROM favorites
             WHERE food_id = $1 AND user_id = (SELECT id FROM users WHERE username = $2)
             RETURNING *`

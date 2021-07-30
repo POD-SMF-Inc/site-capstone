@@ -1,0 +1,24 @@
+.collapseSteps {
+    max-width: 800px;
+}
+
+.collapseSteps .toggleSteps {
+    background-color: #E6E6FA;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 760px;
+    margin-bottom: 10px;
+}
+
+.collapseSteps .collapseInfoSteps {
+    background-color: #F8F8FF;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}

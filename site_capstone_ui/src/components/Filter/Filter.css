@@ -25,6 +25,7 @@
     float: center;
     font-size: 25px;
     border-bottom: solid 1px #000000;
+    margin-bottom: unset;
 }
 
 
@@ -98,7 +99,8 @@
 }
 
 .searchSec .Search .query input {
-    width: 200px;
+    width: 400px;
+    background-color:#E6E6FA;
 }
 
 .searchSec .filter .check {
