@@ -7,7 +7,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Navbar from '../Navbar/Navbar';
 //import Footer from '../Footer/Footer';
-import apiClient from '../../services/apiClient'
+import apiClient from '../../services/apiClient';
 import Planner from '../Planner/Planner';
 import Weekly from '../Weekly/Weekly';
 import Favorites from '../Favorites/Favorites';
@@ -24,7 +24,6 @@ import Chatbot from "../Chatbot/Chatbot"
 //import { GlobalProvider } from '../../contexts/GlobalState';
 //import ProfilePage from "../ProfilePage/ProfilePage"
 import NotFound from "../NotFound/NotFound"
-import apiClient from '../../services/apiClient'
 import EditProfile from "../EditProfile/EditProfile";
 
 
@@ -78,7 +77,7 @@ export default function App() {
     const fetchInfo = async () => {
       const { data, error } = await apiClient.fetchUserSurvey(user)
       if (data) {
-        setSurvey(data[0])
+        setSurvey(data.survey[0])
       }
       if (error) {
         setErrors((e) => ({ ...e, error }))

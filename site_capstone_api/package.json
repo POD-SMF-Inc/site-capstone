@@ -17,7 +17,8 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
-    "pg": "^8.6.0"
+    "pg": "^8.6.0",
+    "unirest": "^0.6.0"
   },
   "keywords": [],
   "description": ""

@@ -1,5 +1,10 @@
 import "./Favorite.css"
-export default function Favorites() {
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
+export default function Favorites( { user, setUser }) {
+
+  if (!user?.username) {
+    return <NotAuthorized user={user} setUser={setUser}/>
+} 
 	return (
 		<div className="FavoritesPage">
 			<h1>In Favorites</h1>
