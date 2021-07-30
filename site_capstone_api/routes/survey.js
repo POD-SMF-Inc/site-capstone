@@ -26,11 +26,11 @@ router.get("/", security.requireAuthenticatedUser, async(req,res,next) => {
     }
   })
 
-  router.patch("/:infoId", security.requireAuthenticatedUser, async (req, res, next) => {
+  router.patch("/", security.requireAuthenticatedUser, async (req, res, next) => {
     //updates user info
   try {
-    const { infoId } = req.params
-    const info = await Survey.updateInfo({ infoUpdate: req.body, infoId })
+    const { user } = res.locals
+    const info = await Survey.updateInfo({ infoUpdate: req.body, user })
     return res.status(200).json({ info })
   } catch (err) {
     next(err)

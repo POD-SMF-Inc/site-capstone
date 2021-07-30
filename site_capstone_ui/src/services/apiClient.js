@@ -85,6 +85,11 @@ async surveyInfo(survey) {
   return await this.request({ endpoint: `survey/survey`, method: `POST`, data: survey })
 }
 
+async updateInfo(infoUpdate) {
+  console.log("infoUp: ", infoUpdate)
+  return await this.request({ endpoint: `survey`, method: `PATCH`, data: infoUpdate })
+}
+
 }
 
 const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")

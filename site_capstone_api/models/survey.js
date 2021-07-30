@@ -43,7 +43,7 @@ static async fetchSurvey ({ user }) {
         profile.description,
         profile.location,
         profile.image,
-        profile.schoolName
+        profile.schoolName AS "schoolName"
         FROM profile
         JOIN users ON profile.user_id = users.id
         WHERE users.username = $1
@@ -80,7 +80,7 @@ static async fetchSurvey ({ user }) {
 
     }
 
-    static async updateInfo ({ infoUpdate, infoId }) {
+    static async updateInfo ({ infoUpdate, user }) {
 
         let temporaryTable = {} ;
         for (const element in infoUpdate) {
@@ -89,7 +89,7 @@ static async fetchSurvey ({ user }) {
                 `
                 UPDATE profile
                 SET ${element} = $1
-                WHERE id = $2
+                WHERE user_id = (SELECT id FROM users WHERE username = $2)
 
             RETURNING id, 
             diet, 
@@ -100,7 +100,7 @@ static async fetchSurvey ({ user }) {
             image, 
             schoolName, 
             user_id
-            `, [infoUpdate[element],infoId]
+            `, [infoUpdate[element], user.username]
             )
 
             temporaryTable = results.rows[0]

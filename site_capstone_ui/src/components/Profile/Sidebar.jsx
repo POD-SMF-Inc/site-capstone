@@ -1,6 +1,7 @@
 import React  from 'react'
 import profilepic from '../../assets/rsz_profilep.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import handleOnClick from "../Profile/Profile";
 import {
   
     faGithub,
@@ -8,15 +9,18 @@ import {
     
   } from "@fortawesome/free-brands-svg-icons";
 import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router';
 
 export default class Sidebar extends React.Component {
+
+
     state = {
         isExpanded: this.props.isExpandedInitially,
       };
+
     
     render() {
         const {isExpanded} = this.state;
-        
         //const {elements = 10} = this.props;
         return (
          /* <div className="sidebar">
@@ -85,8 +89,6 @@ export default class Sidebar extends React.Component {
                   className="linkin social"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="1.5x" /> <i class="fa fa-edit"></i> Linkedin</a></li>
-              <li><a href="#" >
-                  <FontAwesomeIcon icon={faEdit} size="1.5x" /> <i class="fa fa-edit"></i> Edit profile</a></li>
           </ul>
       
       )}

@@ -5,8 +5,6 @@ import apiClient from "../services/apiClient"
 export const useSurveyForm = () => {
   const [survey, setSurvey] = useState({})
   const navigate = useNavigate()
-
-
   const [isLoading, setIsLoading] = useState(false)
   const [form, setForm] = useState({
     diet: '',
@@ -26,7 +24,8 @@ export const useSurveyForm = () => {
     if (error) setErrors((e) => ({ ...e, form: error }))
 
     if (data) {
-      setSurvey((e) => [data.survey, ...e])
+      setSurvey(data.survey)
+      if (errors) setErrors (errors)
      // setIsLoading(false)
       navigate("/survey")
     } 
@@ -47,7 +46,7 @@ export const useSurveyForm = () => {
     if (error) setErrors((e) => ({ ...e, form: error }))
 
     if (data) {
-      setSurvey((e) => [data.survey, ...e])
+      setSurvey(data.survey)
       //setIsLoading(false)
       navigate("/profile")
     
@@ -65,7 +64,7 @@ const handleOnSubmitSkip = async () => {
   if (error) setErrors((e) => ({ ...e, form: error }))
 
   if (data) {
-    setSurvey((e) => [data.survey, ...e])
+    setSurvey(data.survey)
     //setIsLoading(false)
     navigate("/profile")
   
@@ -79,7 +78,6 @@ setIsLoading(false)
   return {
     form,
     errors,
-    survey,
     isLoading,
     handleOnSubmit,
     handleOnSubmitSave,
