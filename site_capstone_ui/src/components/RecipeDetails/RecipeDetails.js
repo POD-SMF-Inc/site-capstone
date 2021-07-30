@@ -11,6 +11,7 @@ export default function RecipeDetails({ recipe })
     const [visible, setVisible] = useState(false)
     const [showRemove, setShowRemove] = useState(false)
     const [serving, setServing ] = useState(1)
+    
     const buttonSec = document.querySelector("#favButton")
     // const recipeInfo = {
     //     food_id: recipe.id,
@@ -20,6 +21,39 @@ export default function RecipeDetails({ recipe })
         food_id: recipe.id,
         title: recipe.title
     }
+    //let fave = true;
+    /*function AddToFav ({ recipeInfo })
+    {
+        console.log("recipe in addFav: ", recipeInfo )
+        const handleOnSubmit = async () => {
+            const { data, error } = await apiClient.addToFav({ recipeInfo})
+            //let fave = true;
+
+            console.log("data in add Fav: ", data)
+        }
+        return (
+            <div className="AddToFav">
+                <button onClick={handleOnSubmit}>Add To Favorites</button>
+            </div>
+        )
+    }
+
+    function RemoveFav ({ recipeInfo })
+{
+    console.log("recipe in deleteFav: ", recipeInfo )
+    const handleOnSubmit = async () => {
+        const { data, error } = await apiClient.removeFromFav({ recipeInfo})
+        //fave = false;
+        console.log("data in delete Fav: ", data)
+    }
+    return (
+        <div className="RemoveFav">
+            <button onClick={handleOnSubmit}>Remove From Favorites</button>
+        </div>
+    )
+}
+*/
+
     useEffect(() => {
         const fetchRecipeId = async () => {
             try {
@@ -59,22 +93,26 @@ export default function RecipeDetails({ recipe })
         }
         fetchRecipeId()
     }, [recipe?.id])
-/*
+    //let fave = false;
     const handleOnSubmit = async () => {
+        //fave=true; 
         const { data, error } = await apiClient.addToFav({ recipeInfo})
-        if (data)
+        setVisible(true);
+        /*if (data)
         {
             buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
-        }
+        }*/
     }
 
     const handleRemove = async () => {
+       // fave= false;
         const { data, error } = await apiClient.removeFromFav({ recipeInfo })
-        if (data)
+        setVisible(true);
+        /*if (data)
         {
             buttonSec.innerHTML = `<button onClick=${handleOnSubmit}>Add To Favorites</button>`
-        }
-    }*/
+        }*/
+    }
     // state = {
     //     isExpanded: this.props.isExpandedInitially,
     // };
@@ -123,10 +161,12 @@ export default function RecipeDetails({ recipe })
                         </div>
                 </div>
                 <div className="nutritionInfo">
-                    {/* {visible?<button onClick={handleOnSubmit}>Add To Favorites</button> : null}
-                    {showRemove?<button>Remove From Favorites</button> : null} */}
-                    <AddToFav recipeInfo={recipeInfo} />
-                <RemoveFav recipeInfo={recipeInfo} /> 
+                     {/*visible? (<button onClick={handleOnSubmit}><AddToFav recipeInfo={recipeInfo} /> </button> ) 
+                     :(<button onClick={ handleRemove}><RemoveFav recipeInfo={recipeInfo} /></button>) */}
+                    {/*showRemove?<button>Remove From Favorites</button> : null*/} 
+                   {/*<AddToFav recipeInfo={recipeInfo} /> 
+                /<RemoveFav recipeInfo={recipeInfo} /> */}
+                    <i onClick={handleOnSubmit}> <AddToFav recipeInfo={recipeInfo} /></i>
                     <div id="favButton"></div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
@@ -166,6 +206,14 @@ export default function RecipeDetails({ recipe })
                         // ))
                         <p>{recipe.diets.join(", ")}</p>
                     }</div>}
+                    
+                    {/* fave ?
+                     (<AddToFav recipeInfo={recipeInfo} />
+                ): (
+                <RemoveFav recipeInfo={recipeInfo} /> 
+                    )
+                */}
+                    
                 </div>
                 
             </div>

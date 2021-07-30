@@ -35,7 +35,7 @@ function Profile({ user, setUser, appState, survey }) {
             <StickyBox offsetTop={20} offsetBottom={20}>
               <Sidebar />
             </StickyBox>
-            <div className="surveyInfo"> 
+            {/*<div className="surveyInfo"> 
               <div className= "info">
                 <div> Diet: <span> {survey.diet} </span> </div>
                   <div> Intolerances: <span>{survey.intolerances} </span> </div>
@@ -45,13 +45,14 @@ function Profile({ user, setUser, appState, survey }) {
                   <div> School: <span> {survey.schoolName} </span> </div> 
                   </div>
                   </div>
-              
-      
+  */}
+               <div >
                 <Banner />
                 <br />
                 <h6>Favorite Recipes</h6>
                 <div className="HomeRecipes">
                 <HomeRecipeCalls />
+                </div>
                 </div>
                 <span></span>
                 <span></span>
