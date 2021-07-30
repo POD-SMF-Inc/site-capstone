@@ -28,6 +28,27 @@ class ApiCalls {
 
     }
 
+    async requestEquipment({ endpoint, method = `GET`, data = {} }) {
+        const url = `https://api.spoonacular.com/recipes/${data}/${endpoint}?apiKey=${this.apiKey}`
+        //`https://api.spoonacular.com/recipes/{id}/equipmentWidget.json`
+        const headers = {
+            "Content-Type": "application/json"
+        }
+
+        try {
+            const res = await axios({ url, method, data, headers })
+            return { data: res.data, error: null }
+        }
+        catch (error)
+        {
+            console.error("APIclient.makeRequest.error:")
+            console.error({ errorResponse: error.response })
+            const message = error?.response?.data?.error?.message
+            return { data: null, error: message || String(error) }
+        }
+
+    }
+
     async requestInfo({ endpoint, method = `GET`, data })
     {
         const url = `${this.apiUrl}/${data}/${endpoint}?apiKey=${this.apiKey}`
@@ -767,6 +788,13 @@ class ApiCalls {
 
         return await this.requestVideos({endpoint: `search`, method: `GET`, data: query, number: 3})
     }
+
+    async getEquipment(info)
+    {
+        return await this.requestEquipment({endpoint: `equipmentWidget.json`, method: `GET`, data: info})
+    }
+
+    
     async getSearchRecipe(query)
     {
         return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 3})

@@ -6,7 +6,8 @@ import apiClient from "../../services/apiClient"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RemoveFav from "../RemoveFav/RemoveFav";
 import AddToFav from "../AddToFav/AddToFav";
-export default function RecipeDetails({ recipe }) 
+import CollapseSteps from "../CollapseSteps/CollapseSteps";
+export default function RecipeDetails({ recipe, equipment }) 
 {
     const [visible, setVisible] = useState(false)
     const [showRemove, setShowRemove] = useState(false)
@@ -16,6 +17,7 @@ export default function RecipeDetails({ recipe })
     //     food_id: recipe.id,
     //     title: recipe.title
     // }
+    console.log("equipment: ", equipment)
     const recipeInfo = {
         food_id: recipe.id,
         title: recipe.title
@@ -33,7 +35,7 @@ export default function RecipeDetails({ recipe })
                     if (data.favorites)
                     {
                         //Choosing to see Favorites Button
-                        //setVisible(true)
+                        setVisible(true)
                         
                         //buttonSec.innerHTML = `<AddToFav recipeInfo={recipeInfo} />`
                         console.log("it is in the fav, " , data.favorites)
@@ -41,7 +43,7 @@ export default function RecipeDetails({ recipe })
                     }
                     else
                     {
-                        
+                        setShowRemove(true)
                         console.log("not in fav", data.favorites)
                         //buttonSec.innerHTML = ``
                         // return (
@@ -123,10 +125,8 @@ export default function RecipeDetails({ recipe })
                         </div>
                 </div>
                 <div className="nutritionInfo">
-                    {/* {visible?<button onClick={handleOnSubmit}>Add To Favorites</button> : null}
-                    {showRemove?<button>Remove From Favorites</button> : null} */}
-                    <AddToFav recipeInfo={recipeInfo} />
-                <RemoveFav recipeInfo={recipeInfo} /> 
+                    {visible? <AddToFav recipeInfo={recipeInfo} /> : null}
+                    <RemoveFav recipeInfo={recipeInfo}/>
                     <div id="favButton"></div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
@@ -181,29 +181,49 @@ export default function RecipeDetails({ recipe })
                 </div>
             </div>
             <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>
-            <div className="infoMeal">
-                
-                <div className="ingTitleN">
-                    <h1>Ingredients</h1>
+            <div className="sideByequip">
+                <div className="infoMeal">
+                    
+                    <div className="ingTitleN">
+                        <h1>Ingredients</h1>
+                    </div>
+                    
+                    {/* <Collapsible label="Ingredients"> */}
+                        {recipe.extendedIngredients?.map(item => (
+                            <>
+                                <div className="sepIng">
+                                    {/* <input type="checkbox" /><span><img src={imageUrl + item.image} alt="ingredient in dish"></img> <br/>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span> */}
+                                    <input type="checkbox" /><span>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span>
+                                    {/* <p>{item.originalName}</p> */}
+                                    
+                                    {/* <p>Measures: </p>
+                                    <p>US: </p>
+                                    <p>Metric: {item.measures.metric.amount + " " + item.measures.metric.unitLong}</p>  */}
+                                </div>
+                            </>
+                        ))}
+                    {/* </Collapsible> */}
                 </div>
-                
-                {/* <Collapsible label="Ingredients"> */}
-                    {recipe.extendedIngredients?.map(item => (
-                        <>
-                            <div className="sepIng">
-                                {/* <input type="checkbox" /><span><img src={imageUrl + item.image} alt="ingredient in dish"></img> <br/>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span> */}
-                                <input type="checkbox" /><span>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span>
-                                 {/* <p>{item.originalName}</p> */}
-                                 
-                                {/* <p>Measures: </p>
-                                <p>US: </p>
-                                <p>Metric: {item.measures.metric.amount + " " + item.measures.metric.unitLong}</p>  */}
-                            </div>
-                        </>
-                    ))}
-                {/* </Collapsible> */}
+                <div className="equipmentMeal">
+                    <div className="equipTitle">
+                        <h1>Equipment</h1>
+                        </div>
+                        <div className="eqiupS">
+                        {
+                            equipment?.equipment?.map(item => (
+                                <>
+                                    <div className="sepEquip">
+                                        
+                                        <img src={equipUrl + item.image} alt="equipment used in dish"></img>
+                                        <p>{item.name}</p>
+                                    </div>
+                                </>
+                            ))
+                        }
+                        </div>
+                    
+                </div>
             </div>
-            
             <h1>Directions</h1>
             
             <div className="steps">
@@ -211,23 +231,28 @@ export default function RecipeDetails({ recipe })
                 {
                         recipe?.analyzedInstructions === undefined || recipe?.analyzedInstructions === null || recipe?.analyzedInstructions.length === 0 ?  null : recipe?.analyzedInstructions[0].steps?.map(element => (
                             <>
-                            <Collapsible label={`Step ${element.number}: `}>
+                            <CollapseSteps label={`Step ${element.number} `}>
                                 <p>Step {element.number}: {element.step}</p>
-                                {element.ingredients.length === 0 ? null : <div className="ingred">Ingredients: 
-                                    { 
-                                    element.ingredients.map((item) => (
-                                        <>
-                                        <p>{item.name}</p>
-                                        {
-                                        item.image === "" ? null : <div className="directIng">
-                                            <img src={imageUrl + item.image} alt="ingredient in dish"></img>
-                                        </div>
-                                            }
+                                {element.ingredients.length === 0 ? null : <div className="ingred">Ingredients:
+                                            {
+                                                
+                                     element.ingredients.map((item) => (
+                                         <>
+                                         
+                                         <li>{item.name}</li>
+                                         
+                                         {/* {
+                                         item.image === "" ? null : <div className="directIng">
+                                             <img src={imageUrl + item.image} alt="ingredient in dish"></img>
+                                     </div>
+                                             } */}
                                         
                                 
-                                        </>
-                                ) )}</div> }
-                                {element.equipment.length === 0 ? null : <div className="equipment">Equipment: 
+                                         </>
+                                         ) )
+                                         }
+                                </div> }
+                                {/* {element.equipment.length === 0 ? null : <div className="equipment">Equipment: 
                                     { 
                                     element.equipment.map((item) => (
                                     <>
@@ -235,8 +260,8 @@ export default function RecipeDetails({ recipe })
                                     
                                     <img src={equipUrl + item.image} alt="equipment used in dish"></img>
                                         </>
-                                ) )}</div> }
-                                </Collapsible>
+                                ) )}</div> } */}
+                                </CollapseSteps>
                             </>
                         ))
                         }

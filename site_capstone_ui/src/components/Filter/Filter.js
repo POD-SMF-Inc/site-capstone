@@ -1,7 +1,7 @@
 import "./Filter.css"
 import { useState } from "react"
 import Search from "../Search/Search"
-import Collapsible from "../Collapsible/Collapsible"
+import CollapseFilter from "../CollapseFilter/CollapseFilter"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 export default function Filter( { user, setUser } ) {
@@ -119,7 +119,7 @@ export default function Filter( { user, setUser } ) {
                         <div className="checkTitle">
                             <h3>Cuisine</h3>
                         </div>
-                        <Collapsible label="Select Cuisine">
+                        <CollapseFilter label="Select Cuisine">
                         <div className="checkChoices">
                             <input type="checkbox" name="african" onChange={handleCheck}/><span>African</span>
                             <input type="checkbox" name="american" onChange={handleCheck}/><span>American</span>
@@ -147,12 +147,12 @@ export default function Filter( { user, setUser } ) {
                             <input type="checkbox" name="thai" onChange={handleCheck}/><span>Thai</span>
                             <input type="checkbox" name="vietnamese" onChange={handleCheck}/><span>Vietnamese</span>
                         </div>
-                        </Collapsible>
+                        </CollapseFilter>
                     </div>
                     <div className="checkInlo">
                         <div className="checkInTitle">
                             <h3>Intolerances</h3>
-                            <Collapsible label="Select Intolerances">
+                            <CollapseFilter label="Select Intolerances">
                                 <div className="checkInChoices">
                                     <input type="checkbox" name="dairy" onChange={handleCheck2}/><span>Dairy</span>
                                     <input type="checkbox" name="egg" onChange={handleCheck2}/><span>Egg</span>
@@ -167,7 +167,7 @@ export default function Filter( { user, setUser } ) {
                                     <input type="checkbox" name="tree nut" onChange={handleCheck2}/><span>Tree Nut</span>
                                     <input type="checkbox" name="wheat" onChange={handleCheck2}/><span>Wheat</span>
                                 </div>
-                            </Collapsible>
+                            </CollapseFilter>
                         </div>
             </div>
             </div>

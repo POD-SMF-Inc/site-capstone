@@ -127,7 +127,7 @@ export default function App() {
         </> : null }
 
 
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
     </LocalDataState>
