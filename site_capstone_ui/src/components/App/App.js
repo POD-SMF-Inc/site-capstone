@@ -19,7 +19,7 @@ import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
 import NotFound from "../NotFound/NotFound"
-import { useSurveyForm } from "../../hooks/useSurveyForm"
+import EditProfile from "../EditProfile/EditProfile";
 
 
 
@@ -63,15 +63,10 @@ export default function App() {
   }, [])
 
 
-  const handleUpdateInfo = async (newInfo) => {
-    setSurvey(oldInfo => [...oldInfo, newInfo])
-  }
-
-
   useEffect(() => {
     const fetchInfo = async () => {
       const { data, error } = await apiClient.fetchUserSurvey(user)
-      if (data[0]) {
+      if (data) {
         setSurvey(data[0])
       }
       if (error) {
@@ -79,9 +74,10 @@ export default function App() {
       }
     }
     fetchInfo()
-  }, [appState.user])
+  }, [appState.user]) 
 
-  console.log("survey:", survey)
+  console.log("setSurvey",setSurvey)
+
 
 
   return (
@@ -98,7 +94,8 @@ export default function App() {
           <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user}  />} />
           <Route path='/details/:idNum' element={<Details />} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
-          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} handleUpdateInfo={handleUpdateInfo} survey={survey} />} /> 
+          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey} isLoading={isLoading}  />} />
+          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey}  /> } /> 
           <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
           <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
