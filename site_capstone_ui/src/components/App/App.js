@@ -6,7 +6,7 @@ import Home from "../Home/Home"
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+//import Footer from '../Footer/Footer';
 import apiClient from '../../services/apiClient'
 import Planner from '../Planner/Planner';
 import Weekly from '../Weekly/Weekly';
@@ -125,11 +125,6 @@ export default function App() {
 
         </Routes>
         </> : null }
-
-
-      
-      <Footer/>
-
 
     </div>
     </LocalDataState>
