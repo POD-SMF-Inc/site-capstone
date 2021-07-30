@@ -29,7 +29,7 @@ import Chatbot from "../Chatbot/Chatbot"
 
 import NotFound from "../NotFound/NotFound"
 import { useSurveyForm } from "../../hooks/useSurveyForm"
-import API from '../../services/apiClient';
+//import API from '../../services/apiClient'
 
 
 export default function App() {
@@ -57,7 +57,7 @@ export default function App() {
     const fetchUser = async () => {
       setIsLoading(true)
       console.log("refresh")
-      const { data } = await API.fetchUserFromToken()
+      const { data, errors } = await apiClient.fetchUserFromToken()
       console.log("data: ", data)
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
@@ -127,13 +127,16 @@ export default function App() {
         </> : null }
 
 
-      {/* <Footer/> */}
+      
+      <Footer/>
+
 
     </div>
     </LocalDataState>
     </ThemeContextProvider>
   )
 }
+//</BrowserRouter>
 // </LocalDataState>
 //<Footer/>
 //<Route path='/prac' element={<Practice />} />

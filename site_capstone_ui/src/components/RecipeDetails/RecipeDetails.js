@@ -12,6 +12,7 @@ export default function RecipeDetails({ recipe, equipment })
     const [visible, setVisible] = useState(false)
     const [showRemove, setShowRemove] = useState(false)
     const [serving, setServing ] = useState(1)
+    
     const buttonSec = document.querySelector("#favButton")
     // const recipeInfo = {
     //     food_id: recipe.id,
@@ -22,6 +23,39 @@ export default function RecipeDetails({ recipe, equipment })
         food_id: recipe.id,
         title: recipe.title
     }
+    //let fave = true;
+    /*function AddToFav ({ recipeInfo })
+    {
+        console.log("recipe in addFav: ", recipeInfo )
+        const handleOnSubmit = async () => {
+            const { data, error } = await apiClient.addToFav({ recipeInfo})
+            //let fave = true;
+
+            console.log("data in add Fav: ", data)
+        }
+        return (
+            <div className="AddToFav">
+                <button onClick={handleOnSubmit}>Add To Favorites</button>
+            </div>
+        )
+    }
+
+    function RemoveFav ({ recipeInfo })
+{
+    console.log("recipe in deleteFav: ", recipeInfo )
+    const handleOnSubmit = async () => {
+        const { data, error } = await apiClient.removeFromFav({ recipeInfo})
+        //fave = false;
+        console.log("data in delete Fav: ", data)
+    }
+    return (
+        <div className="RemoveFav">
+            <button onClick={handleOnSubmit}>Remove From Favorites</button>
+        </div>
+    )
+}
+*/
+
     useEffect(() => {
         const fetchRecipeId = async () => {
             try {
@@ -61,28 +95,40 @@ export default function RecipeDetails({ recipe, equipment })
         }
         fetchRecipeId()
     }, [recipe?.id])
-/*
+    //let fave = false;
     const handleOnSubmit = async () => {
+        //fave=true; 
         const { data, error } = await apiClient.addToFav({ recipeInfo})
-        if (data)
+        setVisible(true);
+        /*if (data)
         {
             buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
-        }
+        }*/
     }
 
     const handleRemove = async () => {
+       // fave= false;
         const { data, error } = await apiClient.removeFromFav({ recipeInfo })
-        if (data)
+        setVisible(true);
+        /*if (data)
         {
             buttonSec.innerHTML = `<button onClick=${handleOnSubmit}>Add To Favorites</button>`
-        }
-    }*/
+        }*/
+    }
     // state = {
     //     isExpanded: this.props.isExpandedInitially,
     // };
 
     // const {isExpanded} = this.state;
-
+    const formatter = new Intl.NumberFormat("en-US", {
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+      
+    const priceFormat = (amount) => {
+        return `$${formatter.format(amount)}`
+      }
     
     console.log("Recipe detail: ", recipe)
     console.log("dish: ", recipe.dishTypes?.join(", "))
@@ -125,8 +171,17 @@ export default function RecipeDetails({ recipe, equipment })
                         </div>
                 </div>
                 <div className="nutritionInfo">
-                    {visible? <AddToFav recipeInfo={recipeInfo} /> : null}
-                    <RemoveFav recipeInfo={recipeInfo}/>
+
+                     {/*visible? (<button onClick={handleOnSubmit}><AddToFav recipeInfo={recipeInfo} /> </button> ) 
+                     :(<button onClick={ handleRemove}><RemoveFav recipeInfo={recipeInfo} /></button>) */}
+                    {/*showRemove?<button>Remove From Favorites</button> : null*/} 
+                   {/*<AddToFav recipeInfo={recipeInfo} /> 
+                /<RemoveFav recipeInfo={recipeInfo} /> */}
+                    <i onClick={handleOnSubmit}> <AddToFav recipeInfo={recipeInfo} /></i>
+
+                      {/* {visible? <AddToFav recipeInfo={recipeInfo} /> : null}
+                    <RemoveFav recipeInfo={recipeInfo}/>*/}
+
                     <div id="favButton"></div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
@@ -166,6 +221,14 @@ export default function RecipeDetails({ recipe, equipment })
                         // ))
                         <p>{recipe.diets.join(", ")}</p>
                     }</div>}
+                    
+                    {/* fave ?
+                     (<AddToFav recipeInfo={recipeInfo} />
+                ): (
+                <RemoveFav recipeInfo={recipeInfo} /> 
+                    )
+                */}
+                    
                 </div>
                 
             </div>
@@ -177,7 +240,7 @@ export default function RecipeDetails({ recipe, equipment })
                 <div className="priceText">
                     <img src="https://clipart.world/wp-content/uploads/2020/06/dollar-sign-in-green-circle.jpg" alt="dollar sign" />
                     
-                    <p>Price Per Serving: ${recipe.pricePerServing}</p>
+                    <p>Price Per Serving: {priceFormat(recipe.pricePerServing/100)}</p>
                 </div>
             </div>
             <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>

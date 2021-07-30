@@ -50,6 +50,7 @@ static async fetchSurvey ({ user }) {
         `
     ) 
         */
+   // const result = await db.query(query, [user.username]) 
     const profileInfo = result.rows
     return profileInfo
 }

@@ -10,7 +10,7 @@ export default function AddToFav({ recipeInfo })
     }
     return (
         <div className="AddToFav">
-            <button onClick={handleOnSubmit}>Add To Favorites</button>
+            <button onClick={handleOnSubmit} className="favbtn">Add To Favorites ❤️</button>
         </div>
     )
 }
