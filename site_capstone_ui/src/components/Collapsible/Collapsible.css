@@ -1,7 +1,12 @@
 .collapse {
-    background-color: chocolate;
+    /*background-color: chocolate;*/
+    background-color: #7ed5d6c9;
+    margin-left: px;
+    border-radius: 6px;
+    
+  
 }
 
-/* .collapse .toggle button {
-    
+ /*.collapse .toggle button {
+    margin-left: 50px;
 } */

@@ -118,7 +118,15 @@ export default function RecipeDetails({ recipe })
     // };
 
     // const {isExpanded} = this.state;
-
+    const formatter = new Intl.NumberFormat("en-US", {
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+      
+    const priceFormat = (amount) => {
+        return `$${formatter.format(amount)}`
+      }
     
     console.log("Recipe detail: ", recipe)
     console.log("dish: ", recipe.dishTypes?.join(", "))
@@ -225,7 +233,7 @@ export default function RecipeDetails({ recipe })
                 <div className="priceText">
                     <img src="https://clipart.world/wp-content/uploads/2020/06/dollar-sign-in-green-circle.jpg" alt="dollar sign" />
                     
-                    <p>Price Per Serving: ${recipe.pricePerServing}</p>
+                    <p>Price Per Serving: {priceFormat(recipe.pricePerServing/100)}</p>
                 </div>
             </div>
             <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>

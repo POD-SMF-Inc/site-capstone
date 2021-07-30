@@ -2,7 +2,8 @@
     /* background-color: deeppink; */
     display: flex;
     flex-direction: column;
-    height:900px;
+    height: 800px;
+    
 }
 
 .SearchPage .buttonS {
