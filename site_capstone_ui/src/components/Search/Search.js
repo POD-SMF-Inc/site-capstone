@@ -1,18 +1,22 @@
 import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
-import { useEffect, useState} from "react"
+import {  useState} from "react"
 import APIR from '../../services/apiCalls'
-import { Link, useNavigate } from "react-router-dom"
-import NotAuthorized from "../NotAuthorized/NotAuthorized"
+import { Link  } from "react-router-dom"
+//import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import "./Search.css"
+//import { ThemeContext } from "../../contexts/ThemeContext";
 
-export default function Search({ query, cuisine, dietS, typeS, intolerances }){
-    
+export default function Search({query,  cuisine, dietS, typeS, intolerances }){
+    //const [query, setQuery] = useState("")
     /*
     console.log("diet2: ", dietS)
     console.log("meal type2: ", typeS)
     console.log("cusine2: ", cuisine)
     console.log("query2: ", query)
     */
+    //const context = useContext(ThemeContext);
+    //const theme = context.isLightTheme ? context.cardLight : context.cardDark;
+
     const choices = {
         query: query,
         cuisine: cuisine,
@@ -23,11 +27,9 @@ export default function Search({ query, cuisine, dietS, typeS, intolerances }){
 
     console.log("choices: ", choices)
     const [randomRecipe, setRandomRecipe] = useState([])
-
-
     
     const handleOnSubmit = async () => {
-        const { data, error } = await APIR.getSearchRecipe({ choices })
+        const { data} = await APIR.getSearchRecipe({ choices })
         
         //console.log(data)
         
@@ -72,12 +74,16 @@ export default function Search({ query, cuisine, dietS, typeS, intolerances }){
     
     
     return (
+        
         <div className="SearchPage">
+            
+                
             <div className="buttonS">
-                <button type="submit" onClick={handleOnSubmit}>Search</button>
+                <button type="submit" className="searchbtn"onClick={handleOnSubmit}>Search</button>
                 <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
             </div>
                 <SearchRecipeRoute randomRecipe={randomRecipe}/>
         </div>
+        
     )
 }

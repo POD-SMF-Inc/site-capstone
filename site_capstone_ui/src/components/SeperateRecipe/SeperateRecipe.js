@@ -1,5 +1,5 @@
 import "./SeperateRecipe.css"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 export default function SeperateRecipe({ element })
 {
 
@@ -17,8 +17,9 @@ export default function SeperateRecipe({ element })
                 <div className="Picture">
                     <img src={element.image} alt="Meal"></img>
                 </div>
+                
                 <div className="detailPage">
-                    <Link to={`/details/${element.id}`}><button>Go to Recipe</button></Link>
+                    <Link to={`/details/${element.id}`}><button className="button is-warning is-light is-outlined">Go to Recipe</button></Link>
                 </div>
             </div> 
         </div>

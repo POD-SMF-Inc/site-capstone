@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import Favorites from '../FavoriteComponent/FavoriteComponent';
 //import FavHeart from '../FavHeart/FavHeart';
+import { Link } from "react-router-dom"
 
 export default function Meal ({ meal }) {
 
@@ -41,7 +42,9 @@ export default function Meal ({ meal }) {
       
       </ul>
 
-      <a href={meal.sourceUrl}>Go to Recipe</a>
+      <div className="detailPageP">
+         <Link to={`/details/${meal.id}`}><button className="button is-warning is-light is-outlined">Go to Recipe</button></Link>
+      </div>
       
 
     </article>

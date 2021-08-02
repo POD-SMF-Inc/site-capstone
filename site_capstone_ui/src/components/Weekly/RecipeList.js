@@ -12,8 +12,8 @@ const onDragOver = (evt) => {
     const theme = context.isLightTheme ? context.cardLight : context.cardDark;
     return (
       <article className={`box ${theme} all-rounded has-text-centered`}>
-        <div className="is-size-5-tablet is-uppercase ">{day} 
-        <div className="tag is-rounded is-small is-danger mx-1">{total}</div>
+        <div className="is-size-5-tablet is-uppercase mx-1">{day} 
+        <div className="tag is-rounded is-small is-primary is-outlined  mx-1">{total}</div>
         </div>
       </article>
     );
