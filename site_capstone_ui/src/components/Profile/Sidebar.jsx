@@ -1,15 +1,15 @@
 import React  from 'react'
 import profilepic from '../../assets/rsz_profilep.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import handleOnClick from "../Profile/Profile";
+//import handleOnClick from "../Profile/Profile";
 import {
   
     faGithub,
     faLinkedin,
     
   } from "@fortawesome/free-brands-svg-icons";
-import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router';
+import {  faUser } from '@fortawesome/free-solid-svg-icons';
+//import { useNavigate } from 'react-router';
 
 export default class Sidebar extends React.Component {
 
