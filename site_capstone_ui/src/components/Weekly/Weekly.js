@@ -9,6 +9,7 @@ import './Weekly.css'
 function Weekly() {
     const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
+  
     const ThemeToggler = (props) => {
         const context = useContext(ThemeContext);
         const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";

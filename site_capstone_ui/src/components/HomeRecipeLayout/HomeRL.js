@@ -1,5 +1,6 @@
 import "./HomeRL.css"
 import React from 'react';
+import { Link } from "react-router-dom"
 
 export default function HomeRL({ element })
 {
@@ -29,7 +30,9 @@ export default function HomeRL({ element })
           <li>Number of servings: {element.servings}</li>
           <li>Price per serving: {priceFormat(element.pricePerServing/100)}</li>
         </ul>
-        <a href={element.sourceUrl}>Go to Recipe</a>
+        <div className="detailPageP">
+         <Link to={`/details/${element.id}`}><button className="button is-warning is-light is-outlined">Go to Recipe</button></Link>
+      </div>
         
       </div>
     );
