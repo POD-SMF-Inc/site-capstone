@@ -35,12 +35,12 @@ function Profile({ user, setUser, appState, survey }) {
             </StickyBox>
             <div className="surveyInfo"> 
               <div className= "info">
-                <div> Diet: <span> {survey.diet} </span> </div>
-                  <div> Intolerances: <span>{survey.intolerances} </span> </div>
-                  <div> Cuisines: <span>{survey.cuisines} </span></div>
-                  <div> Description: <span> {survey.description} </span> </div>
-                  <div> Location: <span> {survey.location} </span> </div> 
-                  <div> School: <span> {survey.schoolName} </span> </div> 
+                <div> Diet: <span> {survey?.diet} </span> </div>
+                  <div> Intolerances: <span>{survey?.intolerances} </span> </div>
+                  <div> Cuisines: <span>{survey?.cuisines} </span></div>
+                  <div> Description: <span> {survey?.description} </span> </div>
+                  <div> Location: <span> {survey?.location} </span> </div> 
+                  <div> School: <span> {survey?.schoolName} </span> </div> 
                   </div>
                   </div>
               
