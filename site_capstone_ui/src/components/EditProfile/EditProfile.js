@@ -35,6 +35,7 @@ export default function EditProfile ( {  survey, setSurvey, errors, setErrors, s
   })
 
 
+
 /*   const [file, setFile] = useState()
 
   const submit = async event => {
@@ -51,7 +52,8 @@ export default function EditProfile ( {  survey, setSurvey, errors, setErrors, s
   
 
 return (
-  <div className="modalBackground"> 
+
+  
   <div className="modalContainer">
     <div className="titleCloseBtn"> 
     <button onClick = {() => {setOpenModal(false)}}> X </button>
@@ -60,9 +62,10 @@ return (
     <h1> Edit Profile </h1>
     </div>
     <div className="body"> 
-    <Upload/>
-    <div className='form1'>
-              <label align='left' htmlFor='description'> About Me: </label>
+    {/* <Upload/> */}
+    <div className="form-container">
+    <div className='form1-input'>
+              <label className="label" align='left' htmlFor='description'> About Me: </label>
               <input 
               type='description' 
               name='description' 
@@ -70,7 +73,7 @@ return (
               onChange={(e) => setDescription(e.target.value)}/>
             </div>
             <div className='form1-input'>
-              <label align='left' htmlFor='location'>Location:</label>
+              <label align='left' className="label" htmlFor='location'>Location:</label>
               <input 
               type='location' 
               name='location' 
@@ -78,7 +81,7 @@ return (
              onChange={(e) => setLocation(e.target.value)}/>
             </div>
             <div className='form1-input'>
-              <label align='left' htmlFor='diet'>Diet:</label>
+              <label align='left' className="label" htmlFor='diet'>Diet:</label>
               <input 
               type='diet' 
               name='diet' 
@@ -86,7 +89,7 @@ return (
               onChange={(e) => setDiet(e.target.value)}/>
             </div>
             <div className='form1-input'>
-              <label align='left' htmlFor='schoolName'>School:</label>
+              <label align='left' className="label" htmlFor='schoolName'>School:</label>
               <input 
               type='schoolname' 
               name='schoolname' 
@@ -94,7 +97,7 @@ return (
               onChange={(e) => setSchoolName(e.target.value)}/>
             </div>
             <div className='form1-input'>
-              <label align='left' htmlFor='intolerances'>Food Intolerances:</label>
+              <label align='left' className="label" htmlFor='intolerances'>Food Intolerances:</label>
               <input 
               type='intolerances' 
               name='intolerances' 
@@ -102,7 +105,7 @@ return (
               onChange={(e) => setIntolerances(e.target.value)}/>
             </div>
             <div className='form1-input'>
-              <label align='left' htmlFor='cuisines'>Preferred Cuisines:</label>
+              <label align='left' className="label" htmlFor='cuisines'>Preferred Cuisines:</label>
               <input 
               type='cuisines' 
               name='cuisines' 
@@ -110,11 +113,12 @@ return (
               onChange={(e) => setCuisines(e.target.value)}/>
             </div>
             </div>
-    <div className="footer2">  </div>
+            </div>
+    <div className="footer2">  
     <button onClick = {() => {setOpenModal(false)}} id="cancelBtn"> Cancel </button>
     <EditProfileCall diet={diet} description={description} intolerances={intolerances} schoolname={schoolname} cuisines={cuisines} location={location} image={image} setErrors={setErrors} survey={survey} setSurvey={setSurvey} setOpenModal={setOpenModal} setIsUpdating={setIsUpdating}  />
-     </div>
-     </div>
+    </div>
+    </div>
 
 )
 

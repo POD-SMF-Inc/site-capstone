@@ -38,8 +38,8 @@
 
 .paginationActive a {
     background-color: lightgoldenrodyellow;
+    border-radius: 6px;
 }
-  
 
 /*background-color: #00CED1;
   border: 1px solid #000000;

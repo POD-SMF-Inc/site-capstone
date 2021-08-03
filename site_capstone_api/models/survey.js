@@ -113,6 +113,7 @@ static async fetchSurvey ({ user }) {
 
     static async updateImage ({ newImage, user }) {
 
+
         let temporaryTable = {} ;
         for (const element in newImage) {
             console.log(element,newImage[element])
