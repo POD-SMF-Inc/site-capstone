@@ -1,0 +1,27 @@
+.embedVideo iframe{
+    width: 540px;
+    height: 390px;
+}
+
+.videoInfoDesc {
+    display: flex;
+    flex-direction: column;
+}
+
+.videoInfoDesc .tags {
+    margin-top: 10px;
+
+}
+
+.videoInfoDesc .videoDescription {
+    margin-top: 10px;
+}
+
+.videoInfoDesc .stats {
+    margin-top: 10px;
+}
+
+.videoTitle h2 {
+    color: black;
+    text-align: center;
+}

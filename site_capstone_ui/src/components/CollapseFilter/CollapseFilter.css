@@ -1,0 +1,26 @@
+.collapseFil {
+    max-width: 800px;
+}
+
+.collapseFil .toggleFil {
+    background-color: #E6E6FA;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 200px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.collapseFil .collapseInfoFil {
+    background-color: #F8F8FF;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}

@@ -23,19 +23,46 @@ export default function Search({ query, cuisine, dietS, typeS, intolerances }){
 
     console.log("choices: ", choices)
     const [randomRecipe, setRandomRecipe] = useState([])
+    const [ totalResults, setTotalResults] = useState(0)
 
-
+    console.log("randomRandom: ", randomRecipe)
+    useEffect(() => {
+        const fetchDefaultRecipes = async () =>{
+            try{
+                if (randomRecipe.length === 0)
+                {
+                    const { data, error } = await APIR.getSearchRecipe({ choices })
+                    if (data)
+                    {
+                        const recipesList = data.results
+            //console.log(recipesList)
+            //console.log("recipeList: ", recipesList)
+                        if (recipesList)
+                        {
+                            setRandomRecipe(recipesList)
+                        }
+                    }
+                }
+            }
+            catch(error)
+            {
+                console.log("error")
+            }
+        }
+        fetchDefaultRecipes()
+    }, [])
     
     const handleOnSubmit = async () => {
         const { data, error } = await APIR.getSearchRecipe({ choices })
         
-        //console.log(data)
+        console.log("data total: " ,data?.totalResults)
         
         if (data)
         {
             const recipesList = data.results
+            setTotalResults(data.totalResults)
             //console.log(recipesList)
-            //console.log("recipeList: ", recipesList)
+            console.log("recipeList: ", recipesList)
             if (recipesList)
             {
                 setRandomRecipe(recipesList)
@@ -77,7 +104,7 @@ export default function Search({ query, cuisine, dietS, typeS, intolerances }){
                 <button type="submit" onClick={handleOnSubmit}>Search</button>
                 <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
             </div>
-                <SearchRecipeRoute randomRecipe={randomRecipe}/>
+                <SearchRecipeRoute randomRecipe={randomRecipe} totalResults={totalResults}/>
         </div>
     )
 }

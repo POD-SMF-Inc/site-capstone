@@ -7,6 +7,7 @@ class Favorites{
             id: favorites.id,
             user_id: favorites.user_id,
             title: favorites.title,
+            picture: favorites.picture,
             food_id: favorites.food_id
         }
     }
@@ -15,11 +16,11 @@ class Favorites{
     static async addToFavorites({ recipeInfo, user })
     {
         console.log("recIn: ", recipeInfo.recipeInfo.food_id)
-        const query = `INSERT INTO favorites (title, food_id, user_id)
-        VALUES ($1, $2, (SELECT id FROM users WHERE username = $3))
-        RETURNING id, user_id, title, food_id`
+        const query = `INSERT INTO favorites (title, food_id, picture, user_id)
+        VALUES ($1, $2, $3, (SELECT id FROM users WHERE username = $4))
+        RETURNING id, user_id, title, food_id, picture`
 
-        const result = await db.query(query, [recipeInfo.recipeInfo.title, recipeInfo.recipeInfo.food_id, user.username])
+        const result = await db.query(query, [recipeInfo.recipeInfo.title, recipeInfo.recipeInfo.food_id, recipeInfo.recipeInfo.picture, user.username])
 
         const infoResult = result.rows[0]
         console.log("addFav: ", infoResult)
@@ -28,6 +29,9 @@ class Favorites{
     //Create function to remove from favories
     static async removeFromFavorites({ recipeInfo, user })
     {
+        console.log("here")
+        console.log("Reci rem: ", recipeInfo.recipeInfo.food_id)
+        console.log("user: ", user)
         const query = `DELETE FROM favorites
             WHERE food_id = $1 AND user_id = (SELECT id FROM users WHERE username = $2)
             RETURNING *`

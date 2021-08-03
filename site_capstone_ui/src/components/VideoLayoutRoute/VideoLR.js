@@ -1,5 +1,7 @@
 import "./VideoLR.css"
-
+import VideoFormat from "../VideoFormat/VideoFormat"
+import youtubeAPI from "../../services/youtubeApi"
+import { useState, useEffect } from "react"
 export default function VideoLR({ videos })
 {
     console.log("video route: ", videos)
@@ -8,7 +10,7 @@ export default function VideoLR({ videos })
             {
                 videos?.map(element => (
                     <>
-                            <h1>{element.title}</h1>
+                           <VideoFormat element={element} />
                     </>
                 ))
             }

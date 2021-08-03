@@ -26,10 +26,6 @@ function Profile({ user, setUser, appState, survey }) {
 
 
   return (
-
-    <div className="Profile">
-      
-
     <div className="Profile"> 
 
         <div style={{ height: 900, overflow: "auto" }}>

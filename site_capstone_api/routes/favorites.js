@@ -36,7 +36,7 @@ router.delete("/remove", security.requireAuthenticatedUser, async (req, res, nex
         const { user } = res.locals
         console.log("req body: ", req.body)
         const favorites = await Favorites.removeFromFavorites({ recipeInfo: req.body, user })
-        return res.status(201).json({ favorites }) 
+        return res.status(200).json({ favorites }) 
     }
     catch(err)
     {

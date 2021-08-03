@@ -1,4 +1,4 @@
-.RecipeDetail img {
+.RecipeDetail .sideByA .aboutRec .practiceInfo .recipeDImage img {
     width: 400px;
     border-radius: 6px;
     /* border: 2px solid black; */
@@ -23,18 +23,20 @@
 .RecipeDetail .sideByA {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 800px;
+    margin-bottom: 20px;
     /* flex-basis: 100%; */
     /* background-color: chartreuse; */
 }
 
-.RecipeDetail .infoMeal .sepIng img{
+.RecipeDetail .sideByequip .infoMeal .sepIng img{
     width: 50px;
     height: 50px;
 }
 
-.RecipeDetail .infoMeal{
+.RecipeDetail .sideByequip .infoMeal{
     background-color: #FAEBD7;
     margin-top: 20px;
     padding-bottom: 20px;
@@ -42,34 +44,103 @@
     padding-right: 20px;
     padding-left: 20px;
     border-radius: 6px;
+    padding-top: 20px;
+    height: 100%;
+    margin-right: 20px;
 }
 
-.RecipeDetail .infoMeal .ingTitleN {
+.RecipeDetail .sideByequip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* width: 800px;
+    width: 1000px; */
+    max-width: 1200px;
+    max-height: 1200px;
+    /* flex-basis: 100%; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.RecipeDetail .sideByequip .equipmentMeal {
+    background-color: #FAEBD7;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    max-width: 500px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 6px;
+    padding-top: 20px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.RecipeDetail .sideByequip .equipmentMeal .equipTitle {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: -20px;
+}
+
+.RecipeDetail .sideByequip .equipmentMeal .eqiupS .sepEquip img{
+    width: 75px;
+    height: 75px;
+}
+
+.RecipeDetail .sideByequip .equipmentMeal .eqiupS .sepEquip p {
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.RecipeDetail .sideByequip .equipmentMeal .eqiupS .sepEquip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.RecipeDetail .sideByequip .equipmentMeal .eqiupS
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.RecipeDetail .sideByequip .infoMeal .ingTitleN {
     /* background-color: cyan; */
     display: flex;
     align-items: flex-start;
     margin-bottom: -20px;
 }
 
-.RecipeDetail .infoMeal .sepIng {
+.RecipeDetail .sideByequip .infoMeal .sepIng {
     font-size: 20px;
     /* background-color: crimson; */
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-.RecipeDetail .infoMeal .sepIng input {
+.RecipeDetail .sideByequip .infoMeal .sepIng input {
     width: 15px;
     height: 15px;
     margin-right: 10px;
     margin-bottom: unset;
 }
 
+.RecipeDetail .steps p {
+    /* background-color: lawngreen; */
+    font-size: 20px;
+    padding-bottom: 10px;
+}
 
 
 .RecipeDetail .steps .equipment img{
     width: 50px;
     height: 50px;
+}
+.RecipeDetail .steps .ingred{
+    /* background-color: lightblue; */
+    font-size: 20px;
 }
 
 .RecipeDetail .steps .ingred img{
@@ -77,12 +148,18 @@
     height: 50px;
 }
 
-.RecipeDetail .sideByA .aboutRec .recipeDTitle h1 {
+.RecipeDetail .sideByA .aboutRec .practiceInfo .recipeDTitle h1 {
     font-size: 30px;
     background-color: #FFF0F5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px;
+}
+
+.RecipeDetail .sideByA .aboutRec .practiceInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
 }
 
 .RecipeDetail {
@@ -91,7 +168,8 @@
     display: flex;
     flex-direction: column;
     max-width: 1000px;
-    padding-top: 10px;
+    align-items: center;
+    padding-top: 40px;
     margin: 0 auto;
 }
 
@@ -99,8 +177,8 @@
     background-color: white;
     /* display: flex;
     flex-direction: column; */
-    max-width: 400px;
-    width: 320px;
+    max-width: 500px;
+    width: 400px;
     height: 90px;
     padding: 5px;
     margin: 0 auto;
@@ -142,9 +220,9 @@
     background-color: #FFF0F5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
-    font-size: 15px;
-    padding: 10px;
-    margin-top: 20px;
+    font-size: 20px;
+    padding: 20px;
+    margin-top: 40px;
 }
 
 .RecipeDetail .sideByA .nutritionInfo {
@@ -153,13 +231,98 @@
     border-radius: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 200px;
+    width: 300px;
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
 }
 
 .RecipeDetail .sideByA .nutritionInfo .nutriTitle{
-    background-color: darkorchid;
+    /* background-color: rgb(214, 193, 224); */
+    font-size: 25px;
+    margin-bottom: -20px;
 }
 
+
+.RecipeDetail .sideByA .nutritionInfo .nutriTitle h1{
+    font-size: 25px;
+
+}
+
+.RecipeDetail .sideByA .nutritionInfo .servingTitle{
+    /* background-color: rgb(207, 178, 178); */
+    /* font-size: 25px; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .servingTitle p{
+    /* background-color: rgb(221, 164, 164); */
+    font-size: 15px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .servingTitle h1{
+    font-size: 20px;
+    margin-bottom: unset;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .cuisineArr{
+    /* background-color: darkseagreen; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.RecipeDetail .sideByA .nutritionInfo .cuisineArr p{
+    /* background-color: darkseagreen; */
+    font-size: 15px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .cuisineArr h1{
+    /* background-color: rgb(74, 182, 74); */
+    font-size: 20px;
+    margin-bottom: unset;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .typeArr{
+    /* background-color:rgb(194, 192, 209); */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .typeArr h1{
+    /* background-color: #94b7d6; */
+    font-size: 20px;
+    margin-bottom: unset;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .typeArr p{
+    /* background-color:rgb(180, 176, 204); */
+    font-size: 15px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .dietsArr{
+    /* background-color:rgb(139, 130, 196); */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .dietsArr p{
+    /* background-color:rgb(139, 130, 196); */
+    font-size: 15px;
+}
+
+.RecipeDetail .sideByA .nutritionInfo .dietsArr h1{
+    /* background-color:rgb(139, 136, 160); */
+    font-size: 20px;
+    margin-bottom: unset;
+}
 

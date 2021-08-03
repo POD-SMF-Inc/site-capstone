@@ -1,3 +1,9 @@
 .VideoPage input {
     width: 200px;
 }
+
+.VideoPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

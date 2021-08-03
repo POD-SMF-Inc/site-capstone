@@ -85,6 +85,28 @@ async surveyInfo(survey) {
   return await this.request({ endpoint: `survey/survey`, method: `POST`, data: survey })
 }
 
+async getShoppingList() {
+  console.log("in get")
+  return await this.request({endpoint: `list`, method: `GET`})
+}
+
+async addToList(listInfo)
+{
+  console.log("in add: ", listInfo)
+  return await this.request({ endpoint: `list/addItem`, method: `POST`, data: listInfo})
+}
+
+async removeFromList(listInfo)
+{
+  console.log("in remove: ", listInfo)
+  return await this.request({ endpoint: `list/removeItem`, method: `DELETE`, data: listInfo})
+}
+
+async updateListInfo(listInfo)
+{
+  console.log("in update: ", listInfo)
+  return await this.request({ endpoint: `list/updateInfo`, method: `PATCH`, data: listInfo })
+}
 }
 
 const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
