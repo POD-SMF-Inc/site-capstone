@@ -32,7 +32,11 @@ export default function MealW ({ meal }) {
     <article1>
       <h2>{meal.title}</h2>
       <img src={imageUrl} alt="recipe" />
-    
+      <ul className="instructions">
+        <li>Preparation time: {meal.readyInMinutes} minutes</li>
+        <li>Number of servings: {meal.servings}</li>
+      
+      </ul>
       <div className="detailPageP">
          <Link to={`/details/${meal.id}`}><button className="button is-warning is-light is-outlined">Go to Recipe</button></Link>
       </div>
