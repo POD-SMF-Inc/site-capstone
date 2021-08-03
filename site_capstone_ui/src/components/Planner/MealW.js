@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 
 export default function MealW ({ meal }) {
   const [imageUrl, setImageUrl] = useState("");
- 
+  const key = 'b7a72b6d08ad4c77ae76c76192ee3ae1';
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=e892ed26f6334d0d97339898d12fd2a9&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${key}&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {

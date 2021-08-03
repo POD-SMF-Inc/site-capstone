@@ -69,15 +69,6 @@ if (!user?.username) {
               src={profilepic}
               alt="profile_picture"
             ></img>
-            <div className="editpicture">
-              <FontAwesomeIcon icon={faEdit} onClick={() => {
-                setOpenModal(true);
-              }} size="1.5x"/> <i class="fa fa-edit"></i> 
-                 <button className='openModalbtn' onClick={() => {
-                   setOpenModal(true);
-                 }} > {isLoading ? <>Loading</> : <> Change Profile Photo </>} </button>
-                 {openModal && <Upload setOpenModal= {setOpenModal} />}
-              </div>
                 <span id="name" align="left">{user.first_name + " " + user.last_name}</span>
                 <span align="left" className="bio-heading">
                 <div className="description"> About Me: <span> {survey.description} </span> </div>
@@ -87,7 +78,7 @@ if (!user?.username) {
               <FontAwesomeIcon icon={faEdit} onClick={() => {
                 setOpenModal(true);
               }} size="1.5x"/> <i class="fa fa-edit"></i> 
-                 <button className='openModalbtn' onClick={() => {
+                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
                    setOpenModal(true);
                  }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
                  {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}

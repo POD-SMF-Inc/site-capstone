@@ -37,7 +37,7 @@ router.get("/", security.requireAuthenticatedUser, async(req,res,next) => {
   }
 })
 
-router.patch("/", security.requireAuthenticatedUser, async (req, res, next) => {
+router.patch("/image", security.requireAuthenticatedUser, async (req, res, next) => {
   //updates profile image
 try {
   const { user } = res.locals
