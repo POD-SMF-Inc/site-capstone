@@ -20,6 +20,7 @@ import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
 import ThemeContextProvider from "../../contexts/ThemeContext";
+import Upload from "../Upload/Upload";
 import Chatbot from "../Chatbot/Chatbot"
 //import { GlobalProvider } from '../../contexts/GlobalState';
 //import ProfilePage from "../ProfilePage/ProfilePage"
@@ -86,7 +87,6 @@ export default function App() {
     fetchInfo()
   }, [appState.user]) 
 
-  console.log("setSurvey",setSurvey)
 
 
 
@@ -105,7 +105,7 @@ export default function App() {
           <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user}  />} />
           <Route path='/details/:idNum' element={<Details />} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
-          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey} isLoading={isLoading}  />} />
+          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  />} />
           <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey}  /> } /> 
           <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
           <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
@@ -114,6 +114,7 @@ export default function App() {
           <Route path='/ingredients/' element={<Ingredients />} />
           <Route path='/tutorials' element={<VideoPage />} />
           <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
+           <Route path='/upload' element={ <Upload /> } /> 
           <Route path= "*" element= {<NotFound />} />
 
         </Routes>

@@ -2,7 +2,9 @@ import "./EditProfile.css"
 import "../Profile/Profile"
 import EditProfileCall from "./EditProfileCall"
 import { ThemeContext } from "../../contexts/ThemeContext"
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import axios from "axios";
+import Upload from "../Upload/Upload"
 import { useParams } from "react-router-dom"
 import Survey from "../Survey/Survey"
 import apiClient from "../../services/apiClient"
@@ -13,32 +15,40 @@ import NotAuthorized from "../NotAuthorized/NotAuthorized"
 
 export default function EditProfile ( {  survey, setSurvey, errors, setErrors, setOpenModal }) {
 
-  console.log("setsurvey",setSurvey)
-
-
-  //const modalActive = isModalOpen ? 'is-active ' : '';
-
   const [isUpdating, setIsUpdating] = useState(false)
   
   const [description, setDescription] = useState(survey.description)
   const [location, setLocation] = useState(survey.location)
   const [diet, setDiet] = useState(survey.diet)
-  const [schoolName, setSchoolName] = useState(survey.schoolName)
+  const [schoolname, setSchoolName] = useState(survey.schoolname)
   const [intolerances, setIntolerances] = useState(survey.intolerances)
   const [cuisines, setCuisines] = useState(survey.cuisines)
+  const [image, setImage] = useState(survey.image)
   const [newInfo, setNewInfo] = useState({
     description: description,
     location: location,
     diet: diet,
-    schoolName: schoolName,
+    schoolname: schoolname,
     intolerances: intolerances,
-    cuisines: cuisines
+    cuisines: cuisines,
+    image:image
   })
 
-  console.log("School", schoolName)
+
+/*   const [file, setFile] = useState()
+
+  const submit = async event => {
+    event.preventDefault()
+
+    const formData = new FormData()
+    formData.append("image", file)
+  
+    const result = await axios.patch('/survey', formData, { headers: {'Content-Type': 'multipart/form-data'}})
+    console.log(result.data)
+  } */
+
 
   
-
 
 return (
   <div className="modalBackground"> 
@@ -50,6 +60,7 @@ return (
     <h1> Edit Profile </h1>
     </div>
     <div className="body"> 
+    <Upload/>
     <div className='form1'>
               <label align='left' htmlFor='description'> About Me: </label>
               <input 
@@ -77,9 +88,9 @@ return (
             <div className='form1-input'>
               <label align='left' htmlFor='schoolName'>School:</label>
               <input 
-              type='schoolName' 
-              name='schoolName' 
-              value={schoolName} 
+              type='schoolname' 
+              name='schoolname' 
+              value={schoolname} 
               onChange={(e) => setSchoolName(e.target.value)}/>
             </div>
             <div className='form1-input'>
@@ -101,7 +112,7 @@ return (
             </div>
     <div className="footer2">  </div>
     <button onClick = {() => {setOpenModal(false)}} id="cancelBtn"> Cancel </button>
-    <EditProfileCall diet={diet} description={description} intolerances={intolerances} schoolName={schoolName} cuisines={cuisines} location={location} setErrors={setErrors} survey={survey} setSurvey={setSurvey} />
+    <EditProfileCall diet={diet} description={description} intolerances={intolerances} schoolname={schoolname} cuisines={cuisines} location={location} image={image} setErrors={setErrors} survey={survey} setSurvey={setSurvey} setOpenModal={setOpenModal} setIsUpdating={setIsUpdating}  />
      </div>
      </div>
 

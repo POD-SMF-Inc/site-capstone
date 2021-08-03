@@ -12,28 +12,41 @@ import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
-import Survey from "../Survey/Survey"
+import apiClient from "../../services/apiClient"
+import profilepic from '../../assets/rsz_profilep.jpg';
+import Upload from "../Upload/Upload"
 
+export default function Profile({ user, setUser, appState, isLoading }) {
 
-export default function Profile({ user, setUser, appState, survey, setSurvey, isLoading  }) {
-
-  console.log("survey:",survey)
 
 
   const [openModal, setOpenModal] = useState(false);
+  const [errors, setErrors] = useState({})
+
+  const [survey, setSurvey] = useState({})
 
   const navigate = useNavigate()
-  //const [editMode, setEditMode] = useState(false)
 
-  /* const changeToFalse = () => {
-    setEditMode(false)
+
+
+useEffect(() => {
+  const fetchInfo = async () => {
+    const { data, error } = await apiClient.fetchUserSurvey(user)
+    if (data) {
+      setSurvey(data.survey[0])
+    }
+    if (error) {
+      setErrors((e) => ({ ...e, error }))
+    }
   }
- */
+  fetchInfo()
+}, [appState.user]) 
 
 
-  if (!user?.username) {
-    return <NotAuthorized user={user} setUser={setUser}/>
+if (!user?.username) {
+  return <NotAuthorized user={user} setUser={setUser}/>
 } 
+
 
 
 
@@ -51,7 +64,21 @@ export default function Profile({ user, setUser, appState, survey, setSurvey, is
             <section className="container-banner">
             <div className="banner-intro">
               <div className="banner-blurb">
-                <span id="name" align="left">John Doe</span>
+              <img
+              className="profilepic"
+              src={profilepic}
+              alt="profile_picture"
+            ></img>
+            <div className="editpicture">
+              <FontAwesomeIcon icon={faEdit} onClick={() => {
+                setOpenModal(true);
+              }} size="1.5x"/> <i class="fa fa-edit"></i> 
+                 <button className='openModalbtn' onClick={() => {
+                   setOpenModal(true);
+                 }} > {isLoading ? <>Loading</> : <> Change Profile Photo </>} </button>
+                 {openModal && <Upload setOpenModal= {setOpenModal} />}
+              </div>
+                <span id="name" align="left">{user.first_name + " " + user.last_name}</span>
                 <span align="left" className="bio-heading">
                 <div className="description"> About Me: <span> {survey.description} </span> </div>
                 </span>
@@ -75,7 +102,7 @@ export default function Profile({ user, setUser, appState, survey, setSurvey, is
                   <div> Diet: <span> {survey.diet} </span> </div>
                   </div>
                   <div class="bio-row">
-                  <div> School: <span> {survey.schoolName} </span> </div> 
+                  <div> School: <span> {survey.schoolname} </span> </div> 
                   </div>
                   <div class="bio-row">
                   <div> Food Intolerances: <span>{survey.intolerances} </span> </div>

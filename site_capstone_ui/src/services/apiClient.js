@@ -86,9 +86,13 @@ async surveyInfo(survey) {
 }
 
 async updateInfo(infoUpdate) {
-  console.log("infoUp: ", infoUpdate)
   return await this.request({ endpoint: `survey`, method: `PATCH`, data: infoUpdate })
 }
+
+async updateImage(imageUpdate) {
+  return await this.request({ endpoint: `survey`, method: `PATCH`, data: imageUpdate })
+}
+
 
 }
 

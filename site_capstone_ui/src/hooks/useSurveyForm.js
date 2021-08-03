@@ -12,7 +12,7 @@ export const useSurveyForm = () => {
     cuisines: '',
     description: '',
     location: '',
-    schoolName: '',
+    schoolname: '',
   })
 
   const [errors, setErrors] = useState({})

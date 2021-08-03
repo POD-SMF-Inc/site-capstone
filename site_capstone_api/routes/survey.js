@@ -37,6 +37,17 @@ router.get("/", security.requireAuthenticatedUser, async(req,res,next) => {
   }
 })
 
+router.patch("/", security.requireAuthenticatedUser, async (req, res, next) => {
+  //updates profile image
+try {
+  const { user } = res.locals
+  const info = await Survey.updateImage({ newImage: req.body, user })
+  return res.status(200).json({ info })
+} catch (err) {
+  next(err)
+}
+})
+
 
 
   module.exports = router

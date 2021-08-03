@@ -60,12 +60,12 @@ export default function Survey () {
               onChange={handleOnInputChange}/>
             </div>
             <div className='form-input'>
-              <label align='left' htmlFor='schoolName'>What college do you attend?</label>
+              <label align='left' htmlFor='schoolname'>What college do you attend?</label>
               <input 
-              type='schoolName' 
-              name='schoolName' 
+              type='schoolname' 
+              name='schoolname' 
               placeholder= 'for example: Columbia University'
-              value={form.schoolName} 
+              value={form.schoolname} 
               onChange={handleOnInputChange}/>
             </div>
             <div className='form-input'>
