@@ -29,6 +29,22 @@
 }
 
 .SepReci .content {
+    box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+    background-color: #a9dfc6;
+    max-width: 300px;
+    border-radius: 6px;
+    height: 380px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 20px;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    /* box-shadow: 0 8px 16px 0 #2c4147; */
+}
+/*.SepReci .content {
     background-color: rgb(77 77 77 / 15%);
     width: 200px;
     height: 300px;
@@ -40,11 +56,10 @@
     align-items: center;
     margin-right: 10px;
     margin-left: 10px;
-    /* box-shadow: 0 8px 16px 0 #2c4147; */
-}
-
+    box-shadow: 0 8px 16px 0 #2c4147; 
+}*/
 .SepReci .content .detailPage button{
-    background-color: cornsilk;
+    
     height: 25px;
     border-radius: 5px;
     font-size: 15px;

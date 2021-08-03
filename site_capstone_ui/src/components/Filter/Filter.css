@@ -6,9 +6,9 @@
 }
 
 .searchSec .filter {
-    background-color: #00CED1;
+    background-color: #7ed5d6c9;
     min-width: 260px;
-    min-height:500px;
+    min-height:600px;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
@@ -37,6 +37,7 @@
 
 .searchSec .filter .dropDown .dietAll .dietDrop {
     margin-top: -20px;
+    
 }
 
 .searchSec .filter .dropDown .mealAll .mealDrop {
@@ -84,11 +85,19 @@
 .searchSec .Search .query {
     /*background-color: chartreuse;*/
     display: flex;
-    flex-direction: row;
-    padding-top: 10px;
+   flex: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
+    height:80px;
+    width:900px;
+    margin-top: 12px;
+    margin-left: 200px;
     justify-content: center;
+    background-color: #7ed5d6c9;
+    border-radius: 6px;
+    
 }
 
 .searchSec .Search .query label {
@@ -99,8 +108,12 @@
 }
 
 .searchSec .Search .query input {
-    width: 400px;
-    background-color:#E6E6FA;
+    width: 500px;
+    height: 30px;
+    margin-left:60px ;
+    margin-right: 10px;
+    border: solid .2px #000000;
+   /* background-color:#E6E6FA;*/
 }
 
 .searchSec .filter .check {
@@ -162,3 +175,4 @@ padding-right: 10px;
 .checkChoices {
     padding-left: 15px;
 }
+

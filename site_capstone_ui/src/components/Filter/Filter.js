@@ -4,6 +4,9 @@ import Search from "../Search/Search"
 import CollapseFilter from "../CollapseFilter/CollapseFilter"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import StickyBox from "react-sticky-box";
+//import Card from '../Card/Card';
+import React from "react";
+//import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Filter( { user, setUser } ) {
     const [query, setQuery] = useState("")
@@ -15,6 +18,21 @@ export default function Filter( { user, setUser } ) {
     const [typeS, setTypeS] = useState("")
     const [check, setCheck] = useState({})
     const [intol, setIntol] = useState({})
+
+    // const context = useContext(ThemeContext);
+    // const theme = context.isLightTheme ? context.light : context.dark;
+  
+    // const ThemeToggler = (props) => {
+    //     const context = useContext(ThemeContext);
+    //     const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+    //     const toggleTheme = context.toggleTheme;
+      
+    //     return (
+    //       <button className={`button is-light rounded`} onClick={toggleTheme}>
+    //         {btnText}
+    //       </button>
+    //     );
+    //   };
 
     /*
     function handleData(event)
@@ -62,10 +80,10 @@ export default function Filter( { user, setUser } ) {
 
     //create a function to parse through ingredients 
     return (
-        
+       
         <StickyBox  offsetBottom={20}>
         <div className="searchSec ">
-            <div className="filter">
+            <div className='filter '>
                 <div className="title">
                     <h1>Filter By</h1>
                 </div>
@@ -197,16 +215,19 @@ export default function Filter( { user, setUser } ) {
             </div>
             
             <div className="Search">
+                
                 <div className="query">
                     {/* <label htmlFor="search">Search</label> */}
-                    <input type="text" name="query" placeholder="Search Dish" 
+                    <input type="text" name="query"  className="input my-1" placeholder="Search for a dish..." 
                     onChange={(e) => setQuery(e.target.value)} />
+                    
                 </div>
                 <Search query={query} cuisine={cuisine} dietS={dietS} typeS={typeS} intolerances={intolerances}/>
             </div>
+            
         </div>
         </StickyBox>
-      
+        
         
     )
 

@@ -9,8 +9,8 @@ import {
     faLinkedin,
     
   } from "@fortawesome/free-brands-svg-icons";
-import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router';
+import {  faUser } from '@fortawesome/free-solid-svg-icons';
+//import { useNavigate } from 'react-router';
 
 export default class Sidebar extends React.Component {
 
