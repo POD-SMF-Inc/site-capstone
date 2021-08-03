@@ -13,7 +13,7 @@ export default function EditProfileCall({ diet, description, intolerances, schoo
         schoolname: schoolname,
         intolerances: intolerances,
         cuisines: cuisines,
-        profileImage: image
+        image: image
     }
 
     const handleUpdateProfile = async () => {

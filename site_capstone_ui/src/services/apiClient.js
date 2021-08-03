@@ -112,7 +112,7 @@ async updateInfo(infoUpdate) {
 }
 
 async updateImage(imageUpdate) {
-  return await this.request({ endpoint: `survey`, method: `PATCH`, data: imageUpdate })
+  return await this.request({ endpoint: `survey/image`, method: `PATCH`, data: imageUpdate })
 }
 
 

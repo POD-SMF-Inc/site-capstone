@@ -100,7 +100,7 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
         {
             buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
         }*/
-    }
+    
 
     const handleRemove = async () => {
        // fave= false;

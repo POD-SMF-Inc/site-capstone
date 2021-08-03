@@ -13,7 +13,6 @@
     font-size: 20px;
     border-radius: 5px;
     height: 40px;
-<<<<<<< HEAD
 }
 
 .paginationBttns {
@@ -39,8 +38,6 @@
 
 .paginationActive a {
     background-color: lightgoldenrodyellow;
-}
-=======
     border-radius: 6px;
 }
 
@@ -59,4 +56,3 @@
   
   background-color:rgb(189, 158, 118);
   */
->>>>>>> 1b32244dbd7a539a5d9743b5e0d1decfed4c00b8
