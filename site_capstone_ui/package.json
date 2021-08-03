@@ -11,10 +11,12 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "bulma": "^0.9.3",
     "history": "^5.0.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-modal": "^3.14.3",
     "react-router-dom": "^6.0.0-beta.0",
     "react-scripts": "4.0.3",
     "react-sticky-box": "^0.9.3",
@@ -48,5 +50,8 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "react-images-upload": "^1.2.8"
+  }
 }

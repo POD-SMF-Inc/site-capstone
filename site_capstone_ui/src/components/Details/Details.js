@@ -10,7 +10,7 @@ export default function Details()
     const [error, setError] = useState(null)
     const [ recipe, setRecipe ] = useState({})
     console.log("id: ", idNum)
-    
+   
     
     useEffect(() => {
         // console.log("in here")

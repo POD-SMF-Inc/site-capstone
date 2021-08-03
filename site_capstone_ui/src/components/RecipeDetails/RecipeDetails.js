@@ -93,26 +93,29 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
     // }, [recipe?.id])
 /*
     const handleOnSubmit = async () => {
+        //fave=true; 
         const { data, error } = await apiClient.addToFav({ recipeInfo})
-        if (data)
+        setVisible(true);
+        /*if (data)
         {
             buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
-        }
+        }*/
     }
 
     const handleRemove = async () => {
+       // fave= false;
         const { data, error } = await apiClient.removeFromFav({ recipeInfo })
-        if (data)
+        setVisible(true);
+        /*if (data)
         {
             buttonSec.innerHTML = `<button onClick=${handleOnSubmit}>Add To Favorites</button>`
-        }
-    }*/
+        }*/
+    }
     // state = {
     //     isExpanded: this.props.isExpandedInitially,
     // };
 
     // const {isExpanded} = this.state;
-
     
     console.log("Recipe detail: ", recipe)
     console.log("dish: ", recipe.dishTypes?.join(", "))
@@ -197,6 +200,14 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                         // ))
                         <p>{recipe.diets.join(", ")}</p>
                     }</div>}
+                    
+                    {/* fave ?
+                     (<AddToFav recipeInfo={recipeInfo} />
+                ): (
+                <RemoveFav recipeInfo={recipeInfo} /> 
+                    )
+                */}
+                    
                 </div>
                 
             </div>

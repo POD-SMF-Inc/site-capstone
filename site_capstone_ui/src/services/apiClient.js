@@ -107,6 +107,15 @@ async updateListInfo(listInfo)
   console.log("in update: ", listInfo)
   return await this.request({ endpoint: `list/updateInfo`, method: `PATCH`, data: listInfo })
 }
+async updateInfo(infoUpdate) {
+  return await this.request({ endpoint: `survey`, method: `PATCH`, data: infoUpdate })
+}
+
+async updateImage(imageUpdate) {
+  return await this.request({ endpoint: `survey`, method: `PATCH`, data: imageUpdate })
+}
+
+
 }
 
 const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")

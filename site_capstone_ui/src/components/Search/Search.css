@@ -2,24 +2,61 @@
     /* background-color: deeppink; */
     display: flex;
     flex-direction: column;
+    height: 800px;
+    
 }
 
 .SearchPage .buttonS {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 5px;
     /* background-color: dodgerblue; */
 }
 
+
+/*background-color: #00CED1;
+  border: 1px solid #000000;
+  padding: 5px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 190px;
+  font-weight:bold;
+  font-family: "Open Sans", Hebrew;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  
+  background-color:rgb(189, 158, 118);
+  */
+
 .SearchPage .buttonS button {
-    padding: 5px;
-    border-radius: 5px;
+    padding: 3px, 10px;
+    border-radius: 6px;
     margin-right: 10px;
-    background-color:rgb(189, 158, 118);
+    background-color: #00CED1;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    height:30px;
+    width: 180px;
+    justify-content: center;
+    
+}
+
+.SearchPage .buttonS .searchbtn {
+    padding: 3px, 10px;
+    border-radius: 6px;
+    margin-right: 10px;
+    background-color: #00CED1;
     border-color: black;
-    font-size: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    height:30px;
+    width: 100px;
 }
 
 .SearchPage .buttonS button:hover {
-    box-shadow: 0 8px 16px 0 #2c4147;
+    background-color: #20a8ca;
 }

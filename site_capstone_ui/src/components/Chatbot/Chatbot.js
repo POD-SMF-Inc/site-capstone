@@ -72,3 +72,4 @@ export default function Chatbot() {
         <div id="chatBotThinkingIndicator"></div>
         <div id="chatBotHistory"></div>
         </div>*/
+        

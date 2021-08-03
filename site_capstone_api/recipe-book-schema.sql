@@ -18,7 +18,7 @@ CREATE TABLE profile (
     description TEXT,
     location TEXT,
     image TEXT,
-    schoolName TEXT,
+    schoolname TEXT,
     user_id INTEGER NOT NULL
 );
 

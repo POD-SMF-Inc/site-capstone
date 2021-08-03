@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 //import Favorites from '../FavoriteComponent/FavoriteComponent';
 //import FavHeart from '../FavHeart/FavHeart';
+import { Link } from "react-router-dom"
 
 export default function Meal ({ meal }) {
-
   const [imageUrl, setImageUrl] = useState("");
   //const FavoriteComponent = meal.favouriteComponent;
   //const Favorites = meal.favouriteComponent;
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=1a23b0a94a2a4db3ac2faaa6703f448e&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=4f70ca8c817d4e38b606fe534e185095&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -41,8 +41,9 @@ export default function Meal ({ meal }) {
       
       </ul>
 
-      <a href={meal.sourceUrl}>Go to Recipe</a>
-      
+      <div className="detailPageP">
+         <Link to={`/details/${meal.id}`}><button className="button is-warning is-light is-outlined ">Go to Recipe</button></Link>
+      </div>
 
     </article>
   );

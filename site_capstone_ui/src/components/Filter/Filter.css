@@ -2,20 +2,27 @@
     display: flex;
     flex-direction: row;
     background-color: #F0F8FF;
+    
 }
 
 .searchSec .filter {
-    background-color: #00CED1;
-    width: 300px;
+    background-color: #7ed5d6c9;
+    min-width: 260px;
+    min-height:600px;
     display: flex;
     flex-direction: column;
     padding-left: 10px;
     border-right: solid 1px #000000;
+    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    margin: 0 10px;
+    margin-top:10px;  
+    border-radius: 6px;
     /* border-radius: 10px; */
 }
 
 .searchSec .filter .title h1 {
-    float: left;
+    float: center;
     font-size: 25px;
     border-bottom: solid 1px #000000;
     margin-bottom: unset;
@@ -30,6 +37,7 @@
 
 .searchSec .filter .dropDown .dietAll .dietDrop {
     margin-top: -20px;
+    
 }
 
 .searchSec .filter .dropDown .mealAll .mealDrop {
@@ -50,6 +58,7 @@
 .searchSec .filter .dropDown .dietAll .dietTitle h1{
     float: left;
     font-size: 20px;
+    
 }
 
 .searchSec .filter .dropDown .mealAll .mealTitle h1{
@@ -76,11 +85,19 @@
 .searchSec .Search .query {
     /*background-color: chartreuse;*/
     display: flex;
-    flex-direction: row;
-    padding-top: 10px;
+   flex: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
+    height:80px;
+    width:900px;
+    margin-top: 12px;
+    margin-left: 200px;
     justify-content: center;
+    background-color: #7ed5d6c9;
+    border-radius: 6px;
+    
 }
 
 .searchSec .Search .query label {
@@ -91,8 +108,12 @@
 }
 
 .searchSec .Search .query input {
-    width: 400px;
-    background-color:#E6E6FA;
+    width: 500px;
+    height: 30px;
+    margin-left:60px ;
+    margin-right: 10px;
+    border: solid .2px #000000;
+   /* background-color:#E6E6FA;*/
 }
 
 .searchSec .filter .check {
@@ -101,8 +122,11 @@
     /*background-color: crimson;*/
 }
 
-.searchSec .filter .check .checkTitle h3{
+.searchSec .filter .check .checkTitle h8{
     float: left;
+    font-size: 20px;
+    font-weight: bold;
+    
     /* background-color: chocolate; */
 }
 
@@ -113,6 +137,7 @@
 .searchSec .filter .check .checkChoices span {
     /* background-color: darkmagenta; */
     font-size: 15px;
+    margin-right:10px;
 }
 
 .searchSec .filter .checkInlo {
@@ -121,8 +146,10 @@
     /*background-color: crimson;*/
 }
 
-.searchSec .filter .checkInlo .checkInTitle h3{
+.searchSec .filter .checkInlo .checkInTitle h8{
     float: left;
+    font-size: 20px;
+    font-weight: bold;
     /* background-color: chocolate; */
 }
 
@@ -133,4 +160,19 @@
 .searchSec .filter .checkInlo .checkInChoices span {
     /* background-color: darkmagenta; */
     font-size: 15px;
+    margin-right:10px;
 }
+
+label {
+    margin-left: 40px;
+}
+
+.checkInChoices {
+padding-left: 15px;
+padding-right: 10px;
+}
+
+.checkChoices {
+    padding-left: 15px;
+}
+

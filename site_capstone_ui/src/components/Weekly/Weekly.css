@@ -101,9 +101,9 @@
   
   .draggable:hover {
     opacity: 0.8;
-    -webkit-box-shadow: 1px 1px 7px 4px hsla(348, 100%, 61%, 0.7);
-    -moz-box-shadow: 1px 1px 7px 4px hsl(348, 100%, 61%, 0.7);
-    box-shadow: 1px 1px 7px 4px hsl(348, 100%, 61%, 0.7);
+    -webkit-box-shadow: 1px 1px 7px 4px #00CED1;
+    -moz-box-shadow: 1px 1px 7px 4px #00CED1;
+    box-shadow: 1px 1px 7px 4px #00CED1;
   }
   
   .draggable.dragged {
@@ -146,6 +146,7 @@
   background-color: #00CED1;
   border: 1px solid #000000;
   margin: 3px;
+  margin-bottom: 20px;
   font-size: 20px;
   width: 130px;
   height:30px;

@@ -8,6 +8,10 @@
 }
 
 .collapse {
+    /*background-color: chocolate;*/
+    background-color: #7ed5d6c9;
+    margin-left: px;
+    border-radius: 6px;
     max-width: 800px;
 }
 
@@ -17,8 +21,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+
 }
 
-/* .collapse .toggle button {
-    
+ /*.collapse .toggle button {
+    margin-left: 50px;
 } */

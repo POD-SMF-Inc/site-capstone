@@ -2,12 +2,10 @@
   background-color: #F0F8FF;
 }
 
-.surveyInfo {
-  background-color: red;
-}
+.profilepic {
+  width:100px;
+  height:100px;
 
-.info,.card,.null {
-  color: purple;
 }
 
 .sidebar {
@@ -91,6 +89,16 @@
   font-size: 16px;
   padding-right: 10px;
   color: #bcb3aa;
+}
+
+.openModalBtn {
+  width: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
 }
 
 
@@ -210,10 +218,20 @@
   display: block; 
 }
 .banner-blurb span:first-of-type {
-  font-size: 50px;
+  font-size: 20px;
   
 }
 .banner-blurb span:nth-child(2) {
+  font-size: 30px;
+  margin-left: -80px;
+}
+
+#name {
+  font-size: 50px;
+  margin-left: -150px;
+}
+
+.description {
   font-size: 20px;
 }
 .profile-img {

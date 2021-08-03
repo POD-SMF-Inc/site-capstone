@@ -6,8 +6,8 @@ import Home from "../Home/Home"
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
-import apiClient from '../../services/apiClient'
+//import Footer from '../Footer/Footer';
+import apiClient from '../../services/apiClient';
 import Planner from '../Planner/Planner';
 import Weekly from '../Weekly/Weekly';
 import Favorites from '../Favorites/Favorites';
@@ -19,18 +19,15 @@ import SeperateRecipe from '../SeperateRecipe/SeperateRecipe';
 import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
-
 import ThemeContextProvider from "../../contexts/ThemeContext";
+import Upload from "../Upload/Upload";
 import Chatbot from "../Chatbot/Chatbot"
 import ShoppingList from "../ShoppingList/ShoppingList"
 //import { GlobalProvider } from '../../contexts/GlobalState';
-
-
 //import ProfilePage from "../ProfilePage/ProfilePage"
-
 import NotFound from "../NotFound/NotFound"
-import { useSurveyForm } from "../../hooks/useSurveyForm"
-import API from '../../services/apiClient';
+import EditProfile from "../EditProfile/EditProfile";
+
 
 
 export default function App() {
@@ -58,7 +55,7 @@ export default function App() {
     const fetchUser = async () => {
       setIsLoading(true)
       console.log("refresh")
-      const { data } = await API.fetchUserFromToken()
+      const { data, errors } = await apiClient.fetchUserFromToken()
       console.log("data: ", data)
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
@@ -78,25 +75,20 @@ export default function App() {
   }, [])
 
 
-  const handleUpdateInfo = async (newInfo) => {
-    setSurvey(oldInfo => [...oldInfo, newInfo])
-  }
-
-
   useEffect(() => {
     const fetchInfo = async () => {
       const { data, error } = await apiClient.fetchUserSurvey(user)
       if (data) {
-        setSurvey(data[0])
+        setSurvey(data.survey[0])
       }
       if (error) {
         setErrors((e) => ({ ...e, error }))
       }
     }
     fetchInfo()
-  }, [appState.user])
+  }, [appState.user]) 
 
-  console.log("survey:", survey)
+
 
 
   return (
@@ -114,8 +106,9 @@ export default function App() {
           <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user}  />} />
           <Route path='/details/:idNum' element={<Details />} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
-          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} handleUpdateInfo={handleUpdateInfo} survey={survey} />} /> 
-          <Route path='/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
+          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  />} />
+          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey}  /> } /> 
+          <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
           <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
           <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
@@ -125,17 +118,17 @@ export default function App() {
           <Route path='/list' element={<ShoppingList user={appState?.user} />}/>
           <Route path= "*" element={<NotFound />} />
           
+           <Route path='/upload' element={ <Upload /> } /> 
+
         </Routes>
         </> : null }
-
-
-      {/* <Footer/> */}
 
     </div>
     </LocalDataState>
     </ThemeContextProvider>
   )
 }
+//</BrowserRouter>
 // </LocalDataState>
 //<Footer/>
 //<Route path='/prac' element={<Practice />} />
