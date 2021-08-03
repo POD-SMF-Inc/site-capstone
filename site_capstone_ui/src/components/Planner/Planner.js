@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MealList from "./MealList";
 import MealListW from "./MealListW";
 import './Planner.css';
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDay, faCalendarWeek } from "@fortawesome/free-solid-svg-icons";
 
 
 function Planner( {user, setUser} ) {
@@ -11,15 +12,34 @@ function Planner( {user, setUser} ) {
     const [mealDataW, setMealDataW] = useState(null);
     const [calories, setCalories] = useState(2000);
     const [caloriesW, setCaloriesW] = useState(2000);
+    const key = 'b7a72b6d08ad4c77ae76c76192ee3ae1';
+    const [showButton, setShowButton] = useState(false);
+   
+    useEffect(() => {
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          setShowButton(true);
+        } else {
+          setShowButton(false);
+        }
+      });
+    }, []);
+  
+    // This function will scroll the window to the top 
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
 
     if (!user?.email) {
       return <NotAuthorized user={user} setUser={setUser}/>
   }
+  
 
+  
   
     function getMealData() {
       fetch(
-        `https://api.spoonacular.com/mealplanner/generate?apiKey=e892ed26f6334d0d97339898d12fd2a9&timeFrame=day&targetCalories=${calories}`
+        `https://api.spoonacular.com/mealplanner/generate?apiKey=${key}&timeFrame=day&targetCalories=${calories}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -36,7 +56,7 @@ function Planner( {user, setUser} ) {
   
     function getMealDataW() {
       fetch(
-        `https://api.spoonacular.com/mealplanner/generate?apiKey=4f70ca8c817d4e38b606fe534e185095&timeFrame=week&targetCalories=${caloriesW}`
+        `https://api.spoonacular.com/mealplanner/generate?apiKey=${key}&timeFrame=week&targetCalories=${caloriesW}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -50,26 +70,51 @@ function Planner( {user, setUser} ) {
     function handleChangeW(e) {
       setCaloriesW(e.target.value);
     }
+
+    
+    
+    
+
     return (
       <div className="Planner">
-        <section className="controls">
+        <div className='mealp-blurb '>
+              <span align= 'center'>Meal Plans</span>
+              <span align= 'center'> Use our Meal Plan Generator to get diet plans for weight loss, weight gain, or simply for new meal ideas. Input your target calorie intake into the Daily Meal Plan generator or try out the Weekly Meal Plan generator.
+              </span>
+            </div>
+           
+        <section className="controls box" > 
+        <FontAwesomeIcon icon={faCalendarDay} size="3x" />
           <input
+          className="input"
             type="number"
             placeholder="Calories (e.g. 2000)"
             onChange={handleChange}
           />
-          <button className= 'getBtn'onClick={getMealData}>Get Daily Meal Plan</button>
+
+          <button className= 'getBtn'onClick={getMealData}>Get Daily Plan</button>
+      
         </section>
         {mealData && <MealList mealData={mealData} />}
-        <section className="controls">
+       
+        
+        <section className="controls box" >
+        <FontAwesomeIcon icon={faCalendarWeek} size="3x" />
           <input
+            className="input is-outlined"
              type="number"
              placeholder="Calories (e.g. 2000)"
              onChange={handleChangeW}
            />
-          <button className= 'getBtn'onClick={getMealDataW}>Get weekly Meal Plan</button>
+          <button className= 'getBtn'onClick={getMealDataW}>Get Weekly Plan</button>
         </section>
         {mealDataW && <MealListW mealDataW={mealDataW} />}
+
+        {showButton && (
+        <button onClick={scrollToTop} className="back-to-top">
+          &#8679;
+        </button>
+      )}
       </div>
     );
   }
