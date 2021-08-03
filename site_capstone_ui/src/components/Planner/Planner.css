@@ -78,8 +78,38 @@
   }
   .weekMeals {
     display: flex;
+    flex-direction: column;
+  }
+  .monday {
+    display: flex;
+    flex-direction: row;
+  }
+  .tuesday {
+    display: flex;
+    flex-direction: row;
+  }
+  .wednesday {
+    display: flex;
+    flex-direction: row;
   }
   
+  .thursday {
+    display: flex;
+    flex-direction: row;
+  }
+  .friday {
+    display: flex;
+    flex-direction: row;
+  }
+  .saturday {
+    display: flex;
+    flex-direction: row;
+  }
+
+.sunday {
+  display: flex;
+  flex-direction: row;
+}
   img {
     width: 100%;
     margin-bottom: 1rem;
@@ -110,6 +140,7 @@
     background-color: #a9dfc6;
     border-radius: 6px;
     margin-bottom: 20px;
+    margin-left: 20px;
    
   }
 
@@ -137,6 +168,8 @@
     margin-bottom: 20px;
 }
 
+
+
  /* a {
     text-decoration: none;
     color:#000000;
@@ -162,4 +195,5 @@
       width: 100%;
     }
   }
+  
   

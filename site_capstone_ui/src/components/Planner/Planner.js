@@ -36,7 +36,7 @@ function Planner( {user, setUser} ) {
   
     function getMealDataW() {
       fetch(
-        `https://api.spoonacular.com/mealplanner/generate?apiKey=e892ed26f6334d0d97339898d12fd2a9&timeFrame=week&targetCalories=${caloriesW}`
+        `https://api.spoonacular.com/mealplanner/generate?apiKey=4f70ca8c817d4e38b606fe534e185095&timeFrame=week&targetCalories=${caloriesW}`
       )
         .then((response) => response.json())
         .then((data) => {
