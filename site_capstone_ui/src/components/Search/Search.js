@@ -27,6 +27,9 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
 
     console.log("choices: ", choices)
     const [randomRecipe, setRandomRecipe] = useState([])
+
+//HEAD
+
     const [ totalResults, setTotalResults] = useState(0)
 
     console.log("randomRandom: ", randomRecipe)
@@ -55,6 +58,10 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
         }
         fetchDefaultRecipes()
     }, [])
+
+
+//1b32244dbd7a539a5d9743b5e0d1decfed4c00b8
+
     
     const handleOnSubmit = async () => {
         const { data} = await APIR.getSearchRecipe({ choices })
