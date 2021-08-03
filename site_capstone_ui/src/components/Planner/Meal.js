@@ -7,10 +7,11 @@ export default function Meal ({ meal }) {
   const [imageUrl, setImageUrl] = useState("");
   //const FavoriteComponent = meal.favouriteComponent;
   //const Favorites = meal.favouriteComponent;
+  const key = 'b7a72b6d08ad4c77ae76c76192ee3ae1';
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=4f70ca8c817d4e38b606fe534e185095&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${key}&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
