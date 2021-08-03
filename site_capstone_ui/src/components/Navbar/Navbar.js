@@ -36,9 +36,23 @@ export default function Navbar( { user, handleLogout }) {
                 <a href=" /favorites" class="navbar-item">
                   Favorites
                 </a>
-                <a href="/planner" class="navbar-item">
-                  Planner
-                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a href="/" class="navbar-link">
+                      Planner
+                    </a>
+
+                  <div class="navbar-dropdown">
+                      <a href="/planner" class="navbar-item ">
+                         Meal Plan Generator
+                       </a>
+                      <a href ="/weeklyp" class="navbar-item ">
+                         Create Weekly Planner
+                       </a>
+                  </div>
+                </div>
+
+
                 <a href="/explore" class="navbar-item">
                   Explore
                 </a>

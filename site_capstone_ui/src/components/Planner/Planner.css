@@ -6,6 +6,27 @@
     
   }
   
+  .mealp-blurb {
+    width: 100%;
+    align-items: center;
+  }
+  .mealp-blurb span {
+    display: block;
+    
+  }
+  .mealp-blurb span:first-of-type {
+    font-size: 50px;
+    margin-top: 5px;
+    
+  }
+  .mealp-blurb span:nth-child(2) {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-left: 60px;
+    margin-right: 60px;
+    
+  }
+
   section {
     margin: 2rem 0 1rem 0;
    
@@ -21,16 +42,24 @@
     font-size: 15px;
     margin-left: 20px;
   }
-  .controls {
+  .controls  {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    
+  }
+  .boxB {
+    display: flex;
+    flex-direction: row;
   }
   
   input {
     /*text-align: center;*/
     padding: 0.5rem;
     margin-bottom: 1rem;
+    height: 45px;
+    margin-left: 20px;
+    
   }
   
 .getBtn {
@@ -40,19 +69,26 @@
     color: #f3f3f3;
     border: none;
     font-family: "Roboto", sans-serif;
-    font-size: 1rem;*/
+    font-size: 1rem;
+     margin-top: 20px;*/
     background-color: #00CED1;
     border: 1px solid #000000;
     padding: 3px 10px;
-    margin: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    margin-top: 20px;
-    width: 190px;
+    margin-left: 15px;
+    
+    font-size: 15px;
+    height: 45px;
+    margin-bottom: 1rem;
+    width: 250px;
     font-weight:bold;
     font-family: "Open Sans", Hebrew;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
+    
+  }
+
+  .getBtn:hover {
+    background-color: #20a8ca;
   }
   
   main {
@@ -135,7 +171,7 @@
     padding: 2rem;
     margin: 0 1rem;
     max-width: 300px;
-    height: 300px;
+    height: 400px;
     box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
     background-color: #a9dfc6;
     border-radius: 6px;
@@ -194,6 +230,23 @@
       align-items: center;
       width: 100%;
     }
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    background: #00b0b3;
+    color: white;
+    cursor: pointer;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 0 5px 10px #ccc;
+  }
+  
+  .back-to-top:hover {
+    background: rgb(41, 36, 36);
   }
   
   

@@ -1,16 +1,15 @@
 import "./RecipeDetails.css"
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import React from 'react'
 import Collapsible from "../Collapsible/Collapsible";
 import apiClient from "../../services/apiClient"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import RemoveFav from "../RemoveFav/RemoveFav";
-import AddToFav from "../AddToFav/AddToFav";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import RemoveFav from "../RemoveFav/RemoveFav";
+//import AddToFav from "../AddToFav/AddToFav";
 import CollapseSteps from "../CollapseSteps/CollapseSteps";
 import timer from "../../assets/timer.png"
 import dollarSign from "../../assets/dollar-sign-in-green-circle.jpg"
-export default function RecipeDetails({ recipe, equipment, visible, setVisible }) 
-{
+export default function RecipeDetails({ recipe, equipment, visible, setVisible }) {
 
     const formatter = new Intl.NumberFormat("en-US", {
         currency: "USD",
@@ -100,7 +99,7 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
         {
             buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
         }*/
-    }
+    
 
     const handleRemove = async () => {
        // fave= false;
