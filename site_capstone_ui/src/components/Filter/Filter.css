@@ -137,7 +137,8 @@
 .searchSec .filter .check .checkChoices span {
     /* background-color: darkmagenta; */
     font-size: 15px;
-    margin-right:10px;
+    margin-right: 10px;
+    
 }
 
 .searchSec .filter .checkInlo {
@@ -160,7 +161,8 @@
 .searchSec .filter .checkInlo .checkInChoices span {
     /* background-color: darkmagenta; */
     font-size: 15px;
-    margin-right:10px;
+    margin-right: 10px;
+    
 }
 
 label {
@@ -168,9 +170,10 @@ label {
 }
 
 .checkInChoices {
-padding-left: 15px;
-padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 10px;
 }
+
 
 .checkChoices {
     padding-left: 15px;
