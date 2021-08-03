@@ -1,5 +1,4 @@
 import axios from "axios"
-
 class ApiClient {
   constructor(remoteHostUrl) {
     this.remoteHostUrl = remoteHostUrl;
