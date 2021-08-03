@@ -26,5 +26,15 @@ CREATE TABLE favorites (
     id SERIAL PRIMARY KEY,
     food_id INTEGER NOT NULL,
     title TEXT,
+    picture TEXT,
     user_id INTEGER NOT NULL
+);
+
+CREATE TABLE shopping (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    quantity INTEGER NOT NULL DEFAULT 1, 
+    is_selected BOOLEAN NOT NULL DEFAULT FALSE,
+    user_id INTEGER NOT NULL,
+    unique_id TEXT NOT NULL UNIQUE
 );

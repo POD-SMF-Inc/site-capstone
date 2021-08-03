@@ -8,6 +8,7 @@ const authRoutes = require("./routes/auth")
 const surveyRouter = require("./routes/survey")
 const chatbotRouter = require('./routes/chatbot');
 const favRouter = require("./routes/favorites")
+const listRouter = require("./routes/shoppingList")
 
 
 const app = express()
@@ -26,8 +27,10 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 app.use("/auth", authRoutes)
 app.use("/survey", surveyRouter)
-app.use('/chatbot', chatbotRouter);
+app.use('/chatbot', chatbotRouter)
+app.use('/list', listRouter)
 app.use("/favorites", favRouter)
+
 
 
 

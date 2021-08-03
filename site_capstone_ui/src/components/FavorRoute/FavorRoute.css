@@ -1,0 +1,41 @@
+.FavorRoute {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    /* width: 100%; */
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.FavorRoute .favContent .favPic img {
+    width: 200px;
+}
+.FavorRoute .favContent .favTitle h1{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.FavorRoute .favContent {
+    background-color: rgb(77 77 77 / 15%);
+    width: 200px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 20px;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    /* box-shadow: 0 8px 16px 0 #2c4147; */
+}
+
+.FavorRoute .favContent .detailPageBtn button{
+    background-color: cornsilk;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 150px;
+}

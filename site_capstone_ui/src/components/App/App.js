@@ -22,6 +22,7 @@ import Ingredients from "../Ingredients/Ingredients"
 
 import ThemeContextProvider from "../../contexts/ThemeContext";
 import Chatbot from "../Chatbot/Chatbot"
+import ShoppingList from "../ShoppingList/ShoppingList"
 //import { GlobalProvider } from '../../contexts/GlobalState';
 
 
@@ -114,15 +115,16 @@ export default function App() {
           <Route path='/details/:idNum' element={<Details />} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
           <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} handleUpdateInfo={handleUpdateInfo} survey={survey} />} /> 
-          <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
+          <Route path='/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
           <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
           <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
           <Route path='/ingredients/' element={<Ingredients />} />
           <Route path='/tutorials' element={<VideoPage />} />
           <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
-          <Route path= "*" element= {<NotFound />} />
-
+          <Route path='/list' element={<ShoppingList user={appState?.user} />}/>
+          <Route path= "*" element={<NotFound />} />
+          
         </Routes>
         </> : null }
 

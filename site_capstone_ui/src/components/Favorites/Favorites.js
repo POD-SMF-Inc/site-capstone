@@ -1,8 +1,30 @@
 import "./Favorite.css"
-export default function Favorites() {
-	return (
+import apiClient from "../../services/apiClient"
+import { useState, useEffect } from "react"
+import FavoritesInfo from "../FavoritesInfo/FavoritesInfo"
+export default function Favorites({ user }) {
+  const [ favorites, setFavorites ] = useState([])
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const { data, error } = await apiClient.getFavs()
+        if (data)
+        {
+          console.log("data Favors: ", data.favorites)
+          setFavorites(data.favorites)
+        }
+      }
+      catch(error)
+      {
+        console.log(error)
+      }
+    }
+    fetchFavorites()
+  }, [])
+  return (
 		<div className="FavoritesPage">
 			<h1>In Favorites</h1>
+      <FavoritesInfo favorites={favorites} />
 		</div>
 	)
 }

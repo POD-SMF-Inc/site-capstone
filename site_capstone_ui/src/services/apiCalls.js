@@ -784,7 +784,7 @@ class ApiCalls {
     async getVideo(query)
     {
         //https://api.spoonacular.com/recipes/complexSearch
-        //https://api.spoonacular.com/food/videos/search
+        //https://api.spoonacular.com/food/videos/searchs
 
         return await this.requestVideos({endpoint: `search`, method: `GET`, data: query, number: 3})
     }
@@ -820,7 +820,7 @@ class ApiCalls {
     }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `19dd9d780e6a404383d126df3422985f`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `46e606b38f154845ac3d3d5d3e38d37d`)
 
 
 

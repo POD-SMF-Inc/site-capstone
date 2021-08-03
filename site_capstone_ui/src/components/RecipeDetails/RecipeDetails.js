@@ -7,60 +7,90 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RemoveFav from "../RemoveFav/RemoveFav";
 import AddToFav from "../AddToFav/AddToFav";
 import CollapseSteps from "../CollapseSteps/CollapseSteps";
-export default function RecipeDetails({ recipe, equipment }) 
+import timer from "../../assets/timer.png"
+import dollarSign from "../../assets/dollar-sign-in-green-circle.jpg"
+export default function RecipeDetails({ recipe, equipment, visible, setVisible }) 
 {
-    const [visible, setVisible] = useState(false)
-    const [showRemove, setShowRemove] = useState(false)
-    const [serving, setServing ] = useState(1)
-    const buttonSec = document.querySelector("#favButton")
+
+    const formatter = new Intl.NumberFormat("en-US", {
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+      
+    const priceFormat = (amount) => {
+        return `$${formatter.format(amount)}`
+      }
+    // const [visible, setVisible] = useState(false)
+    // const [showRemove, setShowRemove] = useState(false)
+    // const [serving, setServing ] = useState(1)
+    // const buttonSec = document.querySelector("#favButton")
     // const recipeInfo = {
     //     food_id: recipe.id,
     //     title: recipe.title
     // }
-    console.log("equipment: ", equipment)
+    // if (!visible)
+    // {
+    //     setShowRemove(true)
+    // }
     const recipeInfo = {
         food_id: recipe.id,
-        title: recipe.title
+        title: recipe.title,
+        picture: recipe.image
     }
-    useEffect(() => {
-        const fetchRecipeId = async () => {
-            try {
-                const { data, error } = await apiClient.checkFav(recipe?.id)
-                //const { data, error } = await apiClient.getFavs()
-                console.log("recipeid: ", recipe?.id)
-                if (data)
-                {
-                    //If false then its not in favorites
-                    console.log("data: ", data)
-                    if (data.favorites)
-                    {
-                        //Choosing to see Favorites Button
-                        setVisible(true)
-                        
-                        //buttonSec.innerHTML = `<AddToFav recipeInfo={recipeInfo} />`
-                        console.log("it is in the fav, " , data.favorites)
+    const handleOnAdd = async () => {
+        const { data, error } = await apiClient.addToFav({ recipeInfo})
+        console.log("data in add Fav: ", data)
+        setVisible(false)
+    }
+    const handleOnRemove = async () => {
+        const { data, error } = await apiClient.removeFromFav({ recipeInfo})
+        setVisible(true)
+        console.log("data in delete Fav: ", data)
+    }
 
-                    }
-                    else
-                    {
-                        setShowRemove(true)
-                        console.log("not in fav", data.favorites)
-                        //buttonSec.innerHTML = ``
-                        // return (
-                        //     <RemoveFav recipeInfo={recipeInfo} />
-                        // )
-                        //buttonSec.innerHTML = `<button>Remove From Favorites</button>`
-                    }
+
+    console.log("equipment: ", equipment)
+    
+    // useEffect(() => {
+    //     const fetchRecipeId = async () => {
+    //         try {
+    //             const { data, error } = await apiClient.checkFav(recipe?.id)
+    //             //const { data, error } = await apiClient.getFavs()
+    //             console.log("recipeid: ", recipe?.id)
+    //             if (data)
+    //             {
+    //                 //If false then its not in favorites
+    //                 console.log("data: ", data)
+    //                 if (data.favorites)
+    //                 {
+    //                     //Choosing to see Favorites Button
+    //                     setVisible(true)
+                        
+    //                     //buttonSec.innerHTML = `<AddToFav recipeInfo={recipeInfo} />`
+    //                     console.log("it is in the fav, " , data.favorites)
+
+    //                 }
+    //                 else
+    //                 {
+    //                     setShowRemove(true)
+    //                     console.log("not in fav", data.favorites)
+    //                     //buttonSec.innerHTML = ``
+    //                     // return (
+    //                     //     <RemoveFav recipeInfo={recipeInfo} />
+    //                     // )
+    //                     //buttonSec.innerHTML = `<button>Remove From Favorites</button>`
+    //                 }
                     
-                }
-            }
-            catch(error)
-            {
-                console.log(error)
-            }
-        }
-        fetchRecipeId()
-    }, [recipe?.id])
+    //             }
+    //         }
+    //         catch(error)
+    //         {
+    //             console.log(error)
+    //         }
+    //     }
+    //     fetchRecipeId()
+    // }, [recipe?.id])
 /*
     const handleOnSubmit = async () => {
         const { data, error } = await apiClient.addToFav({ recipeInfo})
@@ -125,8 +155,9 @@ export default function RecipeDetails({ recipe, equipment })
                         </div>
                 </div>
                 <div className="nutritionInfo">
-                    {visible? <AddToFav recipeInfo={recipeInfo} /> : null}
-                    <RemoveFav recipeInfo={recipeInfo}/>
+                    {visible? <button onClick={handleOnAdd}>Add To Favorites</button> : <button onClick={handleOnRemove}>Remove From Favorites</button>}
+                    {/* {visible? <button><AddToFav onClick={() => setVisible(false)} recipeInfo={recipeInfo} /></button> : <RemoveFav onClick={()=>setVisible(true)} recipeInfo={recipeInfo}/>} */}
+                    {/* {showRemove? <RemoveFav recipeInfo={recipeInfo}/> : null} */}
                     <div id="favButton"></div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
@@ -171,13 +202,13 @@ export default function RecipeDetails({ recipe, equipment })
             </div>
             <div className="priceInfo">
                 <div className="pricePic">
-                    <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46670/stopwatch-emoji-clipart-xl.png" alt="timer" />
+                    <img src={timer} alt="timer" />
                     <p>Ready In {recipe.readyInMinutes} Minutes</p>
                 </div>
                 <div className="priceText">
-                    <img src="https://clipart.world/wp-content/uploads/2020/06/dollar-sign-in-green-circle.jpg" alt="dollar sign" />
+                    <img src={dollarSign} alt="dollar sign" />
                     
-                    <p>Price Per Serving: ${recipe.pricePerServing}</p>
+                    <p>Price Per Serving: {priceFormat(recipe.pricePerServing/100)}</p>
                 </div>
             </div>
             <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>
