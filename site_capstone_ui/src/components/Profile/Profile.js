@@ -1,10 +1,10 @@
 import './Profile.css'
-import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+//import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 //import IntroductionP from '../IntroductionP/IntroductionP'
 //import About from './About'
 //import Header from './Header'
@@ -14,7 +14,7 @@ import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
 import apiClient from "../../services/apiClient"
 import profilepic from '../../assets/rsz_profilep.jpg';
-import Upload from "../Upload/Upload"
+//import Upload from "../Upload/Upload"
 
 export default function Profile({ user, setUser, appState, isLoading }) {
 
@@ -25,7 +25,7 @@ export default function Profile({ user, setUser, appState, isLoading }) {
 
   const [survey, setSurvey] = useState({})
 
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
 
 
 
@@ -64,17 +64,23 @@ if (!user?.username) {
             <section className="container-banner">
             <div className="banner-intro">
               <div className="banner-blurb">
-              <img
+             {/* <img
               className="profilepic"
               src={profilepic}
               alt="profile_picture"
-            ></img>
+            ></img>*/}
                 <span id="name" align="left">{user.first_name + " " + user.last_name}</span>
                 <span align="left" className="bio-heading">
-                <div className="description"> About Me: <span> {survey.description} </span> </div>
+                <div className="description" > About Me: <span align="left">  {survey.description} </span> </div>
                 </span>
+              
               </div>
+              
               <div className="edit">
+              <div className="profile-img">
+                <img src={profilepic}
+              alt="profile_picture"></img>
+              </div>
               <FontAwesomeIcon icon={faEdit} onClick={() => {
                 setOpenModal(true);
               }} size="1.5x"/> <i class="fa fa-edit"></i> 

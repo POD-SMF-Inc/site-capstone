@@ -3,12 +3,15 @@
     display: flex;
     justify-content:space-evenly;
     padding: 5px;
-    height: 50px;
+    height: 62px;
     align-items: center;
     
   }
   /*justify-content:space-evenly;*/
  
+
+  
+
 .Navbar a, .logout-link {
     font-family: "Open Sans", Hebrew;
     text-decoration: none;
@@ -86,7 +89,7 @@
     
     width: 120px;*/
     a:hover {
-      color:white;
+      color:rgba(255, 255, 255, 0.322);
     }
 
     a:active {
