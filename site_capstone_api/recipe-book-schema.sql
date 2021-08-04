@@ -17,10 +17,17 @@ CREATE TABLE profile (
     cuisines TEXT,
     description TEXT,
     location TEXT,
-    image TEXT,
     schoolname TEXT,
+    image TEXT,
     user_id INTEGER NOT NULL
 );
+
+/* CREATE TABLE image (
+    id integer NOT NULL,
+    name character varying (255),
+    image bytea,
+    user_id INTEGER NOT NULL
+) */
 
 CREATE TABLE favorites (
     id SERIAL PRIMARY KEY,

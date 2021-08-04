@@ -111,33 +111,23 @@ static async fetchSurvey ({ user }) {
   
     }
 
-    static async updateImage ({ newImage, user }) {
+/*     static async uploadImage ({ newImage, user }) {
 
-
-        let temporaryTable = {} ;
-        for (const element in newImage) {
-            console.log(element,newImage[element])
-        const results = await db.query (
+        const surveyResult = await db.query (
+            `
+        INSERT INTO profile 
+        VALUES ($1, (SELECT id FROM users WHERE username=$2))
+        RETURNING id, 
+        image,
+        user_id
                 `
-                UPDATE profile
-                SET ${element} = $1
-                WHERE user_id = (SELECT id FROM users WHERE username = $2)
-
-            RETURNING id, 
-            image, 
-            user_id
-            `, [newImage[element], user.username]
-            )
-
-            temporaryTable = results.rows[0]
+                const result = surveyResult.rows[0]
+                return Survey.surveyForm(result)
            
-        }
-
-        return temporaryTable
-  
-    }
 
 
+        )}
+} */
 }
 
 module.exports = Survey

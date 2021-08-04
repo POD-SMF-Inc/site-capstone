@@ -11,6 +11,7 @@ const favRouter = require("./routes/favorites")
 const listRouter = require("./routes/shoppingList")
 
 
+
 const app = express()
 
 // enable cross-origin resource sharing for all origins for all requests
@@ -49,6 +50,8 @@ app.use((err, req, res, next) => {
     error: { message, status },
   })
 })
+
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`)

@@ -58,11 +58,12 @@ return (
     <div className="titleCloseBtn"> 
     <button onClick = {() => {setOpenModal(false)}}> X </button>
     </div>
+    {survey.image}
     <div className="title"> 
     <h1> Edit Profile </h1>
     </div>
     <div className="body"> 
-    {/* <Upload/> */}
+    { <Upload/> }
     <div className="form-container">
     <div className='form1-input'>
               <label className="label" align='left' htmlFor='description'> About Me: </label>

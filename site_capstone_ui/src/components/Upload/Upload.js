@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Upload.css';
 import Profile from "../Profile/Profile"
 
@@ -62,7 +62,6 @@ this.setState({
             <div className="form-group">
               <input type="file"/>
             </div>
-
             <button type="button" className="btn" onClick={this.handleImageUpload}>Submit</button>
             <button type="button" className="btn widget-btn" onClick={this.openWidget}>Upload Via Widget</button>
           </form>

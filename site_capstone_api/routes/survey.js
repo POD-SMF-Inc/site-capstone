@@ -3,6 +3,7 @@ const Survey = require("../models/survey")
 const security = require("../middleware/security")
 const router = express.Router()
 
+
 router.get("/", security.requireAuthenticatedUser, async(req,res,next) => {
     try {
         //  survey log
@@ -46,8 +47,6 @@ try {
 } catch (err) {
   next(err)
 }
-})
-
-
+}) 
 
   module.exports = router
