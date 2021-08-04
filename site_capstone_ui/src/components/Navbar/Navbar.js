@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import './Navbar.css'
-
+import home from '../../assets/Group 12.png';
 
 export default function Navbar( { user, handleLogout }) {
   const isAuthenticated = Boolean(user?.email)
@@ -8,9 +8,13 @@ export default function Navbar( { user, handleLogout }) {
   return (
     <div className="Navbar">
       <div class="navbar-start">
-        <a href="/" class="navbar-item">
-          Home
-        </a>
+        <div class="navbar-brand">
+          <a  href="/">
+              <img className="homelogo"
+              src={home}
+              alt="logo_picture" width="120" height="60"></img>
+          </a>
+        </div>
       </div>
       <div className="navbar-end">
         <div class="navbar-item">

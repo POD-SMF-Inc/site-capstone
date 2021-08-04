@@ -1,5 +1,5 @@
 import axios from "axios"
-
+const { API_KEY_RECIPE } = require("../config")
 class ApiCalls {
 
     constructor(apiUrl, apiKey)
@@ -820,7 +820,7 @@ class ApiCalls {
     }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `46e606b38f154845ac3d3d5d3e38d37d`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, API_KEY_RECIPE)
 
 
 

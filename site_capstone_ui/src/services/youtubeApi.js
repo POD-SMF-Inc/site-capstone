@@ -1,5 +1,5 @@
 import axios from "axios";
-
+const { YOUTUBE_API_KEY }= require("../config")
 class YoutubeCalls {
     constructor(apiUrl, apiKey)
     {
@@ -35,5 +35,5 @@ class YoutubeCalls {
     }
 }
 
-const youtubeAPI = new YoutubeCalls(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics`, ``)
+const youtubeAPI = new YoutubeCalls(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics`, YOUTUBE_API_KEY)
 export default youtubeAPI

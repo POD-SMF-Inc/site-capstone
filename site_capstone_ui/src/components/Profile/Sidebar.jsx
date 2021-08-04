@@ -1,12 +1,14 @@
-import React, { useState }  from 'react'
-import profilepic from '../../assets/rsz_profilep.jpg';
+import React  from 'react'
+//import profilepic from '../../assets/rsz_profilep.jpg';
+import sidepic from '../../assets/Group 11.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Upload from "../Upload/Upload";
-import handleOnClick from "../Profile/Profile";
+//import Upload from "../Upload/Upload";
+//import handleOnClick from "../Profile/Profile";
 import {
   
     faGithub,
     faLinkedin,
+   
     
   } from "@fortawesome/free-brands-svg-icons";
 import {  faUser } from '@fortawesome/free-solid-svg-icons';
@@ -24,9 +26,8 @@ export default class Sidebar extends React.Component {
     
     render() {
         const {isExpanded} = this.state;
-
-
         
+
         //const {elements = 10} = this.props;
         return (
           
@@ -72,14 +73,10 @@ export default class Sidebar extends React.Component {
           <div className="sidebar">
           <div class="panel">
           <div class="user-heading round">
-  
-  
-              
-
               <img
-              className="profilepic"
-              src={profilepic}
-              alt="profile_picture"
+              className="sidebarpic"
+              src={sidepic}
+              alt="logo_picture"
             ></img>
             
           </div>
@@ -96,7 +93,7 @@ export default class Sidebar extends React.Component {
               <li><a href="https://www.linkedin.com/school/codepath/"
                   className="linkin social"
                 >
-                  <FontAwesomeIcon icon={faLinkedin} size="1.5x" /> <i class="fa fa-edit"></i> Linkedin</a></li>
+                  <FontAwesomeIcon icon={faLinkedin} size="1.5x" /> <i class="fa fa-linkedin"></i> Linkedin</a></li>
           </ul>
       
       )}
