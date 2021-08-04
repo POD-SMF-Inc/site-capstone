@@ -141,7 +141,6 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
     // }
     //console.log("html: ", buttonSec)
     return (
-        
         <div className="RecipeDetail">
             <div className="sideByA">
                 <div className="aboutRec">
