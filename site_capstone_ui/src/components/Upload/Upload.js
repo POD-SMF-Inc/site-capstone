@@ -67,7 +67,6 @@ this.setState({
           </form>
         </section>
         <section className="right-side">
-          <p>The resulting image will be displayed here</p>
           {imageUrl && (
             <img src={imageUrl} alt={imageAlt} className="displayed-image"/>
           )}

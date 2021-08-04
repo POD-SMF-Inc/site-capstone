@@ -61,10 +61,12 @@ return (
     {survey.image}
     <div className="title"> 
     <h1> Edit Profile </h1>
+    <button onClick = {() => {setOpenModal(false)}} id="cancelBtn"> Cancel </button>
+    <button className="buttonforsave"  onClick = {() => {setOpenModal(false)}}> Save </button>
     </div>
     <div className="body"> 
-    { <Upload/> }
     <div className="form-container">
+      <section className="modal-content has-background-white py-5 px-5"> 
     <div className='form1-input'>
               <label className="label" align='left' htmlFor='description'> About Me: </label>
               <input 
@@ -113,10 +115,11 @@ return (
               value={cuisines} 
               onChange={(e) => setCuisines(e.target.value)}/>
             </div>
+            {  <Upload/> } 
+            </section>
             </div>
             </div>
     <div className="footer2">  
-    <button onClick = {() => {setOpenModal(false)}} id="cancelBtn"> Cancel </button>
     <EditProfileCall diet={diet} description={description} intolerances={intolerances} schoolname={schoolname} cuisines={cuisines} location={location} image={image} setErrors={setErrors} survey={survey} setSurvey={setSurvey} setOpenModal={setOpenModal} setIsUpdating={setIsUpdating}  />
     </div>
     </div>
