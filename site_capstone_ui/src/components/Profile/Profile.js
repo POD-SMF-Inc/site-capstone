@@ -19,7 +19,7 @@ import profilepic from '../../assets/rsz_profilep.jpg';
 export default function Profile({ user, setUser, appState, isLoading }) {
 
 
-
+ // const [isModalOpen, setModal] = useState(false)
   const [openModal, setOpenModal] = useState(false);
   const [errors, setErrors] = useState({})
 
@@ -54,7 +54,7 @@ if (!user?.username) {
 
     <div className="Profile"> 
       <div>
-        <div style={{ height: 900, overflow: "auto" }}>
+        <div style={{ height: 900,  overflow: "auto" }}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <StickyBox offsetTop={20} offsetBottom={20}>
               <Sidebar />
@@ -81,13 +81,7 @@ if (!user?.username) {
                 <img src={profilepic}
               alt="profile_picture"></img>
               </div>
-              <FontAwesomeIcon icon={faEdit} onClick={() => {
-                setOpenModal(true);
-              }} size="1.5x"/> <i class="fa fa-edit"></i> 
-                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
-                   setOpenModal(true);
-                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
-                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+              
               </div>
             </div>
             <div class="panel-body bio-graph-info">
@@ -109,7 +103,15 @@ if (!user?.username) {
                   </div>
               </div>
           </div>
+         
           </section>
+          <div className = "modalBtn">
+                
+                 <button className='openModalBtn' onClick={() => {
+                   setOpenModal(true);
+                 }}>   ✏️ Edit Profile </button>
+                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+          </div>
             </div>
                 <br />
                 <h6>Favorite Recipes</h6>
@@ -123,4 +125,18 @@ if (!user?.username) {
         </div> 
 </div>
   );
-            }
+}
+
+/*
+<div>
+              <FontAwesomeIcon icon={faEdit} onClick={() => {
+                setOpenModal(true);
+              }} size="1.5x"/> <i class="fa fa-edit"></i> 
+                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
+                   setOpenModal(true);
+                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
+                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+                </div>
+*/
+
+    
