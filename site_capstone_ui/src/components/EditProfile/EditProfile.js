@@ -42,21 +42,9 @@ useEffect(() => {
   const [intolerances, setIntolerances] = useState(survey.intolerances)
   const [cuisines, setCuisines] = useState(survey.cuisines)
   const [image, setImage] = useState(survey.image)
-<<<<<<< HEAD
   const [isUpdating, setIsUpdating] = useState(false)
   const [newImage, setNewImage] = useState({
     image: ""
-=======
-  
-  const [newInfo, setNewInfo] = useState({
-    description: description,
-    location: location,
-    diet: diet,
-    schoolname: schoolname,
-    intolerances: intolerances,
-    cuisines: cuisines,
-    image:image
->>>>>>> 7d04b533973f0c5a08a3be0416efcd9c9668bcae
   })
 
    //CLOUDINARY CONFIGURATION:
