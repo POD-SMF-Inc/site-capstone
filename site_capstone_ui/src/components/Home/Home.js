@@ -1,24 +1,25 @@
 import './Home.css'
-import book from '../../assets/recipebook.jpg'
+//import book from '../../assets/recipebook.jpg'
+import home from '../../assets/Group10.png';
 //import book from '../../assets/book.png'
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 export default function Home() {
     return (
       <div className="Home">
-        <div className="home-intro">
-          <div className="intro-blurb">
-            <span align="left">Servings of Delight</span>
-            <span align="left">
-              Servings of Delight is introducing healthy and affordable meal
-              recipes to college students.
+       <div class="headerH">
+       <div class="info">
+         <span>
+         <a  href="/">
+              <img className="homelogo"
+              src={home}
+              alt="logo_picture" width="60" height="50"></img>
+          </a>
+          </span>
+          <span >
+              <b>Servings of Delight</b> is introducing an online cookbook for college students who do not have the time to come up with their own nutritious and diverse meals. Servings of Delight allows users to search for recipes within their diet restrictions, receive a detailed recipe, and use a generated meal plan.
             </span>
-          </div>
-          <div className='intro-img'>
-            <img src={book} alt='recipe book'></img>
-            </div>
-          
-
-
+    
+        </div>
         </div>
         <div className="home-layout">
           <h1>Recipes</h1>
@@ -30,6 +31,21 @@ export default function Home() {
       </div>
     );
     }
+
+/**<div className="home-intro">
+          <div className="intro-blurb">
+            <span align="left">Servings of Delight</span>
+            <span align="left">
+              Servings of Delight is introducing healthy and affordable meal
+              recipes to college students.
+            </span>
+          </div>
+          <div className='intro-img'>
+            <img src={book} alt='recipe book'></img>
+            </div>
+        
+        </div> */
+
 
     /*
     <article>
