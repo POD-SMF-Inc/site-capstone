@@ -55,7 +55,7 @@ if (!user?.username) {
 
     <div className="Profile"> 
       <div>
-        <div style={{ height: 900, overflow: "auto" }}>
+        <div style={{ height: 900,  overflow: "auto" }}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <StickyBox offsetTop={20} offsetBottom={20}>
               <Sidebar />
@@ -108,7 +108,15 @@ if (!user?.username) {
                   </div>
               </div>
           </div>
+         
           </section>
+          <div className = "modalBtn">
+                
+                 <button className='openModalBtn' onClick={() => {
+                   setOpenModal(true);
+                 }}>   ✏️ Edit Profile </button>
+                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+          </div>
             </div>
                 <br />
                 <h6>Favorite Recipes</h6>
@@ -122,4 +130,18 @@ if (!user?.username) {
         </div> 
 </div>
   );
-            }
+}
+
+/*
+<div>
+              <FontAwesomeIcon icon={faEdit} onClick={() => {
+                setOpenModal(true);
+              }} size="1.5x"/> <i class="fa fa-edit"></i> 
+                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
+                   setOpenModal(true);
+                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
+                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+                </div>
+*/
+
+    

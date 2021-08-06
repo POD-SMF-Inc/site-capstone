@@ -1,4 +1,5 @@
 import "./Favorite.css"
+import HeartLogo from '../../assets/heart2.png'
 import apiClient from "../../services/apiClient"
 import { useState, useEffect } from "react"
 import FavoritesInfo from "../FavoritesInfo/FavoritesInfo"
@@ -23,11 +24,35 @@ export default function Favorites({ user }) {
   }, [])
   return (
 		<div className="FavoritesPage">
-			<h1>In Favorites</h1>
-      <FavoritesInfo favorites={favorites} />
-		</div>
+			<span >In Favorites</span>
+      <span align= 'center'> View your favorite recipes here! You can favorite and remove recipes from favorites by clicking on the recipe details. </span>
+      {favorites.length ? (
+        <div className="favorites-list">
+          <FavoritesInfo favorites={favorites} />
+        </div>
+      ) : (
+        <div className="empty">
+        <div className="message is-danger  ">
+          <div className="message-body  ">
+          <strong>You don't have any favorite recipes yet!</strong>
+            <div>
+              <img
+                 className="heart-logo"
+                 src={HeartLogo}
+                 alt="heart"
+              ></img>
+           </div>
+        </div>
+       
+        </div>
+        </div>
+        
+      )}
+    </div>
+		
 	)
 }
+
 /*import React, { useState, useEffect } from 'react';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';

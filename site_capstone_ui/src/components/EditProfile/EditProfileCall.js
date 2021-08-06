@@ -33,7 +33,7 @@ export default function EditProfileCall({ user, setUser, diet, description, into
  
     return(
         <div className="button1">
-          <button className="buttonforsave" onClick={handleUpdateProfile}> Save </button>
+             <button className="button is-success  round-border is-info is-outlined  "  onClick={handleUpdateProfile}> Save </button>
         </div>
     )
 }
