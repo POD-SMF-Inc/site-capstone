@@ -36,7 +36,6 @@ export default function App() {
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate();
-  const [survey, setSurvey] = useState({})
 
   
   const handleLogout = async () => {
@@ -75,22 +74,6 @@ export default function App() {
   }, [])
 
 
-  useEffect(() => {
-    const fetchInfo = async () => {
-      const { data, error } = await apiClient.fetchUserSurvey(user)
-      if (data) {
-        setSurvey(data.survey[0])
-      }
-      if (error) {
-        setErrors((e) => ({ ...e, error }))
-      }
-    }
-    fetchInfo()
-  }, [appState.user]) 
-
-
-
-
   return (
     <ThemeContextProvider>
     <LocalDataState>
@@ -107,7 +90,7 @@ export default function App() {
           <Route path='/details/:idNum' element={<Details />} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
           <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  />} />
-          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey}  /> } /> 
+          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user}  /> } /> 
           <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
           <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
           <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
@@ -117,8 +100,7 @@ export default function App() {
           <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
           <Route path='/list' element={<ShoppingList user={appState?.user} />}/>
           <Route path= "*" element={<NotFound />} />
-          
-           <Route path='/upload' element={ <Upload /> } /> 
+            <Route path='/upload' element={ <Upload /> } />  
 
         </Routes>
         </> : null }

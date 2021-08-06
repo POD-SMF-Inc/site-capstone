@@ -1,150 +1,155 @@
 .modalBackground {
-    width: 50vw;
-    height: 50vh;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 50vw;
+  height: 50vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  /* width: 400px; */
+  /* height: 400px; */
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 25px;
+  position:  fixed;
+  width: 600px;
+  top: 90px;
+  left: calc(50% - 300px);
+  bottom: 40px;
+  z-index: 100;
+}
+
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: -30px;
+  margin-left: 5%;
+}
+
+.modal-content{
+  width:100%;  
+
+}
+
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1 rem;
+  text-align: left;
+  margin-top: -50px;
+  margin-bottom: 1000px;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 200px; */
+  align-items: center;
+}
+
+.modalContainer .footer2 {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: crimson;
+}
+
+.form1 {
+    width: 50px;
+    height: 50px;
+    display:flex;
+    justify-content: left;
+}
+
+.form1, .form1-fields {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   
-  .modalContainer {
-    /* width: 400px; */
-    /* height: 400px; */
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 25px;
-    position:  fixed;
-    width: 600px;
-    top: 90px;
-    left: calc(50% - 300px);
-    bottom: 40px;
-    z-index: 100;
-  }
+}
+.form1-fields {
+  width: 200px;
 
+}
+.form1-input {
+  max-width: 100%;
+  margin: 10px;
+  width: 100%;
   
-  .modalContainer .title {
-    display: inline-block;
-    text-align: center;
-    margin-top: -30px;
-    margin-left: 5%;
-  }
-
-
-  .titleCloseBtn {
-    display: flex;
-    justify-content: flex-end;
-  }
+}
+.label {
+  display: block;
+  font-size: 20px;
+  text-align:left;
+  margin-right: 100px;
   
-  .titleCloseBtn button {
-    background-color: transparent;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-  }
+}
+input {
+  width: 100%;
+  padding: 10px;
+  background-color: #FFE4E1;
+  border-radius: 6px;
+}
+
+.buttonforsave {
+ background-color: teal;
+ margin-left: 490px;
+
+}
+
+.right-side .displayed-image {
+  height: 300px;
+  width: 300px;
+}
+
+
+/* .save-btn {
+  padding: 5px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  width: 190px;
+  background-color:#00CED1;
+  opacity: 3;
   
-  .modalContainer .body {
-    flex: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1 rem;
-    text-align: left;
-    margin-top: -50px;
-    margin-bottom: 1000px;
-  }
-  
-  .modalContainer .footer {
-    flex: 20%;
-    display: flex;
-    justify-content: center;
-    /* margin-bottom: 200px; */
-    align-items: center;
-  }
-  
-  .modalContainer .footer2 {
-    width: 150px;
-    height: 45px;
-    margin: 10px;
-    border: none;
-    color: white;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  #cancelBtn {
-    background-color: crimson;
-  }
+}
+.save-btn:hover {
+  background-color: #20a8ca;
+}
 
-  .form1 {
-      width: 50px;
-      height: 50px;
-      display:flex;
-      justify-content: left;
-  }
-  
-  .form1, .form1-fields {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-  .form1-fields {
-    width: 200px;
-
-  }
-  .form1-input {
-    max-width: 100%;
-    margin: 10px;
-    width: 100%;
-    
-  }
-  .label {
-    display: block;
-    font-size: 20px;
-    text-align:left;
-    margin-right: 100px;
-    
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    background-color: #FFE4E1;
-    border-radius: 6px;
-  }
-
-  .buttonforsave {
-   background-color: teal;
-   margin-left: 490px;
-  
-  }
-
-  .modal-content {
-    width: 100%;
-  }
-
-
-
-  /* .save-btn {
-    padding: 5px 10px;
-    margin: 10px;
-    margin-bottom: 30px;
-    font-size: 18px;
-    border-radius: 6px;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 20px;
-    width: 190px;
-    background-color:#00CED1;
-    opacity: 3;
-    
-  }
-  .save-btn:hover {
-    background-color: #20a8ca;
-  }
-
-  .save-btn {
-    margin-bottom: 80px;
-  } */
+.save-btn {
+  margin-bottom: 80px;
+} */

@@ -111,23 +111,9 @@ static async fetchSurvey ({ user }) {
   
     }
 
-/*     static async uploadImage ({ newImage, user }) {
-
-        const surveyResult = await db.query (
-            `
-        INSERT INTO profile 
-        VALUES ($1, (SELECT id FROM users WHERE username=$2))
-        RETURNING id, 
-        image,
-        user_id
-                `
-                const result = surveyResult.rows[0]
-                return Survey.surveyForm(result)
-           
+  
+    }
 
 
-        )}
-} */
-}
 
 module.exports = Survey

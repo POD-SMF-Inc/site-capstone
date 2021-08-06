@@ -1,14 +1,13 @@
-import React  from 'react'
-//import profilepic from '../../assets/rsz_profilep.jpg';
-import sidepic from '../../assets/Group 11.png';
+import React, { useState }  from 'react'
+import profilepic from '../../assets/rsz_profilep.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import Upload from "../Upload/Upload";
-//import handleOnClick from "../Profile/Profile";
+import Upload from "../Upload/Upload";
+import handleOnClick from "../Profile/Profile";
+import sidepic from "../../assets/Group11.png";
 import {
   
     faGithub,
     faLinkedin,
-   
     
   } from "@fortawesome/free-brands-svg-icons";
 import {  faUser } from '@fortawesome/free-solid-svg-icons';
@@ -26,8 +25,9 @@ export default class Sidebar extends React.Component {
     
     render() {
         const {isExpanded} = this.state;
-        
 
+
+        
         //const {elements = 10} = this.props;
         return (
           
@@ -73,10 +73,15 @@ export default class Sidebar extends React.Component {
           <div className="sidebar">
           <div class="panel">
           <div class="user-heading round">
+  
+  
+              
+
               <img
-              className="sidebarpic"
-              src={sidepic}
-              alt="logo_picture"
+                            className="sidebarpic"
+                            src={sidepic}
+                            alt="logo_picture"
+             
             ></img>
             
           </div>
