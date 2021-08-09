@@ -4,11 +4,11 @@ export const ThemeContext = createContext();
 
 const initialState = {
   isLightTheme: true,
-  light: "has-background-white-ter has-text-black",
+  light: " has-text-black",
   dark: "has-background-black has-text-white",
   navLight: "is-white",
   navDark: "is-dark",
-  cardLight: "has-background-white has-text-black",
+  cardLight: " has-text-black",
   cardDark: "has-background-dark has-text-white",
 };
 

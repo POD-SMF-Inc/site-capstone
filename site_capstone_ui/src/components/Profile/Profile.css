@@ -1,4 +1,9 @@
 .Profile {
+  /*background-color: #F0F8FF;*/
+  height:150vh;
+ 
+}
+.profile {
   background-color: #F0F8FF;
 }
 
@@ -216,8 +221,14 @@
 
 .container-banner{
   background-color: #fff;
-  margin-right: 15px;
-  
+  margin-right: 20px;
+  margin-left: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 80vw;
+  max-width: 100vw;
+ 
 }
 .banner-intro {
   padding: 30px;

@@ -2,6 +2,13 @@
     width: 100%;
     text-align: center;
     align-content: center;
+    
+  }
+
+  .fav {
+    height: 100vh;
+    background-color: #F0F8FF;
+  
   }
   .FavoritesPage span {
     display: block;

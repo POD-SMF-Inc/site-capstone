@@ -86,10 +86,10 @@ export default function Login({ setAppState, user }) {
               placeholder='password' 
               value={form.password} 
               onChange={handleOnInputChange}/>
-
-              <i onClick={togglePasswordVisiblity}>Show password {eye} </i>
-
               {errors.password && <span className="error">{errors.password}</span>}
+              <div className="showBtn"> 
+                <i onClick={togglePasswordVisiblity}>Show password {eye} </i>
+              </div>
 
             </div>
             <div className='login-footer'>

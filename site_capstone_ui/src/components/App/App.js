@@ -90,7 +90,7 @@ export default function App() {
           <Route path='/details/:idNum' element={<Details appState={appState} user={appState?.user} setAppState={setAppState}/>} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} setAppState={setAppState}/>} />
           <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  setAppState={setAppState}/>} />
-          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey}  /> } /> 
+          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} /*survey={survey} setSurvey={setSurvey}*/  /> } /> 
           <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} setAppState={setAppState}/> } /> 
           {/* <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> */}
           {/* <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} />  */}

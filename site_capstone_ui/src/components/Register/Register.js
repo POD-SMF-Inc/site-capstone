@@ -169,12 +169,17 @@ export default function Register({ user, setUser, setAppState }) {
             <input 
             type={passwordShown ? "text" : "password"} 
             name="passwordConfirm"
-             placeholder="confirm password" 
+             placeholder="confirm password "  
              value={form.passwordConfirm} 
              onChange={handleOnInputChange}/>
             {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+            
+            <div className="showBtn"> 
             <i onClick={togglePasswordVisiblity}>Show password {eye} </i>
+            </div>
+
           </div>
+         
           
           <p className="to-login">
                          Already have an account? Login <Link to="/login">here.</Link>

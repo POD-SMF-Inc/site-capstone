@@ -119,7 +119,7 @@
 .searchSec .filter .check {
     display: flex;
     flex-direction: column;
-    /*background-color: crimson;*/
+   /* background-color: crimson;*/
 }
 
 .searchSec .filter .check .checkTitle h8{
@@ -132,12 +132,15 @@
 
 .searchSec .filter .check .checkChoices input {
     width: 10px;
+    height: 10px;
+    margin-left: 10px;
 }
 
 .searchSec .filter .check .checkChoices span {
     /* background-color: darkmagenta; */
     font-size: 15px;
-    margin-right: 10px;
+    margin-left: 2px;
+    
     
 }
 
@@ -156,20 +159,21 @@
 
 .searchSec .filter .checkInlo .checkInChoices input {
     width: 10px;
+    height: 10px;
+    margin-left: 10px;
 }
 
 .searchSec .filter .checkInlo .checkInChoices span {
     /* background-color: darkmagenta; */
     font-size: 15px;
-    margin-right: 10px;
+    margin-left: 2px;
     
 }
 
 label {
     margin-left: 40px;
 }
-
-.checkInChoices {
+/*.checkInChoices {
     padding-left: 15px;
     padding-right: 10px;
 }
@@ -177,5 +181,6 @@ label {
 
 .checkChoices {
     padding-left: 15px;
-}
+}*/
+
 
