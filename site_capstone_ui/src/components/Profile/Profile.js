@@ -1,6 +1,6 @@
 import './Profile.css'
 import React, { useEffect, useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,16 +14,15 @@ import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
 import apiClient from "../../services/apiClient"
 import profilepic from '../../assets/rsz_profilep.jpg';
-//import Upload from "../Upload/Upload"
 
 export default function Profile({ user, setAppState, appState, isLoading }) {
-
 
 
   const [openModal, setOpenModal] = useState(false);
   const [errors, setErrors] = useState({})
 
   const [survey, setSurvey] = useState({})
+
 
   //const navigate = useNavigate()
 
@@ -54,7 +53,7 @@ if (!user?.username) {
 
     <div className="Profile"> 
       <div>
-        <div style={{ height: 900, overflow: "auto" }}>
+        <div style={{ height: 900,  overflow: "auto" }}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <StickyBox offsetTop={20} offsetBottom={20}>
               <Sidebar />
@@ -64,30 +63,28 @@ if (!user?.username) {
             <section className="container-banner">
             <div className="banner-intro">
               <div className="banner-blurb">
-             {/* <img
+{/*               <img
               className="profilepic"
               src={profilepic}
               alt="profile_picture"
-            ></img>*/}
+            ></img> */}
                 <span id="name" align="left">{user.first_name + " " + user.last_name}</span>
                 <span align="left" className="bio-heading">
-                <div className="description" > About Me: <span align="left">  {survey.description} </span> </div>
+                <div className="description"> About Me: <span align="left"> {survey.description} </span> </div>
                 </span>
-              
               </div>
-              
               <div className="edit">
               <div className="profile-img">
-                <img src={profilepic}
-              alt="profile_picture"></img>
-              </div>
+                 <img src={profilepic}
+               alt="profile_picture"></img>
+               </div>
               <FontAwesomeIcon icon={faEdit} onClick={() => {
                 setOpenModal(true);
               }} size="1.5x"/> <i class="fa fa-edit"></i> 
                  <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
                    setOpenModal(true);
                  }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
-                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+                 {openModal && <EditProfile user={user} setErrors={setErrors} setUser={setUser} survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
               </div>
             </div>
             <div class="panel-body bio-graph-info">
@@ -109,7 +106,15 @@ if (!user?.username) {
                   </div>
               </div>
           </div>
+         
           </section>
+          <div className = "modalBtn">
+                
+                 <button className='openModalBtn' onClick={() => {
+                   setOpenModal(true);
+                 }}>   ✏️ Edit Profile </button>
+                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+          </div>
             </div>
                 <br />
                 <h6>Favorite Recipes</h6>
@@ -123,4 +128,18 @@ if (!user?.username) {
         </div> 
 </div>
   );
-            }
+}
+
+/*
+<div>
+              <FontAwesomeIcon icon={faEdit} onClick={() => {
+                setOpenModal(true);
+              }} size="1.5x"/> <i class="fa fa-edit"></i> 
+                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
+                   setOpenModal(true);
+                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
+                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+                </div>
+*/
+
+    

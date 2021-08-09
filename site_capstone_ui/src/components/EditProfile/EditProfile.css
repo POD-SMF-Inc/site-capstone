@@ -1,4 +1,4 @@
-.modalBackground {
+/*.modalBackground {
     width: 50vw;
     height: 50vh;
     position: fixed;
@@ -6,10 +6,11 @@
     justify-content: center;
     align-items: center;
   }
-  
-  .modalContainer {
-    /* width: 400px; */
-    /* height: 400px; */
+  */
+
+  /*.modalContainer {
+     width: 400px; 
+     height: 400px; 
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -21,9 +22,9 @@
     bottom: 40px;
     z-index: 100;
   }
-
+*/
   
-  .modalContainer .title {
+  /*.modalContainer .title {
     display: inline-block;
     text-align: center;
     margin-top: -30px;
@@ -58,7 +59,7 @@
     flex: 20%;
     display: flex;
     justify-content: center;
-    /* margin-bottom: 200px; */
+    
     align-items: center;
   }
   
@@ -78,52 +79,51 @@
   }
 
   .form1 {
-      width: 50px;
-      height: 50px;
-      display:flex;
-      justify-content: left;
-  }
+    width: 50px;
+    height: 50px;
+    display:flex;
+    justify-content: left;
+}
   
-  .form1, .form1-fields {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-  .form1-fields {
-    width: 200px;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  background-color: #FFE4E1;
+  border-radius: 6px;
+}
 
-  }
-  .form1-input {
-    max-width: 100%;
-    margin: 10px;
-    width: 100%;
-    
-  }
-  .label {
-    display: block;
-    font-size: 20px;
-    text-align:left;
-    margin-right: 100px;
-    
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    background-color: #FFE4E1;
-    border-radius: 6px;
-  }
+.buttonforsave {
+ background-color: teal;
+ margin-left: 490px;
 
-  .buttonforsave {
-   background-color: teal;
-   margin-left: 490px;
+}
+
+.right-side .displayed-image {
+  height: 300px;
+  width: 300px;
+}
+
+
+/* .save-btn {
+  padding: 5px 10px;
+  margin: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  width: 190px;
+  background-color:#00CED1;
+  opacity: 3;
   
   }
 
   .modal-content {
     width: 100%;
   }
+  */
 
 
 
@@ -148,3 +148,5 @@
   .save-btn {
     margin-bottom: 80px;
   } */
+
+  

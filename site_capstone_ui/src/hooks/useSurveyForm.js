@@ -13,6 +13,7 @@ export const useSurveyForm = () => {
     description: '',
     location: '',
     schoolname: '',
+    image: ''
   })
 
   const [errors, setErrors] = useState({})

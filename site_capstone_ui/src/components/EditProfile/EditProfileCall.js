@@ -1,22 +1,23 @@
 import EditProfile from "../EditProfile/EditProfile"
-import {useState} from "react"
+import { useState, useEffect } from "react"
 import apiClient from "../../services/apiClient"
 import "./EditProfile.css"
 
 
-export default function EditProfileCall({ diet, description, intolerances, schoolname, cuisines, image, location, setErrors, survey, setSurvey, setOpenModal, setIsUpdating})
+export default function EditProfileCall({ user, setUser, diet, description, intolerances, schoolname, cuisines, image, location, errors, setErrors, survey, setSurvey, setOpenModal, setIsUpdating})
 {
-    const form = {
-        description: description,
-        location: location,
-        diet: diet,
-        schoolname: schoolname,
-        intolerances: intolerances,
-        cuisines: cuisines,
-        image: image
-    }
 
-    const handleUpdateProfile = async () => {
+  const form = {
+    description: description,
+    location: location,
+    diet: diet,
+    schoolname: schoolname,
+    intolerances: intolerances,
+    cuisines: cuisines,
+    image: image
+}
+
+      const handleUpdateProfile = async () => {
 
         setIsUpdating(true)
 
@@ -32,7 +33,7 @@ export default function EditProfileCall({ diet, description, intolerances, schoo
  
     return(
         <div className="button1">
-             <button className="buttonforsave" onClick={handleUpdateProfile}> Save </button>
+             <button className="button is-success  round-border is-info is-outlined  "  onClick={handleUpdateProfile}> Save </button>
         </div>
     )
 }

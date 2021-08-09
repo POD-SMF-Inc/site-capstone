@@ -36,7 +36,6 @@ export default function App() {
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate();
-  const [survey, setSurvey] = useState({})
 
   
   const handleLogout = async () => {
@@ -74,19 +73,6 @@ export default function App() {
     }    
   }, [])
 
-
-  useEffect(() => {
-    const fetchInfo = async () => {
-      const { data, error } = await apiClient.fetchUserSurvey(user)
-      if (data) {
-        setSurvey(data.survey[0])
-      }
-      if (error) {
-        setErrors((e) => ({ ...e, error }))
-      }
-    }
-    fetchInfo()
-  }, [appState.user]) 
 
   return (
     <ThemeContextProvider>

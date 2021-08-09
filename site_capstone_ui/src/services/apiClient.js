@@ -106,14 +106,10 @@ async updateListInfo(listInfo)
   console.log("in update: ", listInfo)
   return await this.request({ endpoint: `list/updateInfo`, method: `PATCH`, data: listInfo })
 }
+
 async updateInfo(infoUpdate) {
   return await this.request({ endpoint: `survey`, method: `PATCH`, data: infoUpdate })
 }
-
-async updateImage(imageUpdate) {
-  return await this.request({ endpoint: `survey/image`, method: `PATCH`, data: imageUpdate })
-}
-
 
 }
 

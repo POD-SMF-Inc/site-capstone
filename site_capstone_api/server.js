@@ -1,4 +1,6 @@
 const express = require("express")
+const app = express()
+const {cloudinary} = require('./utils/cloudinary');
 const cors = require("cors")
 const morgan = require("morgan")
 const { PORT } = require("./config")
@@ -10,9 +12,6 @@ const chatbotRouter = require('./routes/chatbot');
 const favRouter = require("./routes/favorites")
 const listRouter = require("./routes/shoppingList")
 
-
-
-const app = express()
 
 // enable cross-origin resource sharing for all origins for all requests
 // NOTE: in production, we'll want to restrict this to only the origin
@@ -31,7 +30,34 @@ app.use("/survey", surveyRouter)
 app.use('/chatbot', chatbotRouter)
 app.use('/list', listRouter)
 app.use("/favorites", favRouter)
+app.use(express.static('public'));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
+app.get('/api/images', async (req, res) => {
+  const { resources } = await cloudinary.search
+      .expression('folder:dev_setups')
+      .sort_by('public_id', 'desc')
+      .max_results(30)
+      .execute();
+
+  const publicIds = resources.map((file) => file.public_id);
+  res.send(publicIds);
+});
+
+/* app.post('https://api.cloudinary.com/v1_1/df16thior/image/upload', async (req, res) => {
+  try {
+      const fileStr = req.body.data;
+      const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+          upload_preset: 'upload',
+      });
+      console.log(uploadResponse);
+      res.json({ msg: 'yaya' });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ err: 'Something went wrong' });
+  }
+}); */
 
 
 
