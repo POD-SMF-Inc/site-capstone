@@ -9,7 +9,9 @@
   }
   /*justify-content:space-evenly;*/
  
-
+.homelogo {
+  padding-top: 20px;
+}
   
 
 .Navbar a, .logout-link {

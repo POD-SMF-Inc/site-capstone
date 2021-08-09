@@ -132,12 +132,14 @@ export default function ModalShopping(props)
                             aria-label="close"
                             onClick={resetForm}
                         ></button>
-                        <div className="shoppingTitle">
-                            <h2>Shopping List</h2>
-                        </div>
+                        
                 </header>
                     <section className={`modal-content has-background-white py-6 px-6`}>
+                        <div className="shoppingTitle">
+                            <h1>Shopping List</h1>
+                        </div>
                         <div className="backgroundList">
+                            
                         <div className="listSection">
                             <div className="addItem">
 					            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
@@ -146,13 +148,15 @@ export default function ModalShopping(props)
 				            </div>
                         
                             <div className="itemList">
-                                {items.map((item, index) => (
+                                {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
                                         <div className="itemContainer">
                                                 <div className="itemName" onClick={() => selectItem(index)}>
                                                     {item.is_selected ? (
                                                         <>
                                                         <FontAwesomeIcon icon={faCheckCircle} />
-                                                        <span className="completedCircle">{item.title}</span>
+
+                                                            <span className="completedCircle">{item.title}</span>
+                                                    
                                                         </>
                                                         ) : (
                                                         <>

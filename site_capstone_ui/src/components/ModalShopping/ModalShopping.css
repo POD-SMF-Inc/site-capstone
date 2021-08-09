@@ -14,9 +14,10 @@
     /* padding: 20px; */
 }
 
-.shoppingTitle h2 {
+.shoppingTitle h1 {
     color: black;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .backgroundList .listSection .addItem {
@@ -26,7 +27,7 @@
 }
 
 .backgroundList .listSection .addItem input {
-    width: 300px;
+    width: 250px;
     margin-right: 10px;
     height: 40px;
 }
@@ -37,7 +38,11 @@
     margin-right: 10px;
     border: 1px solid black;
     border-radius: 5px;
-    height: 30px;
+    font-size: 20px;
+    /* height: 30px; */
+    /* width: unset;
+    height: unset; */
+    padding: 5px;
     background-color: cornsilk;
     margin-top: -15px;
 }
@@ -63,6 +68,9 @@
 
 .backgroundList .listSection .itemList .itemContainer .itemName {
     margin-right: 20px;
+    width: 250px;
+    max-width: 300px;
+    overflow: auto;
 }
 
 .backgroundList .listSection .itemList .itemContainer .quantity {
@@ -77,11 +85,16 @@
     font-size: 25px;
 }
 
-.backgroundList .listSection .totalItems {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.backgroundList .listSection .totalItems button{
+   background-color: cornsilk;
+   color: black;
+   margin: 10px;
+   padding: 5px;
+   border: 1px solid black;
+   border-radius: 5px;
+   font-size: 20px;
 }
+
 
 .completedCircle {
     text-decoration: line-through;

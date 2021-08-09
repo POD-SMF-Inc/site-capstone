@@ -88,9 +88,6 @@ export default function App() {
     fetchInfo()
   }, [appState.user]) 
 
-
-
-
   return (
     <ThemeContextProvider>
     <LocalDataState>
@@ -99,26 +96,26 @@ export default function App() {
         <>
         <Navbar user={appState?.user} handleLogout={handleLogout} isLoading={isLoading}/>
         <Routes>
-          <Route path='/' element={ <Home /> } />
+          <Route path='/' element={ <Home user={appState?.user}/> } />
           <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
           <Route path='/login' element={ <Login  setAppState={setAppState} /> } />
-          <Route path='/favorites' element={ <Favorites appState={appState} user={appState?.user}  />} />
-          <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user}  />} />
-          <Route path='/details/:idNum' element={<Details />} />
-          <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} />} />
-          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  />} />
+          <Route path='/favorites' element={ <Favorites appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/details/:idNum' element={<Details appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  setAppState={setAppState}/>} />
           <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} survey={survey} setSurvey={setSurvey}  /> } /> 
-          <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} /> } /> 
-          <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> 
-          <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} /> 
-          <Route path='/explore/' element= {<Filter  appState={appState} user={appState?.user} />} /> 
-          <Route path='/ingredients/' element={<Ingredients />} />
-          <Route path='/tutorials' element={<VideoPage />} />
-          <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
-          <Route path='/list' element={<ShoppingList user={appState?.user} />}/>
+          <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} setAppState={setAppState}/> } /> 
+          {/* <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> */}
+          {/* <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} />  */}
+          <Route path='/explore' element= {<Filter  appState={appState} user={appState?.user} setAppState={setAppState}/>} /> 
+          <Route path='/ingredients' element={<Ingredients appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/tutorials' element={<VideoPage appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} setAppState={setAppState}/>} />
+          <Route path='/list' element={<ShoppingList appState={appState} user={appState?.user} setAppState={setAppState}/>}/>
           <Route path= "*" element={<NotFound />} />
           
-           <Route path='/upload' element={ <Upload /> } /> 
+          <Route path='/upload' element={ <Upload /> } /> 
 
         </Routes>
         </> : null }

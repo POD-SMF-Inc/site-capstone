@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay, faCalendarWeek } from "@fortawesome/free-solid-svg-icons";
 
 
-function Planner( {user, setUser} ) {
+function Planner( { user, setAppState } ) {
     const [mealData, setMealData] = useState(null);
     const [mealDataW, setMealDataW] = useState(null);
     const [calories, setCalories] = useState(2000);
@@ -31,7 +31,7 @@ function Planner( {user, setUser} ) {
     };
 
     if (!user?.email) {
-      return <NotAuthorized user={user} setUser={setUser}/>
+      return <NotAuthorized user={user} setAppState={setAppState}/>
   }
   
 

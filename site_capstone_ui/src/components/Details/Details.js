@@ -2,19 +2,22 @@ import "./Details.css"
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import APIR from '../../services/apiCalls'
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
 import EquipmentC from "../EquipmentCalls/EquipmentC";
-export default function Details()
+export default function Details({ user, setAppState })
 {
     const { idNum } = useParams()
     const [error, setError] = useState(null)
     const [ recipe, setRecipe ] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
     console.log("id: ", idNum)
    
     
     useEffect(() => {
         // console.log("in here")
         const fetchRecipe = async () => {
+            setIsLoading(true)
                 console.log("in here")
             try {
                 const { data, error } = await APIR.getRecipeInfo(idNum)
@@ -34,18 +37,42 @@ export default function Details()
                 setError("Recipe Not Found")
     
             }
-        
+            setIsLoading(false)
         }
-        fetchRecipe()
+
+        if (user?.username) {
+            //return <NotAuthorized user={user} setAppState={setAppState}/>
+            fetchRecipe()
+        }
         console.log("recipe sec: ", recipe)
     }, [idNum])
 
+     console.log("right now")
+
+const renderRecipeInfo = () => {
+    if (!user?.username) {
+        return <NotAuthorized user={user} setAppState={setAppState}/>
+    }
+    if (isLoading)
+    {
+        return<h1>Loading...</h1> 
+    }
     console.log("recipe: ", recipe)
-        return (
-            <div className="detail">
-                <EquipmentC recipe={recipe} />
-            </div>
-        )
+    return (
+        <>
+        <div className="detail">
+            <EquipmentC recipe={recipe} />
+        </div>
+        </>
+    )
+}
+
+return (
+    <div className="detPage">
+        {renderRecipeInfo()}
+    </div>
+)
+    
 
     // console.log("right here")
     /*

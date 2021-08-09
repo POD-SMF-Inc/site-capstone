@@ -45,7 +45,8 @@ export default function SearchRecipeRoute({ randomRecipe, totalResults }) {
     return (
         <div className="SearchRR">
             {displayRecipes}
-            <ReactPaginate 
+            
+            <ReactPaginate
                 previousLabel={"Previous"}
                 nextLabel={"Next"}
                 pageCount={pageCount}
@@ -56,6 +57,7 @@ export default function SearchRecipeRoute({ randomRecipe, totalResults }) {
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
             />
+            
             {/* {randomRecipe?.length === 0 ? null : <button onClick={loadMore}>Load More</button>}
             {
                 randomRecipe?.slice(0, visible).map(element => (

@@ -8,7 +8,7 @@ import StickyBox from "react-sticky-box";
 import React from "react";
 //import { ThemeContext } from "../../contexts/ThemeContext";
 
-export default function Filter( { user, setUser } ) {
+export default function Filter( { user, setAppState } ) {
     const [query, setQuery] = useState("")
     let cuisine = []
     let intolerances = []
@@ -45,8 +45,8 @@ export default function Filter( { user, setUser } ) {
     }
     */
 
-     if (!user?.username) {
-        return <NotAuthorized user={user} setUser={setUser}/>
+    if (!user?.username) {
+        return <NotAuthorized user={user} setAppState={setAppState}/>
     } 
 
     const handleCheck = (event) => {

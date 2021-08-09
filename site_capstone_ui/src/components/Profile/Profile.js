@@ -16,7 +16,7 @@ import apiClient from "../../services/apiClient"
 import profilepic from '../../assets/rsz_profilep.jpg';
 //import Upload from "../Upload/Upload"
 
-export default function Profile({ user, setUser, appState, isLoading }) {
+export default function Profile({ user, setAppState, appState, isLoading }) {
 
 
 
@@ -44,7 +44,7 @@ useEffect(() => {
 
 
 if (!user?.username) {
-  return <NotAuthorized user={user} setUser={setUser}/>
+  return <NotAuthorized user={user} setAppState={setAppState}/>
 } 
 
 
