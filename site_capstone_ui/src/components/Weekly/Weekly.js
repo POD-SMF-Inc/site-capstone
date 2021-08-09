@@ -29,7 +29,7 @@ function Weekly({ user, setAppState }) {
     
     return (
       
-        <div className={`${theme} `}>
+        <div className={` weekly ${theme} `}>
           <div className={theme}>
           <ThemeToggler />
           <div className='weekly-blurb'>

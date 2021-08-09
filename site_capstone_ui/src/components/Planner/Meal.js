@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 //import Favorites from '../FavoriteComponent/FavoriteComponent';
 //import FavHeart from '../FavHeart/FavHeart';
 import { Link } from "react-router-dom"
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Meal ({ meal }) {
   const [imageUrl, setImageUrl] = useState("");
   //const FavoriteComponent = meal.favouriteComponent;
   //const Favorites = meal.favouriteComponent;
-  const key = 'b7a72b6d08ad4c77ae76c76192ee3ae1';
+  const key = 'e892ed26f6334d0d97339898d12fd2a9';
+  const context = useContext(ThemeContext);
+  const theme = context.isLightTheme ? context.cardLight : context.cardDark;
 
   useEffect(() => {
     fetch(
@@ -22,6 +25,7 @@ export default function Meal ({ meal }) {
       });
   }, [meal.id]);
 
+
   /*const formatter = new Intl.NumberFormat("en-US", {
     currency: "USD",
     minimumFractionDigits: 2,
@@ -33,7 +37,7 @@ export default function Meal ({ meal }) {
   };*/
 
   return (
-    <article>
+    <article className={`${theme}`}>
       <h2>{meal.title}</h2>
       <img src={imageUrl} alt="recipe" />
       <ul className="instructions">

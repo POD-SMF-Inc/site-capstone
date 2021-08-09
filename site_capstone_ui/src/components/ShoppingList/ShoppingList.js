@@ -1,5 +1,6 @@
 import "./ShoppingList.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { ThemeContext } from "../../contexts/ThemeContext";
 import uuid from 'react-uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import apiClient from "../../services/apiClient"
@@ -34,6 +35,23 @@ export default function ShoppingList({ user, setAppState })
         }
         
     }, [])
+
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
+
     if (!user?.username) {
         return <NotAuthorized user={user} setAppState={setAppState}/>
     } 
@@ -114,7 +132,10 @@ export default function ShoppingList({ user, setAppState })
     };
 
     return (
-        <div className="mainShop">
+        <div className={`shop ${theme} `}>
+        <div className={theme}>
+        <ThemeToggler />
+        <div className={`mainShop ${theme}`}>
         <div className="ShoppingList">
             <div className="headerShoppL">
                 <h1>Your Shopping List</h1>
@@ -123,7 +144,7 @@ export default function ShoppingList({ user, setAppState })
                 <h2>Missing Any Ingredients? Add To Your Shopping List!</h2>
             </div>
             <div className="listItemS">
-                <div className="addItemSec">
+                <div className={`addItemSec box ${theme2}`}>
 					<input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
                     
                     <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
@@ -135,7 +156,7 @@ export default function ShoppingList({ user, setAppState })
                 </div> */}
                 <div className="itemListSec">
                 {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
-                                        <div className="itemContainerSec">
+                                        <div className={`itemContainerSec ${theme2}`}>
                                                 <div className="itemNameSec" onClick={() => selectItem(index)}>
                                                     {item.is_selected ? (
                                                         <>
@@ -178,6 +199,8 @@ export default function ShoppingList({ user, setAppState })
             </div>
         </div>
         </div>
+        </div>
+      </div>
     )
     /*
     const [modalOpen, setModalOpen] = useState(false)
