@@ -1,11 +1,16 @@
 .Navbar {
-  background-color: #55565A;
-  display: flex;
-  justify-content:space-evenly;
-  padding: 5px;
-  height: 62px;
-  align-items: center;
-  
+    background-color: #55565A;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 5px;
+    height: 62px;
+    align-items: center;
+    
+  }
+  /*justify-content:space-evenly;*/
+ 
+.homelogo {
+  padding-top: 20px;
 }
 /*justify-content:space-evenly;*/
 

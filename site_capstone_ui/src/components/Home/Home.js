@@ -3,7 +3,8 @@ import './Home.css'
 import home from '../../assets/Group10.png';
 //import book from '../../assets/book.png'
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
-export default function Home() {
+export default function Home({ user }) {
+  console.log("user in home: ", user)
     return (
       <div className="Home">
        <div class="headerH">
@@ -26,7 +27,7 @@ export default function Home() {
           <div className="HomeRecipes">
             <HomeRecipeCalls />
           </div>
-          <h1 id="footer"> Create an account to view more recipes! </h1>
+         { user === undefined? <h1 id="footer"> Create an account to view more recipes! </h1> : null}
         </div>
       </div>
     );

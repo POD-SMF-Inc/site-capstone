@@ -1,0 +1,94 @@
+.mainShop {
+    background-color: #F0F8FF;
+    height:1000px;
+}
+.ShoppingList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-top:20px;
+    
+}
+
+.ShoppingList .listItemS {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.ShoppingList .listItemS .addItemSec {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.ShoppingList .listItemS .addItemSec input {
+    width: 450px;
+    margin-right: 50px;
+    height: 50px;
+    background-color: #FFFAFA;
+}
+
+.ShoppingList .listItemS /*.addItembtnS*/ .addBtnS {
+    border: 1px solid black;
+    background-color: #00CED1;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 120px;
+        /* padding-top: 5px; */
+        height: 40px;
+    margin-top: 5px;
+        /* padding-bottom: 5px; */
+        /* margin-top: 20px;*/
+}
+.ShoppingList .listItemS .itemListSec {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.ShoppingList .listItemS .itemListSec h2{
+    font-size: 25px;
+}
+
+.ShoppingList .listItemS .itemListSec .itemContainerSec {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-between;
+    background-color: #F0FFF0;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
+    width: 600px;
+}
+
+.ShoppingList .listItemS .itemListSec .itemContainerSec .itemNameSec span {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.ShoppingList .listItemS .itemListSec .itemContainerSec .quantitySec span{
+    font-size: 20px;
+}
+
+.submitShopBtn {
+    margin-top: 20px;
+    border: 1px black solid;
+    background-color: #00CED1;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.completedCircleSec
+{
+    text-decoration: line-through;
+}

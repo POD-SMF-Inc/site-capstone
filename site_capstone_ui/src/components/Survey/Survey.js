@@ -5,14 +5,17 @@ import "./Survey.css"
 import Card from '../Card/Card';
 import PageH from '../PageH/PageH'
 import EditProfile from "../EditProfile/EditProfile";
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import Profile from "../Profile/Profile";
 
 
 
-export default function Survey () {
-
+export default function Survey ({ user, setAppState }) {
+  
   const { form, errors, handleOnSubmitSave, handleOnSubmitSkip, handleOnInputChange } = useSurveyForm()
-
+  if (!user?.username) {
+    return <NotAuthorized user={user} setAppState={setAppState}/>
+  } 
 
     return (
       <div className="Survey">
