@@ -26,7 +26,7 @@ export default function Home({ user }) {
 
 
     return (
-      <div className={`${theme} `}>
+      <div className={`homep${theme} `}>
       <div className={theme}>
       <div className= {`Home ${theme}` }>
        <div class="headerH">

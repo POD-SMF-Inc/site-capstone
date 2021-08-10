@@ -3,8 +3,12 @@
     background-color: #F0F8FF;
     opacity: .9;
     
+    
   }
 
+  .homep {
+    height:200vh;
+  }
   
 
   .home-intro {
@@ -92,7 +96,7 @@
  }
 
  .home-layout {
-   height: 100vh;
+   height: 150vh;
  }
   .home-intro div {
     margin: 15px;

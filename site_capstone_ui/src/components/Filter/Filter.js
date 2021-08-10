@@ -1,14 +1,30 @@
 import "./Filter.css"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Search from "../Search/Search"
 import CollapseFilter from "../CollapseFilter/CollapseFilter"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import StickyBox from "react-sticky-box";
 //import Card from '../Card/Card';
 import React from "react";
-//import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Filter( { user, setAppState } ) {
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
+    
     const [query, setQuery] = useState("")
     let cuisine = []
     let intolerances = []
@@ -80,11 +96,13 @@ export default function Filter( { user, setAppState } ) {
 
     //create a function to parse through ingredients 
     return (
-       
+        <div className={`filterp ${theme} `}>
+        <div className={theme}>
+        <ThemeToggler />
         <StickyBox  offsetBottom={20}>
-        <div className="searchSec ">
-            <div className='filter '>
-                <div className="title">
+        <div className={`searchSec ${theme}`}>
+            <div className={`filter  ${theme2} `}>
+                <div className={`title ${theme2}`}>
                     <h1>Filter By</h1>
                 </div>
                     
@@ -140,8 +158,8 @@ export default function Filter( { user, setAppState } ) {
                         <div className="checkTitle">
                             <h8>Cuisine</h8>
                         </div>
-                        <CollapseFilter label="Select Cuisine">
-                        <div className="checkChoices">
+                        <CollapseFilter label="Select Cuisine" >
+                        <div className={`checkChoices ${theme2}`}>
                             <input type="checkbox" name="african" onChange={handleCheck}/><span>African</span>
                             <input type="checkbox" name="american" onChange={handleCheck}/><span>American</span>
                             <br />
@@ -191,7 +209,7 @@ export default function Filter( { user, setAppState } ) {
                            
                             <CollapseFilter label="Select Intolerances">
 
-                                <div className="checkInChoices">
+                                <div className={`checkInChoices ${theme2}`}>
                                     <input type="checkbox" name="dairy" onChange={handleCheck2}/><span>Dairy</span>
                                     <input type="checkbox" name="egg" onChange={handleCheck2}/><span>Egg</span>
                                     <input type="checkbox" name="gluten" onChange={handleCheck2}/><span>Gluten</span>
@@ -216,9 +234,9 @@ export default function Filter( { user, setAppState } ) {
             
             <div className="Search">
                 
-                <div className="query">
+                <div className={` box  ${theme2}`}>
                     {/* <label htmlFor="search">Search</label> */}
-                    <input type="text" name="query"  className="input my-1" placeholder="Search for a dish..." 
+                    <input type="text" name="query"  className={`input `} placeholder="Search for a dish..." 
                     onChange={(e) => setQuery(e.target.value)} />
                     
                 </div>
@@ -227,7 +245,8 @@ export default function Filter( { user, setAppState } ) {
             
         </div>
         </StickyBox>
-        
+        </div>
+      </div>
         
     )
 

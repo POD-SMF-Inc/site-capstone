@@ -7,6 +7,11 @@
     max-height: 1600px;
 }
 
+.searchp {
+    height:150vh;
+    background-color: #F0F8FF;
+}
+
 .SearchPage .buttonS {
     display: flex;
     flex-direction: row;

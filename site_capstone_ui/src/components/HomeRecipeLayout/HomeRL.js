@@ -1,9 +1,26 @@
 import "./HomeRL.css"
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom"
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function HomeRL({ element })
 {
+
+  const context = useContext(ThemeContext);
+  const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+
+  const ThemeToggler = (props) => {
+      const context = useContext(ThemeContext);
+      const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+      const toggleTheme = context.toggleTheme;
+    
+      return (
+        <button className={`button is-light rounded`} onClick={toggleTheme}>
+          {btnText}
+        </button>
+      );
+    };
+
     const formatter = new Intl.NumberFormat("en-US", {
         currency: "USD",
         minimumFractionDigits: 2,
@@ -22,7 +39,7 @@ export default function HomeRL({ element })
             <a href={element.sourceUrl}>Go to Recipe</a>
         </articleH>
         */
-      <div className="SeperateRecipe">
+      <div className={`SeperateRecipe ${theme2}`}>
         <h2>{element.title}</h2>
         <img src={element.image} alt="food_img"></img>
         <ul className="instructions">

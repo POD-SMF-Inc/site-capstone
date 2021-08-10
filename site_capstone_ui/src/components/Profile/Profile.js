@@ -124,7 +124,7 @@ if (!user?.username) {
           </section>
           <div className = "modalBtn">
                 
-                 <button className='openModalBtn' onClick={() => {
+                 <button className={`openModalBtn ${theme2}`} onClick={() => {
                    setOpenModal(true);
                  }}>   ✏️ Edit Profile </button>
                  {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
@@ -132,8 +132,8 @@ if (!user?.username) {
             </div>
                 <br />
                 <h6>Favorite Recipes</h6>
-                <div className="HomeRecipes">
-                <HomeRecipeCalls />
+                <div className='HomeRecipes'>
+                <HomeRecipeCalls className={`${theme2}`} />
                 </div>
                 </div>
             </div>
