@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import "./Register.css";
 import Card from '../Card/Card';
 import { useNavigate } from "react-router-dom"
@@ -10,6 +11,23 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 export default function Register({ user, setUser, setAppState }) {
+  const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+    //const theme3 = context.isLightTheme ? context.backgroundLight : context.backgroundDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
+  
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -103,13 +121,16 @@ export default function Register({ user, setUser, setAppState }) {
     setIsLoading(false)
     navigate("/survey")
   }
-
+//style={{ backgroundImage: `url(https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)` }}
   return (
-    <div className="Register">
-      <div className="splash-image" style={{ backgroundImage: `url(https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)` }}>
+    <div className={` ${theme} `}>
+    <div className={theme}>
     
-      <Card className ="registercard">
-      <PageH sectionName='Create an Account'/>
+    <div className="Register">
+      <div className="splash-image " style={{ backgroundImage: `url(https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)` }}>
+      <ThemeToggler />
+      <Card className ={`registercard ${theme}`}>
+      <PageH sectionName='Create an Account '/>
       <div className='formR'>
         <div className='formR-fields'>
           <div className='formR-input-name'>
@@ -151,7 +172,7 @@ export default function Register({ user, setUser, setAppState }) {
             placeholder="user@codepath.org" 
             value={form.email} 
             onChange={handleOnInputChange}/>
-            {errors.email && <span className="error">{errors.email}</span>}
+            {errors.email && <span className='error'>{errors.email}</span>}
           </div>
 
           <div className="formR-input">
@@ -185,13 +206,15 @@ export default function Register({ user, setUser, setAppState }) {
                          Already have an account? Login <Link to="/login">here.</Link>
           </p>
           {errors.form && <span className="error">{errors.form}</span>}
-          <button className='signup-btn' onClick={handleOnSubmit}>
+          <button className={`signup-btn `} onClick={handleOnSubmit}>
             {isLoading ? <>Loading</> : <>Register</>}
           </button>
         </div>
         </div>
         </Card>
       </div>
+    </div>
+    </div>
     </div>
   )
 }
