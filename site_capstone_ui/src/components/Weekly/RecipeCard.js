@@ -39,6 +39,8 @@ function RecipeCard({ recipe, removeRecipe }) {
       </header>
       <div className="card-content">
         <div className="content">
+        <p className={` ${titleColor} is-size-6 is-uppercase is-centered card-header-title`}>{recipe.name}</p>
+        <hr></hr>
           <p className="is-size-6 is-uppercase has-text-weight-semibold">
             Ingredients
           </p>
