@@ -16,7 +16,7 @@ export default function IngredientRR({ randomRecipe }) {
         }
         setRecipes()
     }, [randomRecipe])
-    const recipesPerPage = 10
+    const recipesPerPage = 8
     const pagesVisited = pageNumber * recipesPerPage
     const displayRecipes = recipesS.slice(pagesVisited, pagesVisited + recipesPerPage).map(element => {
         return(

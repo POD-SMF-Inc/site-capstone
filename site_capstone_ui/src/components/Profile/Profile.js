@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
+import ProfileFavs from '../ProfileFavs/ProfileFavs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom'
 //import IntroductionP from '../IntroductionP/IntroductionP'
 //import About from './About'
 //import Header from './Header'
@@ -15,7 +17,7 @@ import EditProfile from "../EditProfile/EditProfile"
 import apiClient from "../../services/apiClient"
 import profilepic from '../../assets/rsz_profilep.jpg';
 
-export default function Profile({ user, setAppState, appState, isLoading }) {
+export default function Profile({ user, setAppState, appState, isLoading, setUser }) {
 
 
   const [openModal, setOpenModal] = useState(false);
@@ -118,8 +120,10 @@ if (!user?.username) {
             </div>
                 <br />
                 <h6>Favorite Recipes</h6>
-                <div className="HomeRecipes">
-                <HomeRecipeCalls />
+                <div className="ProfileRecipes">
+                {/* <HomeRecipeCalls /> */}
+                <ProfileFavs />
+                <Link to='/favorites'><button className="favProBtn">Show More</button></Link>
                 </div>
                 </div>
             </div>

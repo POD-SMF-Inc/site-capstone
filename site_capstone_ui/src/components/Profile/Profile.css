@@ -66,6 +66,30 @@
   
 }
 
+.ProfileRecipes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favProBtn {
+  /*border: 1px solid black; */
+    background-color: bisque;
+    font-size: 20px;
+    background-color: #E0FFFF;
+    border: .2px solid #00000042;
+    padding: 5px 10px;
+    margin: 20px;
+    /* margin: 10px; */
+    /* margin-bottom: 10px; */
+    /* font-size: 15px; */
+    /* margin-top: 20px; */
+    /* width: 120px; */
+    font-family: "Open Sans", Hebrew;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+}
+
 .sidebar ul > li > a {
   border-radius: 0;
   -webkit-border-radius: 0;

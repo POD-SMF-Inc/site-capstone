@@ -797,7 +797,7 @@ class ApiCalls {
     
     async getSearchRecipe(query)
     {
-        return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 9})
+        return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 3})
     }
 
     async getIngredientRecipe(ingredients)
@@ -820,7 +820,7 @@ class ApiCalls {
     }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `19dd9d780e6a404383d126df3422985f`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `46e606b38f154845ac3d3d5d3e38d37d`)
 
 
 

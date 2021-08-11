@@ -2,6 +2,8 @@ import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
 import {  useState, useEffect} from "react"
 import APIR from '../../services/apiCalls'
 import { Link  } from "react-router-dom"
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import "./Search.css"
 //import { ThemeContext } from "../../contexts/ThemeContext";
@@ -24,7 +26,7 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
         meal_type: typeS,
         intolerances: intolerances
     }
-
+    const [isLoading, setIsLoading] = useState(false)
     console.log("choices: ", choices)
     const [randomRecipe, setRandomRecipe] = useState([])
 
@@ -35,6 +37,7 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
     console.log("randomRandom: ", randomRecipe)
     useEffect(() => {
         const fetchDefaultRecipes = async () =>{
+            setIsLoading(true)
             try{
                 if (randomRecipe.length === 0)
                 {
@@ -55,6 +58,7 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
             {
                 console.log("error")
             }
+            setIsLoading(false)
         }
         fetchDefaultRecipes()
     }, [])
@@ -81,6 +85,41 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
         }
     }
     
+
+    const renderRecipe = () => {
+        if (isLoading)
+        {
+            return (
+                <div className="Loading">
+                <Loader 
+                type="Circles" 
+                color="#00BFFF" 
+                height={80} 
+                width={80}
+                timeout={3000} //3 secs
+                />
+                </div>
+                // <Loader
+                //   type="Puff"
+                //   color="#00BFFF"
+                //   height={100}
+                //   width={100}
+                //   timeout={3000} //3 secs
+                // />
+            );
+        }
+        return (
+            <div className="SearchPage">
+            
+                
+            <div className="buttonS">
+                <button type="submit" className="searchbtn"onClick={handleOnSubmit}>Search</button>
+                <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
+            </div>
+                <SearchRecipeRoute randomRecipe={randomRecipe} totalResults={totalResults}/>
+        </div>
+        )
+    }
     //getIngredientRecipe
     /*
     useEffect(() => {
@@ -110,16 +149,18 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
     
     
     return (
-        
-        <div className="SearchPage">
+        <div className="recipPage">
+        {renderRecipe()}
+        </div>
+        // <div className="SearchPage">
             
                 
-            <div className="buttonS">
-                <button type="submit" className="searchbtn"onClick={handleOnSubmit}>Search</button>
-                <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
-            </div>
-                <SearchRecipeRoute randomRecipe={randomRecipe} totalResults={totalResults}/>
-        </div>
+        //     <div className="buttonS">
+        //         <button type="submit" className="searchbtn"onClick={handleOnSubmit}>Search</button>
+        //         <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
+        //     </div>
+        //         <SearchRecipeRoute randomRecipe={randomRecipe} totalResults={totalResults}/>
+        // </div>
         
     )
 }
