@@ -9,8 +9,11 @@
 }*/
 
 .SepReci .details .recipeTitle h1{
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 0px;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    align-self: center;
 }
 
 /* .SepReci .content .recipeTitle { 
@@ -45,6 +48,7 @@
     align-items: center;
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
     /* box-shadow: 0 8px 16px 0 #2c4147; */
 }
 /*.SepReci .content {

@@ -28,7 +28,10 @@ export default function Videos({ query })
     
     return (
         <div className="Videos">
+            <div className="videoBtnSec">
             <button type="submit" className="vidBtn" onClick={handleOnSubmit}>Search</button>
+            </div>
+            
             <VideoLR videos={videos} />
         </div>
     )

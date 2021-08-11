@@ -2,12 +2,13 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-family: "Open Sans", Hebrew;
+    font-family: 'Merriweather', serif;
+
     
 }
 
 .planner {
-  height: 100vh;
+  height: 550vh;
   background-color: #F0F8FF;
 }
   
@@ -20,12 +21,12 @@
     
   }
   .mealp-blurb span:first-of-type {
-    font-size: 50px;
+    font-size: 48px;
     margin-top: 5px;
     
   }
   .mealp-blurb span:nth-child(2) {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: lighter;
     margin-left: 60px;
     margin-right: 60px;
@@ -86,7 +87,7 @@
     margin-bottom: 1rem;
     width: 250px;
     font-weight:bold;
-    font-family: "Open Sans", Hebrew;
+    font-family: 'Merriweather', serif;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
     
@@ -186,7 +187,11 @@
   }
 
   article1 h2 {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  article h2 {
+    font-size: 18px;
   }
 
   ul {
@@ -204,10 +209,12 @@
     margin-left: 45px;
     height: 25px;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 12px;
     width: 150px;
     align-items: center;
     margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+
 }
 
 

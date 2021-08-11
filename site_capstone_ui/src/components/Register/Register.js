@@ -123,7 +123,7 @@ export default function Register({ user, setUser, setAppState }) {
   }
 //style={{ backgroundImage: `url(https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)` }}
   return (
-    <div className={` ${theme} `}>
+    <div className={`registerp ${theme} `}>
     <div className={theme}>
     
     <div className="Register">

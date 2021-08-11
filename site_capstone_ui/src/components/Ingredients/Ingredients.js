@@ -38,15 +38,18 @@ export default function Ingredients( { user, setAppState } )
 
     return (
         <div className="Ingredients">
-            <div className="ingTitle">
-                <h1>Search By Ingredients</h1>
+            <div className="headerIng">
+                <div className="ingTitle">
+                    <h1>Search By Ingredients</h1>
+                    <h2>Filter Your Search By Ingredients Your Recipe Must Have!</h2>
+                </div>
+                <div className="listIngred">
+                    <input type="text" name="ingredients" 
+                    placeholder="Seperate Each Ingredient With Commas Ex: flour, sugar" 
+                    onChange={(e) => setingredSent(e.target.value)} />
+                </div>
+                <button type="submit" onClick={handleOnSubmit}>Search</button>
             </div>
-            <div className="listIngred">
-                <input type="text" name="ingredients" 
-                placeholder="Seperate Each Ingredient With Commas" 
-                onChange={(e) => setingredSent(e.target.value)} />
-            </div>
-            <button type="submit" onClick={handleOnSubmit}>Search</button>
             <div className="contentIngred">
             <IngredientRR randomRecipe={randomRecipe} />
             </div>
