@@ -8,7 +8,26 @@ import Loader from "react-loader-spinner";
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import FavoritesPart from "../FavoritesPart/FavoritesPart"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { useState, useEffect, useContext } from "react"
+import FavoritesInfo from "../FavoritesInfo/FavoritesInfo"
+import { ThemeContext } from "../../contexts/ThemeContext";
 export default function Favorites({ user, setAppState }) {
+  const context = useContext(ThemeContext);
+  const theme = context.isLightTheme ? context.light : context.dark;
+  const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+
+  const ThemeToggler = (props) => {
+      const context = useContext(ThemeContext);
+      const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+      const toggleTheme = context.toggleTheme;
+    
+      return (
+        <button className={`button is-light rounded`} onClick={toggleTheme}>
+          {btnText}
+        </button>
+      );
+    };
+
   const [ favorites, setFavorites ] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate();
@@ -69,16 +88,19 @@ export default function Favorites({ user, setAppState }) {
           );
     }
     return (
-      <div className="FavoritesPage">
-        <span >Your Favorite Recipes</span>
+      <div className={`fav ${theme} `}>
+      <div className={theme}>
+      <ThemeToggler />
+      <div className={`FavoritesPage ${theme}`}>
+        <span >In Favorites</span>
         <span align= 'center'> View your favorite recipes here! You can favorite and remove recipes from favorites by clicking on the recipe details. </span>
-        {favorites.length !== 0? (
+        {favorites.length ? (
           <div className="favorites-list">
             <FavoritesInfo favorites={favorites} />
           </div>
         ) : (
           <div className="empty">
-          <div className="message is-danger  ">
+          <div className={`message is-danger ${theme2}`}>
             <div className="message-body  ">
             <strong>You don't have any favorite recipes yet!</strong>
               <div>
@@ -95,10 +117,11 @@ export default function Favorites({ user, setAppState }) {
           
         )}
       </div>
-      
+      </div>
+       </div>
     )
   }
-  console.log("FaavoritesPage: ", favorites)
+  console.log("FavoritesPage: ", favorites)
   return (
     <div className="mainfavPage">
       {renderFavorites()}

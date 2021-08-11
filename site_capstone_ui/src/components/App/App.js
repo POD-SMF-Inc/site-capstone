@@ -20,7 +20,6 @@ import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
 import ThemeContextProvider from "../../contexts/ThemeContext";
-import Upload from "../Upload/Upload";
 import Chatbot from "../Chatbot/Chatbot"
 import ShoppingList from "../ShoppingList/ShoppingList"
 //import { GlobalProvider } from '../../contexts/GlobalState';
@@ -90,8 +89,8 @@ export default function App() {
           <Route path='/weeklyp' element={ <Weekly appState={appState} user={appState?.user} setAppState={setAppState}/>} />
           <Route path='/details/:idNum' element={<Details appState={appState} user={appState?.user} setAppState={setAppState}/>} />
           <Route path='/planner' element= { <Planner  appState={appState} user={appState?.user} setAppState={setAppState}/>} />
-          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading} setUser={setUser} setAppState={setAppState}/>} />
-          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} /> } /> 
+          <Route path='/profile' element= { <Profile  appState={appState} user={appState?.user} isLoading={isLoading}  setAppState={setAppState}/>} />
+          <Route path='/edit' element= { <EditProfile appState={appState} user={appState?.user} /*survey={survey} setSurvey={setSurvey}*/  /> } /> 
           <Route path= '/survey' element= { <Survey  appState={appState} user={appState?.user} setAppState={setAppState}/> } /> 
           {/* <Route path='/sep/' element = {<SeperateRecipe  appState={appState} user={appState?.user} />} /> */}
           {/* <Route path='/search/' element= {<Search   appState={appState} user={appState?.user} />} />  */}
@@ -101,8 +100,6 @@ export default function App() {
           <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} setAppState={setAppState}/>} />
           <Route path='/list' element={<ShoppingList appState={appState} user={appState?.user} setAppState={setAppState}/>}/>
           <Route path= "*" element={<NotFound />} />
-          
-          <Route path='/upload' element={ <Upload /> } /> 
 
         </Routes>
         </> : null }

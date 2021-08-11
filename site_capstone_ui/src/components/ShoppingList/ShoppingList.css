@@ -2,6 +2,9 @@
     background-color: #F0F8FF;
     height:1000px;
 }
+.shop {
+    background-color: #F0F8FF;
+}
 .ShoppingList {
     display: flex;
     flex-direction: column;

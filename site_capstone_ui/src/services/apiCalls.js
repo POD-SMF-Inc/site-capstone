@@ -811,7 +811,7 @@ class ApiCalls {
     }
 
     async getHomeRandomRecipe(){
-        return await this.request({endpoint: `random`, method: `GET`, number: 6})
+        return await this.request({endpoint: `random`, method: `GET`, number: 8})
     }
 
     async getRecipeInfo(id)

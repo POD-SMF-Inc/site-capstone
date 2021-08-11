@@ -1,5 +1,6 @@
 import "./ShoppingList.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { ThemeContext } from "../../contexts/ThemeContext";
 import uuid from 'react-uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import apiClient from "../../services/apiClient"
@@ -11,6 +12,21 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 export default function ShoppingList({ user, setAppState })
 {
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
     const [inputValue, setInputValue] = useState('');
     const [items, setItems] = useState([]);
     const [errors, setErrors] = useState({})
@@ -71,8 +87,11 @@ export default function ShoppingList({ user, setAppState })
                  // />
              );
          }
-        return (
-            <div className="mainShop">
+         return (
+            <div className={`shop ${theme} `}>
+            <div className={theme}>
+            <ThemeToggler />
+            <div className={`mainShop ${theme}`}>
             <div className="ShoppingList">
                 <div className="headerShoppL">
                     <h1>Your Shopping List</h1>
@@ -81,7 +100,7 @@ export default function ShoppingList({ user, setAppState })
                     <h2>Missing Any Ingredients? Add To Your Shopping List!</h2>
                 </div>
                 <div className="listItemS">
-                    <div className="addItemSec">
+                    <div className={`addItemSec box ${theme2}`}>
                         <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
                         
                         <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
@@ -93,7 +112,7 @@ export default function ShoppingList({ user, setAppState })
                     </div> */}
                     <div className="itemListSec">
                     {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
-                                            <div className="itemContainerSec">
+                                            <div className={`itemContainerSec ${theme2}`}>
                                                     <div className="itemNameSec" onClick={() => selectItem(index)}>
                                                         {item.is_selected ? (
                                                             <>
@@ -136,7 +155,78 @@ export default function ShoppingList({ user, setAppState })
                 </div>
             </div>
             </div>
-        )
+        </div>
+      </div>
+         )
+
+
+
+        // return (
+        //     <div className="mainShop">
+        //     <div className="ShoppingList">
+        //         <div className="headerShoppL">
+        //             <h1>Your Shopping List</h1>
+        //         </div>
+        //         <div className="aboutShop">
+        //             <h2>Missing Any Ingredients? Add To Your Shopping List!</h2>
+        //         </div>
+        //         <div className="listItemS">
+        //             <div className="addItemSec">
+        //                 <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
+                        
+        //                 <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
+        //                 {/* <FontAwesomeIcon icon={faPlus} onClick={() => addButton()}/> */}
+        //             </div>
+        //             {errors.input && <span className="error">{errors.input}</span>}
+        //             {/* <div className="addItembtnS">
+        //             <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
+        //             </div> */}
+        //             <div className="itemListSec">
+        //             {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
+        //                                     <div className="itemContainerSec">
+        //                                             <div className="itemNameSec" onClick={() => selectItem(index)}>
+        //                                                 {item.is_selected ? (
+        //                                                     <>
+        //                                                     <FontAwesomeIcon icon={faCheckCircle} />
+    
+        //                                                         <span className="completedCircleSec">{item.title}</span>
+                                                        
+        //                                                     </>
+        //                                                     ) : (
+        //                                                     <>
+        //                                                     <FontAwesomeIcon icon={faCircle} />
+        //                                                     <span>{item.title}</span>
+        //                                                     </>
+        //                                                 )}
+        //                                             </div>
+        //                                             <div className="quantitySec">
+        //                                                 <button>
+        //                                                 <FontAwesomeIcon icon={faChevronLeft} onClick={() => decreaseQuanity(index)}/>
+        //                                                 </button>
+        //                                                 <span> {item.quantity} </span>
+        //                                                 <button>
+        //                                                 <FontAwesomeIcon icon={faChevronRight} onClick={() => increaseQuanity(index)}/>
+        //                                                 </button>
+        //                                                 <button>
+        //                                                 <FontAwesomeIcon icon={faTrash} onClick={() => removeButton(index)}/>
+        //                                                 </button>
+        //                                             </div>
+        //                                     </div>
+        //                             ))}
+        //                         </div>
+        //                             <div className="totalItemsSec">
+        //                                 {/* <h4>Total: {totalItemCount}</h4> */}
+        //                                 <button
+        //                                 className="submitShopBtn"
+        //                                 type="submit"
+        //                                 onClick={submitForm}
+        //                                 >Save</button>
+        //                             </div>
+                    
+        //         </div>
+        //     </div>
+        //     </div>
+        // )
     }
    
 

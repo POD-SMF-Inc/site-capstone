@@ -1,25 +1,29 @@
 .FavoritesPage {
-  width: 100%;
-  text-align: center;
-  align-content: center;
-  min-height: 1000px;
-  height: 100%;
-  background-color: #F0F8FF;
-}
-.FavoritesPage span {
-  display: block;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    
+  }
+
+  .fav {
+    height: 100vh;
+    background-color: #F0F8FF;
   
-}
-.FavoritesPage span:first-of-type {
-  font-size: 50px;
-  margin-top: 5px;
-  
-}
-.FavoritesPage span:nth-child(2) {
-  font-size: 20px;
-  font-weight: lighter;
-  
-}
+  }
+  .FavoritesPage span {
+    display: block;
+    
+  }
+  .FavoritesPage span:first-of-type {
+    font-size: 50px;
+    margin-top: 5px;
+    
+  }
+  .FavoritesPage span:nth-child(2) {
+    font-size: 20px;
+    font-weight: lighter;
+    
+  }
 
 .empty img {
     width:200px;

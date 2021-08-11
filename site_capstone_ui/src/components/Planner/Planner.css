@@ -4,7 +4,12 @@
     flex-direction: column;
     font-family: "Open Sans", Hebrew;
     
-  }
+}
+
+.planner {
+  height: 100vh;
+  background-color: #F0F8FF;
+}
   
   .mealp-blurb {
     width: 100%;

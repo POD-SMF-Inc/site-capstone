@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom"
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function MealW ({ meal }) {
+  const context = useContext(ThemeContext);
+  const theme = context.isLightTheme ? context.cardLight : context.cardDark;
   const [imageUrl, setImageUrl] = useState("");
-  const key = 'b7a72b6d08ad4c77ae76c76192ee3ae1';
-
+  const key = 'e892ed26f6334d0d97339898d12fd2a9';
+  
   useEffect(() => {
     fetch(
       `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${key}&includeNutrition=false`
@@ -29,7 +32,7 @@ export default function MealW ({ meal }) {
   };*/
 
   return (
-    <article1>
+    <article1 className ={`${theme}`}>
       <h2>{meal.title}</h2>
       <img src={imageUrl} alt="recipe" />
       <ul className="instructions">

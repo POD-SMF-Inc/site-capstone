@@ -1,6 +1,6 @@
 import './Profile.css'
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+//import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
 import ProfileFavs from '../ProfileFavs/ProfileFavs';
@@ -16,10 +16,13 @@ import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
 import apiClient from "../../services/apiClient"
 import profilepic from '../../assets/rsz_profilep.jpg';
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Profile({ user, setAppState, appState, isLoading, setUser }) {
 
-
+  const context = useContext(ThemeContext);
+  const theme = context.isLightTheme ? context.light : context.dark;
+  const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
   const [openModal, setOpenModal] = useState(false);
   const [errors, setErrors] = useState({})
 
@@ -27,8 +30,6 @@ export default function Profile({ user, setAppState, appState, isLoading, setUse
 
 
   //const navigate = useNavigate()
-
-
 
 useEffect(() => {
   const fetchInfo = async () => {
@@ -43,6 +44,17 @@ useEffect(() => {
   fetchInfo()
 }, [appState.user]) 
 
+const ThemeToggler = (props) => {
+  const context = useContext(ThemeContext);
+  const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+  const toggleTheme = context.toggleTheme;
+
+  return (
+    <button className={`button is-light rounded`} onClick={toggleTheme}>
+      {btnText}
+    </button>
+  );
+};
 
 if (!user?.username) {
   return <NotAuthorized user={user} setAppState={setAppState}/>
@@ -52,17 +64,19 @@ if (!user?.username) {
 
 
   return (
-
+    <div className={`profile ${theme} `}>
+    <div className={theme}>
+    <ThemeToggler />
     <div className="Profile"> 
       <div>
-        <div style={{ height: 900,  overflow: "auto" }}>
-          <div style={{ display: "flex", alignItems: "flex-start" }}>
-            <StickyBox offsetTop={20} offsetBottom={20}>
-              <Sidebar />
+        <div style={{ height:1400 ,   }}>
+          <div style={{  display: "flex", alignItems: "flex-start" }}>
+            <StickyBox offsetTop={20} offsetBottom={20} >
+              <Sidebar className={`${theme2} `} />
             </StickyBox>
             <div> 
             <div className= "banner" id="surveyInfo">
-            <section className="container-banner">
+            <section className={`container-banner ${theme2}`}>
             <div className="banner-intro">
               <div className="banner-blurb">
 {/*               <img
@@ -77,16 +91,10 @@ if (!user?.username) {
               </div>
               <div className="edit">
               <div className="profile-img">
-                 <img src={profilepic}
+                 <img src={survey.image}
                alt="profile_picture"></img>
                </div>
-              <FontAwesomeIcon icon={faEdit} onClick={() => {
-                setOpenModal(true);
-              }} size="1.5x"/> <i class="fa fa-edit"></i> 
-                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
-                   setOpenModal(true);
-                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
-                 {openModal && <EditProfile user={user} setErrors={setErrors} setUser={setUser} survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
+               
               </div>
             </div>
             <div class="panel-body bio-graph-info">
@@ -112,7 +120,7 @@ if (!user?.username) {
           </section>
           <div className = "modalBtn">
                 
-                 <button className='openModalBtn' onClick={() => {
+                 <button className={`openModalBtn ${theme2}`} onClick={() => {
                    setOpenModal(true);
                  }}>   ✏️ Edit Profile </button>
                  {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
@@ -131,6 +139,8 @@ if (!user?.username) {
           </div>
         </div> 
 </div>
+</div>
+        </div>
   );
 }
 
