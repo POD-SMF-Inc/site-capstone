@@ -43,7 +43,7 @@ export default function Navbar( { user, handleLogout }) {
                 </a> */}
 
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a href="/" class="navbar-link">
+                    <a href="/" id = "accountlink" class="navbar-link">
                       Account
                     </a>
 

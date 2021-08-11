@@ -8,6 +8,11 @@
     background-color: #F0F8FF;
   }
 
+  #weeklyt {
+    font-family: 'Lora', serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
   .weekly-blurb {
     width: 100%;
     align-items: center;

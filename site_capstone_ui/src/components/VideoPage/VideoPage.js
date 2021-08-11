@@ -24,7 +24,7 @@ export default function VideoPage({ user, setAppState })
             <div className="headerVid">
                 <h1>Recipe Tutorials</h1>
                 <h2>Looking For a Recipe? Search For A Recipe Tutorial Here!</h2>
-                <input type="text" name="query" placeholder="Search Ex: Fried Chicken" 
+                <input id="searching" type="text" name="query" placeholder="Search Ex: Fried Chicken" 
                     onChange={(e) => setQuery(e.target.value)} />
             </div>
             

@@ -33,7 +33,7 @@ function Weekly({ user, setAppState }) {
           <div className={theme}>
           <ThemeToggler />
           <div className='weekly-blurb'>
-              <span align= 'center'>Weekly Calendar</span>
+              <span  id="weeklyt" align= 'center'>Weekly Calendar</span>
               <span align= 'center'>Create your own weekly recipes from scratch. You can move your recipes around to any day you desire and add as many as you need. 
               </span>
             </div>

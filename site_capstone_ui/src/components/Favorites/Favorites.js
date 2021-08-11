@@ -90,7 +90,7 @@ export default function Favorites({ user, setAppState }) {
       <div className={theme}>
       <ThemeToggler />
       <div className={`FavoritesPage ${theme}`}>
-        <span >In Favorites</span>
+        <span id="favorite-title" >In Favorites</span>
         <span align= 'center'> View your favorite recipes here! You can favorite and remove recipes from favorites by clicking on the recipe details. </span>
         {favorites.length ? (
           <div className="favorites-list">

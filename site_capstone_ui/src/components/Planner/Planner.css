@@ -197,6 +197,13 @@
   ul {
     list-style: none;
   }
+
+
+  #titlemeal {
+    font-family: 'Lora', serif;
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
   
   .instructions {
     font-size: 0.9rem;

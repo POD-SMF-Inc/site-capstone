@@ -1,5 +1,5 @@
 .Navbar {
-    background-color: #55565A;
+    background-color:#6f7176;
     display: flex;
     justify-content:space-evenly;
     padding: 5px;
@@ -92,6 +92,14 @@ font-family: 'Merriweather', serif;
   width: 120px;*/
   a:hover {
     color:rgba(255,255,255,0.322);
+  }
+
+  #accountlink a:hover {
+    background-color: transparent;
+  }
+
+  .Navbar .navbar-end .navbar-item a:hover { 
+    background-color: transparent; 
   }
 
   a:active {
