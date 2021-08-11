@@ -35,5 +35,6 @@ class YoutubeCalls {
     }
 }
 
-const youtubeAPI = new YoutubeCalls(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics`, '')
+const youtubeAPI = new YoutubeCalls(``, '')
+//https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics
 export default youtubeAPI
