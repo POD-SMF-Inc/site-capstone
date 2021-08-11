@@ -61,8 +61,8 @@ export default function Navbar( { user, handleLogout }) {
                 </div>
 
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a href="/" class="navbar-link">
+                <div class="navbar-item has-dropdown is-hoverable ">
+                    <a href="/" class="navbar-link ">
                       Planner
                     </a>
 
