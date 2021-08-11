@@ -62,6 +62,7 @@ export default function Filter( { user, setAppState } ) {
     */
 
     if (!user?.username) {
+        console.log("user in filter: ", user)
         return <NotAuthorized user={user} setAppState={setAppState}/>
     } 
 

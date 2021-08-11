@@ -21,10 +21,13 @@ export default function VideoPage({ user, setAppState })
 
     return (
         <div className="VideoPage">
-            <div className="headerVid"></div>
-            <h1>Video Tutorials</h1>
-            <input type="text" name="query" placeholder="Search Video Tutorial" 
-                onChange={(e) => setQuery(e.target.value)} />
+            <div className="headerVid">
+                <h1>Recipe Tutorials</h1>
+                <h2>Looking For a Recipe? Search For A Recipe Tutorial Here!</h2>
+                <input type="text" name="query" placeholder="Search Ex: Fried Chicken" 
+                    onChange={(e) => setQuery(e.target.value)} />
+            </div>
+            
                 
                 {/* <button id="openModalBtn">Open</button>
                 

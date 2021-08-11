@@ -72,7 +72,8 @@ export default function App() {
     }    
   }, [])
 
-
+  console.log("user in app: ", user)
+  console.log("user in appstate: ", appState?.user)
   return (
     <ThemeContextProvider>
     <LocalDataState>

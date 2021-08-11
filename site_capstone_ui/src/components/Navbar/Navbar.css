@@ -23,6 +23,9 @@
   padding: 0 5px;
 }
 
+.Navbar .mainlink a{
+  color: blue;
+}
 .home-link  {
   
 background-color: #00CED1;
