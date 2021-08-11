@@ -2,7 +2,7 @@ import "./Ingredients.css"
 import { useState } from "react"
 import APIR from '../../services/apiCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
-import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
+//import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
 import IngredientRR from "../IngredientRecipeRoute/IngredientRR"
 export default function Ingredients( { user, setAppState } )
 {

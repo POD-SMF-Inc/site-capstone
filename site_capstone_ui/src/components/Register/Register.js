@@ -13,7 +13,7 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 export default function Register({ user, setUser, setAppState }) {
   const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
-    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+   // const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
     //const theme3 = context.isLightTheme ? context.backgroundLight : context.backgroundDark;
   
     const ThemeToggler = (props) => {

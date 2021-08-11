@@ -7,7 +7,7 @@
 }
 .ingTitle h1 {
     font-size: 40px;
-
+}
 .headerIng {
     display: flex;
     flex-direction: column;
@@ -21,6 +21,7 @@
     background-color: #7ed5d6c9;
     box-shadow: 0 4px 8px 2px rgb(77 77 77 / 15%);
 }
+
 .Ingredients .listIngred input{
     width: 500px;
     background-color: white;
