@@ -12,8 +12,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
-import apiClient from "../../services/apiClient"
-import profilepic from '../../assets/rsz_profilep.jpg';
+import apiClient from "../../services/apiClient";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Profile({ user, setAppState, appState, isLoading }) {
@@ -88,11 +87,10 @@ if (!user?.username) {
                 </span>
               </div>
               <div className="edit">
-              <div className="profile-img">
+{              <div className="profile-img"> 
                  <img src={survey.image}
-               alt="profile_picture"></img>
-               </div>
-               
+               alt="No Profile Photo Available" id="noimage"></img>
+               </div> }
               </div>
             </div>
             <div class="panel-body bio-graph-info">
@@ -118,7 +116,7 @@ if (!user?.username) {
           </section>
           <div className = "modalBtn">
                 
-                 <button className={`openModalBtn ${theme2}`} onClick={() => {
+                 <button id= "editbutton" className={`openModalBtn ${theme2}`} onClick={() => {
                    setOpenModal(true);
                  }}>   ✏️ Edit Profile </button>
                  {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}

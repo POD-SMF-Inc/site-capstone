@@ -44,6 +44,10 @@
     margin-left:150px;
     
   }
+
+  .label {
+   margin-left: 20px;
+  }
   
   /*.Upload .left-side {
     display: flex;
@@ -126,7 +130,24 @@
     background:#E0FFFF;
     border: 1px solid black;
     color:black;
+    font-family: 'Merriweather', serif;
+  }
 
+  #btn2 {
+    font-family: 'Merriweather', serif;
+    width: 205px;
+  }
+
+  .field{
+    width:500px;
+  }
+
+  #cancelBtn {
+    font-family: 'Merriweather', serif;
+  }
+
+  #saveBtn2 {
+    font-family: 'Merriweather', serif;
   }
 
 

@@ -27,6 +27,7 @@
     /* width: 100%; */
     margin: 0 auto;
     padding-top: 10px;
+
 }
 
 .SepReci .details {
@@ -66,5 +67,12 @@
     border-radius: 5px;
     font-size: 15px;
     width: 150px;
+    font-family: 'Merriweather', serif;
 }
+
+#go-to {
+    font-family: 'Merriweather', serif;
+}
+
+
 

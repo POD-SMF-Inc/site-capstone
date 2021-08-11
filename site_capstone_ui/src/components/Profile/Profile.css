@@ -264,6 +264,13 @@
   margin-left: -110px;
 }
 
+#noimage {
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+
+}
+
 .description {
   font-size: 20px;
 }
@@ -310,6 +317,14 @@ h6 {
   font-size: 30px;
   margin-bottom:15px;
   text-align: center;
+}
+
+#editbutton {
+  font-family: 'Merriweather', serif;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  width:130px;
 }
 
 /*a.social {

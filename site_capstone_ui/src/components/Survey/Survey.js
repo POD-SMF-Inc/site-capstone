@@ -19,15 +19,15 @@ export default function Survey ({ user, setAppState }) {
 
     return (
       <div className="Survey">
-        <Card className ="login-card">
-        <PageH sectionName='More About You'/>
+        <Card className ="login1-card">
+        <h1 id="more-about">  More About You </h1>
         <button className='skip-btn' onClick={handleOnSubmitSkip}> 
             {<>Skip</>}
           </button>
-        <div className='form'>
-          <div className='form-fields'>
-            <div className='form-input'>
-              <label align='left' htmlFor='diet'>What is your diet?</label>
+        <div className='forms'>
+          <div className='forms-fields'>
+            <div className='forms-input'>
+              <label id="survey" align='left' htmlFor='diet'>What is your diet?</label>
               <input 
               type='diet' 
               name='diet' 
@@ -35,8 +35,8 @@ export default function Survey ({ user, setAppState }) {
               value={form.diet} 
               onChange={handleOnInputChange}/>
             </div>
-            <div className='form-input'>
-              <label align='left' htmlFor='intolerances'>What are your food intolerances?</label>
+            <div className='forms-input'>
+              <label id="survey" align='left' htmlFor='intolerances'>What are your food intolerances?</label>
               <input 
               type='intolerances' 
               name='intolerances' 
@@ -44,8 +44,8 @@ export default function Survey ({ user, setAppState }) {
               value={form.intolerances} 
               onChange={handleOnInputChange}/>
             </div>
-            <div className='form-input'>
-              <label align='left' htmlFor='cuisines'>What are your favorite foods?</label>
+            <div className='forms-input'>
+              <label id="survey" align='left' htmlFor='cuisines'>What are your favorite foods?</label>
               <input 
               type='cuisines' 
               name='cuisines' 
@@ -53,8 +53,8 @@ export default function Survey ({ user, setAppState }) {
               value={form.cuisines} 
               onChange={handleOnInputChange}/>
             </div>
-            <div className='form-input'>
-              <label align='left' htmlFor='location'>Where are you located?</label>
+            <div className='forms-input'>
+              <label id="survey" align='left' htmlFor='location'>Where are you located?</label>
               <input 
               type='location' 
               name='location' 
@@ -62,8 +62,8 @@ export default function Survey ({ user, setAppState }) {
               value={form.location} 
               onChange={handleOnInputChange}/>
             </div>
-            <div className='form-input'>
-              <label align='left' htmlFor='schoolname'>What college do you attend?</label>
+            <div className='forms-input'>
+              <label id="survey" align='left' htmlFor='schoolname'>What college do you attend?</label>
               <input 
               type='schoolname' 
               name='schoolname' 
@@ -71,8 +71,8 @@ export default function Survey ({ user, setAppState }) {
               value={form.schoolname} 
               onChange={handleOnInputChange}/>
             </div>
-            <div className='form-input'>
-              <label align='left' htmlFor='description'> Tell us more about yourself </label>
+            <div className='forms-input'>
+              <label id="survey" align='left' htmlFor='description'> Tell us more about yourself </label>
               <input 
               type='description' 
               name='description' 
