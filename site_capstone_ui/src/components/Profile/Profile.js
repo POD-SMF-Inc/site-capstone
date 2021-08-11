@@ -77,16 +77,9 @@ if (!user?.username) {
               </div>
               <div className="edit">
               <div className="profile-img">
-                 <img src={profilepic}
+                 <img src={survey.image}
                alt="profile_picture"></img>
                </div>
-              <FontAwesomeIcon icon={faEdit} onClick={() => {
-                setOpenModal(true);
-              }} size="1.5x"/> <i class="fa fa-edit"></i> 
-                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
-                   setOpenModal(true);
-                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
-                 {openModal && <EditProfile user={user} setErrors={setErrors} setUser={setUser} survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
               </div>
             </div>
             <div class="panel-body bio-graph-info">

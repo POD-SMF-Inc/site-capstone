@@ -1,7 +1,6 @@
 import React, { useState }  from 'react'
 import profilepic from '../../assets/rsz_profilep.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Upload from "../Upload/Upload";
 import handleOnClick from "../Profile/Profile";
 import sidepic from "../../assets/Group11.png";
 import {

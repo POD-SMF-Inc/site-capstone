@@ -8,6 +8,7 @@
 
 }
 
+
 .sidebar {
   background-color: #fff; 
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.4);
@@ -246,28 +247,23 @@
 
 #name {
   font-size: 50px;
-  margin-left: -150px;
+  margin-left: -110px;
 }
 
 .description {
   font-size: 20px;
 }
-.profile-img {
-  width: 100%;
+.profile-img img {
+  width: 200px;
+  height:200px;
   display: flex;
   border-radius: 6px;
   box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.50);
   /* overflow: hidden; */
-  margin-bottom:  0px;
-  
-  
+  padding: 0px, 0px, 0px, 0px;
+  margin-bottom: 0px;
 }
 
-.profilepic {
-  border-radius: 50%;
-  border: 10px solid #00ced1;
-  
-}
 
 .sidebarpic{
   width: 80px;

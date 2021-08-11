@@ -13,7 +13,6 @@ export default function HomeRL({ element })
     const priceFormat = (amount) => {
         return `$${formatter.format(amount)}`
       }
-    console.log("Element Home: ", element)
     //const FavouriteComponent = element.favouriteComponent;
     return (
       /* <articleH>

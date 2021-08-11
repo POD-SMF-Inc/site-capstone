@@ -20,7 +20,6 @@ import Filter from '../Filter/Filter';
 import Search from "../Search/Search"
 import Ingredients from "../Ingredients/Ingredients"
 import ThemeContextProvider from "../../contexts/ThemeContext";
-import Upload from "../Upload/Upload";
 import Chatbot from "../Chatbot/Chatbot"
 import ShoppingList from "../ShoppingList/ShoppingList"
 //import { GlobalProvider } from '../../contexts/GlobalState';
@@ -100,7 +99,6 @@ export default function App() {
           <Route path='/chatbot' element={<Chatbot appState={appState} user={appState?.user} />} />
           <Route path='/list' element={<ShoppingList user={appState?.user} />}/>
           <Route path= "*" element={<NotFound />} />
-            <Route path='/upload' element={ <Upload /> } />  
 
         </Routes>
         </> : null }

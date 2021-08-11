@@ -2,6 +2,7 @@
     overflow: hidden;
     background-color: #F0F8FF;
     opacity: .9;
+    font-family: 'Merriweather', serif;
   }
   .home-intro {
     padding: 30px;
@@ -86,6 +87,7 @@
   }
   .intro-blurb {
     width: 50%;
+ 
   }
   .intro-blurb span {
     display: block;
@@ -120,9 +122,15 @@
 
   h1 {
     font-size: 35px;
-    font-weight: bold;
+    font-family: 'Lora', serif;
     margin-top: 30px;
   }
+
+  .homelogo {
+    margin-top:20px;
+  }
+  
+
 
 /*
 article {
