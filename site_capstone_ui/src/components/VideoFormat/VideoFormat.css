@@ -1,8 +1,38 @@
 .VideoFormat img{
     width: 320px;
     height: 180px;
-    border-radius: unset;
-    border: unset;
+    border-radius: 6px;
+    margin-top: 10px;
+    /* border: 1px solid black; */
+}
+
+.VideoFormat h2 {
+    /* background-color: cadetblue; */
+    margin-top: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 20px;
+    max-height: 40px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.videoButton{
+    background-color: #00CED1;
+    border: 1px solid #000000;
+    /* margin: 3px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    width: 130px;
+    height: 30px;
+    font-weight: bold;
+    font-family: "Open Sans", Hebrew;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    text-align: center;
+    color: black;
 }
 
 .VideoFormat{
@@ -14,7 +44,10 @@
     padding: 20px;
     margin: 10px;
     flex-wrap: wrap;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 6px;
-
+    width: 350px;
+    max-height: 400px;
+    height: 370px;
+    box-shadow: 0 4px 8px 2px rgb(77 77 77 / 15%);
 }

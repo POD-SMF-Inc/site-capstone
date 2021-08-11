@@ -3,8 +3,10 @@ import React, { useEffect, useState, useContext } from 'react';
 //import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
+import ProfileFavs from '../ProfileFavs/ProfileFavs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom'
 //import IntroductionP from '../IntroductionP/IntroductionP'
 //import About from './About'
 //import Header from './Header'
@@ -16,7 +18,7 @@ import apiClient from "../../services/apiClient"
 import profilepic from '../../assets/rsz_profilep.jpg';
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-export default function Profile({ user, setAppState, appState, isLoading }) {
+export default function Profile({ user, setAppState, appState, isLoading, setUser }) {
 
   const context = useContext(ThemeContext);
   const theme = context.isLightTheme ? context.light : context.dark;
@@ -126,8 +128,10 @@ if (!user?.username) {
             </div>
                 <br />
                 <h6>Favorite Recipes</h6>
-                <div className='HomeRecipes'>
-                <HomeRecipeCalls className={`${theme2}`} />
+                <div className="ProfileRecipes">
+                {/* <HomeRecipeCalls /> */}
+                <ProfileFavs />
+                <Link to='/favorites'><button className="favProBtn">Show More</button></Link>
                 </div>
                 </div>
             </div>

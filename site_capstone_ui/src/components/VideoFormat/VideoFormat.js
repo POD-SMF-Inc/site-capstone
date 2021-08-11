@@ -48,7 +48,7 @@ export default function VideoFormat(element)
             <h2>{videoInfo?.snippet?.title}</h2>
             <button
                 onClick={() => setModal(!isModalOpen)}
-                className="button"
+                className="videoButton"
                 >
                 Play Video
                 </button>

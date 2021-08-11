@@ -5,6 +5,8 @@ import APIR from '../../services/apiCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
 import EquipmentC from "../EquipmentCalls/EquipmentC";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 export default function Details({ user, setAppState })
 {
     const { idNum } = useParams()
@@ -55,7 +57,24 @@ const renderRecipeInfo = () => {
     }
     if (isLoading)
     {
-        return<h1>Loading...</h1> 
+        return (
+            <div className="Loading">
+            <Loader 
+            type="Circles" 
+            color="#00BFFF" 
+            height={80} 
+            width={80}
+            timeout={3000} //3 secs
+            />
+            </div>
+            // <Loader
+            //   type="Puff"
+            //   color="#00BFFF"
+            //   height={100}
+            //   width={100}
+            //   timeout={3000} //3 secs
+            // />
+          );
     }
     console.log("recipe: ", recipe)
     return (

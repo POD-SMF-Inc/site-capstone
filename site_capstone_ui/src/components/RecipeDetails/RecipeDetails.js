@@ -149,10 +149,10 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                         <div className="practiceInfo">
                             
                                 <div className="recipeDTitle">
-                                    <h1>{recipe.title}</h1>
+                                    <h1>{recipe?.title}</h1>
                                 </div>
                                 <div className="recipeDImage">
-                                    <img src={recipe.image} alt="Meal"></img>
+                                    <img src={recipe?.image} alt="recipe dish"></img>
                                 </div>
                         
                         </div>
@@ -215,15 +215,15 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
             <div className="priceInfo">
                 <div className="pricePic">
                     <img src={timer} alt="timer" />
-                    <p>Ready In {recipe.readyInMinutes} Minutes</p>
+                    <p>Ready In {recipe?.readyInMinutes} Minutes</p>
                 </div>
                 <div className="priceText">
                     <img src={dollarSign} alt="dollar sign" />
                     
-                    <p>Price Per Serving: {priceFormat(recipe.pricePerServing/100)}</p>
+                    <p>Price Per Serving: {priceFormat(recipe?.pricePerServing/100)}</p>
                 </div>
             </div>
-            <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>
+            <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe?.summary}}></div>
             <div className="sideByequip">
                 
                 <div className="infoMeal">
@@ -285,50 +285,54 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                     
                 </div>}
             </div>
-            <h1>Directions</h1>
-            
-            <div className="steps">
-                <Collapsible label="Recipe Steps">
-                {
-                        recipe?.analyzedInstructions === undefined || recipe?.analyzedInstructions === null || recipe?.analyzedInstructions.length === 0 ?  null : recipe?.analyzedInstructions[0].steps?.map(element => (
-                            <>
-                            <CollapseSteps label={`Step ${element.number} `}>
-                                <p>Step {element.number}: {element.step}</p>
-                                {element.ingredients.length === 0 ? null : <div className="ingred">Ingredients:
-                                            {
-                                                
-                                     element.ingredients.map((item) => (
-                                         <>
-                                         
-                                         <li>{item.name}</li>
-                                         
-                                         {/* {
-                                         item.image === "" ? null : <div className="directIng">
-                                             <img src={imageUrl + item.image} alt="ingredient in dish"></img>
-                                     </div>
-                                             } */}
-                                        
-                                
-                                         </>
-                                         ) )
-                                         }
-                                </div> }
-                                {/* {element.equipment.length === 0 ? null : <div className="equipment">Equipment: 
-                                    { 
-                                    element.equipment.map((item) => (
-                                    <>
-                                    <p>{item.name}</p>
+            {recipe?.analyzedInstructions === undefined || recipe?.analyzedInstructions === null || recipe?.analyzedInstructions.length === 0 ?  <h1>Recipe Instructions Coming Soon!</h1> : (
+                    <div className="steps">
+                    <h1>Directions</h1>
+                    <Collapsible label="Recipe Steps">
+                    {
+                            recipe?.analyzedInstructions === undefined || recipe?.analyzedInstructions === null || recipe?.analyzedInstructions.length === 0 ?  null : recipe?.analyzedInstructions[0].steps?.map(element => (
+                                <>
+                                <CollapseSteps label={`Step ${element.number} `}>
+                                    <p>Step {element.number}: {element.step}</p>
+                                    {element.ingredients.length === 0 ? null : <div className="ingred">Ingredients:
+                                                {
+                                                    
+                                        element.ingredients.map((item) => (
+                                            <>
+                                            
+                                            <li>{item.name}</li>
+                                            
+                                            {/* {
+                                            item.image === "" ? null : <div className="directIng">
+                                                <img src={imageUrl + item.image} alt="ingredient in dish"></img>
+                                        </div>
+                                                } */}
+                                            
                                     
-                                    <img src={equipUrl + item.image} alt="equipment used in dish"></img>
-                                        </>
-                                ) )}</div> } */}
-                                </CollapseSteps>
-                            </>
-                        ))
-                        }
-                </Collapsible>
+                                            </>
+                                            ) )
+                                            }
+                                    </div> }
+                                    {/* {element.equipment.length === 0 ? null : <div className="equipment">Equipment: 
+                                        { 
+                                        element.equipment.map((item) => (
+                                        <>
+                                        <p>{item.name}</p>
+                                        
+                                        <img src={equipUrl + item.image} alt="equipment used in dish"></img>
+                                            </>
+                                    ) )}</div> } */}
+                                    </CollapseSteps>
+                                </>
+                            ))
+                            }
+                    </Collapsible>
+
+                    </div>)              
+            }
             
-            </div>
+            
+            
         </div>
     )
         

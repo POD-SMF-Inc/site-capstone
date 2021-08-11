@@ -10,6 +10,7 @@ export default function ModalShopping(props)
     //Implement a save button, when it is pressed, update the backend
     const { modalOpen, setModalOpen, user } = props;
     const [inputValue, setInputValue] = useState('');
+    const [errors, setErrors] = useState({})
     const [totalItemCount, setTotalItemCount] = useState(0);
     const modalActive = modalOpen ? 'is-active ' : '';
     // const [items, setItems] = useState([
@@ -49,20 +50,27 @@ export default function ModalShopping(props)
         setTotalItemCount(totalItemCount);
     };
     const addButton = async () => {
-        const newItem = {
-            title: inputValue,
-            quantity: 1,
-            is_selected: false,
-            unique_id: uuid() 
-        };
-
-        const { data, error } =  await apiClient.addToList(newItem)
+        if (inputValue === "" || inputValue === " ")
+        {
+            setErrors({input: "Please Enter Item Name"})
+        }
+        else
+        {
+            setErrors({input: null })
+            const newItem = {
+                title: inputValue,
+                quantity: 1,
+                is_selected: false,
+                unique_id: uuid() 
+            };
     
-        const newItems = [...items, newItem];
-    
-        setItems(newItems);
-        setInputValue('');
-        calculateTotal()
+            const { data, error } =  await apiClient.addToList(newItem)
+        
+            const newItems = [...items, newItem];
+        
+            setItems(newItems);
+            setInputValue('');
+        }
     };
 
     const selectItem = (index) => {
@@ -126,7 +134,7 @@ export default function ModalShopping(props)
             <div className={`modal ${modalActive}`}>
                 <div className="modal-background"></div>
                 <div className={`modal-card`}>
-                <header className={`has-text-white modal-card-head `}>
+                <header className={`has-background-primary has-text-white modal-card-head `}>
                         <button
                             className="delete"
                             aria-label="close"
@@ -146,7 +154,7 @@ export default function ModalShopping(props)
                                 <button onClick={() => addButton()}>Add Item</button>
 					            {/* <FontAwesomeIcon icon={faPlus} onClick={() => addButton()}/> */}
 				            </div>
-                        
+                            {errors.input && <span className="error">{errors.input}</span>}
                             <div className="itemList">
                                 {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
                                         <div className="itemContainer">

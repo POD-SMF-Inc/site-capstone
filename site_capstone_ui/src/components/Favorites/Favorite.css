@@ -25,16 +25,16 @@
     
   }
 
-  .empty img {
-      width:200px;
-      
-  }
+.empty img {
+    width:200px;
+    
+}
 
-  .empty {
-      margin-top: 20px;
-      display:flex;
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      
-  }
+.empty {
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    
+}
