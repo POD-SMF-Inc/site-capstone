@@ -14,7 +14,14 @@
     padding-top:20px;
     
 }
+.headerShoppL h1 {
+    font-size: 48px;
+}
 
+.aboutShop h2 {
+    font-size:18px;
+    font-weight: lighter;
+}
 .ShoppingList .listItemS {
     display: flex;
     flex-direction: column;
@@ -38,7 +45,7 @@
 .ShoppingList .listItemS /*.addItembtnS*/ .addBtnS {
     border: 1px solid black;
     background-color: #00CED1;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 5px;
     width: 120px;
         /* padding-top: 5px; */
@@ -54,7 +61,8 @@
 }
 
 .ShoppingList .listItemS .itemListSec h2{
-    font-size: 25px;
+    font-size: 18px;
+    font-weight: lighter;
 }
 
 .ShoppingList .listItemS .itemListSec .itemContainerSec {
@@ -82,7 +90,7 @@
     margin-top: 20px;
     border: 1px black solid;
     background-color: #00CED1;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 5px;
     padding-right: 20px;
     padding-left: 20px;

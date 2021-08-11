@@ -7,6 +7,8 @@
 
 .filterp {
     background-color: #F0F8FF;
+    font-family: 'Merriweather', serif;
+
 }
 
 .searchSec .filter {
@@ -39,11 +41,14 @@
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
+    font-family: 'Merriweather', serif;
+
 }
 
 .searchSec .filter .dropDown .dietAll .dietDrop {
     margin-top: -20px;
-    
+    font-family: 'Merriweather', serif;
+
 }
 
 .searchSec .filter .dropDown .mealAll .mealDrop {
@@ -53,11 +58,15 @@
 .searchSec .filter .dropDown .dietAll .dietDrop select {
     width: 120px;
     height: 25px;
+    font-family: 'Merriweather', serif;
+
 }
 
 .searchSec .filter .dropDown .mealAll .mealDrop select {
     width: 120px;
     height: 25px;
+    font-family: 'Merriweather', serif;
+
 }
 
 
@@ -127,7 +136,7 @@
 .searchSec .filter .check .checkTitle h8{
     float: left;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: semi-bold;
     
     /* background-color: chocolate; */
 }
@@ -155,7 +164,7 @@
 .searchSec .filter .checkInlo .checkInTitle h8{
     float: left;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: semi-bold;
     /* background-color: chocolate; */
 }
 

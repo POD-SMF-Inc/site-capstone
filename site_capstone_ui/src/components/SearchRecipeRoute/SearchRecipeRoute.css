@@ -6,6 +6,8 @@
     max-width: 1300px;
     margin: 0 auto;
     margin-top: 10px;
+   
+
 }
 
 .SearchRR button {
@@ -25,7 +27,8 @@
     justify-content: center;
     margin: 0 auto;
     margin-top: 30px;
-    
+    font-family: 'Merriweather', serif;
+
 }
 
 .paginationBttns a {
@@ -35,6 +38,7 @@
     border: 1px solid black;
     color: black;
     cursor: pointer;
+  
 }
 
 .paginationBttns a:hover {

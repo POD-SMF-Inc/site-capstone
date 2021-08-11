@@ -9,8 +9,11 @@
 }*/
 
 .SepReci .details .recipeTitle h1{
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 0px;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    align-self: center;
 }
 
 /* .SepReci .content .recipeTitle { 
@@ -66,5 +69,7 @@
     border-radius: 5px;
     font-size: 15px;
     width: 150px;
+    font-family: 'Merriweather', serif;
+
 }
 

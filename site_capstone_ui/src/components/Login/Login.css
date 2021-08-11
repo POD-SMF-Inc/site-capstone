@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Merriweather', serif;
   }
   
   .Login .splash-image {
@@ -58,6 +59,7 @@
     border:black;
     background: transparent;
     cursor: pointer;
+    font-family: 'Merriweather', serif;
   }
   .login-btn {
     padding: 5px 10px;
@@ -78,7 +80,7 @@
   }
   
   .error {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Merriweather', serif;
     color: red;
     font-weight: 600;
   }
@@ -91,6 +93,7 @@
       width: 100%;
       gap: 5px;
       color: var(--muted);
+      font-size: 14px;
   }
 
   i {
