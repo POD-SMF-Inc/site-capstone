@@ -1,7 +1,6 @@
 import "./Favorite.css"
 import HeartLogo from '../../assets/heart2.png'
 import apiClient from "../../services/apiClient"
-import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom" ;
 import FavoritesInfo from "../FavoritesInfo/FavoritesInfo"
 import Loader from "react-loader-spinner";
@@ -9,7 +8,6 @@ import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import FavoritesPart from "../FavoritesPart/FavoritesPart"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { useState, useEffect, useContext } from "react"
-import FavoritesInfo from "../FavoritesInfo/FavoritesInfo"
 import { ThemeContext } from "../../contexts/ThemeContext";
 export default function Favorites({ user, setAppState }) {
   const context = useContext(ThemeContext);
