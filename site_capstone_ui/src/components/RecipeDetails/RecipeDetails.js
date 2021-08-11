@@ -1,8 +1,9 @@
 import "./RecipeDetails.css"
-//import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import React from 'react'
 import Collapsible from "../Collapsible/Collapsible";
 import apiClient from "../../services/apiClient"
+import ModalShopping from "../ModalShopping/ModalShopping";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import RemoveFav from "../RemoveFav/RemoveFav";
 //import AddToFav from "../AddToFav/AddToFav";
@@ -10,7 +11,8 @@ import CollapseSteps from "../CollapseSteps/CollapseSteps";
 import timer from "../../assets/timer.png"
 import dollarSign from "../../assets/dollar-sign-in-green-circle.jpg"
 export default function RecipeDetails({ recipe, equipment, visible, setVisible }) {
-
+    const [modalOpen, setModalOpen] = useState(false)
+    
     const formatter = new Intl.NumberFormat("en-US", {
         currency: "USD",
         minimumFractionDigits: 2,
@@ -156,10 +158,11 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                         </div>
                 </div>
                 <div className="nutritionInfo">
+                <div className="favButton">
                     {visible? <button onClick={handleOnAdd}>Add To Favorites</button> : <button onClick={handleOnRemove}>Remove From Favorites</button>}
                     {/* {visible? <button><AddToFav onClick={() => setVisible(false)} recipeInfo={recipeInfo} /></button> : <RemoveFav onClick={()=>setVisible(true)} recipeInfo={recipeInfo}/>} */}
                     {/* {showRemove? <RemoveFav recipeInfo={recipeInfo}/> : null} */}
-                    <div id="favButton"></div>
+                    </div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
                     </div>
@@ -222,18 +225,22 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
             </div>
             <div className="summarydetails" dangerouslySetInnerHTML={{__html:recipe.summary}}></div>
             <div className="sideByequip">
+                
                 <div className="infoMeal">
                     
                     <div className="ingTitleN">
                         <h1>Ingredients</h1>
+                        
                     </div>
+                    
                     
                     {/* <Collapsible label="Ingredients"> */}
                         {recipe.extendedIngredients?.map(item => (
                             <>
                                 <div className="sepIng">
                                     {/* <input type="checkbox" /><span><img src={imageUrl + item.image} alt="ingredient in dish"></img> <br/>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span> */}
-                                    <input type="checkbox" /><span>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span>
+                                    {/* <input type="checkbox" /><span>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span> */}
+                                    <li>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</li>
                                     {/* <p>{item.originalName}</p> */}
                                     
                                     {/* <p>Measures: </p>
@@ -243,10 +250,24 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                             </>
                         ))}
                     {/* </Collapsible> */}
+                    <div className="footerIng">
+                        <h2>Have All Your Ingredients? If Not Click Here To</h2>
+                        <ModalShopping modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+                        <button
+                            onClick={() => setModalOpen(!modalOpen)}
+                            className="btnIng"
+                            >
+                            Create A Shopping List
+                        </button>
+                    </div>
                 </div>
-                <div className="equipmentMeal">
+               
+                
+
+
+                {equipment?.equipment?.length === 0 ? null : <div className="equipmentMeal">
                     <div className="equipTitle">
-                        <h1>Equipment</h1>
+                        {equipment?.equipment?.length === 0 ? null : <h1>Equipment</h1>}
                         </div>
                         <div className="eqiupS">
                         {
@@ -262,7 +283,7 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                         }
                         </div>
                     
-                </div>
+                </div>}
             </div>
             <h1>Directions</h1>
             

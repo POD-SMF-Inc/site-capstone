@@ -27,6 +27,7 @@ function NewRecipeForm(props) {
 
   const initialState = {
     title: '',
+    name: '',
     ingredients: [''],
     steps: [''],
     day: '',
@@ -92,6 +93,20 @@ function NewRecipeForm(props) {
                   value={recipe.title}
                   onChange={onChange}
                   placeholder="e.g Breakfast, Lunch, Dinner"
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className={`${theme} label`}>Recipe Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  name="name"
+                  required
+                  value={recipe.name}
+                  onChange={onChange}
+                  placeholder="e.g BLT Sandwich, Baked Potato"
                 />
               </div>
             </div>

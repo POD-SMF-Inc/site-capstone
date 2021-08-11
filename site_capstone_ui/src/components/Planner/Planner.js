@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import MealList from "./MealList";
 import MealListW from "./MealListW";
 import './Planner.css';
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDay, faCalendarWeek } from "@fortawesome/free-solid-svg-icons";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
-
-function Planner( {user, setUser} ) {
+function Planner( { user, setAppState } ) {
     const [mealData, setMealData] = useState(null);
     const [mealDataW, setMealDataW] = useState(null);
     const [calories, setCalories] = useState(2000);
     const [caloriesW, setCaloriesW] = useState(2000);
-    const key = 'b7a72b6d08ad4c77ae76c76192ee3ae1';
+    const key = 'e892ed26f6334d0d97339898d12fd2a9';
     const [showButton, setShowButton] = useState(false);
    
     useEffect(() => {
@@ -24,6 +24,22 @@ function Planner( {user, setUser} ) {
         }
       });
     }, []);
+
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
   
     // This function will scroll the window to the top 
     const scrollToTop = () => {
@@ -31,8 +47,9 @@ function Planner( {user, setUser} ) {
     };
 
     if (!user?.email) {
-      return <NotAuthorized user={user} setUser={setUser}/>
+      return <NotAuthorized user={user} setAppState={setAppState}/>
   }
+  
   
 
   
@@ -76,6 +93,9 @@ function Planner( {user, setUser} ) {
     
 
     return (
+      <div className={`planner ${theme} `}>
+      <div className={theme}>
+      <ThemeToggler />
       <div className="Planner">
         <div className='mealp-blurb '>
               <span align= 'center'>Meal Plans</span>
@@ -83,7 +103,7 @@ function Planner( {user, setUser} ) {
               </span>
             </div>
            
-        <section className="controls box" > 
+        <section className={`controls box ${theme2}` }> 
         <FontAwesomeIcon icon={faCalendarDay} size="3x" />
           <input
           className="input"
@@ -98,7 +118,7 @@ function Planner( {user, setUser} ) {
         {mealData && <MealList mealData={mealData} />}
        
         
-        <section className="controls box" >
+        <section className={`controls box ${theme2}` }>
         <FontAwesomeIcon icon={faCalendarWeek} size="3x" />
           <input
             className="input is-outlined"
@@ -115,6 +135,8 @@ function Planner( {user, setUser} ) {
           &#8679;
         </button>
       )}
+      </div>
+      </div>
       </div>
     );
   }

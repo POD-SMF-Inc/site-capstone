@@ -1,10 +1,10 @@
 import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
-import {  useState, useEffect} from "react"
+import {  useState, useEffect, useContext} from "react"
 import APIR from '../../services/apiCalls'
 import { Link  } from "react-router-dom"
 //import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import "./Search.css"
-//import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Search({query,  cuisine, dietS, typeS, intolerances }){
     //const [query, setQuery] = useState("")
@@ -14,8 +14,23 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
     console.log("cusine2: ", cuisine)
     console.log("query2: ", query)
     */
-    //const context = useContext(ThemeContext);
-    //const theme = context.isLightTheme ? context.cardLight : context.cardDark;
+   
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
+
 
     const choices = {
         query: query,
@@ -110,16 +125,19 @@ export default function Search({query,  cuisine, dietS, typeS, intolerances }){
     
     
     return (
-        
-        <div className="SearchPage">
+        <div className={`searchp ${theme} `}>
+      <div className={theme}>
+      
+        <div className='SearchPage'>
             
-                
-            <div className="buttonS">
-                <button type="submit" className="searchbtn"onClick={handleOnSubmit}>Search</button>
-                <Link to="/ingredients"><button className="ingred">Find By Ingredients</button></Link>
+            <div className='buttonS'>
+                <button type="submit" className={`searchbtn ${theme2}`}onClick={handleOnSubmit}>Search</button>
+                <Link to="/ingredients"><button className={`ingred ${theme2}`}>Find By Ingredients</button></Link>
             </div>
-                <SearchRecipeRoute randomRecipe={randomRecipe} totalResults={totalResults}/>
+                <SearchRecipeRoute randomRecipe={randomRecipe} totalResults={totalResults} />
         </div>
+        </div>
+      </div>
         
     )
 }

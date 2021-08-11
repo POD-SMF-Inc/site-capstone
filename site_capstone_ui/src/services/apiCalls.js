@@ -797,7 +797,7 @@ class ApiCalls {
     
     async getSearchRecipe(query)
     {
-        return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 3})
+        return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 9})
     }
 
     async getIngredientRecipe(ingredients)
@@ -811,7 +811,7 @@ class ApiCalls {
     }
 
     async getHomeRandomRecipe(){
-        return await this.request({endpoint: `random`, method: `GET`, number: 6})
+        return await this.request({endpoint: `random`, method: `GET`, number: 8})
     }
 
     async getRecipeInfo(id)
@@ -820,7 +820,7 @@ class ApiCalls {
     }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `e892ed26f6334d0d97339898d12fd2a9`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `19dd9d780e6a404383d126df3422985f`)
 
 
 

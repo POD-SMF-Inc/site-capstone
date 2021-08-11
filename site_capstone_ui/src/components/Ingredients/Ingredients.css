@@ -17,6 +17,7 @@
     background-color: #00CED1;
     border-color: black;
     font-size: 20px;
+    border: 1px solid black;
 }
 
 .Ingredients button:hover {

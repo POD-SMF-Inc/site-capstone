@@ -3,6 +3,10 @@
     height: 100vh;
     width: 100vw;
   }*/
+  .weekly {
+    height:150vh;
+    background-color: #F0F8FF;
+  }
 
   .weekly-blurb {
     width: 100%;

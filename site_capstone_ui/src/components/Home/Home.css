@@ -3,7 +3,15 @@
     background-color: #F0F8FF;
     opacity: .9;
     font-family: 'Merriweather', serif;
+    
+    
   }
+
+  .homep {
+    height:200vh;
+  }
+  
+
   .home-intro {
     padding: 30px;
     display: flex;
@@ -68,20 +76,29 @@
     flex-direction: column;
     text-align:center;
     font-size: 21px;
-    text-shadow:0 2px 3px rgba(0,0,0,0.2)
+    text-shadow:0 2px 3px rgba(0,0,0,0.2);
+   
   }
+
   .info span:nth-child(2) {
-    margin-left: 80px;
-    margin-right: 80px;
     font-weight:500;
+  
+  }
+
+  .homeDes {
+    margin-left: 100px;
+    margin-right: 100px;
   }
 
  .info img {
    align-items: center;
    width:200px;
-   margin-top: 150px;
+   margin-top: 60px;
  }
 
+ .home-layout {
+   height: 150vh;
+ }
   .home-intro div {
     margin: 15px;
   }

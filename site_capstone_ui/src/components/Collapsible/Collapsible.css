@@ -8,11 +8,12 @@
 }
 
 .collapse {
-    /*background-color: chocolate;*/
+    /*background-color: chocolate;
+      margin-left: px;*/
     background-color: #7ed5d6c9;
-    margin-left: px;
     border-radius: 6px;
     max-width: 800px;
+    
 }
 
 .collapse .collapseInfo {

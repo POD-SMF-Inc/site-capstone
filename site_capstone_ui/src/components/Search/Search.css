@@ -2,8 +2,14 @@
     /* background-color: deeppink; */
     display: flex;
     flex-direction: column;
-    height: 800px;
-    
+    height: 100%;
+    min-height: 800px;
+    max-height: 1600px;
+}
+
+.searchp {
+    height:150vh;
+    background-color: #F0F8FF;
 }
 
 .SearchPage .buttonS {

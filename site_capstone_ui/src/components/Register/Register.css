@@ -17,7 +17,14 @@
   align-items: center;
   justify-content: center;
   padding-top: 50px;
+  
 }
+
+/* @media (prefers-color-scheme: dark) {
+  .Register .splash-image {
+    background-image: url(https://images.unsplash.com/photo-1583169561558-e02e4f7a73ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80);
+  }
+} */
 
 .Register .registercard {
   width: 600px;
@@ -81,6 +88,8 @@ input {
 .signup-btn:hover {
   background-color: #20a8ca;
 }
+
+
 
 .to-login {
     display: flex;

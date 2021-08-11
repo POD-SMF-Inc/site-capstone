@@ -3,13 +3,18 @@ import React, { useContext } from "react";
 //import { BrowserRouter as Router, Route } from "react-router-dom";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import './Weekly.css'
+import NotAuthorized from "../NotAuthorized/NotAuthorized"
 //import 'bulma/css/bulma.css';
 
 
-function Weekly() {
+function Weekly({ user, setAppState }) {
+
+    
     const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
-  
+    if (!user?.username) {
+      return <NotAuthorized user={user} setAppState={setAppState}/>
+    } 
     const ThemeToggler = (props) => {
         const context = useContext(ThemeContext);
         const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
@@ -24,7 +29,7 @@ function Weekly() {
     
     return (
       
-        <div className={`${theme} `}>
+        <div className={` weekly ${theme} `}>
           <div className={theme}>
           <ThemeToggler />
           <div className='weekly-blurb'>
