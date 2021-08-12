@@ -102,7 +102,7 @@ if (isFetching)
                     </div>
                   </div>
                   <div class="panel-body bio-graph-info">
-                    <div class="row">
+                    <div className={`row  ${theme2}`} >
                         <div class="bio-row">
                         <div> Location: <span> {survey.location} </span> </div> 
                         </div>
@@ -142,7 +142,8 @@ if (isFetching)
 
               </div>
           </div>
-         
+          </div>
+          </div>
    
               </div>
         );

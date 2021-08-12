@@ -46,10 +46,10 @@ export default function SearchRecipeRoute({ randomRecipe, totalResults }) {
                 nextLabel={"Next"}
                 pageCount={pageCount}
                 onPageChange={changePage}
-                containerClassName={'paginationBttns'}
+                containerClassName={`paginationBttns  `}
                 previousLinkClassName={`previousBttn  ${theme2} `}
                 nextLinkClassName={`nextBttn ${theme2}`}
-                disabledClassName={"paginationDisabled"}
+                disabledClassName={`paginationDisabled `}
                 activeClassName={"paginationActive"}
                 
             />

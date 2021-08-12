@@ -132,9 +132,9 @@ export default function EditProfile({
           </main>
           
 
-          <div className="field">
+          <div className={`field ${theme2}`}>
             <div className="control">
-              <label className="label" align="left" htmlFor="description">
+              <label className={`label ${theme2}`} align="left" htmlFor="description">
                 {" "}
                 About Me:{" "}
               </label>
@@ -149,7 +149,7 @@ export default function EditProfile({
           </div>
 
           <div className="field">
-            <label align="left" className="label" htmlFor="location">
+            <label align="left" className={`label ${theme2}`} htmlFor="location">
               Location:
             </label>
             <div className="control">
@@ -164,7 +164,7 @@ export default function EditProfile({
           </div>
 
           <div className="field">
-            <label align="left" className="label" htmlFor="diet">
+            <label align="left" className={`label ${theme2}`} htmlFor="diet">
               Diet:
             </label>
             <div className="control">
@@ -179,7 +179,7 @@ export default function EditProfile({
           </div>
 
           <div className="field">
-            <label align="left" className="label" htmlFor="schoolName">
+            <label align="left" className={`label ${theme2}`} htmlFor="schoolName">
               School:
             </label>
             <div className="control">
@@ -194,7 +194,7 @@ export default function EditProfile({
           </div>
 
           <div className="field">
-            <label align="left" className="label" htmlFor="intolerances">
+            <label align="left" className={`label ${theme2}`} htmlFor="intolerances">
               Food Intolerances:
             </label>
             <div className="control">
@@ -209,7 +209,7 @@ export default function EditProfile({
           </div>
 
           <div className="field ">
-            <label align="left" className="label" htmlFor="cuisines">
+            <label align="left" className={`label ${theme2}`} htmlFor="cuisines">
               Preferred Cuisines:
             </label>
             <div className="control">
