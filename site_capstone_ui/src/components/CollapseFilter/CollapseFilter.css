@@ -3,7 +3,7 @@
 }
 
 .collapseFil .toggleFil {
-    background-color: #E6E6FA;
+    background-color: #00CED1;
     font-size: 16px;
     padding: 10px;
     border-radius: 5px;
@@ -15,7 +15,7 @@
 }
 
 .collapseFil .collapseInfoFil {
-    background-color: #F8F8FF;
+    background-color:#00CED1;
     /*padding: 6px;*/
     border: 1px solid black;
     border-radius: 6px;

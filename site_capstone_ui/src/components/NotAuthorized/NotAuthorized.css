@@ -3,9 +3,8 @@
     text-align: center;
 }
 
-.NotFound img {
-    width: 60px;
-    display: flex;
-    margin-left: 50%;
-    margin-right: 50%;
+.NotFound {
+   background-color: #F0F8FF;
+   height:100%;
+
 }

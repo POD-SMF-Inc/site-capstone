@@ -121,7 +121,7 @@ export default function Register({ user, setUser, setAppState }) {
     navigate("/survey")
   }
   return (
-    <div className={` ${theme} `}>
+    <div className={`registerp ${theme} `}>
     <div className={theme}>
     
     <div className="Register">

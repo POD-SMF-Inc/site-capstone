@@ -8,9 +8,18 @@
     align-items: center;
     background-color: #F0F8FF;
     min-height: 1000px;
+    color:black
+}
+
+#searching {
+    background-color: white;
+    margin-top: 20px;
 }
 
 .VideoPage h1 {
-    margin-top: 10px;
-}
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: 'Lora', serif;
+    color:black
 
+}

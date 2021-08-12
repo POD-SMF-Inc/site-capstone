@@ -12,6 +12,10 @@
     background-color: #F0F8FF;
   
   }
+
+  #favorite-title {
+    font-family: 'Lora', serif;
+  }
   .FavoritesPage span {
     display: block;
     
@@ -19,11 +23,13 @@
   .FavoritesPage span:first-of-type {
     font-size: 50px;
     margin-top: 5px;
-    
+    margin-bottom: 20px;
+     
   }
   .FavoritesPage span:nth-child(2) {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: lighter;
+    margin-bottom: 20px;
     
   }
 

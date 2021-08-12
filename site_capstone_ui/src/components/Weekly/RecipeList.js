@@ -12,7 +12,7 @@ const onDragOver = (evt) => {
     const theme = context.isLightTheme ? context.cardLight : context.cardDark;
     return (
       <article className={`box ${theme} all-rounded has-text-centered`}>
-        <div className="is-size-5-tablet is-uppercase mx-1">{day} 
+        <div className="is-size-6-tablet is-uppercase mx-1">{day} 
         <div className="tag is-rounded is-small is-primary is-outlined  mx-1">{total}</div>
         </div>
       </article>
@@ -122,7 +122,7 @@ const onDragOver = (evt) => {
         </div>
         <button
           onClick={() => setModal(!isModalOpen)}
-          className="button  is-medium floating"
+          className="button  is-normal floating"
         >
           Add Recipe
         </button>

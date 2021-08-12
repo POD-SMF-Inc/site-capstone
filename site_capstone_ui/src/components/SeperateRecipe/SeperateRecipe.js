@@ -24,7 +24,7 @@ export default function SeperateRecipe({ element })
                 
                 
                 <div className="detailPage">
-                    <Link to={`/details/${element.id}`}><button className="button is-warning is-light is-outlined">Go to Recipe</button></Link>
+                    <Link to={`/details/${element.id}`}><button id="go-to" className="button is-warning is-light is-outlined">Go to Recipe</button></Link>
                 </div>
             </div> 
         </div>

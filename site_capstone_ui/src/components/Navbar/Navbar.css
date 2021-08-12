@@ -1,11 +1,11 @@
 .Navbar {
-    background-color: #6f7176;
+    background-color:#6f7176;
     display: flex;
     justify-content:space-evenly;
     padding: 5px;
     height: 62px;
     align-items: center;
-    
+    font-family: 'Merriweather', serif;
   }
   /*justify-content:space-evenly;*/
  
@@ -15,7 +15,7 @@
 /*justify-content:space-evenly;*/
 
 .Navbar a, .logout-link {
-  font-family: "Open Sans", Hebrew;
+  font-family: 'Merriweather', serif;
   text-decoration: none;
   color: #000;
   margin: 5px 10px;
@@ -27,7 +27,7 @@
   color: blue;
 }
 .home-link  {
-  
+  font-family: 'Merriweather', serif;
 background-color: #00CED1;
 border: 1px solid #000000;
 padding: 3px 10px;
@@ -37,7 +37,6 @@ font-size: 18px;
 margin-top: 20px;
 width: 150px;
 font-weight:bold;
-font-family: "Open Sans", Hebrew;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 6px;
 }
@@ -53,10 +52,9 @@ border-radius: 6px;
   margin-top: 25px;
   width: 150px;
   font-weight:bold;
-  font-family: "Open Sans", Hebrew;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
-
+  font-family: 'Merriweather', serif;
 }
 .register-link {
 background-color: #00CED1;
@@ -68,9 +66,9 @@ font-size: 18px;
 margin-top: 20px;
 width: 190px;
 font-weight:bold;
-font-family: "Open Sans", Hebrew;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 6px;
+font-family: 'Merriweather', serif;
 }
 
 .register-btn {
@@ -83,10 +81,9 @@ font-size: 10px;
 margin-top: 20px;
 width: 150px;
 font-weight:bold;
-font-family: "Open Sans", Hebrew;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 6px;
-
+font-family: 'Merriweather', serif;
 }
 /* background-color: #87CEFA;
   border-radius: 6px;
@@ -97,12 +94,29 @@ border-radius: 6px;
     color:rgba(255,255,255,0.322);
   }
 
+  #accountlink a:hover {
+    background-color: transparent;
+  }
+
+  .Navbar .navbar-end .navbar-item a:hover { 
+    background-color: transparent; 
+  }
+
   a:active {
     color:#00CED1;
   }
 
-  
+  .navbar-end .button {
+    font-size: 18px;
+  }
 
+  .navbar-item .navbar-link{
+    font-size: 18px;
+  }
+
+  .navbar-dropdown .navbar-item {
+    font-size: 18px;
+  }
   /* .navbar-link  p:hover {
     color:blue;
   }

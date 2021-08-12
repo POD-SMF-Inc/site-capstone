@@ -46,7 +46,7 @@ export default function Home({ user }) {
         </div>
         </div>
         <div className={`home-layout ${theme} `}>
-          <h1>Recipes</h1>
+          <h1 id="home-title">Recipes</h1>
           <div className="HomeRecipes">
             <HomeRecipeCalls />
           </div>
