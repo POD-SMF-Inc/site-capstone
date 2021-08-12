@@ -1,8 +1,13 @@
 import "./ModalVideos.css"
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useEffect } from "react/cjs/react.development";
+import { ThemeContext } from "../../contexts/ThemeContext";
 export default function ModalVideos(props)
 {
+    const context = useContext(ThemeContext);
+    //const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+
     const { isModalOpen, setModal, videoInfo } = props;
     const modalActive = isModalOpen ? 'is-active ' : '';
     const [videoDetails, setVideoDetails] = useState({})
@@ -13,11 +18,14 @@ export default function ModalVideos(props)
         setModal(!isModalOpen);
       };
     return (
-        <div className="ModalVideos">
+        <div className={`ModalVideos ${theme2}`}>
             <div className={`modal ${modalActive}`}>
                     <div className="modal-background"></div>
-                    <div className={`modal-card`}>
-                        <header className={`has-text-white modal-card-head `}>
+
+                    
+                    <div className={`modal-card ${theme2}`}>
+                        <header className={`has-text-white modal-card-head is-primary `}>
+
                         <button
                             className="delete"
                             aria-label="close"
@@ -27,7 +35,7 @@ export default function ModalVideos(props)
                         <h2>{videoInfo?.snippet?.title}</h2>
                         </div>
                         </header>
-                        <section className={`modal-content has-background-white py-6 px-6`}>
+                        <section className={`modal-content has-background-white py-6 px-6 ${theme2}`}>
                         <div className="videoInfoDesc">
                             <div className="embedVideo">
                                 <iframe src={videoSrc} allowFullScreen title="Video player" />

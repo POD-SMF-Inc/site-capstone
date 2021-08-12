@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import apiClient from "../../services/apiClient"
 import "./ModalShopping.css"
 import { faChevronRight, faChevronLeft, faCircle, faCheckCircle, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 import uuid from 'react-uuid'
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function ModalShopping(props)
 {
+
+    const context = useContext(ThemeContext);
+    //const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+    //Implement a save button, when it is pressed, update the backend
+
     const { modalOpen, setModalOpen, user } = props;
     const [inputValue, setInputValue] = useState('');
     const [errors, setErrors] = useState({})
@@ -118,7 +125,7 @@ export default function ModalShopping(props)
             <div className={`modal ${modalActive}`}>
                 <div className="modal-background"></div>
                 <div className={`modal-card`}>
-                <header className={`has-background-primary has-text-white modal-card-head `}>
+                <header className={`has-background-primary has-text-white modal-card-head ${theme2}`}>
                         <button
                             className="delete"
                             aria-label="close"
@@ -126,7 +133,7 @@ export default function ModalShopping(props)
                         ></button>
                         
                 </header>
-                    <section className={`modal-content has-background-white py-6 px-6`}>
+                    <section className={`modal-content has-background-white py-6 px-6 `}>
                         <div className="shoppingTitle">
                             <h1>Shopping List</h1>
                         </div>
@@ -134,8 +141,10 @@ export default function ModalShopping(props)
                             
                         <div className="listSection">
                             <div className="addItem">
+
 					            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
                                 <button onClick={() => addButton()}>Add Item</button>
+
 				            </div>
                             {errors.input && <span className="error">{errors.input}</span>}
                             <div className="itemList">

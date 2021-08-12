@@ -783,7 +783,7 @@ class ApiCalls {
         //https://api.spoonacular.com/recipes/complexSearch
         //https://api.spoonacular.com/food/videos/searchs
 
-        return await this.requestVideos({endpoint: `search`, method: `GET`, data: query, number: 3})
+        return await this.requestVideos({endpoint: `search`, method: `GET`, data: query, number: 18})
     }
 
     async getEquipment(info)
@@ -794,12 +794,12 @@ class ApiCalls {
     
     async getSearchRecipe(query)
     {
-        return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 3})
+        return await this.requestSearch({endpoint: `complexSearch`, method: `GET`, data: query, number: 27})
     }
 
     async getIngredientRecipe(ingredients)
     {
-        return await this.requestIngredients({endpoint: `findByIngredients`, method: `GET`, data: ingredients, number: 3})
+        return await this.requestIngredients({endpoint: `findByIngredients`, method: `GET`, data: ingredients, number: 24})
     }
 
 
@@ -817,7 +817,7 @@ class ApiCalls {
     }
 }
 
-const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `46e606b38f154845ac3d3d5d3e38d37d`)
+const APIR = new ApiCalls(`https://api.spoonacular.com/recipes`, `1a23b0a94a2a4db3ac2faaa6703f448e`)
 
 
 

@@ -1,9 +1,15 @@
 import APIR from "../../services/apiCalls";
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import apiClient from "../../services/apiClient"
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 export default function EquipmentC({ recipe })
 {
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+
     const [equipment, setEquiment] = useState({})
     const [visible, setVisible] = useState(false)
     useEffect(() => {
@@ -50,7 +56,7 @@ export default function EquipmentC({ recipe })
         fetchCheckRecipe()
     }, [recipe?.id])
     return (
-        <div className="EquipmentC">
+        <div className={`EquipmentC ${theme}`}>
             <RecipeDetails recipe={recipe} equipment={equipment} visible={visible} setVisible={setVisible}/>
         </div>
     )

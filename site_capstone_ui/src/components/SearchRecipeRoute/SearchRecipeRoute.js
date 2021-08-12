@@ -18,7 +18,7 @@ export default function SearchRecipeRoute({ randomRecipe, totalResults }) {
         setRecipes()
     }, [randomRecipe])
     
-    const recipesPerPage = 10
+    const recipesPerPage = 9
     const pagesVisited = pageNumber * recipesPerPage
 
     const displayRecipes = recipesS.slice(pagesVisited, pagesVisited + recipesPerPage).map(element => {

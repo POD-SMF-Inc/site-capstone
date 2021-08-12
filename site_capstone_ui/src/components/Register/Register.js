@@ -14,6 +14,7 @@ export default function Register({ user, setUser, setAppState }) {
   const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
     const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+
   
     const ThemeToggler = (props) => {
         const context = useContext(ThemeContext);
