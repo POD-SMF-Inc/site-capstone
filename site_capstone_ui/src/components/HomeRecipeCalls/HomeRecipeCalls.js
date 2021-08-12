@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react"
 import APIR from '../../services/apiCalls'
 import HomeRR from "../HomeRecipeRoute/HomeRR"
-//import { GlobalContext } from '../contexts/GlobalState';
-//import HomeRL from "../HomeRecipeLayout/HomeRL"
 import "./HomeRecipeCalls.css"
 export default function HomeRecipeCalls(){
-   // const {  faves } = useContext(GlobalContext);
 
     const [homeRecipe, setHomeRecipe] = useState([])
-    //const [faveRecipes, setFaveRecipes] = useState(faves || []);
-    //const [element, setElement] = useState([]);
-
     useEffect(() => {
         const fetchHomeRecipe = async () => {
             try {
@@ -37,6 +31,3 @@ export default function HomeRecipeCalls(){
         </div>
     )
 }
-
-//faveRecipes={faveRecipes}
-//{element && <HomeRL element={element} />}

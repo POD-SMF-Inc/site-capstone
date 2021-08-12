@@ -5,8 +5,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function SeperateRecipe({ element })
 {
-
-    console.log("Element: ", element)
     const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
     const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
@@ -17,7 +15,6 @@ export default function SeperateRecipe({ element })
         
         <div className={`SepReci  `}>
             <div className={`details  ${theme2}`}>
-                {/* <h2>{element.id}</h2> */}
                 <div className={`recipeTitle ${theme2}`}>
                     <h1>{element.title}</h1>
                 </div>
@@ -35,8 +32,3 @@ export default function SeperateRecipe({ element })
       
     )
 }
-
-/*<div className="SepReci">
-            <p>{element.title}</p>
-            <img src={element.image} alt="Smoothie"></img>
-        </div> */

@@ -27,7 +27,7 @@ export const useSurveyForm = () => {
     if (data) {
       setSurvey(data.survey)
       if (errors) setErrors (errors)
-     // setIsLoading(false)
+     
       navigate("/survey")
     } 
     
@@ -48,7 +48,7 @@ export const useSurveyForm = () => {
 
     if (data) {
       setSurvey(data.survey)
-      //setIsLoading(false)
+      
       navigate("/profile")
     
   }
@@ -66,7 +66,7 @@ const handleOnSubmitSkip = async () => {
 
   if (data) {
     setSurvey(data.survey)
-    //setIsLoading(false)
+    
     navigate("/profile")
   
 }

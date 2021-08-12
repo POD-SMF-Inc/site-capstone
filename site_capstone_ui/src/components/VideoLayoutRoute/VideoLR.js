@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 export default function VideoLR({ videos })
 {
     const [videoS, setVideoS] = useState(videos.slice(0, 100))
-    console.log("video route: ", videos)
     const [pageNumber, setPageNumber] = useState(0)
     const [ visible, setVisible ] = useState(1)
     useEffect(() => {
@@ -22,7 +21,6 @@ export default function VideoLR({ videos })
         return(
             <div className="SepVideoPage">
                 <VideoFormat element={element} />
-                {console.log("elementMApVideo: ", element)}
             </div>
         )
     })
@@ -45,13 +43,7 @@ export default function VideoLR({ videos })
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
             />}
-            {/* {
-                videos?.map(element => (
-                    <>
-                           <VideoFormat element={element} />
-                    </>
-                ))
-            } */}
+            
         </div>
     )
 }

@@ -23,16 +23,13 @@ export default function Ingredients( { user, setAppState } )
         let inArr = []
         const sep = inList.split(",")
         sep.forEach(element => trimmed(element, inArr))
-        //console.log("inArr: ", inArr)
         return inArr
     }
 
     const handleOnSubmit = async () => {
         const ingredList = changeIngredient(ingredSent)
-        //console.log("ingredients: ", ingredList)
         const { data, error } = await APIR.getIngredientRecipe(ingredList)
         setRandomRecipe(data)
-        //console.log(data)
     }
 
 

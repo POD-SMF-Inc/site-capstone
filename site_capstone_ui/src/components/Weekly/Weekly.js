@@ -1,10 +1,10 @@
 import RecipeList from "./RecipeList";
 import React, { useContext } from "react";
-//import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { ThemeContext } from "../../contexts/ThemeContext";
 import './Weekly.css'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
-//import 'bulma/css/bulma.css';
+
 
 
 function Weekly({ user, setAppState }) {

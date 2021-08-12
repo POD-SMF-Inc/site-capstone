@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom"
 export default function FavorRoute(element)
 {
     const [recipe, setRecipe ] = useState({})
-    console.log("recipeIdFav: ", element)
 
     return (
         <div className="FavorRoute">

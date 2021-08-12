@@ -4,9 +4,7 @@ import React from 'react'
 import Collapsible from "../Collapsible/Collapsible";
 import apiClient from "../../services/apiClient"
 import ModalShopping from "../ModalShopping/ModalShopping";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import RemoveFav from "../RemoveFav/RemoveFav";
-//import AddToFav from "../AddToFav/AddToFav";
+
 import CollapseSteps from "../CollapseSteps/CollapseSteps";
 import timer from "../../assets/timer.png"
 import dollarSign from "../../assets/dollar-sign-in-green-circle.jpg"
@@ -22,18 +20,7 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
     const priceFormat = (amount) => {
         return `$${formatter.format(amount)}`
       }
-    // const [visible, setVisible] = useState(false)
-    // const [showRemove, setShowRemove] = useState(false)
-    // const [serving, setServing ] = useState(1)
-    // const buttonSec = document.querySelector("#favButton")
-    // const recipeInfo = {
-    //     food_id: recipe.id,
-    //     title: recipe.title
-    // }
-    // if (!visible)
-    // {
-    //     setShowRemove(true)
-    // }
+    
     const recipeInfo = {
         food_id: recipe.id,
         title: recipe.title,
@@ -41,107 +28,15 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
     }
     const handleOnAdd = async () => {
         const { data, error } = await apiClient.addToFav({ recipeInfo})
-        console.log("data in add Fav: ", data)
         setVisible(false)
     }
     const handleOnRemove = async () => {
         const { data, error } = await apiClient.removeFromFav({ recipeInfo})
         setVisible(true)
-        console.log("data in delete Fav: ", data)
     }
-
-
-    console.log("equipment: ", equipment)
-    
-    // useEffect(() => {
-    //     const fetchRecipeId = async () => {
-    //         try {
-    //             const { data, error } = await apiClient.checkFav(recipe?.id)
-    //             //const { data, error } = await apiClient.getFavs()
-    //             console.log("recipeid: ", recipe?.id)
-    //             if (data)
-    //             {
-    //                 //If false then its not in favorites
-    //                 console.log("data: ", data)
-    //                 if (data.favorites)
-    //                 {
-    //                     //Choosing to see Favorites Button
-    //                     setVisible(true)
-                        
-    //                     //buttonSec.innerHTML = `<AddToFav recipeInfo={recipeInfo} />`
-    //                     console.log("it is in the fav, " , data.favorites)
-
-    //                 }
-    //                 else
-    //                 {
-    //                     setShowRemove(true)
-    //                     console.log("not in fav", data.favorites)
-    //                     //buttonSec.innerHTML = ``
-    //                     // return (
-    //                     //     <RemoveFav recipeInfo={recipeInfo} />
-    //                     // )
-    //                     //buttonSec.innerHTML = `<button>Remove From Favorites</button>`
-    //                 }
-                    
-    //             }
-    //         }
-    //         catch(error)
-    //         {
-    //             console.log(error)
-    //         }
-    //     }
-    //     fetchRecipeId()
-    // }, [recipe?.id])
-/*
-    const handleOnSubmit = async () => {
-        //fave=true; 
-        const { data, error } = await apiClient.addToFav({ recipeInfo})
-        setVisible(true);
-        /*if (data)
-        {
-            buttonSec.innerHTML = `<button onClick=${handleRemove}>Remove From Favorites</button>`
-        }*/
-    
-
-    const handleRemove = async () => {
-       // fave= false;
-        const { data, error } = await apiClient.removeFromFav({ recipeInfo })
-        setVisible(true);
-        /*if (data)
-        {
-            buttonSec.innerHTML = `<button onClick=${handleOnSubmit}>Add To Favorites</button>`
-        }*/
-    }
-    // state = {
-    //     isExpanded: this.props.isExpandedInitially,
-    // };
-
-    // const {isExpanded} = this.state;
-    
-    console.log("Recipe detail: ", recipe)
-    console.log("dish: ", recipe.dishTypes?.join(", "))
     const imageUrl = "https://spoonacular.com/cdn/ingredients_100x100/"
     const equipUrl = "https://spoonacular.com/cdn/equipment_100x100/"
     
-    /*
-    useEffect(() => {
-        const infoSec = document.querySelector("#info")
-        const summaryInfo = recipe.summary
-        infoSec.innerHTML = summaryInfo
-    }, [recipe.summary])
-    */
-    //console.log("recipe: ", recipe.analyzedInstructions[0])
-
-    // console.log("recipe cusine: ", recipe.cuisines)
-    // if (recipe.cuisines.length === 0)
-    // {
-    //     console.log("sure")
-    // }
-    // else
-    // {
-    //     console.log("nah")
-    // }
-    //console.log("html: ", buttonSec)
     return (
         <div className="RecipeDetail">
             <div className="sideByA">
@@ -160,8 +55,6 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                 <div className="nutritionInfo">
                 <div className="favButton">
                     {visible? <button onClick={handleOnAdd}>Add To Favorites</button> : <button onClick={handleOnRemove}>Remove From Favorites</button>}
-                    {/* {visible? <button><AddToFav onClick={() => setVisible(false)} recipeInfo={recipeInfo} /></button> : <RemoveFav onClick={()=>setVisible(true)} recipeInfo={recipeInfo}/>} */}
-                    {/* {showRemove? <RemoveFav recipeInfo={recipeInfo}/> : null} */}
                     </div>
                     <div className="nutriTitle">
                         <h1>Information</h1>
@@ -173,11 +66,6 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
 
                     {recipe.cuisines?.length > 0 && <div className="cuisineArr">
                         <h1>Cuisines</h1> {
-                    // recipe.cuisines.map(ele => (
-                    //     <>
-                    //         <p>{ele}</p>
-                    //     </>
-                    // ))
                         <p>{recipe.cuisines.join(", ")}</p>
                     }</div>}
                     {recipe.dishTypes?.length > 0 && <div className="typeArr">
@@ -185,30 +73,12 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                         <h1>Dish Types</h1>
     
                     {
-                        // recipe.dishTypes.map(ele => (
-                        //     <>
-                        //         <p>{ele}</p>
-                        //     </>
-                        // ))
                         <p>{recipe.dishTypes.join(", ")}</p>
                     }</div>}
                     {recipe.diets?.length > 0 && <div className="dietsArr">
                         <h1>Diets</h1>{
-                        // recipe.diets.map(ele => (
-                        //     <>
-                        //         <p>{ele}</p>
-                        //     </>
-                        // ))
                         <p>{recipe.diets.join(", ")}</p>
                     }</div>}
-                    
-                    {/* fave ?
-                     (<AddToFav recipeInfo={recipeInfo} />
-                ): (
-                <RemoveFav recipeInfo={recipeInfo} /> 
-                    )
-                */}
-                    
                 </div>
                 
             </div>
@@ -233,23 +103,13 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                         
                     </div>
                     
-                    
-                    {/* <Collapsible label="Ingredients"> */}
                         {recipe.extendedIngredients?.map(item => (
                             <>
                                 <div className="sepIng">
-                                    {/* <input type="checkbox" /><span><img src={imageUrl + item.image} alt="ingredient in dish"></img> <br/>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span> */}
-                                    {/* <input type="checkbox" /><span>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</span> */}
                                     <li>{item.measures.us.amount + " " + item.measures.us.unitLong}{" " + item.originalName}</li>
-                                    {/* <p>{item.originalName}</p> */}
-                                    
-                                    {/* <p>Measures: </p>
-                                    <p>US: </p>
-                                    <p>Metric: {item.measures.metric.amount + " " + item.measures.metric.unitLong}</p>  */}
                                 </div>
                             </>
                         ))}
-                    {/* </Collapsible> */}
                     <div className="footerIng">
                         <h2>Have All Your Ingredients? If Not Click Here To</h2>
                         <ModalShopping modalOpen={modalOpen} setModalOpen={setModalOpen}/>
@@ -301,27 +161,10 @@ export default function RecipeDetails({ recipe, equipment, visible, setVisible }
                                             <>
                                             
                                             <li>{item.name}</li>
-                                            
-                                            {/* {
-                                            item.image === "" ? null : <div className="directIng">
-                                                <img src={imageUrl + item.image} alt="ingredient in dish"></img>
-                                        </div>
-                                                } */}
-                                            
-                                    
                                             </>
                                             ) )
                                             }
                                     </div> }
-                                    {/* {element.equipment.length === 0 ? null : <div className="equipment">Equipment: 
-                                        { 
-                                        element.equipment.map((item) => (
-                                        <>
-                                        <p>{item.name}</p>
-                                        
-                                        <img src={equipUrl + item.image} alt="equipment used in dish"></img>
-                                            </>
-                                    ) )}</div> } */}
                                     </CollapseSteps>
                                 </>
                             ))

@@ -1,16 +1,12 @@
 import './Profile.css'
 import React, { useEffect, useState, useContext } from 'react';
-//import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
 import ProfileFavs from '../ProfileFavs/ProfileFavs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
-//import IntroductionP from '../IntroductionP/IntroductionP'
-//import About from './About'
-//import Header from './Header'
-//import Post from './Post'
+
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
@@ -27,9 +23,6 @@ export default function Profile({ user, setAppState, appState, isLoading, setUse
   const [errors, setErrors] = useState({})
 
   const [survey, setSurvey] = useState({})
-
-
-  //const navigate = useNavigate()
 
 useEffect(() => {
   const fetchInfo = async () => {
@@ -79,11 +72,7 @@ if (!user?.username) {
             <section className={`container-banner ${theme2}`}>
             <div className="banner-intro">
               <div className="banner-blurb">
-{/*               <img
-              className="profilepic"
-              src={profilepic}
-              alt="profile_picture"
-            ></img> */}
+
                 <span id="name" align="left">{user.first_name + " " + user.last_name}</span>
                 <span align="left" className="bio-heading">
                 <div className="description"> About Me: <span align="left"> {survey.description} </span> </div>
@@ -129,7 +118,6 @@ if (!user?.username) {
                 <br />
                 <h6>Favorite Recipes</h6>
                 <div className="ProfileRecipes">
-                {/* <HomeRecipeCalls /> */}
                 <ProfileFavs />
                 <Link to='/favorites'><button className="favProBtn">Show More</button></Link>
                 </div>
@@ -143,17 +131,5 @@ if (!user?.username) {
         </div>
   );
 }
-
-/*
-<div>
-              <FontAwesomeIcon icon={faEdit} onClick={() => {
-                setOpenModal(true);
-              }} size="1.5x"/> <i class="fa fa-edit"></i> 
-                 <button className='openModalbtn' data-toggle="modal" data-target="#ModalLong" onClick={() => {
-                   setOpenModal(true);
-                 }} > {isLoading ? <>Loading</> : <>Edit Profile</>} </button>
-                 {openModal && <EditProfile survey= {survey} setSurvey={setSurvey} setOpenModal= {setOpenModal} />}
-                </div>
-*/
 
     

@@ -1,10 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
-
-//import LocalDataContext from '../../contexts/LocalDataContext';
 import  HeartLogo  from '../../assets/heart2.png';
 import  FullHeartLogo  from '../../assets/fullheart.png';
-//import { ReactComponent as FullHeartLogo } from '../../assets/fullheart.png';
 
 import './FavHeart.css';
 

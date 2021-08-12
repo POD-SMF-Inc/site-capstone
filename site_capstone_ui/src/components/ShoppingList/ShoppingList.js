@@ -33,14 +33,13 @@ export default function ShoppingList({ user, setAppState })
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         const fetchItems = async () => {
-            // setIsLoading(true)
+            
             try{
-                // setTimeout(()=> 300000)
+                
                 const { data, error} =  await apiClient.getShoppingList()
                 if (data)
                 {
-                    console.log("data shopping: ", data?.listInfo)
-                    console.log("data type: ", typeof(data.listInfo))
+                    
                     setItems(data.listInfo)
                 }
             }
@@ -53,10 +52,9 @@ export default function ShoppingList({ user, setAppState })
         
         if (user?.username)
         {
-            // setIsLoading(true)
+
             setTimeout(fetchItems, 500)
-            // fetchItems()
-            // fetchItems()
+
         }
         
     }, [])
@@ -78,13 +76,6 @@ export default function ShoppingList({ user, setAppState })
                  timeout={3000} //3 secs
                  />
                  </div>
-                 // <Loader
-                 //   type="Puff"
-                //   color="#00BFFF"
-                //   height={100}
-                 //   width={100}
-                 //   timeout={3000} //3 secs
-                 // />
              );
          }
          return (
@@ -104,12 +95,10 @@ export default function ShoppingList({ user, setAppState })
                         <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
                         
                         <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
-                        {/* <FontAwesomeIcon icon={faPlus} onClick={() => addButton()}/> */}
+                        
                     </div>
                     {errors.input && <span className="error">{errors.input}</span>}
-                    {/* <div className="addItembtnS">
-                    <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
-                    </div> */}
+                   
                     <div className="itemListSec">
                     {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
                                             <div className={`itemContainerSec ${theme2}`}>
@@ -144,7 +133,7 @@ export default function ShoppingList({ user, setAppState })
                                     ))}
                                 </div>
                                     <div className="totalItemsSec">
-                                        {/* <h4>Total: {totalItemCount}</h4> */}
+                                        
                                         <button
                                         className="submitShopBtn"
                                         type="submit"
@@ -158,75 +147,6 @@ export default function ShoppingList({ user, setAppState })
         </div>
       </div>
          )
-
-
-
-        // return (
-        //     <div className="mainShop">
-        //     <div className="ShoppingList">
-        //         <div className="headerShoppL">
-        //             <h1>Your Shopping List</h1>
-        //         </div>
-        //         <div className="aboutShop">
-        //             <h2>Missing Any Ingredients? Add To Your Shopping List!</h2>
-        //         </div>
-        //         <div className="listItemS">
-        //             <div className="addItemSec">
-        //                 <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
-                        
-        //                 <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
-        //                 {/* <FontAwesomeIcon icon={faPlus} onClick={() => addButton()}/> */}
-        //             </div>
-        //             {errors.input && <span className="error">{errors.input}</span>}
-        //             {/* <div className="addItembtnS">
-        //             <button className="addBtnS" onClick={() => addButton()}>Add Item</button>
-        //             </div> */}
-        //             <div className="itemListSec">
-        //             {items?.length === 0 ? <h2>Your Shopping List Is Empty! </h2> : items.map((item, index) => (
-        //                                     <div className="itemContainerSec">
-        //                                             <div className="itemNameSec" onClick={() => selectItem(index)}>
-        //                                                 {item.is_selected ? (
-        //                                                     <>
-        //                                                     <FontAwesomeIcon icon={faCheckCircle} />
-    
-        //                                                         <span className="completedCircleSec">{item.title}</span>
-                                                        
-        //                                                     </>
-        //                                                     ) : (
-        //                                                     <>
-        //                                                     <FontAwesomeIcon icon={faCircle} />
-        //                                                     <span>{item.title}</span>
-        //                                                     </>
-        //                                                 )}
-        //                                             </div>
-        //                                             <div className="quantitySec">
-        //                                                 <button>
-        //                                                 <FontAwesomeIcon icon={faChevronLeft} onClick={() => decreaseQuanity(index)}/>
-        //                                                 </button>
-        //                                                 <span> {item.quantity} </span>
-        //                                                 <button>
-        //                                                 <FontAwesomeIcon icon={faChevronRight} onClick={() => increaseQuanity(index)}/>
-        //                                                 </button>
-        //                                                 <button>
-        //                                                 <FontAwesomeIcon icon={faTrash} onClick={() => removeButton(index)}/>
-        //                                                 </button>
-        //                                             </div>
-        //                                     </div>
-        //                             ))}
-        //                         </div>
-        //                             <div className="totalItemsSec">
-        //                                 {/* <h4>Total: {totalItemCount}</h4> */}
-        //                                 <button
-        //                                 className="submitShopBtn"
-        //                                 type="submit"
-        //                                 onClick={submitForm}
-        //                                 >Save</button>
-        //                             </div>
-                    
-        //         </div>
-        //     </div>
-        //     </div>
-        // )
     }
    
 
@@ -257,17 +177,14 @@ export default function ShoppingList({ user, setAppState })
     
 
     const selectItem = (index) => {
-        console.log("index: ", index)
         const newItems = [...items];
     
         newItems[index].is_selected = !newItems[index].is_selected;
-        console.log("itemShop: ", newItems[index])
         setItems(newItems);
     };
 
     const removeButton = async (index) => {
         const newItems = [...items];
-        console.log(newItems[index])
         const { data, error } =  await apiClient.removeFromList(newItems[index])
         newItems.splice(index, 1)
 
@@ -275,12 +192,11 @@ export default function ShoppingList({ user, setAppState })
     }
 
     const submitForm = async () => {
-        console.log("length: ", items.length)
+
         let count = 0
         for (count = 0; count < items.length; count++)
         {
             const { data, error } =  await apiClient.updateListInfo(items[count])
-            console.log(items[count])
         }
     }
 
@@ -312,20 +228,5 @@ export default function ShoppingList({ user, setAppState })
             {renderShopping()}
         </div>
     )
-    /*
-    const [modalOpen, setModalOpen] = useState(false)
-    console.log("userSL: ", user)
-    return (
-        <div className="ShoppingList">
-            <h1>In Shopping List</h1>
-            <ModalShopping modalOpen={modalOpen} setModalOpen={setModalOpen} user={user}/>
-            <button
-                onClick={() => setModalOpen(!modalOpen)}
-                className="button"
-                >
-                Open
-                </button>
-        </div>
-    )
-    */
+    
 }

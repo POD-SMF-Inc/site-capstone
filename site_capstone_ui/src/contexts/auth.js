@@ -14,7 +14,6 @@ export const AuthContextProvider = ({ children }) => {
     await apiClient.logoutUser()
     setAppState({})
     setUser({})
-    console.log("app", appState)
     setErrors(null)
   }
 
@@ -22,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       setIsLoading(true)
-      console.log("refresh")
+
       const { data } = await apiClient.fetchUserFromToken()
       if (data) {
         setAppState((a) => ({...a, user: data.user}))
