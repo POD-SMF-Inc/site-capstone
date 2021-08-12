@@ -6,22 +6,30 @@
   }
 
   .fav {
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 100vh;
+    height: 100%;
     background-color: #F0F8FF;
   
+  }
+
+  #favorite-title {
+    font-family: 'Lora', serif;
   }
   .FavoritesPage span {
     display: block;
     
   }
   .FavoritesPage span:first-of-type {
-    font-size: 48px;
+    font-size: 50px;
     margin-top: 5px;
+    margin-bottom: 20px;
      
   }
   .FavoritesPage span:nth-child(2) {
     font-size: 18px;
     font-weight: lighter;
+    margin-bottom: 20px;
     
   }
 

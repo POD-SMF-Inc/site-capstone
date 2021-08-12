@@ -13,8 +13,8 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 export default function Register({ user, setUser, setAppState }) {
   const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
-   // const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
-    //const theme3 = context.isLightTheme ? context.backgroundLight : context.backgroundDark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+
   
     const ThemeToggler = (props) => {
         const context = useContext(ThemeContext);
@@ -121,7 +121,6 @@ export default function Register({ user, setUser, setAppState }) {
     setIsLoading(false)
     navigate("/survey")
   }
-//style={{ backgroundImage: `url(https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)` }}
   return (
     <div className={`registerp ${theme} `}>
     <div className={theme}>

@@ -92,7 +92,7 @@ export default function EditProfile({
             <section className={`left-side ${theme2} `}>
               <h1 id="current" className={` ${theme2} `}> Current Profile Photo: </h1>
               <div className="profile-img">
-                <img src={image} alt="profile_picture"></img>
+                <img src={image} alt="No Profile Photo Available" id="noimage"></img>
               </div>
                 <label id ="new" className={`label  ${theme2} `} align="left" htmlFor="description">
                 Updated Profile Photo:
@@ -108,7 +108,7 @@ export default function EditProfile({
 <form className={` ${theme2}`}>
                 <div className={`form-group ${theme2}`}>
                   <h1> Change Profile Photo </h1>
-                  <input type="file" />
+                  <input id="btn2"type="file" />
                 </div>
                 <button
                   type="button"
@@ -120,6 +120,7 @@ export default function EditProfile({
                 </button>
                 <button
                   type="button"
+                  id = "btn"
                   className="btn widget-btn"
                   onClick={openWidget}
                 >

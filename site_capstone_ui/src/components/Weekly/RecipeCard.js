@@ -3,7 +3,6 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 //import  HeartLogo  from '../../assets/heart.png';
 
 const onDragStart = (evt, id) => {
-  console.log('dragstart: ', id);
   evt.dataTransfer.setData('id', id); // Set the recipe ID for the drag event
 };
 
@@ -14,17 +13,12 @@ function RecipeCard({ recipe, removeRecipe }) {
     ? 'has-text-grey-dark'
     : 'has-text-white';
 
-  //const favColor = recipe.isFav ? 'main-color' : '';
 
   const deleteRecipe = e => {
     e.preventDefault();
     removeRecipe(recipe.id);
   };
 
-  /*const favoriteRecipe = e => {
-    e.preventDefault();
-    favRecipe(recipe.id);
-  };*/
 
   return (
     <div
@@ -72,17 +66,3 @@ function RecipeCard({ recipe, removeRecipe }) {
 }
 
 export default RecipeCard;
-
-/*
-<Icon
-            path={mdiHeart}
-            size={1}
-            className="mt-2"
-            onClick={favoriteRecipe}
-          />*/ 
-
-/*<div className={`${favColor} p-1`}>
-         <button size={1}
-            className="mt-2"
-            onClick={favoriteRecipe}>❤️</button>
-        </div>*/

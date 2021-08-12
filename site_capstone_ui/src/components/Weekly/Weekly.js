@@ -1,10 +1,10 @@
 import RecipeList from "./RecipeList";
 import React, { useContext } from "react";
-//import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { ThemeContext } from "../../contexts/ThemeContext";
 import './Weekly.css'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
-//import 'bulma/css/bulma.css';
+
 
 
 function Weekly({ user, setAppState }) {
@@ -33,7 +33,7 @@ function Weekly({ user, setAppState }) {
           <div className={theme}>
           <ThemeToggler />
           <div className='weekly-blurb'>
-              <span align= 'center'>Weekly Calendar</span>
+              <span  id="weeklyt" align= 'center'>Weekly Calendar</span>
               <span align= 'center'>Create your own weekly recipes from scratch. You can move your recipes around to any day you desire and add as many as you need. 
               </span>
             </div>

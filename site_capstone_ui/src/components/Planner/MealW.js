@@ -21,16 +21,7 @@ export default function MealW ({ meal }) {
       });
   }, [meal.id]);
 
-  /*const formatter = new Intl.NumberFormat("en-US", {
-    currency: "USD",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-
-  const priceFormat = (amount) => {
-    return `$${formatter.format(amount)}`;
-  };*/
-
+ 
   return (
     <article1 className ={`${theme}`}>
       <h2>{meal.title}</h2>

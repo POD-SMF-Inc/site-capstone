@@ -8,20 +8,17 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function ModalShopping(props)
 {
+
     const context = useContext(ThemeContext);
     //const theme = context.isLightTheme ? context.light : context.dark;
     const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
     //Implement a save button, when it is pressed, update the backend
+
     const { modalOpen, setModalOpen, user } = props;
     const [inputValue, setInputValue] = useState('');
     const [errors, setErrors] = useState({})
     const [totalItemCount, setTotalItemCount] = useState(0);
     const modalActive = modalOpen ? 'is-active ' : '';
-    // const [items, setItems] = useState([
-    //     { title: 'item 1', quantity: 1, is_selected: false, unique_id: uuid() },
-    //     { title: 'item 2', quantity: 3, is_selected: true, unique_id: uuid() },
-    //     { title: 'item 3', quantity: 2, is_selected: false, unique_id: uuid() },
-    // ]);
     const [items, setItems] = useState([]);
     useEffect(() => {
         const fetchItems = async () => {
@@ -29,8 +26,6 @@ export default function ModalShopping(props)
                 const { data, error} =  await apiClient.getShoppingList()
                 if (data)
                 {
-                    console.log("data shopping: ", data?.listInfo)
-                    console.log("data type: ", typeof(data.listInfo))
                     setItems(data.listInfo)
                 }
             }
@@ -78,17 +73,14 @@ export default function ModalShopping(props)
     };
 
     const selectItem = (index) => {
-        console.log("index: ", index)
         const newItems = [...items];
     
         newItems[index].is_selected = !newItems[index].is_selected;
-        console.log("itemShop: ", newItems[index])
         setItems(newItems);
     };
 
     const removeButton = async (index) => {
         const newItems = [...items];
-        console.log(newItems[index])
         const { data, error } =  await apiClient.removeFromList(newItems[index])
         newItems.splice(index, 1)
 
@@ -96,12 +88,10 @@ export default function ModalShopping(props)
     }
 
     const submitForm = async () => {
-        console.log("length: ", items.length)
         let count = 0
         for (count = 0; count < items.length; count++)
         {
             const { data, error } =  await apiClient.updateListInfo(items[count])
-            console.log(items[count])
         }
         setModalOpen(!modalOpen);
     }
@@ -130,9 +120,6 @@ export default function ModalShopping(props)
         setItems(newItems);
         calculateTotal()
     };
-    
-      console.log("inputValue: ", inputValue)
-      console.log("items: ", items)
     return (
         <div className="ModalShopping">
             <div className={`modal ${modalActive}`}>
@@ -154,9 +141,10 @@ export default function ModalShopping(props)
                             
                         <div className="listSection">
                             <div className="addItem">
-					            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input ' placeholder='Add an item...' />
-                                <button  className='is-success' onClick={() =>  addButton()}>Add Item</button>
-					            {/* <FontAwesomeIcon icon={faPlus} onClick={() => addButton()}/> */}
+
+					            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
+                                <button onClick={() => addButton()}>Add Item</button>
+
 				            </div>
                             {errors.input && <span className="error">{errors.input}</span>}
                             <div className="itemList">
@@ -193,7 +181,6 @@ export default function ModalShopping(props)
                                 ))}
                             </div>
                                 <div className="totalItems">
-                                    {/* <h4>Total: {totalItemCount}</h4> */}
                                     <button
                                     type="submit"
                                     onClick={submitForm}

@@ -3,9 +3,8 @@
     color:black;
     text-transform: uppercase;
     height: 80px;
-    
-    font-size: 42px;
-    font:'Open Sans';
+    font-family: 'Lora', serif;
+    font-size: 40px;
     font-weight: bold;
     display: flex;
     justify-content: center;

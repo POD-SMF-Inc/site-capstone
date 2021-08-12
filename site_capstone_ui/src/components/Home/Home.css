@@ -2,7 +2,6 @@
     overflow: hidden;
     background-color: #F0F8FF;
     opacity: .9;
-    font-family: 'Merriweather', serif;
     
     
   }
@@ -143,8 +142,14 @@
     margin-top: 30px;
   }
 
+  #home-title{
+    font-size:50px;
+    margin-top:30px;
+    font-family: 'Lora', serif;
+  }
+
   .homelogo {
-    margin-top:20px;
+    margin-top:10px;
   }
   
 

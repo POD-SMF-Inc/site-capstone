@@ -36,7 +36,6 @@ export default function EquipmentC({ recipe })
                 if (data)
                 {
                     //If false then its not in favorites
-                    console.log("dataCheckReci: ", data)
                     if (data.favorites)
                     {
                         //Choosing to see Favorites Button

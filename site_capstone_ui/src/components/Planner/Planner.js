@@ -98,7 +98,7 @@ function Planner( { user, setAppState } ) {
       <ThemeToggler />
       <div className="Planner">
         <div className='mealp-blurb '>
-              <span align= 'center'>Meal Plans</span>
+              <span id="titlemeal" align= 'center'>Meal Plans</span>
               <span align= 'center'> Use our Meal Plan Generator to get diet plans for weight loss, weight gain, or simply for new meal ideas. Input your target calorie intake into the Daily Meal Plan generator or try out the Weekly Meal Plan generator.
               </span>
             </div>

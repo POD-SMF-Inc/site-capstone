@@ -12,9 +12,8 @@
 .profilepic {
   width:100px;
   height:100px;
- 
-
 }
+
 
 
 .sidebar {
@@ -75,6 +74,7 @@
   
 }
 
+
 .ProfileRecipes{
   display: flex;
   flex-direction: column;
@@ -94,7 +94,9 @@
     /* font-size: 15px; */
     /* margin-top: 20px; */
     /* width: 120px; */
+
     
+    font-family: 'Merriweather', serif;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 6px;
     font-family: 'Merriweather', serif;
@@ -226,7 +228,7 @@
 */
 
 .bio-graph-info {
-  color: #89817e;
+  color: #000000;
 }
 
 .bio-graph-info h1 {
@@ -275,6 +277,7 @@
 }
 .banner-blurb span {
   display: block; 
+  margin-top: 10px;
 }
 .banner-blurb span:first-of-type {
   font-size: 20px;
@@ -285,9 +288,23 @@
   margin-left: -80px;
 }
 
+#fav {
+  font-family: 'Lora', serif;
+  font-size: 40px;
+}
+
 #name {
-  font-size: 50px;
+  font-size: 45px;
   margin-left: -110px;
+  font-family: 'Lora', serif;
+
+}
+
+#noimage {
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+
 }
 
 .description {
@@ -336,6 +353,14 @@ h6 {
   font-size: 30px;
   margin-bottom:15px;
   text-align: center;
+}
+
+#editbutton {
+  font-family: 'Merriweather', serif;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  width:130px;
 }
 
 /*a.social {

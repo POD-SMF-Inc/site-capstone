@@ -15,13 +15,11 @@ export default function VideoFormat(element)
 
     const [isModalOpen, setModal] = useState(false)
     useEffect(() => {
-        console.log("in here")
         const fetchVideoInfo = async () => {
             try {
                 const { data, error } = await youtubeAPI.getYoutubeInfo(element.element.youTubeId)
                 if (data)
                 {
-                    console.log("video data: ", data.items[0])
                     setVideoInfo(data.items[0])
                 }
                 
@@ -34,18 +32,14 @@ export default function VideoFormat(element)
         }
         fetchVideoInfo()
     }, [element.element.youTubeId])
-    
-    console.log("element vid: ", element.element.title)
+
     const videoSrc = `https://www.youtube.com/embed/${videoInfo?.id}`;
-    console.log("video: ", videoInfo)
+
     return (
+
         <div className={`VideoFormat ${theme2}`}>
-            {/* <SepVideo videoInfo={videoInfo} /> */}
-            {/* <div className="videoEmbed">
-                <iframe src={videoSrc} allowFullScreen title="Video player" />
-            </div>
-            <img src={videoInfo.snippet.thumbnails.standard.url} alt="thumbnail for Video" /> */}
-            {/* <h3>{element.element.shortTitle}</h3> */}
+            
+
             <ModalVideos isModalOpen={isModalOpen} setModal={setModal} videoInfo={videoInfo}/>
             
             <img onClick={() => setModal(!isModalOpen)} src={videoInfo?.snippet?.thumbnails?.medium?.url} alt="youtube video thumbnail"></img>
@@ -56,7 +50,6 @@ export default function VideoFormat(element)
                 >
                 Play Video
                 </button>
-            {/* <ReactYoutube videoId={element.element.youTubeId}/> */}
         </div>
     )
 }

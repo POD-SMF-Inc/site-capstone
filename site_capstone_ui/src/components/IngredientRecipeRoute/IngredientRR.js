@@ -6,6 +6,7 @@ import SeperateRecipe from "../SeperateRecipe/SeperateRecipe"
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function IngredientRR({ randomRecipe }) {
+
     const context = useContext(ThemeContext);
     const theme = context.isLightTheme ? context.light : context.dark;
     const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
@@ -15,6 +16,7 @@ export default function IngredientRR({ randomRecipe }) {
     //console.log("rand: ", randomRecipe)
     //console.log("type: ", typeof(randomRecipe))
     const [recipesS, setRecipesS] = useState(randomRecipe.slice(0, 100))//slice(0, totalResults)
+
     const [pageNumber, setPageNumber] = useState(0)
     const [ visible, setVisible ] = useState(1)
     useEffect(() => {
@@ -29,12 +31,9 @@ export default function IngredientRR({ randomRecipe }) {
         return(
             <div className="SepRecipePage">
                 <SeperateRecipe element={element} />
-                {console.log("elementMAp: ", element)}
             </div>
         )
     })
-
-    //const [ isShown, setIsShown ] = useState(value)
     const loadMore = () => {
         setVisible((prevValue) => prevValue + 1)
     }
@@ -58,17 +57,6 @@ export default function IngredientRR({ randomRecipe }) {
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
             />}
-            {/* {
-                randomRecipe?.slice(0, visible).map(element => (
-                    <>
-
-                            <SeperateRecipe element={element} />
-        
-                    </>
-                ))
-            }
-            {randomRecipe?.length === 0 ? null : <button onClick={loadMore}>Load More</button>} */}
-            
         </div>
     )
 }
