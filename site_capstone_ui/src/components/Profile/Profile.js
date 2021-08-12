@@ -131,7 +131,7 @@ if (!user?.username) {
                 <div className="ProfileRecipes">
                 {/* <HomeRecipeCalls /> */}
                 <ProfileFavs />
-                <Link to='/favorites'><button className="favProBtn">Show More</button></Link>
+                <Link to='/favorites'><button className={`favProBtn ${theme2}`}>Show More</button></Link>
                 </div>
                 </div>
             </div>

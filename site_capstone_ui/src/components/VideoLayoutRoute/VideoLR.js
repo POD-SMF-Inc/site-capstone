@@ -2,9 +2,15 @@ import "./VideoLR.css"
 import VideoFormat from "../VideoFormat/VideoFormat"
 import youtubeAPI from "../../services/youtubeApi"
 import ReactPaginate from "react-paginate"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 export default function VideoLR({ videos })
 {
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
     const [videoS, setVideoS] = useState(videos.slice(0, 100))
     console.log("video route: ", videos)
     const [pageNumber, setPageNumber] = useState(0)
@@ -16,7 +22,7 @@ export default function VideoLR({ videos })
         setVideos()
     }, [videos])
 
-    const videosPerPage = 10
+    const videosPerPage = 9
     const pagesVisited = pageNumber * videosPerPage
     const displayVideos = videoS.slice(pagesVisited, pagesVisited + videosPerPage).map(element => {
         return(
@@ -32,7 +38,7 @@ export default function VideoLR({ videos })
         setPageNumber(selected)
     }
     return (
-        <div className="VideoLR">
+        <div className={`VideoLR ${theme}`}>
             {displayVideos}
             { videos?.length === 0 ? null : <ReactPaginate 
                 previousLabel={"Previous"}
@@ -40,8 +46,8 @@ export default function VideoLR({ videos })
                 pageCount={pageCount}
                 onPageChange={changePage}
                 containerClassName={"paginationBttns"}
-                previousLinkClassName={"previousBttn"}
-                nextLinkClassName={"nextBttn"}
+                previousLinkClassName={`previousBttn ${theme2}`}
+                nextLinkClassName={`nextBttn  ${theme2}`}
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
             />}

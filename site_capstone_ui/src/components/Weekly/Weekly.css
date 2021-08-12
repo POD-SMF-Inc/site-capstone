@@ -27,6 +27,9 @@
     
   }
 
+  .modal-card-body form {
+    margin-right: 20px;
+  }
   .round-border {
     border-radius:  6px !important;
   }

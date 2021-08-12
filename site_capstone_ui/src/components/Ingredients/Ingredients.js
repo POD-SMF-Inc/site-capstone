@@ -1,11 +1,29 @@
 import "./Ingredients.css"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import APIR from '../../services/apiCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 //import SearchRecipeRoute from "../SearchRecipeRoute/SearchRecipeRoute"
 import IngredientRR from "../IngredientRecipeRoute/IngredientRR"
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 export default function Ingredients( { user, setAppState } )
 {
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
+
     const [ingredSent, setingredSent] = useState("")
     const [randomRecipe, setRandomRecipe] = useState([])
     if (!user?.username) {
@@ -37,8 +55,11 @@ export default function Ingredients( { user, setAppState } )
 
 
     return (
-        <div className="Ingredients">
-            <div className="headerIng">
+        <div className={`ingP ${theme} `}>
+        <div className={theme}>
+         <ThemeToggler />
+        <div className={`Ingredients ${theme}`}>
+            <div className={`headerIng ${theme2}`}>
                 <div className="ingTitle">
                     <h1>Search By Ingredients</h1>
                     <h2>Filter Your Search By Ingredients Your Recipe Must Have!</h2>
@@ -54,5 +75,7 @@ export default function Ingredients( { user, setAppState } )
             <IngredientRR randomRecipe={randomRecipe} />
             </div>
         </div>
+        </div>
+      </div>
     )
 }

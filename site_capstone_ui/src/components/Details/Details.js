@@ -1,14 +1,32 @@
 import "./Details.css"
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import APIR from '../../services/apiCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
 import EquipmentC from "../EquipmentCalls/EquipmentC";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 export default function Details({ user, setAppState })
 {
+    const context = useContext(ThemeContext);
+    const theme = context.isLightTheme ? context.light : context.dark;
+    const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
+  
+    const ThemeToggler = (props) => {
+        const context = useContext(ThemeContext);
+        const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
+        const toggleTheme = context.toggleTheme;
+      
+        return (
+          <button className={`button is-light rounded`} onClick={toggleTheme}>
+            {btnText}
+          </button>
+        );
+      };
+
     const { idNum } = useParams()
     const [error, setError] = useState(null)
     const [ recipe, setRecipe ] = useState({})
@@ -79,7 +97,7 @@ const renderRecipeInfo = () => {
     console.log("recipe: ", recipe)
     return (
         <>
-        <div className="detail">
+        <div className={`detail ${theme}`}>
             <EquipmentC recipe={recipe} />
         </div>
         </>
@@ -87,8 +105,13 @@ const renderRecipeInfo = () => {
 }
 
 return (
+    <div className={`det ${theme} `}>
+    <div className={theme}>
+    <ThemeToggler />
     <div className="detPage">
         {renderRecipeInfo()}
+    </div>
+    </div>
     </div>
 )
     

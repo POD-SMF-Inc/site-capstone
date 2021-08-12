@@ -2,8 +2,9 @@ import "./EditProfile.css";
 import "../Profile/Profile";
 import EditProfileCall from "./EditProfileCall";
 //import { ThemeContext } from "../../contexts/ThemeContext"
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, { useState, useCallback, useRef, useEffect, useContext } from "react";
 import "react-image-crop/dist/ReactCrop.css";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function EditProfile({
   survey,
@@ -12,6 +13,9 @@ export default function EditProfile({
   setErrors,
   setOpenModal,
 }) {
+  const context = useContext(ThemeContext);
+  //const theme = context.isLightTheme ? context.light : context.dark;
+  const theme2 = context.isLightTheme ? context.cardLight : context.cardDark;
   const [isUpdating, setIsUpdating] = useState(false);
 
   const [description, setDescription] = useState(survey.description);
@@ -69,11 +73,11 @@ export default function EditProfile({
 
   return (
     <div className="modalContainer ">
-      <div className="modal-card ">
+      <div className={`modal-card `} >
         <header
-          className={`has-background-primary has-text-white modal-card-head `}
+          className={`has-background-primary has-text-white modal-card-head  `}
         >
-          <p id= "titles" className="modal-card-title  has-text-white"> Profile Information </p>
+          <p id= "titles" className={`modal-card-title  has-text-white `}> Profile Information </p>
           <button
             className="delete"
             aria-label="close"
@@ -83,14 +87,14 @@ export default function EditProfile({
           ></button>
         </header>
 
-        <section className="modal-card-body">
-          <main className="Upload">
-            <section className="left-side">
-              <h1 id="current"> Current Profile Photo: </h1>
+        <section className={`modal-card-body ${theme2}`}>
+          <main className={`Upload `}>
+            <section className={`left-side ${theme2} `}>
+              <h1 id="current" className={` ${theme2} `}> Current Profile Photo: </h1>
               <div className="profile-img">
                 <img src={image} alt="profile_picture"></img>
               </div>
-                <label id ="new" className="label" align="left" htmlFor="description">
+                <label id ="new" className={`label  ${theme2} `} align="left" htmlFor="description">
                 Updated Profile Photo:
               </label>
               {imageUrl && (
@@ -101,8 +105,8 @@ export default function EditProfile({
                 />
               )}
 
-<form>
-                <div className="form-group">
+<form className={` ${theme2}`}>
+                <div className={`form-group ${theme2}`}>
                   <h1> Change Profile Photo </h1>
                   <input type="file" />
                 </div>
@@ -219,7 +223,7 @@ export default function EditProfile({
           </div>
 
           <footer
-            className="modal-card-foot has-background-white "
+            className={`modal-card-foot  has-background-white ${theme2}`}
             style={{ justifyContent: "center" }}
           >
             <EditProfileCall

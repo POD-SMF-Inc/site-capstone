@@ -23,7 +23,7 @@ export default function SearchRecipeRoute({ randomRecipe, totalResults }) {
     }, [randomRecipe])
     console.log("RecipesS: ", recipesS)
     
-    const recipesPerPage = 10
+    const recipesPerPage = 9
     const pagesVisited = pageNumber * recipesPerPage
     //setItems(randomRecipe)
     console.log("rand: ", randomRecipe)
