@@ -78,7 +78,7 @@ export default function Login({ setAppState, user }) {
     
 
     return (
-      <div className={`planner ${theme} `}>
+      <div className={` ${theme} `}>
       <div className={theme}>
       <div className="Login">
         <div className="splash-image" style={{ backgroundImage: `url(https://images.pexels.com/photos/6061396/pexels-photo-6061396.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)` }}>

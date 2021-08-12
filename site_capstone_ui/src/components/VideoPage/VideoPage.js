@@ -35,7 +35,7 @@ export default function VideoPage({ user, setAppState })
         <ThemeToggler />
         <div className={`VideoPage ${theme} `}>
             <div className={`headerVid ${theme2}`} >
-                <h1>Recipe Tutorials</h1>
+                <h1 className={`${theme2}`} >Recipe Tutorials</h1>
                 
                 <h2>Looking For a Recipe? Search For A Recipe Tutorial Here!</h2>
 

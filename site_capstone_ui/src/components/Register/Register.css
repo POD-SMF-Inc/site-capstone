@@ -54,6 +54,10 @@
   width: 100%;
   font-family: 'Merriweather', serif;
 }
+
+.formR-input label {
+  margin-left:20px;
+}
 .formR-input-name {
   display: flex;
   justify-content: space-between;
@@ -110,4 +114,5 @@ input {
 
 .showBtn {
   font-size: 14px;
+  margin-left:20px;
 }

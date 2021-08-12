@@ -58,7 +58,7 @@ export default function Ingredients( { user, setAppState } )
         <div className={`Ingredients ${theme}`}>
             <div className={`headerIng ${theme2}`}>
                 <div className="ingTitle">
-                    <h1 id= "searchby">Search By Ingredients</h1>
+                    <h1 id= "searchby" className={`${theme2}`} >Search By Ingredients</h1>
                     <h2 id="filter">Filter Your Search By Ingredients Your Recipe Must Have!</h2>
                 </div>
                 <div className="listIngred">
