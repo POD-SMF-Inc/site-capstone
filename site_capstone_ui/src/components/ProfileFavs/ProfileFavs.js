@@ -10,7 +10,6 @@ export default function ProfileFavs() {
             const { data, error } = await apiClient.getFavs()
             if (data)
             {
-            console.log("data Favors Favs: ", data.favorites)
             setFavorites(data.favorites)
             }
         }
@@ -26,7 +25,7 @@ export default function ProfileFavs() {
         <div className="ProfileFavs">
             {favorites.length ? (
                 <div className="favoritesList">
-                    <FavoritesInfo favorites={favorites.slice(0, 4)} />
+                    <FavoritesInfo favorites={favorites.slice(0, 3)} />
                 </div>
             ) : (
                 <div className="emptyFav">

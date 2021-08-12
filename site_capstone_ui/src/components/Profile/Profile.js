@@ -1,14 +1,10 @@
 import './Profile.css'
 import React, { useEffect, useState, useContext } from 'react';
-//import { useNavigate } from 'react-router-dom';
 import StickyBox from "react-sticky-box";
 import Sidebar from './Sidebar'
 import ProfileFavs from '../ProfileFavs/ProfileFavs';
 import { Link } from 'react-router-dom'
-//import IntroductionP from '../IntroductionP/IntroductionP'
-//import About from './About'
-//import Header from './Header'
-//import Post from './Post'
+
 import HomeRecipeCalls from '../HomeRecipeCalls/HomeRecipeCalls'
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import EditProfile from "../EditProfile/EditProfile"
@@ -26,9 +22,6 @@ export default function Profile({ user, setAppState, appState, isLoading, setUse
   const [errors, setErrors] = useState({})
   const [isFetching, setIsFetching] = useState(true)
   const [survey, setSurvey] = useState({})
-
-
-  //const navigate = useNavigate()
 
 useEffect(() => {
   const fetchInfo = async () => {
@@ -76,13 +69,7 @@ if (isFetching)
                  timeout={3000} //3 secs
                  />
                  </div>
-                 // <Loader
-                 //   type="Puff"
-                //   color="#00BFFF"
-                //   height={100}
-                 //   width={100}
-                 //   timeout={3000} //3 secs
-                 // />
+
              );
          }
 
@@ -102,11 +89,6 @@ if (isFetching)
                   <section className={`container-banner ${theme2}`}>
                   <div className="banner-intro">
                     <div className="banner-blurb">
-      {/*               <img
-                    className="profilepic"
-                    src={profilepic}
-                    alt="profile_picture"
-                  ></img> */}
                       <span id="name" align="left">{user.first_name + " " + user.last_name}</span>
                       <span align="left" className="bio-heading">
                       <div className="description"> About Me: <span align="left"> {survey.description} </span> </div>

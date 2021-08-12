@@ -2,7 +2,6 @@ import React from "react";
 
 export default function SepVideo(videoInfo)
 {
-    console.log("videoInfo: ", videoInfo.videoInfo.id)
     const videoSrc = `https://www.youtube.com/embed/${videoInfo.videoInfo.id}`;
     return (
         <div className="SepVideo">

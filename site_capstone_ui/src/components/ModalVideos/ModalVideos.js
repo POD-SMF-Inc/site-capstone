@@ -6,7 +6,6 @@ export default function ModalVideos(props)
     const { isModalOpen, setModal, videoInfo } = props;
     const modalActive = isModalOpen ? 'is-active ' : '';
     const [videoDetails, setVideoDetails] = useState({})
-    console.log("videoInfo modal: ", videoInfo)
     const videoSrc = `https://www.youtube.com/embed/${videoInfo?.id}`;
 
     const resetForm = e => {
@@ -17,7 +16,6 @@ export default function ModalVideos(props)
         <div className="ModalVideos">
             <div className={`modal ${modalActive}`}>
                     <div className="modal-background"></div>
-                    {/* <div className="modal-content has-background-white py-5 px-5"> */}
                     <div className={`modal-card`}>
                         <header className={`has-text-white modal-card-head `}>
                         <button

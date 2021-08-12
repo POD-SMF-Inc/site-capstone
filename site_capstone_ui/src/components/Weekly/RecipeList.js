@@ -63,7 +63,7 @@ const onDragOver = (evt) => {
     const theme = context.isLightTheme ? "main-content" : "main-content-dark";
   
     const onDrop = (evt, day) => {
-      console.log(recipes);
+
       let recipeId = evt.dataTransfer.getData("id");
       let recipesN = recipes.filter((recipe) => {
         if (recipe.id === parseInt(recipeId)) {

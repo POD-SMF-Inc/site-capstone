@@ -55,7 +55,7 @@ function NewRecipeForm(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(recipe);
+    // console.log(recipe);
     addRecipe(recipe);
     resetForm(e);
   };

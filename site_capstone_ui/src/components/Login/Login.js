@@ -41,7 +41,6 @@ export default function Login({ setAppState, user }) {
     };
 
     useEffect(() => {
-      // if user is already logged in, redirect them to the homepage
       if (user?.username) {
         navigate("/")
       }

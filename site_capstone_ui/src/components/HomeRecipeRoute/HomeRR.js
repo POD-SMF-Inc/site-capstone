@@ -16,7 +16,3 @@ export default function HomeRR({ homeRecipe }) {
         </div>
     )
 }
-
-/*<div className="Sep">
-                            <HomeRL element={element} />
-                        </div>*/

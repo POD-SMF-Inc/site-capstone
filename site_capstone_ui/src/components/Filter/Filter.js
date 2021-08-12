@@ -4,7 +4,6 @@ import Search from "../Search/Search"
 import CollapseFilter from "../CollapseFilter/CollapseFilter"
 import NotAuthorized from "../NotAuthorized/NotAuthorized"
 import StickyBox from "react-sticky-box";
-//import Card from '../Card/Card';
 import React from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
@@ -28,41 +27,13 @@ export default function Filter( { user, setAppState } ) {
     const [query, setQuery] = useState("")
     let cuisine = []
     let intolerances = []
-    //const [cuisine, setCuisine] = useState([])
     
     const [dietS, setDietS] = useState("")
     const [typeS, setTypeS] = useState("")
     const [check, setCheck] = useState({})
     const [intol, setIntol] = useState({})
 
-    // const context = useContext(ThemeContext);
-    // const theme = context.isLightTheme ? context.light : context.dark;
-  
-    // const ThemeToggler = (props) => {
-    //     const context = useContext(ThemeContext);
-    //     const btnText = context.isLightTheme ? "Light ☀️" : "Dark 🌘";
-    //     const toggleTheme = context.toggleTheme;
-      
-    //     return (
-    //       <button className={`button is-light rounded`} onClick={toggleTheme}>
-    //         {btnText}
-    //       </button>
-    //     );
-    //   };
-
-    /*
-    function handleData(event)
-    {
-        
-        console.log("diet: ", dietS)
-        console.log("meal type: ", typeS)
-        console.log("Check boxes: ", check)
-        console.log("query: ", query)
-    }
-    */
-
     if (!user?.username) {
-        console.log("user in filter: ", user)
         return <NotAuthorized user={user} setAppState={setAppState}/>
     } 
 
@@ -77,7 +48,6 @@ export default function Filter( { user, setAppState } ) {
     function objectArr(object, arrayL)
     {
         Object.entries(object).forEach(element => {
-            //console.log("ele: ", element)
             if (element[1] === true)
             {
                 arrayL.push(element[0])
@@ -88,14 +58,7 @@ export default function Filter( { user, setAppState } ) {
 
     objectArr(check, cuisine)
     objectArr(intol, intolerances)
-    //setCuisine(cusArr)
-    console.log(cuisine)
-    console.log("intol: ", intolerances)
-
-    //create a function to check whether checkboxes were fixed yes
-    // if they were then append them to the thing
-
-    //create a function to parse through ingredients 
+    
     return (
         <div className={`filterp ${theme} `}>
         <div className={theme}>
@@ -236,7 +199,6 @@ export default function Filter( { user, setAppState } ) {
             <div className="Search">
                 
                 <div className={` box  ${theme2}`}>
-                    {/* <label htmlFor="search">Search</label> */}
                     <input type="text" name="query"  className={`input `} placeholder="Search for a dish..." 
                     onChange={(e) => setQuery(e.target.value)} />
                     
