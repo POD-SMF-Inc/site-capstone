@@ -8,13 +8,13 @@ Cohort: Workday
 
 Team Member Names:Samara Augustin, Marisleysis De La Cruz, Flor Hernandez Rodriguez
 
-Mentors Names: **Insert Professional Mentor Names**
+Mentors Names: **Maya Marks, Sneha Thakkar, Leighton Kaina**
 
 ## Project Overview
 
-Add a quick summary of what your project theme and objectives are. 
+Our project is an online cookbook that allows college students to search budget friendly and satisfying recipes. One of the key features our website offers is a platform for college students to search for recipes based on their dietary restrictions and intolerances. We provide them with detailed descriptions of the recipes such as nutrient information, ingredients, and price. Additionally, once a user creates an account they’re able to create their own weekly meal plan. Our objective is to create a fully functional website that allows college students to feel comfortable with cooking meals that satisfies any dietary restrictions they may have.
 
-Deployment Website: **Add Link to Deployed Project**
+Deployment Website: **https://servingsofdelight.surge.sh/**
 
 ### Open-source libraries used
 
